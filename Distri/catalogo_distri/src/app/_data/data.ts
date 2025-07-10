@@ -1,30 +1,44 @@
-import dotenv from 'dotenv';
-import { MongoClient, ServerApiVersion } from 'mongodb';
+import mongoose, { Schema, Document } from 'mongoose';
 
-dotenv.config();
+export interface IProduct extends Document{
 
-const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@distri.scp8dpz.mongodb.net/?retryWrites=true&w=majority&appName=Distri`;
+    sku: string;
+    name: string;
+    url: string;
+    price: mongoose.Types.Decimal128;
+    section: string;
+    orden: number;
+    active: boolean;
 
-// Create a MongoClient with a MongoClientOptions object to set the Stable API version
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
+}
+
+//product model
+export const productSchema: Schema = new Schema<IProduct>({
+
+    sku: { type: String, required: true},
+    name: { type: String, required: true },
+    url: { type: String, required: true },
+    price: { type: Schema.Types.Decimal128, required: true },
+    section: { type: String, required: true },
+    orden: { type: Number, required: true },
+    active: { type: Boolean, required: true }
+
 });
 
-async function run() {
-  try {
-    // Connect the client to the server	(optional starting in v4.7)
-    await client.connect();
-    // Send a ping to confirm a successful connection
-    await client.db("admin").command({ ping: 1 });
-    console.log("You're In!'");
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-}
-run().catch(console.dir);
+export const Product = mongoose.model<IProduct>("Products", productSchema);
 
+await new Product({sku:"ARC0001", 
+            name:"Producto de Prueba x8u.",
+            url:"https://drive.google.com/file/d/1Dd3gB71W5TCbyZDmNdXrHC1vqjoRdjbu/view?usp=sharing",
+            price:25000.54,
+            section:"Almacen",
+            orden:1,
+            active:true}).save().catch((err: Error) => console.log(err));
+
+await new Product({sku:"ARC0002", 
+            name:"Producto de Prueba2 x8u.",
+            url:"https://drive.google.com/file/d/1Dd3gB71W5TCbyZDmNdXrHC1vqjoRdjbu/view?usp=sharing",
+            price:30000.54,
+            section:"Almacen",
+            orden:2,
+            active:true}).save().catch((err: Error) => console.log(err));
