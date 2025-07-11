@@ -1,5 +1,7 @@
+import './db_connect.ts';
 import { Product, IProduct } from './data';
 import { writeFile } from 'node:fs/promises';
+import { readFile } from 'node:fs/promises';
 
 //strings for error handling
 const saveError = "Could not save Product in database\n\n";
@@ -34,11 +36,17 @@ export const findProducts = async () => {
 export const writeBaseJson = async (data: Array<IProduct>) => {
 
     try {
-        try { await writeFile('./src/app/_data/current.json', JSON.stringify(data)); }
-        catch (err) { console.error("couldn't write file: " + err); };
-        console.log(data);
-    } catch (err) {
-        console.log(err);
+        await writeFile('./src/app/_data/current.json', JSON.stringify(data));
     }
+    catch (err) { console.error(err); }
 
+}
+
+export const readFromJson = async () => {
+
+    try{
+        const data = await readFile('./src/app/_data/current.json', 'utf8');
+        console.log(JSON.parse(data));
+    }
+    catch (err) { console.error(err); }
 }
