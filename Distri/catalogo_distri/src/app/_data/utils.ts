@@ -33,7 +33,7 @@ export const findProducts = async () => {
     };
 };
 
-export const writeBaseJson = async (data: Array<IProduct>) => {
+export const writeBaseJson = async (data: Array<IProduct>): Promise<void> => {
 
     try {
         await writeFile('./src/app/_data/current.json', JSON.stringify(data));
@@ -42,11 +42,11 @@ export const writeBaseJson = async (data: Array<IProduct>) => {
 
 }
 
-export const readFromJson = async () => {
+export const readFromJson = async (): Promise<Array<IProduct> | void > => {
 
     try{
         const data = await readFile('./src/app/_data/current.json', 'utf8');
-        console.log(JSON.parse(data));
+        return JSON.parse(data);
     }
-    catch (err) { console.error(err); }
+    catch (err) { return console.error(err); }
 }

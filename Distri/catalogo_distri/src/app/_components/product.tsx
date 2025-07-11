@@ -1,10 +1,11 @@
 import React from 'react';
 import Image from 'next/image'
+import { Types } from 'mongoose';
 
 interface IProduct{
   id: string;
   title: string;
-  price: number;
+  price: Types.Decimal128;
   url: string;
   
 }
@@ -15,7 +16,7 @@ const Product: React.FC<IProduct> = ({ id, title, price, url }) => {
           <Image id={"img" + id} alt="producto" className="prod-image" src={url} />
           <div className="prod-info">
               <p id={"title" + id} className="title">{title}</p>
-              <p id={"price".toString() + id} className="price">{price}</p>
+              <p id={"price".toString() + id} className="price">{price.toString()}</p>
           </div>
       </div>
   );
