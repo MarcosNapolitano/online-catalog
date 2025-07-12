@@ -3,7 +3,7 @@ import React from 'react';
 interface IRow{
   id: string;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Row: React.FC<IRow> = ({ id, className, children }) => {

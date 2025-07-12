@@ -1,16 +1,15 @@
 import React from 'react';
 
-interface IColumn{
+export interface IColumn{
   id: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
-const Column: React.FC<IColumn> = ({ id, children }) => {
+// React.fc makes the children at the interface optional!
+export const Column: React.FC<IColumn> = ({ id, children }) : React.JSX.Element => {
   return (
     <div id={"column" + id} className="column" >
       {children}
     </div>
   );
 };
-
-export default Column;

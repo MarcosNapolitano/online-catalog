@@ -3,7 +3,7 @@ import React from 'react';
 interface ISection{
   id: string;
   className?: string;
-  children: React.ReactNode;
+  children?: React.ReactNode;
 }
 
 const Section: React.FC<ISection> = ({ id, className, children }) => {
