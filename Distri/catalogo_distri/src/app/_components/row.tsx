@@ -1,17 +1,15 @@
 import React from 'react';
 
-interface IRow{
+export interface IRow{
   id: string;
   className?: string;
   children?: React.ReactNode;
 }
 
-const Row: React.FC<IRow> = ({ id, className, children }) => {
+export const Row: React.FC<IRow> = ({ id, className, children }) => {
   return (
     <div id={"row" + id} className={className}>
       {children}
     </div>
   );
 };
-
-export default Row;

@@ -13,7 +13,7 @@ interface IProduct{
 const Product: React.FC<IProduct> = ({ id, title, price, url }) => {
   return (
       <div id={id} className="product">
-          <Image id={"img" + id} alt="producto" className="prod-image" src={url} />
+          <Image id={"img" + id} alt="producto" className="prod-image" src={url} width="200" height="200"/>
           <div className="prod-info">
               <p id={"title" + id} className="title">{title}</p>
               <p id={"price".toString() + id} className="price">{price.toString()}</p>
