@@ -4,8 +4,7 @@ const nextConfig: NextConfig = {
   /* config options here */
     images:{
 
-        domains: ["drive.google.com"],
-
+        remotePatterns: [new URL("https://drive.google.com/file/d/**")],
   },
 };
 

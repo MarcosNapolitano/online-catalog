@@ -8,9 +8,9 @@ import { IProduct } from './_data/data';
 
 export default async function Home() {
     
-    /** creates element pushes it into it's array and clears child's array*/
+    /** Creates element pushes it into it's array and clears child's array*/
     const createPushAndEmpty = (comp: React.FC<IColumn | IRow | ISection>, 
-                                props: {id: string, key: string, className?: string},
+                                props: {id: string, key?: string, className?: string},
                                 childArr: Array<ReactNode>,
                                 compArr: Array<ReactNode>) =>{
 
@@ -26,26 +26,26 @@ export default async function Home() {
 
     }
 
-    //main func responsible for populating the catalog
+    //Main function responsible for populating the catalog
     async function populate(): Promise<Array<ReactNode> | void>{
     
         let data: Array<IProduct> | void;
 
         try {
-            //we get the data from the current Json
+            //We get the data from the current JSON 
             data = await readFromJson();
             if(!data) return;
             
         } catch (err) { return console.error(err) };
 
-        //components collecting arrays to be passed as children
+        //Components collecting arrays to be passed as children
         //to React.createElement
         const rowPlaceholder: Array<React.ReactNode> = [];
         const columnPlaceholder: Array<React.ReactNode> = [];
         const productPlaceholder: Array<React.ReactNode> = [];
         const sectionPlaceholder: Array<React.ReactNode> = [];
 
-        //these counter basically indicate pagination
+        //These counter basically indicate pagination
         //for every 2 products there is 1 column
         //for every 3 columns there is 1 row
         //for every 6 columns (initially) there is 1 section
