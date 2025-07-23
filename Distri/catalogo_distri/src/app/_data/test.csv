@@ -1,0 +1,34 @@
+SKU;Nombre;Orden;Precio;Activo
+BON0008;Cubanito Bonafide 85g x20u;1;43383;Si
+BON0022;Donuts Bolsita 52g x24u;2;15965;Si
+LDC0013;Budin Pudding 170g x12u.;3;41062;Si
+LIP0001;Gall. Molinos del Bosque x18u;4;35043;Si
+MCA0016;Caja Bizc. 9 de Oro 200g x24u Clasico;5;43399;Si
+MCA0055;Caja Bizc. 9 de Oro 200g x20u.Agrid;6;1725;Si
+MCA0056;Caja Bizc. 9 de Oro 200g x20u Sconcitos;7;24036;Si
+MCA0071;Caja Gall. Paseo Crackers 300g x14u;8;4435;Si
+MCA0072;Caja Gall.Paseo 5 Semillas 300g x14u;9;42001;Si
+MCA0073;Caja Gall.Paseo Multicereales 300g x14u;10;3329;Si
+MCA0087;Caja Bizc. 9 de Oro 170g x24u. Light;11;43432;Si
+MCA0088;Caja Bizc. 9 de Oro Cara Sucia 200g x20u;12;7452;Si
+MCA0089;Caja Bizc. 9 de Oro 210g x28u. Azuc;13;29688;Si
+MON0026;Gall. Express;14;2383;No
+MON0027;Gall. Cerealita 212g;15;7812;Si
+MON0029;Gall. Lincoln;16;14805;Si
+MON0030;Gall. Melba;17;41689;Si
+MON0031;Gall. Oreo;18;45647;Si
+MON0107;Gall. Duquesa 115g;19;30089;Si
+MON0111;Gall. Oreo sin gluten;20;13433;Si
+NSS0001;Galleta NS 300g x 16u. sesamo;21;42417;No
+NSS0002;Galleta NS 300g x 16u. Cereales;22;26631;Si
+NSS0003;Galleta NS 300g x 16u. mix semillas;23;22536;Si
+NSS0004;Galleta NS 300g x 16u. Light;24;43603;Si
+SOR0001;Caja Biscuit Soriano 125g x32u;25;9150;Si
+SOR0005;Caja Biscuit HJ 30g x32u;26;26022;Si
+SOR0011;Gall. Mini Coronitas 140g x30u;27;33711;Si
+TST0001;Gall. Arroz Tosti 110g x12u;28;40212;Si
+TST0003;Tosti Talitas 100g x12u;29;36594;Si
+TST0004;Tostadas Tosti 200g x12u;30;18888;Si
+TST0005;Tostadas Tosti Cajita 140g x16u;31;39210;Si
+URQ0006;Talitas Urquiza Clasica 110g x13u;32;5509;Si
+URQ0009;Talitas Urquiza Sabores;33;45195;Si

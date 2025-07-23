@@ -1,8 +1,9 @@
-import { Product, IProduct } from './data';
+import { IProduct, Product } from './data';
 import { writeFile } from 'node:fs/promises';
 import { readFile } from 'node:fs/promises';
 import dotenv from 'dotenv';
-import mongoose, { connection, Connection } from 'mongoose'
+import mongoose, { Connection } from 'mongoose'
+import { readFromCsv } from './csv-json';
 
 //strings for error handling
 const saveError = "Could not save Product in database\n\n";
@@ -48,20 +49,39 @@ function DatabaseConnects<T extends (...args: any[]) => Promise<any>>(fn: T): T 
     }) as T;
 };
 
-export const createProduct = DatabaseConnects(async (product: IProduct) => {
+export const createProduct = DatabaseConnects(async () => {
 
-    //creates product
-    const newProduct = new Product(product);
+    const data = await readFromCsv();
+    if (!data) return;
 
-    //saves
-    const result = await newProduct.save()
-    .catch((err: Error) => {
-        return console.error(saveError + err);
-    });
+    const products: Array<IProduct> = [];
 
-    if(result) return console.log("Product Saved");
-    else return console.error(saveError);
+    //we skip the firt row!
+    for (let i = 5; i < data.length; i+=5) {
+        const product: IProduct = new Product;
 
+        product.sku = data[i];
+        product.name = data[i + 1];
+        product.orden = parseInt(data[i + 2]);
+        product.price = new mongoose.Types.Decimal128(data[i + 3]);
+        product.url = data[i];
+        product.section = "Galletitas";
+
+        if (data[i + 4] === "Si") product.active = true;
+        else product.active = false;
+
+        console.log(product);
+        products.push(product);
+    }
+    
+    try {
+
+        console.log("begin insertion!");
+        await Product.insertMany(products);
+        console.log("insertion complete!");
+    }
+
+    catch { console.error("could not insert products!") };
 });
 
 

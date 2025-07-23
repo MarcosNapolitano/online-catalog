@@ -7,7 +7,7 @@ export async function GET() {
     if (data) {
 
         await writeBaseJson(data);
-        return Response.json("done");
+        return Response.json("done2");
 
     }else{ return Response.json("no data received"); };
 }
