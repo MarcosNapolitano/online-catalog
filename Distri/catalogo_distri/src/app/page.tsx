@@ -14,7 +14,7 @@ export default async function Home() {
                                 childArr: Array<ReactNode>,
                                 compArr: Array<ReactNode>) =>{
 
-        //new Array since we then erase the original one, we do not
+        //New Array since we then erase the original one, we do not
         //want to erase the references too, since they are still
         //used even after creating the element
         const col = createElement(comp, props, new Array(...childArr)); 
@@ -82,8 +82,8 @@ export default async function Home() {
                 rowCounter = 0;
             }
 
-            //we Create the elements and we push them into arrays
-            //until they hold the right ammount to be pushed onto their parents
+            //We Create the elements and we push them into arrays
+            //until they hold the right amount to be pushed onto their parents
             //we do this kind of recursively, base case being the end of the JSON
             const prod = createElement(Product, {   id: data[i].sku,
                                                     key: data[i].sku, 
@@ -93,7 +93,7 @@ export default async function Home() {
 
             productPlaceholder.push(prod);
 
-            //each time we make two products, we add them to a column and so on
+            //Each time we make two products, we add them to a column and so on
             if(data[i].orden % 2 == 0){ 
 
                 colCounter++;
@@ -133,7 +133,7 @@ export default async function Home() {
             }
         }
 
-        //when we reached the last element, if we still have components, we push them
+        //When we reached the last element, if we still have components, we push them
         if(productPlaceholder[0] || columnPlaceholder[0] || rowPlaceholder[0]){
 
             colCounter++;
@@ -160,7 +160,6 @@ export default async function Home() {
 
         };
 
-        console.log(sectionPlaceholder);
         return sectionPlaceholder;
     }
 

@@ -1,5 +1,5 @@
-import { IProduct } from "../_data/data";
-import { writeBaseJson, findProducts } from "../_data/utils";
+import { IProduct } from "../../_data/data";
+import { createProduct } from "../../_data/utils";
 
 export async function GET() {
 
@@ -10,4 +10,5 @@ export async function GET() {
         return Response.json("done");
 
     }else{ return Response.json("no data received"); };
+
 }
