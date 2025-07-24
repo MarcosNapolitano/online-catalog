@@ -17,6 +17,8 @@ export default async function Home() {
         //New Array since we then erase the original one, we do not
         //want to erase the references too, since they are still
         //used even after creating the element
+        props["key"] = props.id;
+
         const col = createElement(comp, props, new Array(...childArr)); 
 
         compArr.push(col);
@@ -62,18 +64,22 @@ export default async function Home() {
             //if sections mismatch between products, that means a new section
             else if(actualSection != data[i].section){
 
+                actualSection = data[i].section;
                 createPushAndEmpty(Column, 
-                                   { id: colCounter.toString() }, 
+                                   { id: colCounter.toString(),
+                                     key: colCounter.toString() }, 
                                    productPlaceholder,
                                    columnPlaceholder);
 
                 createPushAndEmpty(Row, 
-                                   { id: rowCounter.toString() }, 
+                                   { id: rowCounter.toString(),
+                                     key: rowCounter.toString() }, 
                                    columnPlaceholder,
                                    rowPlaceholder);
 
                 createPushAndEmpty(Section, 
-                                   { id: sectionCounter.toString() }, 
+                                   { id: sectionCounter.toString(), 
+                                     key: sectionCounter.toString() }, 
                                    rowPlaceholder,
                                    sectionPlaceholder);
 
@@ -88,11 +94,12 @@ export default async function Home() {
             const prod = createElement(Product, {   id: data[i].sku,
                                                     key: data[i].sku, 
                                                     title: data[i].name,
-                                                    price: data[i].price, 
+
+                                                    //workaround since I receive the data serialized in JSON
+                                                    price: (data[i].price as unknown as { $numberDecimal : string }).$numberDecimal as string, 
                                                     url: data[i].url   });
 
             productPlaceholder.push(prod);
-
             //Each time we make two products, we add them to a column and so on
             if(data[i].orden % 2 == 0){ 
 
