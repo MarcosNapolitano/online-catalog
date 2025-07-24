@@ -2,13 +2,12 @@ import React from 'react';
 
 export interface IRow{
   id: string;
-  className?: string;
   children?: React.ReactNode;
 }
 
-export const Row: React.FC<IRow> = ({ id, className, children }) => {
+export const Row: React.FC<IRow> = ({ id, children }) => {
   return (
-    <div id={"row" + id} className={className}>
+    <div id={"row" + id} className="row">
       {children}
     </div>
   );

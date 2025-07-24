@@ -17,7 +17,7 @@ const Product: React.FC<IProduct> = ({ id, title, price, url }) => {
 
           <div className="prod-info">
               <p id={"title-" + id} className="title">{title}</p>
-              <p id={"price-" + id} className="price">{price}</p>
+              <p id={"price-" + id} className="price">{"$" + price}</p>
           </div>
       </div>
   );

@@ -1,109 +1,163 @@
 /* 1. Use a more-intuitive box-sizing model */
 *, *::before, *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 /* 2. Remove default margin */
 * {
-  margin: 0;
-  font-size: 100%;
+    margin: 0;
+    font-size: 100%;
 }
 /* 3. Enable keyword animations */
 @media (prefers-reduced-motion: no-preference) {
-  html {
-    interpolate-size: allow-keywords;
-  }
+    html {
+        interpolate-size: allow-keywords;
+    }
 }
 body {
-  /* 4. Add accessible line-height */
-  line-height: 1.5;
-  /* 5. Improve text rendering */
-  -webkit-font-smoothing: antialiased;
+    /* 4. Add accessible line-height */
+    line-height: 1.5;
+    /* 5. Improve text rendering */
+    -webkit-font-smoothing: antialiased;
 }
 /* 6. Improve media defaults */
 img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
+    display: block;
+    max-width: 100%;
 }
 /* 7. Inherit fonts for form controls */
 input, button, textarea, select {
-  font: inherit;
+    font: inherit;
 }
 /* 8. Avoid text overflows */
 p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
+    overflow-wrap: break-word;
 }
 /* 9. Improve line wrapping */
 p {
-  text-wrap: pretty;
+    text-wrap: pretty;
 }
 h1, h2, h3, h4, h5, h6 {
-  text-wrap: balance;
+    text-wrap: balance;
 }
 /*
-  10. Create a root stacking context
-*/
+10. Create a root stacking context
+ */
 #root, #__next {
-  isolation: isolate;
+    isolation: isolate;
 }
 
 body{
-	background-color: black;
+    background-color: black;
 
 }
 
 section{
-	/* background-image: url("back.png"); */
+    /* background-image: url("back.png"); */
     background-color: darkslateblue;
-	background-size: 100%;
-	display: flex;
-  flex-direction: column;
+    /* background-size: 100%; */
+    display: flex;
+    flex-direction: column;
 
 }
 
 .header-row, .row{
 
-  display: flex;
-  justify-content: center;
-  gap: 1.6%;
+    display: flex;
+    justify-content: center;
+    gap: 1.6%;
 }
 
 .header-row{
-  margin-top: 40%;
+    margin-top: 40%;
 }
 
 .row{
-  margin-top: 8%;
+    margin-top: 5%;
+    max-width: 100%;
 }
 
 .column{
 
-  display: flex;
-  justify-content: center;
-  width: 30%;
+    display: flex;
+    justify-content: center;
+    max-width: 100%;
+    width: 35rem;
+    background-color: white;
+    border: solid 2px red;
+    border-top: solid 20px red;
+    border-radius: 1rem;
 }
 
 .product{
-  width: 50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
 }
 
-.prod-image{
-  margin: 0 auto;
-	width: 80%;
 
+
+.prod-image{
+    margin: 0 auto;
+    max-width: 200px;
+    aspect-ratio: 1/1 !important;
 }
 
 p{
-  text-align: center;
-  font-size: 2rem;
+    text-align: center;
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+}
+
+.prod-info{
+
+    padding: 0.5em clamp(1em, 2vw, 1.5em);
+
+}
+
+.title{
+
+    height: 2.5em;
 }
 
 .price{
-  margin-top: 6%;
-  font-size: 3.5rem;
-  color: whitesmoke;
-  font-weight: 800;
+    margin-top: 6%;
+    font-size: clamp(1.5rem, 2.5vw, 2rem);
+    background-color: red;
+    color: whitesmoke;
+    font-weight: 800;
+    border-color: red;
+    border-radius: 1em;
 }
 
+@media (max-width: 1500px){
+    p{ font-size: 1rem };
+    .price{ font-size: 1rem };
+    .prod-info{
+        padding: 0.5em clamp(1em, 2vw, 2em);
+
+    }
+}
+
+@media (max-width: 479px){
+
+    .prod-image{ 
+        max-width: 100%;
+    }
+
+    .row{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        row-gap: 1em;
+    }
+
+    .column{
+
+        width: 95%;
+
+    }
+
+    .prod-info{
+        padding: .5em;
+    }
+
+}
