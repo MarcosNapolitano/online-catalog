@@ -47,13 +47,14 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 body{
-    background-color: black;
+    background-color: grey;
 
 }
 
 section{
+    margin: auto 10%;
     /* background-image: url("back.png"); */
-    background-color: darkslateblue;
+    background-color: #ebebeb;
     /* background-size: 100%; */
     display: flex;
     flex-direction: column;
@@ -71,21 +72,33 @@ section{
     margin-top: 40%;
 }
 
+.header{
+    background-color: black;
+    color: whitesmoke;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: clamp(3rem, 8vw, 8rem);
+}
+
 .row{
     margin-top: 5%;
     max-width: 100%;
 }
 
 .column{
-
     display: flex;
     justify-content: center;
     max-width: 100%;
     width: 35rem;
     background-color: white;
+    border-radius: 1rem;
+}
+
+.galletitas{
     border: solid 2px red;
     border-top: solid 20px red;
-    border-radius: 1rem;
 }
 
 .product{
@@ -104,12 +117,12 @@ section{
 
 p{
     text-align: center;
-    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    font-size: clamp(.8rem, .6vw + .2rem, 1.2rem);
 }
 
 .prod-info{
 
-    padding: 0.5em clamp(1em, 2vw, 1.5em);
+    padding: 0.5em clamp(.2em, 1vw, 1.5em);
 
 }
 
@@ -120,24 +133,141 @@ p{
 
 .price{
     margin-top: 6%;
-    font-size: clamp(1.5rem, 2.5vw, 2rem);
-    background-color: red;
+    font-size: clamp(1rem, .6vw + .2rem, 1.2rem);
     color: whitesmoke;
+    background-color: red;
     font-weight: 800;
-    border-color: red;
     border-radius: 1em;
 }
 
-@media (max-width: 1500px){
-    p{ font-size: 1rem };
-    .price{ font-size: 1rem };
-    .prod-info{
-        padding: 0.5em clamp(1em, 2vw, 2em);
+.galletitas-price{
+    background-color: red;
+    border-color: red;
+}
 
+/* to do */
+/* revisar esto */
+/* @media (min-width: 2000px){ */
+/*     p{ font-size: 1rem }; */
+/*     .price{ font-size: 1rem }; */
+/*     .prod-info{ */
+/*         padding: 0.5em clamp(1em, 2vw, 2em); */
+/**/
+/*     } */
+/* } */
+
+/* navbar starts here */
+.hidden{
+    display: none !important;
+}
+
+@keyframes in-out {
+  from {right: -30%;}
+  to {right: 0%;}
+}
+
+.side-menu{
+    display: initial;
+    position: fixed;
+    top: 0px;
+    overflow: hidden;
+    right: 0%;
+    background-color: whitesmoke;
+    height: 100dvh;
+    min-width: min(30%, 400px);
+}
+
+.anim-in{
+    animation: in-out 1s ease-in-out;
+}
+
+.anim-out{
+    animation: in-out 1s ease-in-out reverse;
+}
+
+.side-menu-item{
+    list-style-type: none;
+    margin-bottom: .5rem;
+    font-size: clamp(.9rem, calc(2vw + .5rem), 1.6rem);
+    scale: 100%;
+    transition: scale .3s ease-in-out;
+}
+
+.side-menu-item:hover{
+    scale: 105%;
+}
+
+.side-menu-item>a{
+    text-decoration: none;
+    color: black;
+    transition: color .2s ease-in-out;
+}
+
+.side-menu-item>a:hover{
+    color: royalblue;
+}
+
+.menu-toggle{
+    color: whitesmoke;
+    position: fixed;
+    right: 5%; 
+    bottom: 5%;
+}
+
+/* SVG starts here */
+.svg {
+    /* position: absolute; */
+    left: 0;
+    width: 120%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.section-header {
+    top: 0;
+    transform: rotate(180deg);
+}
+
+.section-footer{
+    bottom: 0;
+    transform: none;
+}
+
+.svg svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 150px;
+}
+
+.svg .shape-fill {
+    fill: #000000;
+}
+
+/** For mobile devices **/
+@media (max-width: 767px) {
+    .svg svg {
+        width: calc(165% + 1.3px);
+        height: 76px;
+    }
+}
+
+@media (max-width: 1000px){
+    section{
+        margin: 0 2%;
+    }
+
+    .column{
+        width: auto;
+    }
+
+    .prod-image{
+        width: 100%;
     }
 }
 
 @media (max-width: 479px){
+
 
     .prod-image{ 
         max-width: 100%;

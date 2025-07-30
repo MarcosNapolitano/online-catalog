@@ -6,7 +6,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "mobile": "npx next dev -H 192.168.1.71"
   },
   "dependencies": {
     "@types/mongodb": "^4.0.6",
