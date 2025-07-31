@@ -83,6 +83,10 @@ export default async function Populate() {
             actualSection = data[i].section;
         }
 
+        
+        //workaround since I receive the data serialized in JSON
+        const price = data[i].active ? (data[i].price as unknown as { $numberDecimal : string }).$numberDecimal as string : "Sin Stock";
+
         //We Create the elements and we push them into arrays
         //until they hold the right amount to be pushed onto their parents
         //we do this kind of recursively, base case being the end of the JSON
@@ -91,9 +95,9 @@ export default async function Populate() {
                                      key: data[i].sku, 
                                      title: data[i].name,
                                      section: actualSection,
-                                     //workaround since I receive the data serialized in JSON
-                                     price: (data[i].price as unknown as { $numberDecimal : string }).$numberDecimal as string, 
-                                     url: data[i].url   });
+                                     price: price, 
+                                     url: data[i].url,
+                                     active: data[i].active ? "" : "inactive"});
 
         productPlaceholder.push(prod);
 
