@@ -4,6 +4,7 @@ import { readFile } from 'node:fs/promises';
 import dotenv from 'dotenv';
 import mongoose, { Connection } from 'mongoose'
 import { readFromCsv } from './csv-json';
+import { write } from 'node:fs';
 
 //strings for error handling
 const saveError = "Could not save Product in database\n\n";

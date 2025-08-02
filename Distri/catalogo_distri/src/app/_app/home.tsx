@@ -6,7 +6,7 @@ import { Column, IColumn } from "../_components/column";
 import Product from "../_components/product";
 import { IProduct } from '../_data/data';
 
-let data: Array<IProduct> | void;
+export let data: Array<IProduct> | void;
 
 /** Creates element pushes it into it's array and clears child's array*/
 const createPushAndEmpty = (comp: React.FC<IColumn | IRow | ISection>, 
@@ -28,8 +28,8 @@ const createPushAndEmpty = (comp: React.FC<IColumn | IRow | ISection>,
 
 };
 
-//Main function responsible for populating the catalog
 await (async function(): Promise<Array<void> | void> {
+    console.log("read");
     try {
         //We get the data from the current JSON 
         data = await readFromJson();
@@ -39,6 +39,7 @@ await (async function(): Promise<Array<void> | void> {
     } catch (err) { return console.error(err) };
 })();
 
+//Main function responsible for populating the catalog
 export default async function Populate() {
     
     if (!data) return console.error("can't load home BBDD not fetched");
