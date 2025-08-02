@@ -5,13 +5,27 @@
 /* 2. Remove default margin */
 * {
     margin: 0;
+
+    /* color pallete */
+    --almacen: #2BD65D;
+    --bebidas: #2B42D6;
+    --cafe: #754523;
+    --edulcorantes: #A33C9E;
+    --galletitas: #A36A3C;
+    --medicamentos: #49B9CC;
+    --nucete: #CC9C49;
+    --kiosko: #E33030;
+    --limpieza: #E3AA30;
+    --varios: #292929;
+    --te: #2DC234;
+    --yerba: #196B1D;
 }
 
 html{
     font-size: 16px;
 }
 
-/* 3. Enable keyword animations */
+/* 3. Enable keyword animations */ 
 @media (prefers-reduced-motion: no-preference) {
     html {
         interpolate-size: allow-keywords;
@@ -57,7 +71,6 @@ body{
 
 section{
     margin: 0 auto;
-    width: 100%;
     max-width: 1600px;
     /* background-image: url("back.png"); */
     background-color: #ebebeb;
@@ -86,13 +99,60 @@ section{
 }
 .header{
     transform: rotate(180deg);
-    background-color: red;
     border-radius: 0% 0% 1rem 1rem;
     color: whitesmoke;
     text-align: center;
     font-size: clamp(1rem, 2vw + 1rem, 2.5rem);
     padding: min(5%, 1rem);   
     padding-top: 0px;
+}
+
+.header-almacen{
+    background-color: var(--almacen);
+}
+
+.header-bebidas{
+    background-color: var(--bebidas);
+}
+
+.header-cafe{
+    background-color: var(--cafe);
+}
+
+.header-edulcorantes{
+    background-color: var(--edulcorantes);
+}
+
+.header-galletitas{
+    background-color: var(--galletitas);
+}
+
+.header-medicamentos{
+    background-color: var(--medicamentos);
+}
+
+.header-nucete{
+    background-color: var(--nucete);
+}
+
+.header-kiosko{
+    background-color: var(--kiosko);
+}
+
+.header-limpieza{
+    background-color: var(--limpieza);
+}
+
+.header-varios{
+    background-color: var(--varios);
+}
+
+.header-te{
+    background-color: var(--te);
+}
+
+.header-yerba, header-promocion{
+    background-color: var(--yerba);
 }
 
 .footer{
@@ -115,9 +175,64 @@ section{
     border-radius: 1rem;
 }
 
+.almacen{
+    border: solid 2px var(--almacen);
+    border-top: solid 20px var(--almacen);
+}
+
+.bebidas{
+    border: solid 2px var(--bebidas);
+    border-top: solid 20px var(--bebidas);
+}
+
+.cafe{
+    border: solid 2px var(--cafe);
+    border-top: solid 20px var(--cafe);
+}
+
+.edulcorantes{
+    border: solid 2px var(--edulcorantes);
+    border-top: solid 20px var(--edulcorantes);
+}
+
 .galletitas{
-    border: solid 2px red;
-    border-top: solid 20px red;
+    border: solid 2px var(--galletitas);
+    border-top: solid 20px var(--galletitas);
+}
+
+.medicamentos{
+    border: solid 2px var(--medicamentos);
+    border-top: solid 20px var(--medicamentos);
+}
+
+.nucete{
+    border: solid 2px var(--nucete);
+    border-top: solid 20px var(--nucete);
+}
+
+.kiosko{
+    border: solid 2px var(--kiosko);
+    border-top: solid 20px var(--kiosko);
+}
+
+.limpieza{
+    border: solid 2px var(--limpieza);
+    border-top: solid 20px var(--limpieza);
+}
+
+.varios{
+    border: solid 2px var(--varios);
+    border-top: solid 20px var(--varios);
+}
+
+.te{
+    border: solid 2px var(--te);
+    border-top: solid 20px var(--te);
+}
+
+.yerba, .promocion{
+    border: solid 2px var(--yerba);
+    border-top: solid 20px var(--yerba);
 }
 
 .product{
@@ -153,14 +268,68 @@ section{
     font-size: clamp(.7rem, .6vw + .7rem, 1.4rem);
     color: whitesmoke;
     text-align: center;
-    background-color: red;
     font-weight: 800;
     border-radius: 1em;
 }
 
+.almacen-price{
+    background-color: var(--almacen);
+    border-color: var(--almacen);
+}
+
+.bebidas-price{
+    background-color: var(--bebidas);
+    border-color: var(--bebidas);
+}
+
+.cafe-price{
+    background-color: var(--cafe);
+    border-color: var(--cafe);
+}
+
+.edulcorantes-price{
+    background-color: var(--edulcorantes);
+    border-color: var(--edulcorantes);
+}
+
 .galletitas-price{
-    background-color: red;
-    border-color: red;
+    background-color: var(--galletitas);
+    border-color: var(--galletitas);
+}
+
+.medicamentos-price{
+    background-color: var(--medicamentos);
+    border-color: var(--medicamentos);
+}
+
+.nucete-price{
+    background-color: var(--nucete);
+    border-color: var(--nucete);
+}
+
+.kiosko-price{
+    background-color: var(--kiosko);
+    border-color: var(--kiosko);
+}
+
+.limpieza-price{
+    background-color: var(--limpieza);
+    border-color: var(--limpieza);
+}
+
+.varios-price{
+    background-color: var(--varios);
+    border-color: var(--varios);
+}
+
+.te-price{
+    background-color: var(--te);
+    border-color: var(--te);
+}
+
+.yerba-price, .promocion-price{
+    background-color: var(--yerba);
+    border-color: var(--yerba);
 }
 
 /* navbar starts here */
@@ -211,8 +380,56 @@ section{
     transition: color .2s ease-in-out;
 }
 
-.side-menu-item>a:hover{
-    color: royalblue;
+.side-menu-item:nth-child(1)>a:hover{
+    color: var(--almacen);
+}
+
+.side-menu-item:nth-child(2)>a:hover{
+    color: var(--bebidas);
+}
+
+.side-menu-item:nth-child(3)>a:hover{
+    color: var(--cafe);
+}
+
+.side-menu-item:nth-child(4)>a:hover{
+    color: var(--edulcorantes);
+}
+
+.side-menu-item:nth-child(5)>a:hover{
+    color: var(--galletitas);
+}
+
+.side-menu-item:nth-child(6)>a:hover{
+    color: var(--medicamentos);
+}
+
+.side-menu-item:nth-child(7)>a:hover{
+    color: var(--nucete);
+}
+
+.side-menu-item:nth-child(8)>a:hover{
+    color: var(--kiosko);
+}
+
+.side-menu-item:nth-child(9)>a:hover{
+    color: var(--limpieza);
+}
+
+.side-menu-item:nth-child(10)>a:hover{
+    color: var(--varios);
+}
+
+.side-menu-item:nth-child(11)>a:hover{
+    color: var(--te);
+}
+
+.side-menu-item:nth-child(12)>a:hover{
+    color: var(--yerba);
+}
+
+.side-menu-item:nth-child(13)>a:hover{
+    color: var(--yerba);
 }
 
 .menu-toggle{

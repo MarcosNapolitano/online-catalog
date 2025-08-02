@@ -6,6 +6,7 @@ export interface IProduct extends Document{
     name: string;
     url: string;
     price: mongoose.Types.Decimal128;
+    price2?: mongoose.Types.Decimal128;
     section: string;
     orden: number;
     active: boolean;
@@ -19,6 +20,7 @@ export const productSchema: Schema = new Schema<IProduct>({
     name: { type: String, required: true },
     url: { type: String, required: true },
     price: { type: Schema.Types.Decimal128, required: true },
+    price2: { type: Schema.Types.Decimal128, required: false },
     section: { type: String, required: true },
     orden: { type: Number, required: true },
     active: { type: Boolean, required: true }

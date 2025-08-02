@@ -4,7 +4,7 @@ import { readFile } from 'node:fs/promises'
 export const readFromCsv = async (): Promise < Array<string> | void > => {
 
     try {
-        const res: Array<string> = await readFile("./src/app/_data/test.csv", "utf-8").then((data) => {
+        const res: Array<string> = await readFile("./src/app/_data/catalogo_web.csv", "utf-8").then((data) => {
 
             data = data.replaceAll("\r", "");
             //to do

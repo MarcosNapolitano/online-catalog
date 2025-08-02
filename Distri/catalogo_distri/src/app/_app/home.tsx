@@ -67,6 +67,10 @@ export default async function Populate() {
         //if sections mismatch between products, that means a new section
         else if(actualSection != data[i].section){
 
+            sectionCounter++;
+            rowCounter++;
+            colCounter++;
+
             createPushAndEmpty(Column, { id: colCounter.toString(), key: colCounter.toString(), section: actualSection }, 
                                productPlaceholder, columnPlaceholder);
 

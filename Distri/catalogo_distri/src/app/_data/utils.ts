@@ -55,23 +55,22 @@ export const createProduct = DatabaseConnects(async () => {
     if (!data) return;
 
     const products: Array<IProduct> = [];
-
-    //we skip the firt row!
-    for (let i = 5; i < data.length; i+=5) {
+    
+    for (let i = 0; i < data.length; i+=7) {
         const product: IProduct = new Product;
 
         product.sku = data[i];
         product.name = data[i + 1];
-        product.orden = parseInt(data[i + 2]);
-        product.price = new mongoose.Types.Decimal128(data[i + 3]);
+        product.price = new mongoose.Types.Decimal128(data[i + 2]);
+        product.price2 = new mongoose.Types.Decimal128(data[i + 3]);
+        product.active = Boolean(data[i + 4]);
+        product.orden = parseInt(data[i + 5]);
+        product.section = data[i + 6];
         product.url = data[i];
-        product.section = "Galletitas";
-
-        if (data[i + 4] === "Si") product.active = true;
-        else product.active = false;
 
         console.log(product);
         products.push(product);
+
     }
     
     try {
