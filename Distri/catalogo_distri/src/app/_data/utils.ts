@@ -85,10 +85,31 @@ export const createProduct = DatabaseConnects(async () => {
 });
 
 
+/** Find and display all products */
 export const findProducts = DatabaseConnects(async () => {
 
-    //find and display all products
     try{ return await Product.find({}); }
+    catch(err) { 
+        console.error(findError + err );
+        return undefined;
+    };
+});
+
+/** Find and display all products but only the name and section
+since this is used to populate a simple product list*/
+export const findProductsSimplified = DatabaseConnects(async () => {
+
+    try{ return await Product.find({}, {name: 1, section: 1, sku: 1, _id: 0}).lean<IProduct>(); }
+    catch(err) { 
+        console.error(findError + err );
+        return undefined;
+    };
+});
+
+/** Find and display a single product based on a given sku */ 
+    export const findSingleProduct = DatabaseConnects(async (sku: {sku: string}) => {
+
+    try{ return await Product.findOne({sku: sku.sku}, {_id: 0}).lean<IProduct>(); }
     catch(err) { 
         console.error(findError + err );
         return undefined;

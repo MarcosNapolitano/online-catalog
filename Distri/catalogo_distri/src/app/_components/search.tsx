@@ -1,16 +1,44 @@
 'use client'
 import React from 'react';
 import { useState } from 'react';
-import { data } from '../_app/home';
+import { IProduct } from '../_data/data';
+import Link from 'next/link';
 
-export const Search: React.FC = (): React.JSX.Element => {
+interface Search{
+  data: IProduct | undefined;
+}
+
+interface ResultList{
+  data: IProduct[] | void;
+  filter: string;
+  category: string;
+}
+
+const ResultList: React.FC<ResultList> = ( { data, filter, category } ): React.JSX.Element => {
+
+    if (!data) return <li>No results found </li>;
+
+    const retElement = data.filter(a => a.section === category )
+                           .filter(a => a.name.toLowerCase().includes(filter.toLowerCase()))
+                           .map((a) =>{ return <li key={a.sku}><Link href={"/admin/"+a.sku}>{a.name}</Link></li> });
+
+    return (<ul>{retElement}</ul>);
+};
+
+export const Search: React.FC<Search> = ( { data } ): React.JSX.Element => {
 
     const [searchString, setSearchString] = useState<string>("");
+    const [searchCat, setSearchCat] = useState<string>("");
 
     return (
         <div>
-            <select id="pet-select" onChange={a => console.log("hola")}>
-                <option value="">--elegí categoría--</option>
+            <select id="pet-select" onChange={(e) => {
+
+                document.getElementById("inputBar")?.removeAttribute("disabled");
+                document.getElementById("first-option")?.setAttribute("disabled", "true");
+                setSearchCat(e.target.value);
+            }}>
+                <option id="first-option" value="">--elegí categoría--</option>
                 <option value="almacen">Almacén</option>
                 <option value="bebidas">Bebidas</option>
                 <option value="cafe">Café</option>
@@ -25,8 +53,14 @@ export const Search: React.FC = (): React.JSX.Element => {
                 <option value="yerba">Yerba</option>
                 <option value="promocion">Promoción</option>
             </select>
-            <input type='search' onChange={ e => setSearchString(e.target.value) }/>
-            <p>{searchString}</p>
+
+            <input  id="inputBar" disabled type='search' 
+                    onChange={ e => setSearchString(e.target.value) } 
+                    placeholder='seleccioná categoría primero...'/>
+
+            <p>{data ? `Resultados para "${searchString}"` : "Could not Fetch Products"}</p>
+
+            <ResultList data={data} category={searchCat} filter={searchString} />
         </div>
     );
 };
