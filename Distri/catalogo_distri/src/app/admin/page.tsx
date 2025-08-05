@@ -2,7 +2,7 @@ import { Search } from "../_components/search"
 import { IProduct } from "../_data/data";
 import { findProductsSimplified } from "../_data/utils";
 
-const data: IProduct | undefined = await findProductsSimplified();
+const data: IProduct[] | undefined = await findProductsSimplified();
 
 export default async function Home() {
 

@@ -17,7 +17,7 @@ const createPushAndEmpty = (comp: React.FC<IColumn | IRow | ISection>,
     //New Array since we then erase the original one, we do not
     //want to erase the references too, since they are still
     //used even after creating the element
-    props["key"] = props.id;
+    props["key"] = `${props.name}-${props.id}`;
 
     const col = createElement(comp, props, new Array(...childArr)); 
 
@@ -85,6 +85,7 @@ export default async function Populate() {
 
             colCounter = 0;
             rowCounter = 0;
+            sectionCounter = 0;
             actualSection = data[i].section;
         }
 

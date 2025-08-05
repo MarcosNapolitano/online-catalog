@@ -1,16 +1,14 @@
 import NotFound from "@/app/not-found";
-import { IProduct, Product } from "../../_data/data";
+import { IProduct } from "../../_data/data";
 import { findSingleProduct } from "../../_data/utils";
 
 
-export default async function Home({ params, }: {params: Promise<{ slug: string }>}) {
+export default async function Page({ params, }: {params: { sku: string } }) {
     
-    let slug;
-
-    try{ slug = await params; }
-    catch (err) { console.error (err) };
-
-    const data: IProduct | null | undefined = await findSingleProduct(slug);
+    //to do 
+    //to be replaced with props from parent component
+    //we do not need to query the database this time we already got the data
+    const data: IProduct | null | undefined = await findSingleProduct(params.sku);
 
     if (!data) return <NotFound />;
 
