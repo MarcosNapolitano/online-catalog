@@ -18,18 +18,16 @@ const ResultList: React.FC<ResultList> = ( { data, filter, category } ): React.J
 
     if (!data) return <li>No results found </li>;
 
-    //to do 
-    //result element receiving the whole product object as 
-    //prop in order to not query the db again in findSingleProduct 
     const retElement = data.filter(a => a.section === category )
                            .filter(a => a.name.toLowerCase().includes(filter.toLowerCase()))
-                           .map((a) =>{ return <li key={a.sku}><Link href={"/admin/"+a.sku}>{a.name}</Link></li> });
+                           .map((a) => <li key={a.sku}><Link href={"/admin/"+a.sku}>{a.name}</Link></li> );
 
     return (<ul>{retElement}</ul>);
 };
 
 export const Search: React.FC<Search> = ( { data } ): React.JSX.Element => {
 
+    console.log(data)
     const [searchString, setSearchString] = useState<string>("");
     const [searchCat, setSearchCat] = useState<string>("");
 

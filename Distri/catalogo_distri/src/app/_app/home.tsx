@@ -1,11 +1,11 @@
 import React, { createElement, ReactNode } from 'react';
-import { readFromJson } from "../_data/utils";
-import { Section, ISection } from "../_components/section";
-import { Row, IRow } from "../_components/row";
-import { Column, IColumn } from "../_components/column";
-import Product from "../_components/product";
-import { IProduct } from '../_data/data';
-import { EmptyProduct, IEmptyProduct } from "../_components/empty-product";
+import { readFromJson } from "@/app/_data/utils";
+import { Section, ISection } from "@/app/_components/section";
+import { Row, IRow } from "@/app/_components/row";
+import { Column, IColumn } from "@/app/_components/column";
+import Product from "@/app/_components/product";
+import { IProduct } from '@/app/_data/data';
+import { EmptyProduct } from "@/app/_components/empty-product";
 
 export let data: Array<IProduct> | void;
 
@@ -167,7 +167,9 @@ export default async function Populate() {
                                      section: actualSection,
                                      price: price, 
                                      url: data[i].url,
-                                     active: data[i].active ? "" : "inactive"});
+                                     active: data[i].active });
+
+        if (data[i].sku == "MON0103") console.log(data[i].active);                             
 
         productPlaceholder.push(prod);
 

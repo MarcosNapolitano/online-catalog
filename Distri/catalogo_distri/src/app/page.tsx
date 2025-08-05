@@ -23,7 +23,7 @@ export default async function Home() {
                     <li className="side-menu-item"><a href="#varios-1">Varios</a></li>
                     <li className="side-menu-item"><a href="#te-1">Té</a></li>
                     <li className="side-menu-item"><a href="#yerba-1">Yerba</a></li>
-                    <li className="side-menu-item"><a href="#promocion">Promocion</a></li>
+                    <li className="side-menu-item"><a href="#promocion-1">Promocion</a></li>
                 </ul>
             </nav>
             <h2 id="menu-toggle" className="menu-toggle">Menu</h2> 

@@ -7,8 +7,7 @@ export const readFromCsv = async (): Promise < Array<string> | void > => {
         const res: Array<string> = await readFile("./src/app/_data/catalogo_web.csv", "utf-8").then((data) => {
 
             data = data.replaceAll("\r", "");
-            //to do
-            //this can cause an error, sometimes csv's are separated with ,
+
             data = data.replaceAll("\n", ";")
             return data.split(";");
         });

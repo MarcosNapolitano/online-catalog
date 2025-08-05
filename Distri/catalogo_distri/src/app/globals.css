@@ -14,7 +14,7 @@
     --galletitas: #A36A3C;
     --medicamentos: #49B9CC;
     --nucete: #CC9C49;
-    --kiosko: #E33030;
+    --kiosco: #E33030;
     --limpieza: #E3AA30;
     --varios: #292929;
     --te: #2DC234;
@@ -135,8 +135,8 @@ section{
     background-color: var(--nucete);
 }
 
-.header-kiosko{
-    background-color: var(--kiosko);
+.header-kiosco{
+    background-color: var(--kiosco);
 }
 
 .header-limpieza{
@@ -210,9 +210,9 @@ section{
     border-top: solid 20px var(--nucete);
 }
 
-.kiosko{
-    border: solid 2px var(--kiosko);
-    border-top: solid 20px var(--kiosko);
+.kiosco{
+    border: solid 2px var(--kiosco);
+    border-top: solid 20px var(--kiosco);
 }
 
 .limpieza{
@@ -307,9 +307,9 @@ section{
     border-color: var(--nucete);
 }
 
-.kiosko-price{
-    background-color: var(--kiosko);
-    border-color: var(--kiosko);
+.kiosco-price{
+    background-color: var(--kiosco);
+    border-color: var(--kiosco);
 }
 
 .limpieza-price{
@@ -356,8 +356,6 @@ section{
 
 .side-menu > h2{
     margin-left: 3%;
-    border: 1px solid red;
-    border-radius: 1rem;
     width: fit-content;
     cursor: pointer;
     color: red;
@@ -418,7 +416,7 @@ section{
 }
 
 .side-menu-item:nth-child(8)>a:hover{
-    color: var(--kiosko);
+    color: var(--kiosco);
 }
 
 .side-menu-item:nth-child(9)>a:hover{

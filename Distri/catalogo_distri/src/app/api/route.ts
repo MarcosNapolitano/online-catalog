@@ -1,5 +1,5 @@
-import { IProduct } from "../_data/data";
-import { writeBaseJson, findProducts } from "../_data/utils";
+import { IProduct } from "@/app/_data/data";
+import { writeBaseJson, findProducts } from "@/app/_data/utils";
 
 export async function GET() {
 
@@ -7,7 +7,7 @@ export async function GET() {
     if (data) {
 
         await writeBaseJson(data);
-        return Response.json("done2");
+        return Response.json(data);
 
     }else{ return Response.json("no data received"); };
 }

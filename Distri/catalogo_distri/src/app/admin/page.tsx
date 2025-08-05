@@ -1,6 +1,6 @@
-import { Search } from "../_components/search"
-import { IProduct } from "../_data/data";
-import { findProductsSimplified } from "../_data/utils";
+import { Search } from "@/app/_components/search"
+import { IProduct } from "@/app/_data/data";
+import { findProductsSimplified } from "@/app/_data/utils";
 
 const data: IProduct[] | undefined = await findProductsSimplified();
 

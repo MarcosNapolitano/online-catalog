@@ -1,4 +1,4 @@
-import { createProduct } from "../../_data/utils";
+import { createProduct } from "@/app/_data/utils";
 
 export async function GET() {
 

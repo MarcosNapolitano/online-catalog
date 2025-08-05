@@ -1,25 +1,56 @@
+'use client'
+import { useState, useEffect } from "react";
+import Image from "next/image";
 import NotFound from "@/app/not-found";
-import { IProduct } from "../../_data/data";
-import { findSingleProduct } from "../../_data/utils";
+import { IProduct } from "@/app/_data/data";
+import { findSingleProduct } from "@/app/_data/utils";
 
 
-export default async function Page({ params, }: {params: { sku: string } }) {
+export default function Page({ params, }: {params: { sku: string } }) {
     
-    //to do 
-    //to be replaced with props from parent component
-    //we do not need to query the database this time we already got the data
-    const data: IProduct | null | undefined = await findSingleProduct(params.sku);
+    const [data, setData] = useState(null);
+
+    useEffect(() => {
+
+    
+        try{
+            
+            const data = await findSingleProduct(params.sku);
+            setData(data);
+        }
+        catch (err) { console.error(err) };
+
+    }), [];//que relodee cuando responda el post! vas a tener que poner una dependencia aca
 
     if (!data) return <NotFound />;
 
+    const [form, setForm] = useState(null)
     return (
         <div>
             <h1>{ data.name }</h1>
-            <p><b>SKU:</b> { data.sku }</p>
-            <p><b>Precio GF:</b> { data.price.toString() }</p>
-            <p><b>Precio Distri:</b> { data.price2?.toString() }</p>
-            <p><b>Sección:</b> { data.section }</p>
-            <p><b>Orden:</b> { data.orden }</p>
+            <Image alt="prod-image" src={`@/img/` + data.sku + ".webp"} width={200} height={200}/>
+   
+            <form>
+                <label htmlFor="sku"><b>SKU:</b></label>
+                <input name="sku" type="text" value={ data.sku } />
+
+                <label htmlFor="price"><b>Precio GF:</b></label>
+                <input name="price" type="number" value={ data.price.toString() } />
+
+                <label htmlFor="price2"><b>Precio Distri:</b></label>
+                <input name="price2" type="number" value={ data.price2.toString() } />
+
+                <label htmlFor="section"><b>Sección:</b></label>
+                <input name="section" type="text" value={ data.section } />
+
+                <label htmlFor="orden"><b>Orden:</b></label>
+                <input name="orden" type="number" value={ data.orden } />
+
+                <label htmlFor="image"><b>Imágen:</b></label>
+                <input name="image" type="file" />
+
+
+            </form>
         </div>
     );
 }

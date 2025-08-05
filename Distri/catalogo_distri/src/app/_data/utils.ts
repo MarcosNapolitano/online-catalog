@@ -4,7 +4,6 @@ import { readFile } from 'node:fs/promises';
 import dotenv from 'dotenv';
 import mongoose, { Connection } from 'mongoose'
 import { readFromCsv } from './csv-json';
-import { write } from 'node:fs';
 
 //strings for error handling
 const saveError = "Could not save Product in database\n\n";
@@ -50,6 +49,7 @@ function DatabaseConnects<T extends (...args: any[]) => Promise<any>>(fn: T): T 
     }) as T;
 };
 
+/** Connects to database and creates products from csv */
 export const createProduct = DatabaseConnects(async () => {
 
     const data = await readFromCsv();
@@ -57,17 +57,18 @@ export const createProduct = DatabaseConnects(async () => {
 
     const products: Array<IProduct> = [];
     
-    for (let i = 0; i < data.length; i+=7) {
+    for (let i = 0; i < data.length; i+=8) {
         const product: IProduct = new Product;
 
         product.sku = data[i];
         product.name = data[i + 1];
         product.price = new mongoose.Types.Decimal128(data[i + 2]);
         product.price2 = new mongoose.Types.Decimal128(data[i + 3]);
-        product.active = Boolean(data[i + 4]);
+        product.active = data[i + 4] == "true" ? true : false;
         product.orden = parseInt(data[i + 5]);
         product.section = data[i + 6];
         product.url = data[i];
+        product.sectionOrden = parseInt(data[i + 7]);
 
         console.log(product);
         products.push(product);
@@ -87,8 +88,8 @@ export const createProduct = DatabaseConnects(async () => {
 
 /** Find and display all products */
 export const findProducts = DatabaseConnects(async () => {
-
-    try{ return await Product.find({}); }
+    
+    try{ return await Product.find({}).sort({sectionOrden: "asc", orden: "asc"}).lean<IProduct[]>(); }
     catch(err) { 
         console.error(findError + err );
         return undefined;
@@ -99,7 +100,8 @@ export const findProducts = DatabaseConnects(async () => {
 since this is used to populate a simple product list*/
 export const findProductsSimplified = DatabaseConnects(async () => {
 
-    try{ return await Product.find({}, {name: 1, section: 1, sku: 1, _id: 0}).lean<IProduct[]>(); }
+    try{ return await Product.find({}, {name: 1, section: 1, sku: 1, _id: 0})
+                             .lean<IProduct[]>(); }
     catch(err) { 
         console.error(findError + err );
         return undefined;
@@ -109,7 +111,7 @@ export const findProductsSimplified = DatabaseConnects(async () => {
 /** Find and display a single product based on a given sku */ 
     export const findSingleProduct = DatabaseConnects(async (sku: string) => {
 
-    try{ return await Product.findOne({sku}, {_id: 0}).lean<IProduct>(); }
+    try{ return await Product.findOne({sku}, {_id: 0}); }
     catch(err) { 
         console.error(findError + err );
         return undefined;
