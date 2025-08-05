@@ -5,20 +5,21 @@ import { Row, IRow } from "../_components/row";
 import { Column, IColumn } from "../_components/column";
 import Product from "../_components/product";
 import { IProduct } from '../_data/data';
+import { EmptyProduct, IEmptyProduct } from "../_components/empty-product";
 
 export let data: Array<IProduct> | void;
 
 /** Creates element pushes it into it's array and clears child's array*/
-const createPushAndEmpty = (comp: React.FC<IColumn | IRow | ISection>, 
+function createPushAndEmpty(comp: React.FC<IColumn | IRow | ISection>, 
                             props: {id: string, key?: string, name?: string, section?: string},
                             childArr: Array<ReactNode>, 
-                            compArr: Array<ReactNode>) =>{
+                            compArr: Array<ReactNode>){
+
+    props["key"] = `${props.name}-${props.id}`;
 
     //New Array since we then erase the original one, we do not
     //want to erase the references too, since they are still
     //used even after creating the element
-    props["key"] = `${props.name}-${props.id}`;
-
     const col = createElement(comp, props, new Array(...childArr)); 
 
     compArr.push(col);
@@ -27,6 +28,7 @@ const createPushAndEmpty = (comp: React.FC<IColumn | IRow | ISection>,
     childArr.length = 0;
 
 };
+
 
 await (async function(): Promise<Array<void> | void> {
     console.log("read");
@@ -58,7 +60,85 @@ export default async function Populate() {
     let colCounter = 0;
     let rowCounter = 0;
     let sectionCounter = 0;
-    let actualSection;
+    let actualSection: string = "";
+
+    /** Empties remainder elements in placeholders */
+    function emptyRemainder(){
+
+        //if there are not any elements left we already emptied the remainders
+        if (!productPlaceholder[0] && !columnPlaceholder[0] && !rowPlaceholder[0]) return;
+
+        //first section completes the currently incomplete row
+        if (productPlaceholder.length == 1){
+
+            colCounter++;
+
+            const prod = createElement(EmptyProduct, {id: "1", key: "1", section: actualSection});
+            productPlaceholder.push(prod);
+
+            createPushAndEmpty(Column, { id: colCounter.toString(), key: colCounter.toString(), section: actualSection }, 
+                               productPlaceholder, columnPlaceholder);
+
+
+        };
+
+        while (colCounter < 3){
+
+            colCounter++;
+
+            const prod0 = createElement(EmptyProduct, {id: "0", key: "0", section: actualSection});
+            const prod1 = createElement(EmptyProduct, {id: "1", key: "1", section: actualSection});
+
+            productPlaceholder.push(prod0);
+            productPlaceholder.push(prod1);
+
+            createPushAndEmpty(Column, { id: colCounter.toString(), key: colCounter.toString(), section: actualSection }, 
+                               productPlaceholder, columnPlaceholder);
+        };
+
+        rowCounter++;
+        colCounter = 0;
+
+        createPushAndEmpty(Row, { id: rowCounter.toString(), key: rowCounter.toString() }, 
+                           columnPlaceholder, rowPlaceholder);
+
+        //now that we don't have any more incomplete rows, we create enough
+        //of them to fill the current section "whitespace"
+        while (rowCounter < 6){
+
+            rowCounter++;
+
+            while (colCounter < 3){
+
+                colCounter++;
+
+                const prod0 = createElement(EmptyProduct, {id: "0", key: "0", section: actualSection});
+                const prod1 = createElement(EmptyProduct, {id: "1", key: "1", section: actualSection});
+
+                productPlaceholder.push(prod0);
+                productPlaceholder.push(prod1);
+
+                createPushAndEmpty(Column, { id: colCounter.toString(), key: colCounter.toString(), section: actualSection }, 
+                                   productPlaceholder, columnPlaceholder);
+            };
+
+            colCounter = 0;
+
+            createPushAndEmpty(Row, { id: rowCounter.toString(), key: rowCounter.toString() }, 
+                               columnPlaceholder, rowPlaceholder);
+
+        };
+
+        sectionCounter++;
+        createPushAndEmpty(Section, { id: sectionCounter.toString(), 
+                           key: sectionCounter.toString(), 
+                           name: actualSection }, 
+                           rowPlaceholder, sectionPlaceholder);
+
+        rowCounter = 0;
+        sectionCounter = 0;
+
+    };
 
     for (let i = 0; i < data.length; i++) {
 
@@ -68,24 +148,8 @@ export default async function Populate() {
         //if sections mismatch between products, that means a new section
         else if(actualSection != data[i].section){
 
-            sectionCounter++;
-            rowCounter++;
-            colCounter++;
+            emptyRemainder();
 
-            createPushAndEmpty(Column, { id: colCounter.toString(), key: colCounter.toString(), section: actualSection }, 
-                               productPlaceholder, columnPlaceholder);
-
-            createPushAndEmpty(Row, { id: rowCounter.toString(), key: rowCounter.toString() }, 
-                              columnPlaceholder, rowPlaceholder);
-
-            createPushAndEmpty(Section, { id: sectionCounter.toString(), 
-                                          key: sectionCounter.toString(), 
-                                          name: actualSection }, 
-                               rowPlaceholder, sectionPlaceholder);
-
-            colCounter = 0;
-            rowCounter = 0;
-            sectionCounter = 0;
             actualSection = data[i].section;
         }
 
@@ -132,22 +196,7 @@ export default async function Populate() {
     };
 
     //When we reached the last element, if we still have components, we push them
-    if(productPlaceholder[0] || columnPlaceholder[0] || rowPlaceholder[0]){
-
-        colCounter++;
-        rowCounter++;
-        sectionCounter++;
-
-        createPushAndEmpty(Column, { id: colCounter.toString(), key: colCounter.toString(), section: actualSection }, 
-                           productPlaceholder, columnPlaceholder);
-
-        createPushAndEmpty(Row, { id: rowCounter.toString(), key: rowCounter.toString() }, 
-                           columnPlaceholder, rowPlaceholder);
-
-        createPushAndEmpty(Section, { id: sectionCounter.toString(), key: sectionCounter.toString(), name: actualSection },
-                           rowPlaceholder, sectionPlaceholder);
-
-        };
+    emptyRemainder();
 
     return sectionPlaceholder;
 };
