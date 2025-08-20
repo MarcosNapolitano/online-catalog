@@ -3,16 +3,18 @@ import { useState } from "react";
 
 export default function Home() {
 
+    //to do 
+    //this does not send any data!
     const [res, setRes] = useState(null);
 
     const enviarPost = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         try {
-            const response = await fetch('/api/create_product', {
+            const response = await fetch('/api/create', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ mensaje: 'Hola desde el form' }),
+                
             });
 
             if (!response.ok) throw new Error('Error en la request');
@@ -24,15 +26,6 @@ export default function Home() {
         }
     };
 
-        // product.sku = data[i];
-        // product.name = data[i + 1];
-        // product.price = new mongoose.Types.Decimal128(data[i + 2]);
-        // product.price2 = new mongoose.Types.Decimal128(data[i + 3]);
-        // product.active = data[i + 4] == "true" ? true : false;
-        // product.orden = parseInt(data[i + 5]);
-        // product.section = data[i + 6];
-        // product.url = data[i];
-        // product.sectionOrden = parseInt(data[i + 7]);
     return (
         <form onSubmit={enviarPost} style={{display: "flex", flexDirection: "column", width: "500px"}}>
             <label htmlFor="sku">Sku: </label>

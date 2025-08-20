@@ -3,7 +3,7 @@ import { writeBaseJson, findProducts } from "@/app/_data/utils";
 
 export async function GET() {
 
-    const data: Array<IProduct> | undefined = await findProducts()
+    const data: IProduct[] | undefined = await findProducts()
     if (data) {
 
         await writeBaseJson(data);

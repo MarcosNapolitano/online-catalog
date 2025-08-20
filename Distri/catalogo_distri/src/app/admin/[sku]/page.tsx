@@ -10,6 +10,8 @@ export default function Page({ params, }: {params: { sku: string } }) {
     
     const [data, setData] = useState(null);
 
+    //to do 
+    //complete this!
     useEffect(() => {
 
     

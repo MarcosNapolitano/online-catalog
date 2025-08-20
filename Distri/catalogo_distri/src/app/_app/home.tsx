@@ -10,195 +10,217 @@ import { EmptyProduct } from "@/app/_components/empty-product";
 export let data: Array<IProduct> | void;
 
 /** Creates element pushes it into it's array and clears child's array*/
-function createPushAndEmpty(comp: React.FC<IColumn | IRow | ISection>, 
-                            props: {id: string, key?: string, name?: string, section?: string},
-                            childArr: Array<ReactNode>, 
-                            compArr: Array<ReactNode>){
+function createPushAndEmpty(
 
-    props["key"] = `${props.name}-${props.id}`;
+  comp: React.FC<IColumn | IRow | ISection>,
+  childArr: Array<ReactNode>,
+  compArr: Array<ReactNode>, 
+  props: { 
+    id: string,
+    key?: string,
+    name?: string,
+    section?: string 
+  }
 
-    //New Array since we then erase the original one, we do not
-    //want to erase the references too, since they are still
-    //used even after creating the element
-    const col = createElement(comp, props, new Array(...childArr)); 
+): void {
 
-    compArr.push(col);
+  props["key"] = `${props.name}-${props.id}`;
 
-    //resets the array
-    childArr.length = 0;
+  //New Array since we then erase the original one, we do not
+  //want to erase the references too, since they are still
+  //used even after creating the element
+  const col = createElement(comp, props, new Array(...childArr));
+
+  compArr.push(col);
+
+  //resets the array
+  childArr.length = 0;
 
 };
 
 
-await (async function(): Promise<Array<void> | void> {
-    console.log("read");
-    try {
-        //We get the data from the current JSON 
-        data = await readFromJson();
-        if(!data) return;
-        return console.log("done fetching bbdd");
+await (async function(): Promise<void> {
 
-    } catch (err) { return console.error(err) };
+  //We get the data from the current JSON 
+  data = await readFromJson();
+  if (!data) return;
+  return console.log("done fetching bbdd");
+
 })();
 
 //Main function responsible for populating the catalog
-export default async function Populate() {
-    
-    if (!data) return console.error("can't load home BBDD not fetched");
+export default async function Populate(): Promise< ReactNode[] | void > {
 
-    //Components collecting arrays to be passed as children
-    //to React.createElement
-    const rowPlaceholder: Array<React.ReactNode> = [];
-    const columnPlaceholder: Array<React.ReactNode> = [];
-    const productPlaceholder: Array<React.ReactNode> = [];
-    const sectionPlaceholder: Array<React.ReactNode> = [];
+  if (!data) return console.error("can't load home BBDD not fetched");
 
-    //These counter basically indicate pagination
-    //for every 2 products there is 1 column
-    //for every 3 columns there is 1 row
-    //for every 6 columns (initially) there is 1 section
-    let colCounter = 0;
-    let rowCounter = 0;
-    let sectionCounter = 0;
-    let actualSection: string = "";
+  //Components collecting arrays to be passed as children
+  //to React.createElement
+  const rowPlaceholder: ReactNode[] = [];
+  const columnPlaceholder: ReactNode[] = [];
+  const productPlaceholder: ReactNode[] = [];
+  const sectionPlaceholder: ReactNode[] = [];
 
-    /** Empties remainder elements in placeholders */
-    function emptyRemainder(){
+  //These counter basically indicate pagination
+  //for every 2 products there is 1 column
+  //for every 3 columns there is 1 row
+  //for every 6 columns (initially) there is 1 section
+  let colCounter: number = 0;
+  let rowCounter: number = 0;
+  let sectionCounter: number = 0;
+  let actualSection: string = "";
 
-        //if there are not any elements left we already emptied the remainders
-        if (!productPlaceholder[0] && !columnPlaceholder[0] && !rowPlaceholder[0]) return;
+  /** Creates blanks columns in order to fill an incomplete row */
+  function createEmptyColumn(): void{
 
-        //first section completes the currently incomplete row
-        if (productPlaceholder.length == 1){
+    colCounter++;
 
-            colCounter++;
+    const prod0 = createElement(EmptyProduct, { id: "0", key: "0", section: actualSection });
+    const prod1 = createElement(EmptyProduct, { id: "1", key: "1", section: actualSection });
 
-            const prod = createElement(EmptyProduct, {id: "1", key: "1", section: actualSection});
-            productPlaceholder.push(prod);
+    productPlaceholder.push(prod0);
+    productPlaceholder.push(prod1);
 
-            createPushAndEmpty(Column, { id: colCounter.toString(), key: colCounter.toString(), section: actualSection }, 
-                               productPlaceholder, columnPlaceholder);
+    createPushAndEmpty(Column, productPlaceholder, columnPlaceholder, 
+                       { 
+                         id: colCounter.toString(), 
+                         key: colCounter.toString(), 
+                         section: actualSection 
+                       });
+  };
 
+  /** Empties remainder elements in placeholders */
+  function emptyRemainder(): void {
 
-        };
+    //if there are not any elements left we already emptied the remainders
+    if (!productPlaceholder[0] && !columnPlaceholder[0] && !rowPlaceholder[0]) return;
 
-        while (colCounter < 3){
+    //first section completes the currently incomplete row
+    if (productPlaceholder.length == 1) {
 
-            colCounter++;
+      colCounter++;
 
-            const prod0 = createElement(EmptyProduct, {id: "0", key: "0", section: actualSection});
-            const prod1 = createElement(EmptyProduct, {id: "1", key: "1", section: actualSection});
+      const prod = createElement(EmptyProduct, { id: "1", key: "1", section: actualSection });
+      productPlaceholder.push(prod);
 
-            productPlaceholder.push(prod0);
-            productPlaceholder.push(prod1);
-
-            createPushAndEmpty(Column, { id: colCounter.toString(), key: colCounter.toString(), section: actualSection }, 
-                               productPlaceholder, columnPlaceholder);
-        };
-
-        rowCounter++;
-        colCounter = 0;
-
-        createPushAndEmpty(Row, { id: rowCounter.toString(), key: rowCounter.toString() }, 
-                           columnPlaceholder, rowPlaceholder);
-
-        //now that we don't have any more incomplete rows, we create enough
-        //of them to fill the current section "whitespace"
-        while (rowCounter < 6){
-
-            rowCounter++;
-
-            while (colCounter < 3){
-
-                colCounter++;
-
-                const prod0 = createElement(EmptyProduct, {id: "0", key: "0", section: actualSection});
-                const prod1 = createElement(EmptyProduct, {id: "1", key: "1", section: actualSection});
-
-                productPlaceholder.push(prod0);
-                productPlaceholder.push(prod1);
-
-                createPushAndEmpty(Column, { id: colCounter.toString(), key: colCounter.toString(), section: actualSection }, 
-                                   productPlaceholder, columnPlaceholder);
-            };
-
-            colCounter = 0;
-
-            createPushAndEmpty(Row, { id: rowCounter.toString(), key: rowCounter.toString() }, 
-                               columnPlaceholder, rowPlaceholder);
-
-        };
-
-        sectionCounter++;
-        createPushAndEmpty(Section, { id: sectionCounter.toString(), 
-                           key: sectionCounter.toString(), 
-                           name: actualSection }, 
-                           rowPlaceholder, sectionPlaceholder);
-
-        rowCounter = 0;
-        sectionCounter = 0;
+      createPushAndEmpty(Column, productPlaceholder, columnPlaceholder,
+                         { 
+                           id: colCounter.toString(),
+                           key: colCounter.toString(),
+                           section: actualSection 
+                         });
 
     };
 
-    for (let i = 0; i < data.length; i++) {
+    while (colCounter < 3) { createEmptyColumn(); };
 
-        //we define the first section
-        if(!actualSection) actualSection = data[i].section;
+    rowCounter++;
+    colCounter = 0;
 
-        //if sections mismatch between products, that means a new section
-        else if(actualSection != data[i].section){
+    createPushAndEmpty(Row, columnPlaceholder, rowPlaceholder,
+                       {
+                         id: rowCounter.toString(),
+                         key: rowCounter.toString()
+                       });
 
-            emptyRemainder();
+    //now that we don't have any more incomplete rows, we create enough
+    //of them to fill the current section "whitespace"
+    while (rowCounter < 6) {
 
-            actualSection = data[i].section;
-        }
+      rowCounter++;
 
-        
-        //workaround since I receive the data serialized in JSON
-        const price = data[i].active ? (data[i].price as unknown as { $numberDecimal : string }).$numberDecimal as string : "Sin Stock";
+      while (colCounter < 3) { createEmptyColumn(); };
 
-        //We Create the elements and we push them into arrays
-        //until they hold the right amount to be pushed onto their parents
-        //we do this kind of recursively, base case being the end of the JSON
-        const prod = createElement(Product, 
-                                   { id: data[i].sku,
-                                     key: data[i].sku, 
-                                     title: data[i].name,
-                                     section: actualSection,
-                                     price: price, 
-                                     url: data[i].url,
-                                     active: data[i].active });
+      colCounter = 0;
 
-        if (data[i].sku == "MON0103") console.log(data[i].active);                             
+      createPushAndEmpty(Row, columnPlaceholder, rowPlaceholder,
+                         { 
+                           id: rowCounter.toString(), 
+                           key: rowCounter.toString() 
+                         });
 
-        productPlaceholder.push(prod);
-
-        //Each time we make two products, we add them to a column and so on
-        if(data[i].orden % 2 == 0){ 
-            colCounter++;
-            createPushAndEmpty(Column, { id: colCounter.toString(), key: colCounter.toString(), section: actualSection }, 
-                               productPlaceholder, columnPlaceholder);
-        };
-
-        if(colCounter == 3){
-            rowCounter++;
-            colCounter = 0;
-            createPushAndEmpty(Row, { id: rowCounter.toString(), key: rowCounter.toString() }, 
-                               columnPlaceholder, rowPlaceholder);
-        };
-
-        if(rowCounter == 6){
-            sectionCounter++;
-            rowCounter = 0;
-            createPushAndEmpty(Section, { id: sectionCounter.toString(), 
-                                          key: sectionCounter.toString(), 
-                                          name: actualSection }, 
-                               rowPlaceholder, sectionPlaceholder);
-        };
     };
 
-    //When we reached the last element, if we still have components, we push them
-    emptyRemainder();
+    sectionCounter++;
+    createPushAndEmpty(Section, rowPlaceholder, sectionPlaceholder,
+    {
+      id: sectionCounter.toString(),
+      key: sectionCounter.toString(),
+      name: actualSection
+    });
 
-    return sectionPlaceholder;
+    rowCounter = 0;
+    sectionCounter = 0;
+
+  };
+
+  // Main func starts here
+  for (let i = 0; i < data.length; i++) {
+
+    //we define the first section
+    if (!actualSection) actualSection = data[i].section;
+
+    //if sections mismatch between products, that means a new section
+    else if (actualSection != data[i].section) {
+
+      emptyRemainder();
+
+      actualSection = data[i].section;
+    }
+
+
+    //workaround since I receive the data serialized in JSON
+    const price = data[i].active ? (data[i].price as unknown as { $numberDecimal: string }).$numberDecimal as string : "Sin Stock";
+
+    //We Create the elements and we push them into arrays
+    //until they hold the right amount to be pushed onto their parents
+    //we do this kind of recursively, base case being the end of the JSON
+    const prod = createElement(Product,
+      {
+        id: data[i].sku,
+        key: data[i].sku,
+        title: data[i].name,
+        section: actualSection,
+        price: price,
+        url: data[i].url,
+        active: data[i].active
+      });
+
+    productPlaceholder.push(prod);
+
+    //Each time we make two products, we add them to a column and so on
+    if (data[i].orden % 2 == 0) {
+      colCounter++;
+      createPushAndEmpty(Column, productPlaceholder, columnPlaceholder,
+                         { 
+                           id: colCounter.toString(),
+                           key: colCounter.toString(),
+                           section: actualSection 
+                         });
+    };
+
+    if (colCounter == 3) {
+      rowCounter++;
+      colCounter = 0;
+      createPushAndEmpty(Row, columnPlaceholder, rowPlaceholder,
+                         { id: rowCounter.toString(),
+                           key: rowCounter.toString() 
+                         });
+    };
+
+    if (rowCounter == 6) {
+      sectionCounter++;
+      rowCounter = 0;
+      createPushAndEmpty(Section, rowPlaceholder, sectionPlaceholder, 
+      {
+        id: sectionCounter.toString(),
+        key: sectionCounter.toString(),
+        name: actualSection
+      });
+    };
+  };
+
+  //When we reached the last element, if we still have components, we push them
+  emptyRemainder();
+
+  return sectionPlaceholder;
 };
