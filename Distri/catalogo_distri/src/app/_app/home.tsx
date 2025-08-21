@@ -124,7 +124,7 @@ export default async function Populate(): Promise< ReactNode[] | void > {
 
     //now that we don't have any more incomplete rows, we create enough
     //of them to fill the current section "whitespace"
-    while (rowCounter < 6) {
+    while (rowCounter < 5) {
 
       rowCounter++;
 
@@ -149,7 +149,6 @@ export default async function Populate(): Promise< ReactNode[] | void > {
     });
 
     rowCounter = 0;
-    sectionCounter = 0;
 
   };
 
@@ -165,6 +164,7 @@ export default async function Populate(): Promise< ReactNode[] | void > {
       emptyRemainder();
 
       actualSection = data[i].section;
+      sectionCounter = 0;
     }
 
 
@@ -182,7 +182,8 @@ export default async function Populate(): Promise< ReactNode[] | void > {
         section: actualSection,
         price: price,
         url: data[i].url,
-        active: data[i].active
+        active: data[i].active,
+        special: data[i].special 
       });
 
     productPlaceholder.push(prod);
@@ -207,7 +208,7 @@ export default async function Populate(): Promise< ReactNode[] | void > {
                          });
     };
 
-    if (rowCounter == 6) {
+    if ((rowCounter == 4 && sectionCounter == 0) || rowCounter == 5) {
       sectionCounter++;
       rowCounter = 0;
       createPushAndEmpty(Section, rowPlaceholder, sectionPlaceholder, 

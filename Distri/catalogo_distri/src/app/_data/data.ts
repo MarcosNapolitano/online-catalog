@@ -2,17 +2,18 @@ import mongoose, { Schema, Document } from 'mongoose';
 
 export interface IProduct extends Document{
 
-    sku: string;
-    name: string;
-    url: string;
-    price: mongoose.Types.Decimal128;
-    price2: mongoose.Types.Decimal128;
-    section: string;
-    orden: number;
-    active: boolean;
-    sectionOrden: number;
+    sku: string,
+    name: string,
+    url: string,
+    price: mongoose.Types.Decimal128,
+    price2: mongoose.Types.Decimal128,
+    section: string,
+    orden: number,
+    active: boolean,
+    sectionOrden: number,
+    special: "" | "oferta" | "novedad"
 
-}
+};
 
 //product model
 export const productSchema: Schema = new Schema<IProduct>({
@@ -25,7 +26,8 @@ export const productSchema: Schema = new Schema<IProduct>({
     section: { type: String, required: true },
     orden: { type: Number, required: true },
     active: { type: Boolean, required: true },
-    sectionOrden: { type: Number, required: true }
+    sectionOrden: { type: Number, required: true },
+    special: { type: String, default: "" }
 
 });
 

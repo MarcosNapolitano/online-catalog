@@ -50,10 +50,10 @@ function DatabaseConnects<T extends (...args: any[]) => Promise<any>>(fn: T): T 
 };
 
 /** Connects to database and creates products from csv */
-export const createProduct = DatabaseConnects(async () => {
+export const createProduct = DatabaseConnects(async (): Promise<string> => {
 
   const data = await readFromCsv();
-  if (!data) return;
+  if (!data) return "There is not any csv data";
 
   const products: Array<IProduct> = [];
 
@@ -79,10 +79,10 @@ export const createProduct = DatabaseConnects(async () => {
 
     console.log("begin insertion!");
     await Product.insertMany(products);
-    console.log("insertion complete!");
+    return "insertion complete!";
   }
 
-  catch { console.error("could not insert products!") };
+  catch(err) { return `could not insert products! ${err}` };
 });
 
 /** Save sigle product to database */
