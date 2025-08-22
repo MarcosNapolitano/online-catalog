@@ -113,11 +113,16 @@ export const findProducts = DatabaseConnects(async () => {
 
 /** Find and display all products but only the name and section
 since this is used to populate a simple product list*/
-export const findProductsSimplified = DatabaseConnects(async () => {
+export const findProductsSimplified = DatabaseConnects(async (): Promise<IProduct[] | undefined> => {
 
   try {
-    return await Product.find({}, { name: 1, section: 1, sku: 1, _id: 0 })
-      .lean<IProduct[]>();
+    return await Product.find({}, { name: 1, 
+                                    section: 1, 
+                                    sku: 1, 
+                                    orden: 1, 
+                                    active: 1, 
+                                    _id: 0 })
+                                    .lean<IProduct[]>();
   }
   catch (err) {
     console.error(findError + err);
@@ -140,12 +145,23 @@ export const findProductbyOrder = DatabaseConnects(async (section: string, orden
 /** Find and display a single product based on a given sku */
 export const findSingleProduct = DatabaseConnects(async (sku: string) => {
 
-  try { return await Product.findOne({ sku }, { _id: 0 }); }
+  try { return await Product.findOne({ sku }, {}); }
   catch (err) {
     console.error(findError + err);
     return undefined;
   };
 });
+
+/** Toggle active product */
+export const toggleProduct = async (sku: string): Promise<true | false> => {
+  const product = await findSingleProduct(sku);
+  if(!product) return false;
+
+  product.active = !product.active;
+  await saveProduct(product);
+  return true
+
+};
 
 export const writeBaseJson = async (data: Array<IProduct>): Promise<void> => {
 

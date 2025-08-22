@@ -1,67 +1,110 @@
 'use client'
-import React from 'react';
-import { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { IProduct } from '../_data/data';
 import Link from 'next/link';
 
-interface Search{
+interface Search {
   data: IProduct[] | undefined;
+  backAction: (sku: string) => Promise<true | false>;
 }
 
-interface ResultList{
+interface ResultList {
   data: IProduct[] | void;
   filter: string;
-  category: string;
+  category?: string;
+  backAction: (sku: string) => Promise<true | false>;
 }
 
-const ResultList: React.FC<ResultList> = ( { data, filter, category } ): React.JSX.Element => {
+interface Result {
+  sku: string;
+  active: boolean;
+  name: string;
+  orden: number;
+  backAction: (sku: string) => Promise<true | false>;
+}
 
-    if (!data) return <li>No results found </li>;
+const Result: React.FC<Result> = ({ sku, orden, active, name, backAction }): React.JSX.Element => {
 
-    const retElement = data.filter(a => a.section === category )
-                           .filter(a => a.name.toLowerCase().includes(filter.toLowerCase()))
-                           .map((a) => <li key={a.sku}><Link href={"/admin/"+a.sku}>{a.name}</Link></li> );
+  const [productStatus, setProductStatus] = useState<true | false>(active);
+  const [checkStatus, setCheckStatus] = useState<true | false> (false);
+  const firstRender = useRef(false);
 
-    return (<ul>{retElement}</ul>);
+  useEffect(() => {
+
+    //we do not need to run on mount
+    if(!firstRender.current){
+      firstRender.current = true; 
+      return;
+    }
+
+    const result = async () => {
+      await backAction(sku);
+      setCheckStatus(false); 
+    };
+
+    setCheckStatus(true); 
+    result();
+
+  }, [productStatus, backAction, sku])
+
+  const handleChange = () => { setProductStatus(!productStatus); };
+
+  return <li key={sku}>
+            <Link href={"/admin/" + sku}>
+              {`${orden.toString()} - ${name}`}
+            </Link>
+            <input disabled={checkStatus} type='checkbox' onClick={handleChange} defaultChecked={active}/>
+         </li>
+
 };
 
-export const Search: React.FC<Search> = ( { data } ): React.JSX.Element => {
+const ResultList: React.FC<ResultList> = ({ data, filter, category, backAction }): React.JSX.Element => {
 
-    console.log(data)
-    const [searchString, setSearchString] = useState<string>("");
-    const [searchCat, setSearchCat] = useState<string>("");
+  if (!data) return <li>No results found </li>;
 
-    return (
-        <div>
-            <select id="pet-select" onChange={(e) => {
+  const retElement = data
+    .filter(a => category ? a.section === category : a)
+    .filter(a => a.name.toLowerCase().includes(filter.toLowerCase()))
+    .map((a) => <Result key={a.sku} sku={a.sku} orden={a.orden} name={a.name} active={a.active} backAction={backAction} />);
 
-                document.getElementById("inputBar")?.removeAttribute("disabled");
-                document.getElementById("first-option")?.setAttribute("disabled", "true");
-                setSearchCat(e.target.value);
-            }}>
-                <option id="first-option" value="">--elegí categoría--</option>
-                <option value="almacen">Almacén</option>
-                <option value="bebidas">Bebidas</option>
-                <option value="cafe">Café</option>
-                <option value="edulcorantes">Edulcorantes</option>
-                <option value="galletitas">Galletitas</option>
-                <option value="medicamentos">Medicamentos</option>
-                <option value="nucete">Nucete</option>
-                <option value="kiosko">Kiosko</option>
-                <option value="limpieza">Limpieza</option>
-                <option value="varios">Varios</option>
-                <option value="te">Té</option>
-                <option value="yerba">Yerba</option>
-                <option value="promocion">Promoción</option>
-            </select>
+  return (<ul>{retElement}</ul>);
+};
 
-            <input  id="inputBar" disabled type='search' 
-                    onChange={ e => setSearchString(e.target.value) } 
-                    placeholder='seleccioná categoría primero...'/>
+export const Search: React.FC<Search> = ({ data, backAction }): React.JSX.Element => {
 
-            <p>{data ? `Resultados para "${searchString}"` : "Could not Fetch Products"}</p>
+  const [searchString, setSearchString] = useState<string>("");
+  const [searchCat, setSearchCat] = useState<string>("");
 
-            <ResultList data={data} category={searchCat} filter={searchString} />
-        </div>
-    );
+  return (
+    <div>
+      <select id="pet-select" onChange={(e) => {
+
+        setSearchCat(e.target.value);
+      }}>
+        <option id="first-option" value="">--elegí categoría--</option>
+        <option value="almacen">Almacén</option>
+        <option value="bebidas">Bebidas</option>
+        <option value="cafe">Café</option>
+        <option value="edulcorantes">Edulcorantes</option>
+        <option value="galletitas">Galletitas</option>
+        <option value="medicamentos">Medicamentos</option>
+        <option value="nucete">Nucete</option>
+        <option value="kiosko">Kiosko</option>
+        <option value="limpieza">Limpieza</option>
+        <option value="higiene">Higiene</option>
+        <option value="varios">Varios</option>
+        <option value="te">Té</option>
+        <option value="yerba">Yerba</option>
+        <option value="promocion">Promoción</option>
+      </select>
+
+      <input id="inputBar" type='search'
+        onChange={e => setSearchString(e.target.value)}
+        placeholder='seleccioná categoría primero...' />
+
+      <p>{data ? `Resultados para "${searchString}"` : "Could not Fetch Products"}</p>
+
+      <ResultList data={data} category={searchCat} filter={searchString} backAction={backAction} />
+    </div>
+  );
 };
