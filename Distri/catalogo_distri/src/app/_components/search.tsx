@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { IProduct } from '../_data/data';
 import Link from 'next/link';
 
@@ -27,27 +27,18 @@ const Result: React.FC<Result> = ({ sku, orden, active, name, backAction }): Rea
 
   const [productStatus, setProductStatus] = useState<true | false>(active);
   const [checkStatus, setCheckStatus] = useState<true | false> (false);
-  const firstRender = useRef(false);
 
-  useEffect(() => {
-
-    //we do not need to run on mount
-    if(!firstRender.current){
-      firstRender.current = true; 
-      return;
-    }
-
-    const result = async () => {
-      await backAction(sku);
-      setCheckStatus(false); 
-    };
+  const handleChange = async () => { 
+    setProductStatus(!productStatus); 
 
     setCheckStatus(true); 
-    result();
 
-  }, [productStatus, backAction, sku])
+    // if we could not toggle element, we return to the previous pending state
+    if (!await backAction(sku)) return setProductStatus(pending => !pending);
 
-  const handleChange = () => { setProductStatus(!productStatus); };
+    setCheckStatus(false); 
+
+  };
 
   return <li key={sku}>
             <Link href={"/admin/" + sku}>
@@ -77,7 +68,7 @@ export const Search: React.FC<Search> = ({ data, backAction }): React.JSX.Elemen
 
   return (
     <div>
-      <select id="pet-select" onChange={(e) => {
+      <select id="cat-select" onChange={(e) => {
 
         setSearchCat(e.target.value);
       }}>
@@ -89,7 +80,7 @@ export const Search: React.FC<Search> = ({ data, backAction }): React.JSX.Elemen
         <option value="galletitas">Galletitas</option>
         <option value="medicamentos">Medicamentos</option>
         <option value="nucete">Nucete</option>
-        <option value="kiosko">Kiosko</option>
+        <option value="kiosco">Kiosko</option>
         <option value="limpieza">Limpieza</option>
         <option value="higiene">Higiene</option>
         <option value="varios">Varios</option>

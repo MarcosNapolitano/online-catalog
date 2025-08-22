@@ -1,6 +1,6 @@
-import { createProduct } from "@/app/_data/utils";
+import { createProducts } from "@/app/_data/utils";
 
 export async function GET() {
 
-    return Response.json(await createProduct());
+    return Response.json(await createProducts());
 }

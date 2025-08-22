@@ -1,3 +1,5 @@
+'use server'
+
 import { IProduct, Product } from './data';
 import { writeFile } from 'node:fs/promises';
 import { readFile } from 'node:fs/promises';
@@ -50,7 +52,7 @@ function DatabaseConnects<T extends (...args: any[]) => Promise<any>>(fn: T): T 
 };
 
 /** Connects to database and creates products from csv */
-export const createProduct = DatabaseConnects(async (): Promise<string> => {
+export const createProducts = DatabaseConnects(async (): Promise<string> => {
 
   const data = await readFromCsv();
   if (!data) return "There is not any csv data";
@@ -82,14 +84,17 @@ export const createProduct = DatabaseConnects(async (): Promise<string> => {
     return "insertion complete!";
   }
 
-  catch(err) { return `could not insert products! ${err}` };
+  catch (err) { return `could not insert products! ${err}` };
 });
 
 /** Save sigle product to database */
-export const saveProduct = DatabaseConnects(async (prod: IProduct) => {
+export const saveProduct = DatabaseConnects(async (prod: IProduct): Promise<IProduct | false> => {
 
-  try { await prod.save() }
-  catch (err) { console.error(saveError + err) };
+  try { return await prod.save() }
+  catch (err) {
+    console.error(saveError + err);
+    return false;
+  };
 
 });
 
@@ -104,7 +109,7 @@ export const saveProducts = DatabaseConnects(async (prods: IProduct[]) => {
 /** Find and display all products ordered by section and category */
 export const findProducts = DatabaseConnects(async () => {
 
-  try { return await Product.find({}).sort({ sectionOrden: "asc", orden: "asc" }).lean<IProduct[]>(); }
+  try { return await Product.find({}).sort({ sectionOrden: "asc" }).lean<IProduct[]>(); }
   catch (err) {
     console.error(findError + err);
     return undefined;
@@ -116,17 +121,19 @@ since this is used to populate a simple product list*/
 export const findProductsSimplified = DatabaseConnects(async (): Promise<IProduct[] | undefined> => {
 
   try {
-    return await Product.find({}, { name: 1, 
-                                    section: 1, 
-                                    sku: 1, 
-                                    orden: 1, 
-                                    active: 1, 
-                                    _id: 0 })
-                                    .lean<IProduct[]>();
+    return await Product.find({}, {
+      name: 1,
+      section: 1,
+      sku: 1,
+      orden: 1,
+      active: 1,
+      _id: 0
+    })
+      .lean<IProduct[]>();
   }
-  catch (err) {
+  catch (err) { 
     console.error(findError + err);
-    return undefined;
+    return undefined
   };
 });
 
@@ -143,23 +150,123 @@ export const findProductbyOrder = DatabaseConnects(async (section: string, orden
 });
 
 /** Find and display a single product based on a given sku */
-export const findSingleProduct = DatabaseConnects(async (sku: string) => {
+export const findSingleProduct = DatabaseConnects(async (sku: string): Promise<IProduct | void | null> => {
 
   try { return await Product.findOne({ sku }, {}); }
-  catch (err) {
-    console.error(findError + err);
-    return undefined;
-  };
+  catch (err) { return console.error(findError + err); };
 });
 
 /** Toggle active product */
 export const toggleProduct = async (sku: string): Promise<true | false> => {
   const product = await findSingleProduct(sku);
-  if(!product) return false;
+  if (!product) return false;
 
   product.active = !product.active;
-  await saveProduct(product);
+  if (!await saveProduct(product)) return false;
+
   return true
+
+};
+
+
+export interface Response {
+  success: true | false;
+  message: string;
+  error: undefined | string;
+}
+
+
+/** Saves an new product from a form to the database */
+export const createProduct = async (formData: FormData): Promise<Response> => {
+
+  // const product = new Product();
+  // product.sku = formData.body.sku;
+  // product.precio1 = formData.body.price;
+  // product.precio2 = formData.body.price2;
+  // product.section = formData.body.section;
+  // 
+  // to do:
+  // FormData.body.imagen // writeFile con node! acordarse de ponerle sku + .webp
+  //
+  // const orden = moveProduct(product.sku, originalOrden, formData.body.orden, product.section)
+  // if (orden) product.orden = formData.body.orden;
+  // else return false
+  //
+  // return true;
+};
+
+/** Saves an edited product from a form to the database */
+export const editProduct = async (formData: FormData, originalSku: string, originalOrden: number): Promise<Response> => {
+
+  return { success: true, message: "ok", error: undefined }
+  // const product = await findSingleProduct(originalSku);
+  // product.sku = formData.get('sku');
+  // product.precio1 = formData.get('price');
+  // product.precio2 = formData.get('price2');
+  // product.section = formData.get('section');
+  // 
+  // to do:
+  // FormData.body.imagen // writeFile con node! acordarse de ponerle sku + .webp
+  //
+  // const orden = moveProduct(product.sku, originalOrden, formData.get('orden'), product.section)
+  // if (orden) product.orden = formData.get('orden')  
+  // // else return false
+  //
+  // return true;
+};
+
+/** Deletes a product from the database */
+export const deleteProduct = async (sku: string) => {
+
+  // const product = await findSingleProduct(sku);
+  //
+  // product.delete() //no se si es asi
+  //
+  // const products = await findProductbyOrder(section, product.orden + 1 );
+  //
+  // for (let i = product.orden + 1; i < products.length; i++) {
+  //
+  //   products[i].orden--;
+  //   if (!await saveProduct(product)) return console.error(`could not finish operation, stopped on sku: ${products[i].sku}`);
+  // }
+  //
+  // return true;
+};
+
+/** Used for editing and inserting products, we offset the products depending on the orders given */
+export const moveProduct = async (sku: string, currOrden: number, newOrden: number, section: string): Promise<true | void> => {
+
+  if (currOrden === newOrden) return;
+  if (newOrden <= 0) return console.log("orden not valid");
+
+  const product = await findSingleProduct(sku);
+  if (!product) return console.log("product not found!");
+
+  if (currOrden > newOrden) {
+    //  we add 1 from newOrden up until currOrden -1
+    const products = await findProductbyOrder(section, newOrden);
+
+    for (let i = newOrden; i < currOrden; i++) {
+
+      products[i].orden++;
+      if (!await saveProduct(product)) return console.error(`could not finish operation, stopped on sku: ${products[i].sku}`);
+    }
+  }
+  else {
+    // we substract 1 from currOrden +1 up untill newOrden
+    const products = await findProductbyOrder(section, currOrden + 1);
+
+    for (let i = currOrden + 1; i <= newOrden; i++) {
+
+      products[i].orden--;
+      if (!await saveProduct(product)) return console.error(`could not finish operation, stopped on sku: ${products[i].sku}`);
+    }
+  }
+
+  product.orden = newOrden;
+  if (!await saveProduct(product)) return console.error("could not move target object");
+
+  return true;
 
 };
 

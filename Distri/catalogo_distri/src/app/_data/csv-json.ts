@@ -1,4 +1,4 @@
-#!/usr/bin/env -S node --experimental-strip-types
+'use server'
 import { readFile } from 'node:fs/promises'
 
 export const readFromCsv = async (): Promise < Array<string> | void > => {
