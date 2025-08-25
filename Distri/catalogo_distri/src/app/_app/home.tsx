@@ -39,14 +39,16 @@ function createPushAndEmpty(
 };
 
 
-await (async function(): Promise<void> {
+export const readData = async (): Promise<void> => {
 
   //We get the data from the current JSON 
   data = await readFromJson();
   if (!data) return;
   return console.log("done fetching bbdd");
 
-})();
+};
+
+await readData();
 
 //Main function responsible for populating the catalog
 export default async function Populate(): Promise< ReactNode[] | void > {

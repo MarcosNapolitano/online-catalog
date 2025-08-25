@@ -25,7 +25,7 @@ export const productSchema: Schema = new Schema<IProduct>({
     price2: { type: Schema.Types.Decimal128, required: true },
     section: { type: String, required: true },
     orden: { type: Number, required: true },
-    active: { type: Boolean, required: true },
+    active: { type: Boolean, default: true },
     sectionOrden: { type: Number, required: true },
     special: { type: String, default: "" }
 
