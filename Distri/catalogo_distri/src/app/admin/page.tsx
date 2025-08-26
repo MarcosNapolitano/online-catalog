@@ -4,6 +4,7 @@ import { findProducts, findProductsSimplified, toggleProduct, writeBaseJson } fr
 import Populate, { readData } from "../_app/home";
 import Link from "next/link";
 import { revalidateTag } from "next/cache";
+import CsvForm from "../_components/csv-form";
 
 const toggleActive = async (sku: string): Promise<true | false> => {
   'use server'
@@ -39,6 +40,7 @@ export default async function Home() {
       <Search data={data} backAction={toggleActive} />
       <button onClick={handleClickAction}>Refresh Catalog</button>
       <Link href="/admin/create">Crear Producto</Link>
+      <CsvForm />
     </div>
   );
 }

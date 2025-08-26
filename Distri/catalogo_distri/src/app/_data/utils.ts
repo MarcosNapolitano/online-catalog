@@ -4,7 +4,7 @@ import { IProduct, Product } from './data';
 import { writeFile } from 'node:fs/promises';
 import { readFile } from 'node:fs/promises';
 import dotenv from 'dotenv';
-import mongoose, { Connection } from 'mongoose'
+import mongoose, { Schema, Document, Connection } from 'mongoose'
 import { readFromCsv } from './csv-json';
 
 //strings for error handling
@@ -91,6 +91,48 @@ export const createProducts = DatabaseConnects(async (): Promise<string> => {
   }
 
   catch (err) { return `${saveError} ${err}` };
+});
+
+/** Connects to database and creates products from csv */
+export const updateProducts = DatabaseConnects(async (formData: FormData): Promise<Response> => {
+
+  const file = formData.get("image") as File;
+
+  if (file.size){
+    try {
+      const data = await file.arrayBuffer();
+      await writeFile(`./src/app/_data/catalogo_web.csv`, Buffer.from(data));
+    }
+    catch (err) { return { success: false, message: "Couldn't save CSV", error: `${err}`} };
+  }
+
+  const productsData = await readFromCsv();
+  if (!productsData) return { success: false, message: "Couldn't read data", error: "check server log" };
+
+  const products = [];
+
+  for (let i = 0; i < productsData.length; i += 8) {
+
+    const product = {
+      sku : productsData[i],
+      name : productsData[i + 1],
+      url : productsData[i],
+      price : new mongoose.Types.Decimal128(productsData[i + 2]),
+      price2 : new mongoose.Types.Decimal128(productsData[i + 3]),
+      section : productsData[i + 6],
+      orden : parseInt(productsData[i + 5]),
+      active : productsData[i + 4] == "true" ? true : false,
+      sectionOrden : parseInt(productsData[i + 7]),
+    }
+    products.push(product);
+  }
+  try {
+    for (let i = 0; i < products.length; i++) {
+      await Product.replaceOne({sku: products[i].sku}, products[i])
+    }
+    return { success: true, message: "Productos actualizados correctamente", error: undefined }
+  }
+  catch (err) { return { success: false, message: saveError, error: `${err}`} };
 });
 
 /** Save single product to database */

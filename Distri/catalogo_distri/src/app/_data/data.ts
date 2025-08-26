@@ -1,6 +1,6 @@
 import mongoose, { Schema, Document } from 'mongoose';
 
-export interface IProduct extends Document{
+interface Product {
 
     sku: string,
     name: string,
@@ -14,6 +14,8 @@ export interface IProduct extends Document{
     special: "" | "oferta" | "novedad"
 
 };
+
+export type IProduct = Product & Document;
 
 //product model
 export const productSchema: Schema = new Schema<IProduct>({
