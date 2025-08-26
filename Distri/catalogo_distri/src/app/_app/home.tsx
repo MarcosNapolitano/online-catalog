@@ -6,6 +6,7 @@ import { Column, IColumn } from "@/app/_components/column";
 import Product from "@/app/_components/product";
 import { IProduct } from '@/app/_data/data';
 import { EmptyProduct } from "@/app/_components/empty-product";
+import { unstable_cacheTag as cacheTag } from "next/cache";
 
 export let data: Array<IProduct> | void;
 
@@ -52,6 +53,9 @@ await readData();
 
 //Main function responsible for populating the catalog
 export default async function Populate(): Promise< ReactNode[] | void > {
+
+  'use cache'
+  cacheTag('catalog')
 
   if (!data) return console.error("can't load home BBDD not fetched");
 

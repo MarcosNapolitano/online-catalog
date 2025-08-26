@@ -1,9 +1,9 @@
-
 import { Search } from "@/app/_components/search"
 import { IProduct } from "@/app/_data/data";
 import { findProducts, findProductsSimplified, toggleProduct, writeBaseJson } from "@/app/_data/utils";
 import Populate, { readData } from "../_app/home";
 import Link from "next/link";
+import { revalidateTag } from "next/cache";
 
 const toggleActive = async (sku: string): Promise<true | false> => {
   'use server'
@@ -25,8 +25,9 @@ export default async function Home() {
 
       await writeBaseJson(data);
       await readData();
-      console.log("Data fetched and updated");
+      revalidateTag('catalog');
 
+      console.log("Data fetched and updated");
 
     }else{ console.error("No Data Received"); };
 

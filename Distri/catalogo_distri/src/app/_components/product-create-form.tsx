@@ -27,47 +27,61 @@ const ProductCreateForm = (): React.JSX.Element => {
 
   }, initialState);
 
+  const handleDeletion = async (): Promise<void> => {
+
+    const res = confirm("Realmente desea borrar este producto?");
+    if (res) {
+      const deletion = await deleteProduct(data.sku)
+      if (!deletion.success) {
+
+        state.message = "No se pudo borrar el producto";
+        state.error = "error at deleteProduct";
+      }
+      return;
+    }
+    router.push("/admin/");
+    return;
+  };
+
   return <form action={formAction}>
-    <label htmlFor="sku"><b>SKU:</b></label>
-    <input name="sku" type="text" defaultValue="ARC0001" required />
+  <label htmlFor="sku"><b>SKU:</b></label>
+  <input name="sku" type="text" defaultValue="ARC0001" required />
 
-    <label htmlFor="name"><b>Nombre:</b></label>
-    <input name="name" type="text" defaultValue="Chocolate Arcor x18u." required />
+  <label htmlFor="name"><b>Nombre:</b></label>
+  <input name="name" type="text" defaultValue="Chocolate Arcor x18u." required />
 
-    <label htmlFor="price"><b>Precio GF:</b></label>
-    <input name="price" type="number" defaultValue="123.45" required />
+  <label htmlFor="price"><b>Precio GF:</b></label>
+  <input name="price" type="number" defaultValue="123.45" required />
 
-    <label htmlFor="price2"><b>Precio Distri:</b></label>
-    <input name="price2" type="number" defaultValue="456.54" required />
+  <label htmlFor="price2"><b>Precio Distri:</b></label>
+  <input name="price2" type="number" defaultValue="456.54" required />
 
-    <label htmlFor="section"><b>Sección:</b></label>
-    <select name="section" id="cat-select" defaultValue="kiosco">
-      <option value="almacen-2">Almacén</option>
-      <option value="bebidas-13">Bebidas</option>
-      <option value="cafe-4">Café</option>
-      <option value="edulcorantes-7">Edulcorantes</option>
-      <option value="galletitas-8">Galletitas</option>
-      <option value="medicamentos-9">Medicamentos</option>
-      <option value="nucete-3">Nucete</option>
-      <option value="kiosco-1">Kiosco</option>
-      <option value="limpieza-10">Limpieza</option>
-      <option value="higiene-11">Higiene</option>
-      <option value="varios-12">Varios</option>
-      <option value="te-5">Té</option>
-      <option value="yerba-6">Yerba</option>
-      <option value="promocion-14">Promoción</option>
-    </select>
+  <label htmlFor="section"><b>Sección:</b></label>
+  <select name="section" id="cat-select" defaultValue="almacen-2">
+  <option value="almacen-2">Almacén</option>
+  <option value="bebidas-13">Bebidas</option>
+  <option value="cafe-4">Café</option>
+  <option value="edulcorantes-7">Edulcorantes</option>
+  <option value="galletitas-8">Galletitas</option>
+  <option value="medicamentos-9">Medicamentos</option>
+  <option value="nucete-3">Nucete</option>
+  <option value="kiosco-1">Kiosco</option>
+  <option value="limpieza-10">Limpieza</option>
+  <option value="higiene-11">Higiene</option>
+  <option value="varios-12">Varios</option>
+  <option value="te-5">Té</option>
+  <option value="yerba-6">Yerba</option>
+  <option value="promocion-14">Promoción</option>
+  </select>
 
-    <label htmlFor="orden"><b>Orden:</b></label>
-    <input name="orden" type="number" defaultValue="101" required />
+  <label htmlFor="orden"><b>Orden:</b></label>
+  <input name="orden" type="number" defaultValue="101" required />
 
-    <label htmlFor="image"><b>Imágen:</b></label>
-    <input style={{ color: "whitesmoke" }} name="image" type="file" />
+  <label htmlFor="image"><b>Imágen:</b></label>
+  <input style={{ color: "whitesmoke" }} name="image" type="file" />
 
-    <input value="Editar" type="submit" required />
-    <p style={state.error ? { color: "red" } : { color: "green" }}>{state.message}</p>
+  <input value="Crear Producto" type="submit" required />
   </form>
-
 };
 
 export default ProductCreateForm;

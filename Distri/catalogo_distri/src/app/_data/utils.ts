@@ -93,14 +93,26 @@ export const createProducts = DatabaseConnects(async (): Promise<string> => {
   catch (err) { return `${saveError} ${err}` };
 });
 
-/** Save sigle product to database */
+/** Save single product to database */
 export const saveProduct = DatabaseConnects(async (prod: IProduct): Promise<IProduct | false> => {
 
-  console.log(prod.sku);
+  console.log(`${prod.sku} - is being saved on Database`);
   try { return await prod.save() }
   catch (err) {
     console.error(saveError + err);
     return false;
+  };
+
+});
+
+/** Deletes single product from database */
+export const findAndDelete = DatabaseConnects(async (sku: string): Promise<IProduct | null> => {
+
+  console.log(`${sku} - is being deleted from Database`);
+  try { return await Product.findOneAndDelete({ sku: sku }) }
+  catch (err) {
+    console.error(saveError + err);
+    return null;
   };
 
 });
@@ -126,7 +138,6 @@ export const findProducts = DatabaseConnects(async () => {
 /** Find and display all products but only the name and section
 since this is used to populate a simple product list*/
 export const findProductsSimplified = DatabaseConnects(async (): Promise<IProduct[] | undefined> => {
-
   try {
     return await Product.find({}, {
       name: 1,
@@ -199,6 +210,7 @@ export const createProduct = async (formData: FormData): Promise<Response> => {
   product.price = new mongoose.Types.Decimal128(formData.get("price") as string);
   product.price2 = new mongoose.Types.Decimal128(formData.get("price2") as string);
   product.url = formData.get("sku") as string;
+  product.orden = parseInt(formData.get("orden") as string);
   product.section = productSection[0];
   product.sectionOrden = parseInt(productSection[1]);
 
@@ -256,8 +268,7 @@ export const editProduct = async (formData: FormData, originalSku: string, origi
 
   const file = formData.get("image") as File;
 
-  if (file){
-
+  if (file.size){
     try {
       const data = await file.arrayBuffer();
       await writeFile(`./public/img/${product.sku}.webp`, Buffer.from(data));
@@ -266,16 +277,15 @@ export const editProduct = async (formData: FormData, originalSku: string, origi
       console.error(err);
       return { success: false, message: saveImageError, error: "check server log" };
     };
-
   }
 
   return { success: true, message: "Producto editado correctamente", error: undefined }
 };
 
-/** Deletes a product from the database */
+/** Deletes a product from the database and moves the adjacents elements */
 export const deleteProduct = async (sku: string): Promise<Response> => {
   try {
-    const product: IProduct | null = await Product.findOneAndDelete({ sku: sku }, { projection: { _id: 0, section: 1, orden: 1 } });
+    const product = await findAndDelete(sku);
 
     if (product) await insertProduct(product.section, product.orden, true);
 
@@ -288,7 +298,7 @@ export const deleteProduct = async (sku: string): Promise<Response> => {
 };
 
 /** Used for editing and products, we offset the products depending on the orders given */
-export const moveProduct = async (product: IProduct, newOrden: number): Promise<false | IProduct> => {
+export const moveProduct = DatabaseConnects(async (product: IProduct, newOrden: number): Promise<false | IProduct> => {
 
   const currOrden = product.orden;
 
@@ -300,54 +310,44 @@ export const moveProduct = async (product: IProduct, newOrden: number): Promise<
   }
 
   if (currOrden > newOrden) {
-    // we add 1 from newOrden - 1 (since now these are indexes) up until currOrden -1
-    const products = await findProductbyOrder(product.section, 1);
-
-    for (let i = newOrden - 1; i < currOrden - 1 && i < products.length; i++) {
-
-      products[i].orden += 1;
-      if (!await saveProduct(products[i])) {
-
-        console.error(`${moveError}could not finish operation, stopped on sku: ${products[i].sku}`);
-        return false
-      }
+    // we add 1 from newOrden up until currOrden
+    try {
+      await Product.updateMany({ orden: { $gte: newOrden, $lt: currOrden } }, { $inc: { orden: 1 } });
     }
+    catch (err) {
+      console.error(`Error while moving products, original sku: ${product.sku}\n\n${err}`);
+      return false;
+    };
+
   }
+
   else {
-    // we substract 1 from currOrden up untill newOrden - 1
-    const products = await findProductbyOrder(product.section, 1);
-
-    for (let i = currOrden; i <= newOrden - 1 && i < products.length; i++) {
-
-      products[i].orden -= 1;
-      if (!await saveProduct(products[i])) {
-        console.error(`${moveError}could not finish operation, stopped on sku: ${products[i].sku}`);
-        return false
-      }
+    // we substract 1 from currOrden up until newOrden
+    try {
+      await Product.updateMany({ orden: { $gt: currOrden, $lte: newOrden } }, { $inc: { orden: -1 } });
     }
+    catch (err) {
+      console.error(`Error while moving products, original sku: ${product.sku}\n\n${err}`);
+      return false;
+    };
   }
   product.orden = newOrden;
   return product;
-};
+});
 
 /** Used for inserting and deleteing products, we offset the products from the given order until the end */
-export const insertProduct = async (section: string, orden: number, deletion?: boolean): Promise<false | true> => {
-
-  const products = await findProductbyOrder(section, 1);
-
-  for (let i = orden - 1; i < products.length; i++) {
-
-    if (deletion) products[i].orden -= 1;
-    else products[i].orden += 1;
-
-    if (!await saveProduct(products[i])) {
-
-      console.error(`${moveError}could not finish operation, stopped on sku: ${products[i].sku}`);
-      return false
-    }
+export const insertProduct = DatabaseConnects(async (section: string, orden: number, deletion?: boolean): Promise<false | true> => {
+  try {
+    if (deletion) await Product.updateMany({ orden: { $gt: orden } }, { $inc: { orden: -1 } });
+    else await Product.updateMany({ orden: { $gte: orden } }, { $inc: { orden: 1 } });
   }
+  catch (err) {
+    console.error(`Error while moving products.\n\n${err}`);
+    return false;
+  };
+
   return true
-};
+});
 
 export const writeBaseJson = async (data: Array<IProduct>): Promise<void> => {
   try {

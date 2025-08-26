@@ -51,28 +51,59 @@ const Result: React.FC<Result> = ({ sku, orden, active, name, backAction }): Rea
 
 const ResultList: React.FC<ResultList> = ({ data, filter, category, backAction }): React.JSX.Element => {
 
+  const [limit, setLimit] = useState([0, 10]);
   if (!data) return <li>No results found </li>;
 
-  const retElement = data
+  data = data
     .filter(a => category ? a.section === category : a)
     .filter(a => a.name.toLowerCase().includes(filter.toLowerCase()))
+
+  const retElement = data
+    .filter((element: IProduct, index: number) => limit[0] <= index && index < limit[1])
     .map((a) => <Result key={a.sku} sku={a.sku} orden={a.orden} name={a.name} active={a.active} backAction={backAction} />);
 
-  return (<ul>{retElement}</ul>);
+  const pages: React.JSX.Element[] = new Array(Math.ceil(data.length/10));
+
+  const handleClick = (e: React.MouseEvent) => {
+
+    const newLimit = parseInt(e.currentTarget.id);
+
+    if(newLimit === limit[1]) return;
+    setLimit([newLimit - 10, newLimit]);
+  }
+
+  let counter: number = 10;
+
+  for (let i = 0; i < pages.length; i++) {
+    
+    pages[i] = <p key={counter} id={counter.toString()} className='pageLink'
+    onClick={(a) => handleClick(a)}>
+    { i ? <span>- </span> : <span></span>}{i + 1}&nbsp;</p>
+    counter += 10;
+    
+  } 
+
+  return <div>
+    <ul>{retElement}</ul>
+    <br />
+    <div className='links'>
+      {pages}
+    </div>
+  </div>
 };
 
 export const Search: React.FC<Search> = ({ data, backAction }): React.JSX.Element => {
 
   const [searchString, setSearchString] = useState<string>("");
-  const [searchCat, setSearchCat] = useState<string>("");
+  const [searchCat, setSearchCat] = useState<string>("kiosco");
 
   return (
     <div>
-      <select id="cat-select" onChange={(e) => {
+      <select id="cat-select" defaultValue="kiosco" onChange={(e) => {
 
         setSearchCat(e.target.value);
       }}>
-        <option id="first-option" value="">--elegí categoría--</option>
+        <option id="first-option"value="">--elegí categoría--</option>
         <option value="almacen">Almacén</option>
         <option value="bebidas">Bebidas</option>
         <option value="cafe">Café</option>
