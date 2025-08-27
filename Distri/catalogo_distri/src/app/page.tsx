@@ -2,10 +2,26 @@ import './_app/home';
 import Populate from './_app/home';
 import Image from 'next/image';
 import backgroundImage from '@/../public/img/back.webp'
+import { cookies } from 'next/headers';
+import { Deslogeo } from './_components/deslogeo';
+import { redirect, RedirectType } from 'next/navigation';
+import { getSession } from './_data/auth';
 
 export default async function Home() {
 
-  const app = await Populate();
+  const user = await getSession();
+  if (!user) redirect('/login', RedirectType.replace);
+
+  const logo = <Image className="logo index-logo" alt="logo" src="/img/logo.png" height={100} width={250} />
+  const app = await Populate(user.userName);
+  const logout = async () =>{
+    'use server'
+    const cookie = await cookies();
+    cookie.delete('auth_token');
+    cookie.delete('userName');
+
+    redirect('/login', RedirectType.replace)  
+  };
 
   return (
     <div>
@@ -16,7 +32,7 @@ export default async function Home() {
             <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
           </svg>
           <h2 className='header index-header' >Elija la categoría deseada</h2>
-          <Image className="logo index-logo" alt="logo" src="/img/logo.png" height={100} width={250} />
+          { user.userName !== "gianfranco" && logo }
         </div>
         <div className='index-categories'>
           <ul className='index-list-container'>
@@ -37,6 +53,7 @@ export default async function Home() {
             <li className="index-category header-yerba"><a href="#yerba-1">Yerba</a></li>
             <li className="index-category header-promocion"><a href="#promocion-1">Promocion</a></li>
           </ul>
+          <Deslogeo action={logout} />
         </div>
         <div className="svg section-footer">
           <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">

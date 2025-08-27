@@ -27,22 +27,6 @@ const ProductCreateForm = (): React.JSX.Element => {
 
   }, initialState);
 
-  const handleDeletion = async (): Promise<void> => {
-
-    const res = confirm("Realmente desea borrar este producto?");
-    if (res) {
-      const deletion = await deleteProduct(data.sku)
-      if (!deletion.success) {
-
-        state.message = "No se pudo borrar el producto";
-        state.error = "error at deleteProduct";
-      }
-      return;
-    }
-    router.push("/admin/");
-    return;
-  };
-
   return <form action={formAction}>
   <label htmlFor="sku"><b>SKU:</b></label>
   <input name="sku" type="text" defaultValue="ARC0001" required />

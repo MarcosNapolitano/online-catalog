@@ -5,6 +5,7 @@ import { writeFile } from 'node:fs/promises';
 import { readFile } from 'node:fs/promises';
 import dotenv from 'dotenv';
 import mongoose, { Schema, Document, Connection } from 'mongoose'
+import DatabaseConnects from './db_connect';
 import { readFromCsv } from './csv-json';
 
 //strings for error handling
@@ -19,45 +20,6 @@ export interface Response {
   error: undefined | string;
 }
 
-function DatabaseConnects<T extends (...args: any[]) => Promise<any>>(fn: T): T {
-
-  const connect = async (): Promise<Connection | void> => {
-    dotenv.config();
-
-    const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@distri.scp8dpz.mongodb.net/Distri?&w=majority`;
-    try { await mongoose.connect(uri); }
-    catch (err) { console.error("Could not connect to Database \n\n" + err); };
-
-
-    //if error after connection
-    return mongoose.connection.on('error', err => {
-      console.error("Connection to DataBase lost\n\n" + err);
-    });
-  };
-
-  const close = async (conn: Connection): Promise<void> => {
-
-    if (!conn) return console.warn("no connection to close.");
-
-    try { conn.close() }
-    catch { console.error("error trying to close connection.") };
-
-  };
-
-  return (async function(...args: any[]) {
-
-    const Conn = await connect();
-
-    if (Conn) {
-
-      const retValue = await fn(...args);
-      close(Conn);
-
-      return retValue;
-
-    };
-  }) as T;
-};
 
 /** Connects to database and creates products from csv */
 export const createProducts = DatabaseConnects(async (): Promise<string> => {

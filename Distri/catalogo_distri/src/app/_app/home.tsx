@@ -21,6 +21,7 @@ function createPushAndEmpty(
     key?: string,
     name?: string,
     section?: string 
+    user?: string
   }
 
 ): void {
@@ -39,7 +40,6 @@ function createPushAndEmpty(
 
 };
 
-
 export const readData = async (): Promise<void> => {
 
   //We get the data from the current JSON 
@@ -52,7 +52,7 @@ export const readData = async (): Promise<void> => {
 await readData();
 
 //Main function responsible for populating the catalog
-export default async function Populate(): Promise< ReactNode[] | void > {
+export default async function Populate(userName: string): Promise< ReactNode[] | void > {
 
   'use cache'
   cacheTag('catalog')
@@ -151,7 +151,8 @@ export default async function Populate(): Promise< ReactNode[] | void > {
     {
       id: sectionCounter.toString(),
       key: sectionCounter.toString(),
-      name: actualSection
+      name: actualSection,
+      user: userName
     });
 
     rowCounter = 0;
@@ -173,9 +174,12 @@ export default async function Populate(): Promise< ReactNode[] | void > {
       sectionCounter = 0;
     }
 
+    // workaround for Decimal128 type
+    const price = data[i].active ? 
+      ((userName === "gianfranco" ? data[i].price : data[i].price2) as unknown as { $numberDecimal : string })
+      .$numberDecimal as string : 
+      "Sin Stock";
 
-    //workaround since I receive the data serialized in JSON
-    const price = data[i].active ? (data[i].price as unknown as { $numberDecimal: string }).$numberDecimal as string : "Sin Stock";
 
     //We Create the elements and we push them into arrays
     //until they hold the right amount to be pushed onto their parents
@@ -221,7 +225,8 @@ export default async function Populate(): Promise< ReactNode[] | void > {
       {
         id: sectionCounter.toString(),
         key: sectionCounter.toString(),
-        name: actualSection
+        name: actualSection,
+        user: userName
       });
     };
   };

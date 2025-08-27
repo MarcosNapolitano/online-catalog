@@ -1,0 +1,35 @@
+section{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+h2{
+  margin-bottom: 1rem;
+}
+
+.loginForm{
+  background-color: #292929;
+  color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: min(600px, 90%);
+  height: 250px;
+  border-radius: 2rem;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -2px;
+}
+
+label{
+  text-align: left;
+}
+
+input{
+  max-width: 90%;
+  border-radius: .5rem;
+}
+
+.wrong{
+  border: 2px solid red;
+}
