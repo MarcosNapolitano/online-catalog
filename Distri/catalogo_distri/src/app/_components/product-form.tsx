@@ -1,8 +1,9 @@
 "use client"
-
 import { useActionState } from "react"
-import { IProduct } from "../_data/data"
-import { type Response, editProduct, deleteProduct } from "../_data/utils";
+import { type IProduct } from "@/app/_data/types"
+import { type Response } from "@/app/_data/types"
+import { type ProductForm } from "@/app/_data/types"
+import { editProduct, deleteProduct } from "@/app/_services/product_utils";
 import { useRouter } from "next/navigation";
 
 const initialState: Response = {
@@ -10,15 +11,6 @@ const initialState: Response = {
   message: "",
   error: undefined,
 };
-
-interface ProductForm {
-  sku: string;
-  name: string;
-  price: string;
-  price2: string;
-  section: string;
-  orden: number;
-}
 
 const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
 
@@ -33,6 +25,7 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
       data.price2 = formData.get("price2") as string;
       data.section = formData.get("section") as string;
       data.orden = parseInt(formData.get("orden") as string);
+      data.special = formData.get("special") as string;
     }
     else { console.error(response.error) };
 
@@ -57,7 +50,8 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
     return;
   };
 
-  return <div>
+  return (
+  <div>
     <form action={formAction}>
       <label htmlFor="sku"><b>SKU:</b></label>
       <input name="sku" type="text" defaultValue={data.sku} required />
@@ -66,10 +60,10 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
       <input name="name" type="text" defaultValue={data.name} required />
 
       <label htmlFor="price"><b>Precio GF:</b></label>
-      <input name="price" type="number" defaultValue={data.price.toString()} required />
+      <input name="price" type="number" step="0.01" min="0" max="999999" defaultValue={data.price.toString()} required />
 
       <label htmlFor="price2"><b>Precio Distri:</b></label>
-      <input name="price2" type="number" defaultValue={data.price2.toString()} required />
+      <input name="price2" type="number" step="0.01" min="0" max="999999" defaultValue={data.price2.toString()} required />
 
       <label htmlFor="section"><b>Sección:</b></label>
       <select name="section" id="cat-select" defaultValue={data.section}>
@@ -93,8 +87,8 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
       <input name="orden" type="number" defaultValue={data.orden} required />
 
       <label htmlFor="special"><b>Etiqueta:</b></label>
-      <select name="special" id="cat-select" defaultValue="''">
-        <option value="''">Ninguna</option>
+      <select name="special" id="cat-select" defaultValue="">
+        <option value="">Ninguna</option>
         <option value="oferta">Oferta</option>
         <option value="novedad">Novedad</option>
       </select>
@@ -106,6 +100,7 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
     </form>
     <button onClick={handleDeletion} style={{ backgroundColor: "red", color: "white" }}>Borrar Producto</button>
   </div>
+  );
 };
 
 export default ProductForm;

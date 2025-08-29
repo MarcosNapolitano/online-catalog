@@ -3,8 +3,8 @@ import './login.css'
 import backgroundImage from '@/../public/img/back.webp'
 import { useActionState } from "react"
 import { useRouter } from "next/navigation";
-import { type Response } from "@/app/_data/utils"
-import { login } from '../_data/user_utils';
+import { type Response } from "@/app/_data/types"
+import { login } from '@/app/_services/user_utils';
 
 const initialState: Response = {
   success: false,

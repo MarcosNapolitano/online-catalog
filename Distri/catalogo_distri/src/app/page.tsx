@@ -5,7 +5,7 @@ import backgroundImage from '@/../public/img/back.webp'
 import { cookies } from 'next/headers';
 import { Deslogeo } from './_components/deslogeo';
 import { redirect, RedirectType } from 'next/navigation';
-import { getSession } from './_data/auth';
+import { getSession } from './_services/auth';
 
 export default async function Home() {
 

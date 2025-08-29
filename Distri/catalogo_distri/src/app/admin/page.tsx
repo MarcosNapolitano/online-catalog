@@ -1,10 +1,11 @@
 import { Search } from "@/app/_components/search"
-import { IProduct } from "@/app/_data/data";
-import { findProducts, findProductsSimplified, toggleProduct, writeBaseJson } from "@/app/_data/utils";
-import Populate, { readData } from "../_app/home";
+import { type IProduct } from "@/app/_data/types";
+import { findProducts, findProductsSimplified, toggleProduct } from "@/app/_services/product_utils";
+import { writeBaseJson, readData } from "@/app/_services/json_utils";
+import Populate from "@/app/_app/home";
 import Link from "next/link";
 import { revalidateTag } from "next/cache";
-import CsvForm from "../_components/csv-form";
+import CsvForm from "@/app/_components/csv-form";
 
 const toggleActive = async (sku: string): Promise<true | false> => {
   'use server'
@@ -17,14 +18,14 @@ const toggleActive = async (sku: string): Promise<true | false> => {
 
 export default async function Home() {
 
-  const data: IProduct[] | undefined = await findProductsSimplified();
+  const products: IProduct[] | undefined = await findProductsSimplified();
 
   const handleClickAction = async () => {
     'use server'
-    const data: IProduct[] | undefined = await findProducts();
-    if (data) {
+    const products: IProduct[] | undefined = await findProducts();
+    if (products) {
 
-      await writeBaseJson(data);
+      await writeBaseJson(products);
       await readData();
       revalidateTag('catalog');
 
@@ -37,7 +38,7 @@ export default async function Home() {
   return (
     <div>
       <h1>Wellcome to the admin panel</h1>
-      <Search data={data} backAction={toggleActive} />
+      <Search products={products} backAction={toggleActive} />
       <button onClick={handleClickAction}>Refresh Catalog</button>
       <Link href="/admin/create">Crear Producto</Link>
       <CsvForm />

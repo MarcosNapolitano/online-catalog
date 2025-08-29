@@ -1,26 +1,29 @@
 import React, { createElement, ReactNode } from 'react';
-import { readFromJson } from "@/app/_data/utils";
-import { Section, ISection } from "@/app/_components/section";
-import { Row, IRow } from "@/app/_components/row";
-import { Column, IColumn } from "@/app/_components/column";
-import Product from "@/app/_components/product";
-import { IProduct } from '@/app/_data/data';
+import { type IProductComp } from "@/app/_data/types"
+import { type ISection } from "@/app/_data/types"
+import { type IColumn } from "@/app/_data/types"
+import { type IRow } from "@/app/_data/types"
+import { type IProduct } from '@/app/_data/types';
+import { readData, readFromJson } from "@/app/_services/json_utils";
+import { Section } from "@/app/_components/section";
+import { Row } from "@/app/_components/row";
+import { Column } from "@/app/_components/column";
+import { Product } from "@/app/_components/product";
 import { EmptyProduct } from "@/app/_components/empty-product";
 import { unstable_cacheTag as cacheTag } from "next/cache";
 
-export let data: Array<IProduct> | void;
 
 /** Creates element pushes it into it's array and clears child's array*/
 function createPushAndEmpty(
 
-  comp: React.FC<IColumn | IRow | ISection>,
+  comp: React.FC<IColumn> | React.FC<IRow> | React.FC<ISection>,
   childArr: Array<ReactNode>,
-  compArr: Array<ReactNode>, 
-  props: { 
+  compArr: Array<ReactNode>,
+  props: {
     id: string,
     key?: string,
     name?: string,
-    section?: string 
+    section?: string
     user?: string
   }
 
@@ -40,24 +43,14 @@ function createPushAndEmpty(
 
 };
 
-export const readData = async (): Promise<void> => {
-
-  //We get the data from the current JSON 
-  data = await readFromJson();
-  if (!data) return;
-  return console.log("done fetching bbdd");
-
-};
-
-await readData();
-
 //Main function responsible for populating the catalog
-export default async function Populate(userName: string): Promise< ReactNode[] | void > {
+export default async function Populate(userName: string): Promise<ReactNode[] | void> {
 
   'use cache'
   cacheTag('catalog')
+  const products = await readData();
 
-  if (!data) return console.error("can't load home BBDD not fetched");
+  if (!products) return console.error("can't load home BBDD not fetched");
 
   //Components collecting arrays to be passed as children
   //to React.createElement
@@ -76,7 +69,7 @@ export default async function Populate(userName: string): Promise< ReactNode[] |
   let actualSection: string = "";
 
   /** Creates blanks columns in order to fill an incomplete row */
-  function createEmptyColumn(): void{
+  function createEmptyColumn(): void {
 
     colCounter++;
 
@@ -86,12 +79,12 @@ export default async function Populate(userName: string): Promise< ReactNode[] |
     productPlaceholder.push(prod0);
     productPlaceholder.push(prod1);
 
-    createPushAndEmpty(Column, productPlaceholder, columnPlaceholder, 
-                       { 
-                         id: colCounter.toString(), 
-                         key: colCounter.toString(), 
-                         section: actualSection 
-                       });
+    createPushAndEmpty(Column, productPlaceholder, columnPlaceholder,
+      {
+        id: colCounter.toString(),
+        key: colCounter.toString(),
+        section: actualSection
+      });
   };
 
   /** Empties remainder elements in placeholders */
@@ -109,11 +102,11 @@ export default async function Populate(userName: string): Promise< ReactNode[] |
       productPlaceholder.push(prod);
 
       createPushAndEmpty(Column, productPlaceholder, columnPlaceholder,
-                         { 
-                           id: colCounter.toString(),
-                           key: colCounter.toString(),
-                           section: actualSection 
-                         });
+        {
+          id: colCounter.toString(),
+          key: colCounter.toString(),
+          section: actualSection
+        });
 
     };
 
@@ -123,10 +116,10 @@ export default async function Populate(userName: string): Promise< ReactNode[] |
     colCounter = 0;
 
     createPushAndEmpty(Row, columnPlaceholder, rowPlaceholder,
-                       {
-                         id: rowCounter.toString(),
-                         key: rowCounter.toString()
-                       });
+      {
+        id: rowCounter.toString(),
+        key: rowCounter.toString()
+      });
 
     //now that we don't have any more incomplete rows, we create enough
     //of them to fill the current section "whitespace"
@@ -139,45 +132,45 @@ export default async function Populate(userName: string): Promise< ReactNode[] |
       colCounter = 0;
 
       createPushAndEmpty(Row, columnPlaceholder, rowPlaceholder,
-                         { 
-                           id: rowCounter.toString(), 
-                           key: rowCounter.toString() 
-                         });
+        {
+          id: rowCounter.toString(),
+          key: rowCounter.toString()
+        });
 
     };
 
     sectionCounter++;
     createPushAndEmpty(Section, rowPlaceholder, sectionPlaceholder,
-    {
-      id: sectionCounter.toString(),
-      key: sectionCounter.toString(),
-      name: actualSection,
-      user: userName
-    });
+      {
+        id: sectionCounter.toString(),
+        key: sectionCounter.toString(),
+        name: actualSection,
+        user: userName
+      });
 
     rowCounter = 0;
 
   };
 
   // Main func starts here
-  for (let i = 0; i < data.length; i++) {
+  for (let i = 0; i < products.length; i++) {
 
     //we define the first section
-    if (!actualSection) actualSection = data[i].section;
+    if (!actualSection) actualSection = products[i].section;
 
     //if sections mismatch between products, that means a new section
-    else if (actualSection != data[i].section) {
+    else if (actualSection != products[i].section) {
 
       emptyRemainder();
 
-      actualSection = data[i].section;
+      actualSection = products[i].section;
       sectionCounter = 0;
     }
 
     // workaround for Decimal128 type
-    const price = data[i].active ? 
-      ((userName === "gianfranco" ? data[i].price : data[i].price2) as unknown as { $numberDecimal : string })
-      .$numberDecimal as string : 
+    const price = products[i].active ?
+      ((userName === "gianfranco" ? products[i].price : products[i].price2) as unknown as { $numberDecimal: string })
+        .$numberDecimal as string :
       "Sin Stock";
 
 
@@ -186,48 +179,49 @@ export default async function Populate(userName: string): Promise< ReactNode[] |
     //we do this kind of recursively, base case being the end of the JSON
     const prod = createElement(Product,
       {
-        id: data[i].sku,
-        key: data[i].sku,
-        title: data[i].name,
+        id: products[i].sku,
+        key: products[i].sku,
+        title: products[i].name,
         section: actualSection,
         price: price,
-        url: data[i].url,
-        active: data[i].active,
-        special: data[i].special 
+        url: products[i].url,
+        active: products[i].active,
+        special: products[i].special
       });
 
     productPlaceholder.push(prod);
 
     //Each time we make two products, we add them to a column and so on
-    if (data[i].orden % 2 == 0) {
+    if (products[i].orden % 2 == 0) {
       colCounter++;
       createPushAndEmpty(Column, productPlaceholder, columnPlaceholder,
-                         { 
-                           id: colCounter.toString(),
-                           key: colCounter.toString(),
-                           section: actualSection 
-                         });
+        {
+          id: colCounter.toString(),
+          key: colCounter.toString(),
+          section: actualSection
+        });
     };
 
     if (colCounter == 3) {
       rowCounter++;
       colCounter = 0;
       createPushAndEmpty(Row, columnPlaceholder, rowPlaceholder,
-                         { id: rowCounter.toString(),
-                           key: rowCounter.toString() 
-                         });
+        {
+          id: rowCounter.toString(),
+          key: rowCounter.toString()
+        });
     };
 
     if ((rowCounter == 4 && sectionCounter == 0) || rowCounter == 5) {
       sectionCounter++;
       rowCounter = 0;
-      createPushAndEmpty(Section, rowPlaceholder, sectionPlaceholder, 
-      {
-        id: sectionCounter.toString(),
-        key: sectionCounter.toString(),
-        name: actualSection,
-        user: userName
-      });
+      createPushAndEmpty(Section, rowPlaceholder, sectionPlaceholder,
+        {
+          id: sectionCounter.toString(),
+          key: sectionCounter.toString(),
+          name: actualSection,
+          user: userName
+        });
     };
   };
 

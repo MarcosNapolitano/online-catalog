@@ -1,10 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-
-export interface IEmptyProduct{
-  id: string;
-  section?: string;
-}
+import { type IEmptyProduct } from '@/app/_data/types';
 
 export const EmptyProduct: React.FC<IEmptyProduct> = ({ id, section }) => {
   return (

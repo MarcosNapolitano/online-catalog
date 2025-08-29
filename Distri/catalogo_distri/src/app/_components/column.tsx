@@ -1,10 +1,5 @@
 import React from 'react';
-
-export interface IColumn{
-  id: string;
-  section?: string;
-  children?: React.ReactNode;
-}
+import { IColumn } from '@/app/_data/types';
 
 // React.fc makes the children at the interface optional!
 export const Column: React.FC<IColumn> = ({ id, section, children }) : React.JSX.Element => {

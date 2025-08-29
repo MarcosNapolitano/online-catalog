@@ -1,27 +1,5 @@
 import mongoose, { Schema, Document } from 'mongoose';
-
-interface Product {
-
-    sku: string,
-    name: string,
-    url: string,
-    price: mongoose.Types.Decimal128,
-    price2: mongoose.Types.Decimal128,
-    section: string,
-    orden: number,
-    active: boolean,
-    sectionOrden: number,
-    special: "" | "oferta" | "novedad"
-
-};
-
-interface User{
-  name: string;
-  password: string;
-}
-
-export type IProduct = Product & Document;
-export type IUser = User & Document;
+import { IProduct, IUser } from './types';
 
 //product model
 export const productSchema: Schema = new Schema<IProduct>({

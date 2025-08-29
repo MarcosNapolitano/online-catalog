@@ -1,27 +1,10 @@
 'use client'
 import React, { useState } from 'react';
-import { IProduct } from '../_data/data';
+import { type IProduct } from '@/app/_data/types';
+import { type SearchComp } from '@/app/_data/types';
+import { type ResultList } from '@/app/_data/types';
+import { type Result } from '@/app/_data/types';
 import Link from 'next/link';
-
-interface Search {
-  data: IProduct[] | undefined;
-  backAction: (sku: string) => Promise<true | false>;
-}
-
-interface ResultList {
-  data: IProduct[] | void;
-  filter: string;
-  category?: string;
-  backAction: (sku: string) => Promise<true | false>;
-}
-
-interface Result {
-  sku: string;
-  active: boolean;
-  name: string;
-  orden: number;
-  backAction: (sku: string) => Promise<true | false>;
-}
 
 const Result: React.FC<Result> = ({ sku, orden, active, name, backAction }): React.JSX.Element => {
 
@@ -49,20 +32,20 @@ const Result: React.FC<Result> = ({ sku, orden, active, name, backAction }): Rea
 
 };
 
-const ResultList: React.FC<ResultList> = ({ data, filter, category, backAction }): React.JSX.Element => {
+const ResultList: React.FC<ResultList> = ({ products, filter, category, backAction }): React.JSX.Element => {
 
   const [limit, setLimit] = useState([0, 10]);
-  if (!data) return <li>No results found </li>;
+  if (!products) return <li>No results found </li>;
 
-  data = data
+  products = products
     .filter(a => category ? a.section === category : a)
     .filter(a => a.name.toLowerCase().includes(filter.toLowerCase()))
 
-  const retElement = data
+  const retElement = products
     .filter((element: IProduct, index: number) => limit[0] <= index && index < limit[1])
     .map((a) => <Result key={a.sku} sku={a.sku} orden={a.orden} name={a.name} active={a.active} backAction={backAction} />);
 
-  const pages: React.JSX.Element[] = new Array(Math.ceil(data.length/10));
+  const pages: React.JSX.Element[] = new Array(Math.ceil(products.length/10));
 
   const handleClick = (e: React.MouseEvent) => {
 
@@ -92,7 +75,7 @@ const ResultList: React.FC<ResultList> = ({ data, filter, category, backAction }
   </div>
 };
 
-export const Search: React.FC<Search> = ({ data, backAction }): React.JSX.Element => {
+export const Search: React.FC<SearchComp> = ({ products, backAction }): React.JSX.Element => {
 
   const [searchString, setSearchString] = useState<string>("");
   const [searchCat, setSearchCat] = useState<string>("kiosco");
@@ -124,9 +107,9 @@ export const Search: React.FC<Search> = ({ data, backAction }): React.JSX.Elemen
         onChange={e => setSearchString(e.target.value)}
         placeholder='seleccioná categoría primero...' />
 
-      <p>{data ? `Resultados para "${searchString}"` : "Could not Fetch Products"}</p>
+      <p>{products ? `Resultados para "${searchString}"` : "Could not Fetch Products"}</p>
 
-      <ResultList data={data} category={searchCat} filter={searchString} backAction={backAction} />
+      <ResultList products={products} category={searchCat} filter={searchString} backAction={backAction} />
     </div>
   );
 };

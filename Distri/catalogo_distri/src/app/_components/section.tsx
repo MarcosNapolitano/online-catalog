@@ -2,13 +2,7 @@ import Image from 'next/image';
 import React from 'react';
 import backgroundImage from '@/../public/img/back.webp'
 import Link from 'next/link';
-
-export interface ISection{
-  id: string;
-  name?: string;
-  children?: React.ReactNode;
-  user?: string
-}
+import { ISection } from '@/app/_data/types';
 
 export const Section: React.FC<ISection> = ({ id, name, user, children }) => {
 

@@ -1,7 +1,7 @@
 import "./admin.css";
 import { Poppins } from 'next/font/google'
 import { redirect, RedirectType } from "next/navigation";
-import { getSession } from "../_data/auth";
+import { getSession } from "@/app/_services/auth";
 
 const poppins = Poppins({ 
     weight: ["400", "800"],

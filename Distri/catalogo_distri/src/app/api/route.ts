@@ -1,13 +1,24 @@
-import { IProduct } from "@/app/_data/data";
-import { writeBaseJson, findProducts } from "@/app/_data/utils";
+import mongoose from "mongoose"
+import { Product } from "@/app/_data/data"
+import { IProduct } from "@/app/_data/types"
+import DatabaseConnects from "@/app/_services/db_connect"
 
+const findProductsSimplified = DatabaseConnects(async () => {
+  try {
+    return await Product.find({}, {
+      special: 1,
+      _id: 0
+    }).sort({ sectionOrden: "asc", orden: "asc" })
+      .lean();
+  }
+  catch (err) {
+    console.error(err);
+    return undefined
+  };
+});
+ 
 export async function GET() {
-
-    const data: IProduct[] | undefined = await findProducts()
-    if (data) {
-
-        await writeBaseJson(data);
-        return Response.json(data);
-
-    }else{ return Response.json("no data received"); };
+ 
+  const products = await findProductsSimplified();
+  return Response.json({ products })
 }

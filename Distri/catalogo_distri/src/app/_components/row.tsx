@@ -1,9 +1,5 @@
 import React from 'react';
-
-export interface IRow{
-  id: string;
-  children?: React.ReactNode;
-}
+import { type IRow } from '@/app/_data/types';
 
 export const Row: React.FC<IRow> = ({ id, children }) => {
   return (

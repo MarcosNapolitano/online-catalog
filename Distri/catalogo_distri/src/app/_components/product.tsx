@@ -1,17 +1,11 @@
 import React from 'react';
 import Image from 'next/image'
+import { type IProductComp } from '@/app/_data/types';
 
-export interface IProduct {
-  id: string,
-  title: string,
-  section: string,
-  price: string,
-  url: string,
-  active: boolean,
-  special: "oferta" | "novedad" | ""
-}
+export const Product: React.FC<IProductComp> = ({ id, title, section, price, url, active, special }) => {
 
-const Product: React.FC<IProduct> = ({ id, title, section, price, url, active, special }) => {
+  const URL = 'https://pub-4bcfec8b72ed41d5b9e9321f33dcb703.r2.dev'
+
   return (
     <div id={"product-" + id} className="product">
 
@@ -21,7 +15,7 @@ const Product: React.FC<IProduct> = ({ id, title, section, price, url, active, s
 
 
       <Image id={"image-" + id} alt="producto" className={active ? "prod-image" : "prod-image inactive"}
-        src={`/img/` + id + ".webp"} width={200} height={200} />
+        src={`/img/${id}.webp`} width={200} height={200} />
       <div className="prod-info">
         <p id={"title-" + id} className="title">{title}</p>
         <p id={"price-" + id} className={`${section}-price price`}>{active ? "$" + price : price}</p>
@@ -30,4 +24,3 @@ const Product: React.FC<IProduct> = ({ id, title, section, price, url, active, s
   );
 };
 
-export default Product;

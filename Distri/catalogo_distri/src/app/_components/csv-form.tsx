@@ -1,18 +1,14 @@
 "use client"
-
 import { useActionState } from "react"
-import { IProduct } from "../_data/data"
-import { type Response, updateProducts } from "../_data/utils";
+import { type IProduct } from "@/app/_data/types"
+import { type Response} from "@/app/_data/types"
+import { updateProducts } from "@/app/_services/product_utils";
 
 const initialState: Response = {
   success: false,
   message: "",
   error: undefined,
 };
-
-interface CsvForm {
-  file: File;
-}
 
 const CsvForm = (): React.JSX.Element => {
 
@@ -26,7 +22,7 @@ const CsvForm = (): React.JSX.Element => {
     <form action={formAction}>
       <label htmlFor="csv"><b>Archivo CSV:</b></label>
       <label>SKU - NOMBRE - PRICE - PRICE2 - ACTIVE - ORDEN - SECTION - SECTION ORDEN</label>
-      <input style={{ color: "whitesmoke" }} name="image" type="file" />
+      <input style={{ color: "whitesmoke" }} name="csv" type="file" />
 
       <input value="Subir CSV" type="submit" />
       <p style={state.error ? { color: "red" } : { color: "green" }}>{state.message}</p>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import NotFound from "@/app/not-found";
-import { findSingleProduct, editProduct } from "@/app/_data/utils";
+import { findSingleProduct, editProduct } from "@/app/_services/product_utils";
 import ProductForm from "@/app/_components/product-form";
 
 
