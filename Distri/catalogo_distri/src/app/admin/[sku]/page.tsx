@@ -5,7 +5,7 @@ import { findSingleProduct, editProduct } from "@/app/_services/product_utils";
 import ProductForm from "@/app/_components/product-form";
 
 
-export default async function Page({ params, }: { params: { sku: string } }) {
+export default async function Page({ params, }: { params: Promise<{ sku: string }> }) {
 
   const sku = await params;
   const data = await findSingleProduct(sku.sku);
@@ -17,7 +17,8 @@ export default async function Page({ params, }: { params: { sku: string } }) {
     price: data.price.toString(),
     price2: data.price2.toString(),
     section: data.section,
-    orden: data.orden
+    orden: data.orden,
+    special: data.special
   }
 
   return (

@@ -23,7 +23,7 @@ export const createProducts = DatabaseConnects(async (): Promise<string> => {
 
   const products: Array<IProduct> = [];
 
-  for (let i = 0; i < productsData.length; i += 8) {
+  for (let i = 0; i < productsData.length; i += 9) {
     const product: IProduct = new Product;
 
     product.sku = productsData[i];
@@ -35,12 +35,13 @@ export const createProducts = DatabaseConnects(async (): Promise<string> => {
     product.section = productsData[i + 6];
     product.url = productsData[i];
     product.sectionOrden = parseInt(productsData[i + 7]);
+    product.special = productsData[i + 8] as "" | "oferta" | "novedad";
 
     products.push(product);
     console.log(`Creating product ${product.sku}`);
   }
 
-  if(await saveProducts(products)) return "Insertion complete!";
+  if (await saveProducts(products)) return "Insertion complete!";
   return "Insertion failed"
 
 });
@@ -92,8 +93,8 @@ export const createProduct = async (formData: FormData): Promise<Response> => {
 export const saveProducts = DatabaseConnects(async (prods: IProduct[]): Promise<boolean> => {
 
   console.log("Beginning insertion");
-  try { await Product.insertMany(prods); return true}
-  catch (err) { console.error(saveError + err); return false};
+  try { await Product.insertMany(prods); return true }
+  catch (err) { console.error(saveError + err); return false };
 
 });
 
@@ -113,12 +114,12 @@ export const saveProduct = DatabaseConnects(async (prod: IProduct): Promise<IPro
 export const updateProducts = DatabaseConnects(async (formData: FormData): Promise<Response> => {
 
   const file = formData.get("csv") as File;
-  if (file.size){
+  if (file.size) {
     try {
       const data = await file.arrayBuffer();
       await writeFile(`./src/app/_data/catalogo_web.csv`, Buffer.from(data));
     }
-    catch (err) { return { success: false, message: "Couldn't save CSV", error: `${err}`} };
+    catch (err) { return { success: false, message: "Couldn't save CSV", error: `${err}` } };
   }
 
   const productsData = await readFromCsv();
@@ -129,15 +130,15 @@ export const updateProducts = DatabaseConnects(async (formData: FormData): Promi
   for (let i = 0; i < productsData.length; i += 9) {
 
     const product = {
-      sku : productsData[i],
-      name : productsData[i + 1],
-      url : productsData[i],
-      price : new mongoose.Types.Decimal128(productsData[i + 2]),
-      price2 : new mongoose.Types.Decimal128(productsData[i + 3]),
-      section : productsData[i + 6],
-      orden : parseInt(productsData[i + 5]),
-      active : productsData[i + 4] == "true" ? true : false,
-      sectionOrden : parseInt(productsData[i + 7]),
+      sku: productsData[i],
+      name: productsData[i + 1],
+      url: productsData[i],
+      price: new mongoose.Types.Decimal128(productsData[i + 2]),
+      price2: new mongoose.Types.Decimal128(productsData[i + 3]),
+      section: productsData[i + 6],
+      orden: parseInt(productsData[i + 5]),
+      active: productsData[i + 4] == "true" ? true : false,
+      sectionOrden: parseInt(productsData[i + 7]),
       special: productsData[i + 8] as "" | "oferta" | "novedad"
     };
     products.push(product);
@@ -145,12 +146,12 @@ export const updateProducts = DatabaseConnects(async (formData: FormData): Promi
   try {
     for (let i = 0; i < products.length; i++) {
 
-      console.log(`Updating product ${i+1} from ${products.length}`);
-      await Product.replaceOne({sku: products[i].sku}, products[i])
+      console.log(`Updating product ${i + 1} from ${products.length}`);
+      await Product.replaceOne({ sku: products[i].sku }, products[i])
     }
     return { success: true, message: "Productos actualizados correctamente", error: undefined }
   }
-  catch (err) { return { success: false, message: saveError, error: `${err}`} };
+  catch (err) { return { success: false, message: saveError, error: `${err}` } };
 });
 
 /** Saves an edited product from a form to the database */
@@ -181,7 +182,7 @@ export const editProduct = async (formData: FormData, originalSku: string, origi
 
   const file = formData.get("image") as File;
 
-  if (file.size){
+  if (file.size) {
     try {
       console.log(`Saving ${product.sku}'s image.'`)
       const data = await file.arrayBuffer();
@@ -298,7 +299,6 @@ export const toggleProduct = async (sku: string): Promise<true | false> => {
 };
 
 /** Used for editing and products, we offset the products depending on the orders given */
-// to do: move product on the proudct's own category bro also you missed 2 rows on cookies section
 export const moveProduct = DatabaseConnects(async (product: IProduct, newOrden: number): Promise<false | IProduct> => {
 
   const currOrden = product.orden;
@@ -310,30 +310,29 @@ export const moveProduct = DatabaseConnects(async (product: IProduct, newOrden: 
     return false;
   }
 
-  console.log(`${product.sku} is being moved from position ${currOrden} ${newOrden}`);
+  console.log(`${product.sku} is being moved from position ${currOrden} to ${newOrden}`);
 
   if (currOrden > newOrden) {
     // we add 1 from newOrden up until currOrden
     try {
-      await Product.updateMany({ orden: { $gte: newOrden, $lt: currOrden } }, { $inc: { orden: 1 } });
+      await Product.updateMany({ sectionOrden: product.sectionOrden, orden: { $gte: newOrden, $lt: currOrden } }, { $inc: { orden: 1 } });
     }
     catch (err) {
       console.error(`Error while moving products, original sku: ${product.sku}\n\n${err}`);
       return false;
     };
-
   }
-
   else {
     // we substract 1 from currOrden up until newOrden
     try {
-      await Product.updateMany({ orden: { $gt: currOrden, $lte: newOrden } }, { $inc: { orden: -1 } });
+      await Product.updateMany({ sectionOrden: product.sectionOrden, orden: { $gt: currOrden, $lte: newOrden } }, { $inc: { orden: -1 } });
     }
     catch (err) {
       console.error(`Error while moving products, original sku: ${product.sku}\n\n${err}`);
       return false;
     };
   }
+
   product.orden = newOrden;
   return product;
 });

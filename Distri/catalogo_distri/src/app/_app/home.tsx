@@ -43,12 +43,17 @@ function createPushAndEmpty(
 
 };
 
+const fetchData = async (): Promise<IProduct[]> =>{
+  'use cache'
+  cacheTag('catalog')
+  return await readData();
+
+}
+
 //Main function responsible for populating the catalog
 export default async function Populate(userName: string): Promise<ReactNode[] | void> {
 
-  'use cache'
-  cacheTag('catalog')
-  const products = await readData();
+  const products = await fetchData();
 
   if (!products) return console.error("can't load home BBDD not fetched");
 

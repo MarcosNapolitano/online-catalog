@@ -760,7 +760,6 @@ HIL0088;Hil. Zucra Forte Liq. 400ml x9u.;2607.85;2501;true;50;edulcorantes;7;
 HIL0087;Hil. Zucra Forte Liq. 200ml x9u.;2142.25;2050.11;true;51;edulcorantes;7;
 HIL0025;Hil. Azucar Light 250gx9u.;957.44;894.44;true;52;edulcorantes;7;
 HIL0026;Hil. Azucar Light 500g x9u.;1880.12;1799.27;true;53;edulcorantes;7;
-HIL0096-1;Hil. Clasico Forte Liq. 250ml x9u.;1208.27;1158.78;true;54;edulcorantes;7;
 LDC0005;Budin Pudding Choc. 300g x8u.;1941.93;1858.34;true;1;galletitas;8;
 GAV0004;Caja Gall. Celosas 350gx10u.;1410.35;1272.9;true;2;galletitas;8;
 GAV0003;Caja Gall. Celosas 230gx15u.;940.23;848.6;false;3;galletitas;8;
@@ -912,10 +911,10 @@ MED0058;Te Vent3 Sobres.;674.19;646;true;46;medicamentos;9;
 MED0050;Te Vick forte.;1984.22;1897.28;true;47;medicamentos;9;
 MED0049;Te Vick.;1647.36;1576.1;false;48;medicamentos;9;
 MED0052;Uvasal x2x15u.;788.52;754.67;true;49;medicamentos;9;oferta
+MED0061;Te Next.;1574.25;1506;true;50;medicamentos;9;novedad
 MED0053;Vimax x2u.;1810.84;1750.05;true;51;medicamentos;9;
 MED0057;Aerotina x10u.;494.63;473.19;true;52;medicamentos;9;
 MED0051;Tira Migral x10u.;355.1;339.8;true;53;medicamentos;9;
-MED0061;Te Next.;1574.25;1506;true;54;medicamentos;9;novedad
 MAK0002;Esponja Acero 10gx12u.;227.76;218;true;1;limpieza;10;
 MAK0012;Esponja Dorada 10gx24u.;424.49;406;true;2;limpieza;10;
 MAK0060;Esponja Redonda combinada x12u.;1014.78;971.17;true;3;limpieza;10;
@@ -957,53 +956,53 @@ ARV0148;Azufre Gonzalito x5x20u.;671.64;692.8;true;38;limpieza;10;
 ARV0187;Broches Plástico;0;0;false;39;limpieza;10;
 ARV0242;Broches Madera.;654.33;626.17;true;40;limpieza;10;
 MAK0063;Bolsa Hermetica grande x18u.;2079.32;1990;true;41;limpieza;10;
-MAK0064;Bolsa Hermetica mediana x18u.;2079.32;1990;true;42;limpieza;10;
-ARV0078;Prestobarba Venus Simply x8u.;1786.63;1709.75;true;43;limpieza;10;
-ARV0062;Prestobarba Ultragrip 2 filos x20u.;1000.62;957.6;true;44;limpieza;10;
-ARV0063;Prestobarba Regular x3x10u.;2088.63;1998.8;true;45;limpieza;10;
-ARV0065;Repuesto Match 3x2.;4947.78;4735;false;46;limpieza;10;
-ARV0062-1;Prestobarba Ultragrip 2 filos x20u.;1000.62;957.6;true;47;limpieza;10;
-ARV0078-1;Prestobarba Venus Simply x8u.;1786.63;1709.75;true;1;higiene;11;
-ARV0003;Alcohol Purocol 500cc x20u.;1453.79;1391.3;true;2;higiene;11;
-ARV0125;Alcohol Purocol 1L x12u.;2623.99;2511.01;true;3;higiene;11;
-ARV0139;Alcohol 70% Purocol 1L x12u.;2347.56;2246.67;true;4;higiene;11;
-ARV0138;Alcohol 70% Purocol 500cc x20u.;1305.08;1249;true;5;higiene;11;
-ARV0002;Alcohol de quemar x12u.;2304.7;2205.54;true;6;higiene;11;
-ARV0091;Kolynos;0;0;false;7;higiene;11;
-ARV0050;Jabon rexona;0;0;false;8;higiene;11;
-ARV0049;Jabon Lux;0;0;false;9;higiene;11;
-ARV0048;Jabon Dove.;959.08;918;false;10;higiene;11;
-ARV0073;Tira Pantene Shampoo x24u.;126.65;121.21;true;11;higiene;11;
-ARV0028;Desodorante Axe.;1859.13;1780;false;12;higiene;11;
-ARV0031;Desodorante Rexona Rollon 50ml.;1648.02;1452;true;13;higiene;11;
-PAP0025;Papel Hig. doble hoja x4u.;2075.06;1985.84;true;14;higiene;11;
-PAP0022;Bolson Papel Hig. Aloe 6u x12u.;1781.48;1704.83;false;15;higiene;11;
-PAP0023;Bolson Hig. Elegante Triple Hoja 30m x4 x6u.;2881.2;2757.33;true;16;higiene;11;
-PAP0002;Bolson Elegante P. Hig. 30m x4u x12u.;1073.8;1027.67;true;17;higiene;11;
-PAP0012;Bolson Elegante Prem. P. Hig. 80m x10u.;2837.39;2715;true;18;higiene;11;
-PAP0019;Bolson Elegante P.Hig. 30m x6x12u.;1793.96;1716.83;true;19;higiene;11;
-PAP0009;Bolson R.Cocina Eleg. 200 paños x12u.;1528.85;1463.08;true;20;higiene;11;
-PAP0020;Bolson Rollo Cocina Elegante x3x8u.;1196.01;1144.5;true;21;higiene;11;
-PAP0016;Bolson Rollo Cocina Dicha x12u x3u.;1088.09;1041.33;true;22;higiene;11;
-IMS0068;Pañuelo Candela x6u.;1188.35;1137;true;23;higiene;11;
-ARV0018;Caja Elite x6ux35u.;1024.29;980.29;true;24;higiene;11;
-PAP0004;Caja Servilleta Elegante 80 x30u.;1007.35;964.07;true;25;higiene;11;
-ARV0093;Hisopos Qsoft;0;0;false;26;higiene;11;
-ARV0026;Curitas x24u.;422.6;404.46;false;27;higiene;11;
-ARV0253;Hisopos barrilito 150u.;2029.38;1942;true;28;higiene;11;novedad
-ARV0254;Hisopos cotton baby 75x12u.;1063.5;1017.75;true;29;higiene;11;novedad
-ARV0255;Toallitas humedas Candy doypack;477.84;458;true;30;higiene;11;novedad
-ARV0080;Calipso Protectores x20u.;855.79;819;true;31;higiene;11;
-ARV0149;Calipso Toalla c/alas x8u.;757.05;725;true;32;higiene;11;
-ARV0076;Calipso Toalla s/alas.;821.74;786;true;33;higiene;11;
-ARV0079;Calipso Toalla Nocturna x8u.;1344.98;1286;true;34;higiene;11;
-ARV0233;Toallas Nosotras Nocturna.;2567.37;2457;true;35;higiene;11;
-ARV0211;Protector Nosotras Normal.;1191.75;1142;true;36;higiene;11;
-ARV0171;Protectores Nosotras respirable.;2922.63;699.3;true;37;higiene;11;
-ARV0252;Toalla Nosotras ultrainvisible.;2172.39;2079;true;38;higiene;11;novedad
-ARV0176;Toallas Nosotras Normal Suave.;1566.3;1500;true;39;higiene;11;novedad
-BUH0014;Pvo. Prime.;1922.69;1840;true;40;higiene;11;
-ARV0064;Pvo. Tulipan x16u.;1369.24;1310.38;true;41;higiene;11;
+MAK0064;Bolsa Hermetica mediana x18u.;2079.32;1990;true;42;limpieza;11;
+ARV0078;Prestobarba Venus Simply x8u.;1786.63;1709.75;true;1;higiene;11;
+ARV0062;Prestobarba Ultragrip 2 filos x20u.;1000.62;957.6;true;2;higiene;11;
+ARV0063;Prestobarba Regular x3x10u.;2088.63;1998.8;true;3;higiene;11;
+ARV0065;Repuesto Match 3x2.;4947.78;4735;false;4;higiene;11;
+ARV0062-1;Prestobarba Ultragrip 2 filos x20u.;1000.62;957.6;true;5;higiene;11;
+ARV0078-1;Prestobarba Venus Simply x8u.;1786.63;1709.75;true;6;higiene;11;
+ARV0003;Alcohol Purocol 500cc x20u.;1453.79;1391.3;true;7;higiene;11;
+ARV0125;Alcohol Purocol 1L x12u.;2623.99;2511.01;true;8;higiene;11;
+ARV0139;Alcohol 70% Purocol 1L x12u.;2347.56;2246.67;true;9;higiene;11;
+ARV0138;Alcohol 70% Purocol 500cc x20u.;1305.08;1249;true;10;higiene;11;
+ARV0002;Alcohol de quemar x12u.;2304.7;2205.54;true;11;higiene;11;
+ARV0091;Kolynos;0;0;false;12;higiene;11;
+ARV0050;Jabon rexona;0;0;false;13;higiene;11;
+ARV0049;Jabon Lux;0;0;false;14;higiene;11;
+ARV0048;Jabon Dove.;959.08;918;false;15;higiene;11;
+ARV0073;Tira Pantene Shampoo x24u.;126.65;121.21;true;16;higiene;11;
+ARV0028;Desodorante Axe.;1859.13;1780;false;17;higiene;11;
+ARV0031;Desodorante Rexona Rollon 50ml.;1648.02;1452;true;18;higiene;11;
+PAP0025;Papel Hig. doble hoja x4u.;2075.06;1985.84;true;19;higiene;11;
+PAP0022;Bolson Papel Hig. Aloe 6u x12u.;1781.48;1704.83;false;20;higiene;11;
+PAP0023;Bolson Hig. Elegante Triple Hoja 30m x4 x6u.;2881.2;2757.33;true;21;higiene;11;
+PAP0002;Bolson Elegante P. Hig. 30m x4u x12u.;1073.8;1027.67;true;22;higiene;11;
+PAP0012;Bolson Elegante Prem. P. Hig. 80m x10u.;2837.39;2715;true;23;higiene;11;
+PAP0019;Bolson Elegante P.Hig. 30m x6x12u.;1793.96;1716.83;true;24;higiene;11;
+PAP0009;Bolson R.Cocina Eleg. 200 paños x12u.;1528.85;1463.08;true;25;higiene;11;
+PAP0020;Bolson Rollo Cocina Elegante x3x8u.;1196.01;1144.5;true;26;higiene;11;
+PAP0016;Bolson Rollo Cocina Dicha x12u x3u.;1088.09;1041.33;true;27;higiene;11;
+IMS0068;Pañuelo Candela x6u.;1188.35;1137;true;28;higiene;11;
+ARV0018;Caja Elite x6ux35u.;1024.29;980.29;true;29;higiene;11;
+PAP0004;Caja Servilleta Elegante 80 x30u.;1007.35;964.07;true;30;higiene;11;
+ARV0093;Hisopos Qsoft;0;0;false;31;higiene;11;
+ARV0026;Curitas x24u.;422.6;404.46;false;32;higiene;11;
+ARV0253;Hisopos barrilito 150u.;2029.38;1942;true;33;higiene;11;novedad
+ARV0254;Hisopos cotton baby 75x12u.;1063.5;1017.75;true;34;higiene;11;novedad
+ARV0255;Toallitas humedas Candy doypack;477.84;458;true;35;higiene;11;novedad
+ARV0080;Calipso Protectores x20u.;855.79;819;true;36;higiene;11;
+ARV0149;Calipso Toalla c/alas x8u.;757.05;725;true;37;higiene;11;
+ARV0076;Calipso Toalla s/alas.;821.74;786;true;38;higiene;11;
+ARV0079;Calipso Toalla Nocturna x8u.;1344.98;1286;true;39;higiene;11;
+ARV0233;Toallas Nosotras Nocturna.;2567.37;2457;true;40;higiene;11;
+ARV0211;Protector Nosotras Normal.;1191.75;1142;true;41;higiene;11;
+ARV0171;Protectores Nosotras respirable.;2922.63;699.3;true;42;higiene;11;
+ARV0252;Toalla Nosotras ultrainvisible.;2172.39;2079;true;43;higiene;11;novedad
+ARV0176;Toallas Nosotras Normal Suave.;1566.3;1500;true;44;higiene;11;novedad
+BUH0014;Pvo. Prime.;1922.69;1840;true;45;higiene;11;
+ARV0064;Pvo. Tulipan x16u.;1369.24;1310.38;true;46;higiene;11;
 CTF0008;Fosf. Tres patitos x400x10u.;999.48;956.5;true;1;varios;12;
 CTF0005;Fosf. Tres Patitos 222ux10u.;628;601.1;true;2;varios;12;
 CTF0012;Fosforos Tres Estrellas 222 x10u.;476.08;455.6;true;3;varios;12;

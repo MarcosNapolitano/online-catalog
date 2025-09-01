@@ -1,4 +1,5 @@
 import mongoose, { Document }  from 'mongoose';
+import { ReactNode } from 'react';
 
 export interface JsonWebToken {
   userName: string
@@ -6,7 +7,6 @@ export interface JsonWebToken {
 }
 
 interface Product {
-
     sku: string,
     name: string,
     url: string,
@@ -17,7 +17,6 @@ interface Product {
     active: boolean,
     sectionOrden: number,
     special: "" | "oferta" | "novedad"
-
 };
 
 interface User{
@@ -34,23 +33,12 @@ export interface Response {
   error: undefined | string;
 }
 
-export interface IColumn{
-  id: string;
-  section?: string;
-  children?: IProductComp;
-}
-
 export interface CsvForm {
   file: File;
 }
 
 export interface IDeslogeo{
   action: () => void;
-}
-
-export interface IEmptyProduct{
-  id: string;
-  section?: string;
 }
 
 export interface ProductForm {
@@ -73,9 +61,27 @@ export interface IProductComp {
   special: "oferta" | "novedad" | ""
 }
 
+export interface IEmptyProduct{
+  id: string;
+  section?: string;
+}
+
+export interface ISection{
+  id: string;
+  name?: string;
+  children?: ReactNode;
+  user?: string
+}
+
 export interface IRow{
   id: string;
-  children?: ISection;
+  children?: ReactNode;
+}
+
+export interface IColumn{
+  id: string;
+  section?: string;
+  children?: ReactNode;
 }
 
 export interface SearchComp {
@@ -96,11 +102,4 @@ export interface Result {
   name: string;
   orden: number;
   backAction: (sku: string) => Promise<true | false>;
-}
-
-export interface ISection{
-  id: string;
-  name?: string;
-  children?: IRow;
-  user?: string
 }

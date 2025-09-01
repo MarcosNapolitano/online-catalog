@@ -269,6 +269,15 @@ section:first-of-type {
   margin-left: min(2%, 2rem);
   color: whitesmoke;
   z-index: 1;
+  background-color: var(--varios);
+}
+
+.footer-link{
+  color: whitesmoke;
+  font-size: clamp(.3rem, .6vw + .3rem, 1.2rem);
+  font-weight: 800;
+  background-color: var(--varios);
+  text-decoration: none;
 }
 
 .row {

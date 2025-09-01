@@ -1,6 +1,6 @@
 'use server'
 import { type IUser } from '@/app/_data/types';
-import { type Response } from './utils'
+import { type Response } from '@/app/_data/types'
 import { User } from '@/app/_data/data';
 import { compare } from 'bcrypt'
 import databaseConnects from './db_connect';
