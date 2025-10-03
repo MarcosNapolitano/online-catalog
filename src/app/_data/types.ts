@@ -98,7 +98,7 @@ export interface ResultList {
 
 export interface Result {
   sku: string;
-  active: boolean;
+  active: boolean | undefined;
   name: string;
   orden: number;
   backAction: (sku: string) => Promise<true | false>;

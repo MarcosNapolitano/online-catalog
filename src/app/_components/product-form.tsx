@@ -52,7 +52,7 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
 
   return (
   <div>
-    <form action={formAction}>
+    <form className="csv-form" action={formAction}>
       <label htmlFor="sku"><b>SKU:</b></label>
       <input name="sku" type="text" defaultValue={data.sku} required />
 

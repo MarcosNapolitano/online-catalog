@@ -25,6 +25,7 @@ export const readFromCsv = async (): Promise<Array<string> | void> => {
     const res: Array<string> = await readFile("./src/app/_data/catalogo_web.csv", "utf-8").then((data) => {
       data = data.replaceAll("\r", "");
       data = data.replaceAll("\n", ";")
+      console.log(data)
       return data.split(";");
     });
     //a white space is added at the end

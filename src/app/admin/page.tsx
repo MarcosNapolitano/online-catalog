@@ -6,21 +6,22 @@ import Populate from "@/app/_app/home";
 import Link from "next/link";
 import { revalidateTag } from "next/cache";
 import CsvForm from "@/app/_components/csv-form";
+import { cookies } from "next/headers";
 
 const toggleActive = async (sku: string): Promise<true | false> => {
   'use server'
-  try{
+  try {
     await toggleProduct(sku);
     return true;
   }
-  catch (err) { console.log("Couldn't toggle product"); return false;}
+  catch (err) { console.log("Couldn't toggle product"); return false; }
 };
 
 export default async function Home() {
 
   const products: IProduct[] | undefined = await findProductsSimplified();
 
-  const handleClickAction = async () => {
+  const refreshCatalog = async () => {
     'use server'
     const products: IProduct[] | undefined = await findProducts();
     if (products) {
@@ -31,16 +32,23 @@ export default async function Home() {
 
       console.log("Data fetched and updated");
 
-    }else{ console.error("No Data Received"); };
+    } else { console.error("No Data Received"); };
 
   };
 
+  const user = await cookies().then((cookie) => cookie.get('userName')?.value)
   return (
-    <div>
-      <h1>Wellcome to the admin panel</h1>
+    <div className="admin-panel">
+      <h1>Admin Panel</h1>
+      <h2>Wellcome <span className="pageLink-active">{user}</span></h2>
       <Search products={products} backAction={toggleActive} />
-      <button onClick={handleClickAction}>Refresh Catalog</button>
-      <Link href="/admin/create">Crear Producto</Link>
+      <h3>Funciones Varias</h3>
+      <div className="misc-functions">
+        <button onClick={refreshCatalog}>Refresh Catalog</button>
+        <button>
+          <Link href="/admin/create">Crear Producto</Link>
+        </button>
+      </div>
       <CsvForm />
     </div>
   );

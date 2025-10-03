@@ -23,7 +23,7 @@ export const createProducts = DatabaseConnects(async (): Promise<string> => {
 
   const products: Array<IProduct> = [];
 
-  for (let i = 0; i < productsData.length; i += 9) {
+  for (let i = 0; i < productsData.length; i += 10) {
     const product: IProduct = new Product;
 
     product.sku = productsData[i];
@@ -32,10 +32,10 @@ export const createProducts = DatabaseConnects(async (): Promise<string> => {
     product.price2 = new mongoose.Types.Decimal128(productsData[i + 3]);
     product.active = productsData[i + 4] == "true" ? true : false;
     product.orden = parseInt(productsData[i + 5]);
-    product.section = productsData[i + 6];
-    product.url = productsData[i];
-    product.sectionOrden = parseInt(productsData[i + 7]);
+    product.sectionOrden = parseInt(productsData[i + 6]);
+    product.section = productsData[i + 7];
     product.special = productsData[i + 8] as "" | "oferta" | "novedad";
+    product.url = productsData[i + 9];
 
     products.push(product);
     console.log(`Creating product ${product.sku}`);

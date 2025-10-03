@@ -29,7 +29,7 @@ const ProductCreateForm = (): React.JSX.Element => {
   }, initialState);
 
   return (
-  <form action={formAction}>
+  <form className="csv-form" action={formAction}>
     <label htmlFor="sku"><b>SKU:</b></label>
     <input name="sku" type="text" defaultValue="ARC0001" required />
 

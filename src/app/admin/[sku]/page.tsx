@@ -26,7 +26,7 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
       <h1>{data.name}</h1>
       <Image alt="prod-image" src={`/img/` + data.sku + ".webp"} width={200} height={200} />
       <ProductForm data={prop} />
-      <h2><Link href="/admin/">Volver</Link></h2>
+      <button style={{marginTop: "2%"}}><Link href="/admin/">Volver</Link></button>
     </div>
   );
 }
