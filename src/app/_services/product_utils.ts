@@ -8,7 +8,6 @@ import { type IProduct } from '@/app/_data/types';
 import { type Response } from '@/app/_data/types';
 import { Product } from '@/app/_data/data';
 
-//strings for error handling
 const saveError = "Could not save Product in database\n\n";
 const findError = "Could not find product in database\n\n";
 const moveError = "Could not move product\n\n";
@@ -315,7 +314,14 @@ export const moveProduct = DatabaseConnects(async (product: IProduct, newOrden: 
   if (currOrden > newOrden) {
     // we add 1 from newOrden up until currOrden
     try {
-      await Product.updateMany({ sectionOrden: product.sectionOrden, orden: { $gte: newOrden, $lt: currOrden } }, { $inc: { orden: 1 } });
+      console.log("fue mayor")
+      await Product.updateMany(
+        {
+          sectionOrden: product.sectionOrden,
+          orden: { $gte: newOrden, $lt: currOrden }
+        },
+        { $inc: { orden: 1 } }
+      );
     }
     catch (err) {
       console.error(`Error while moving products, original sku: ${product.sku}\n\n${err}`);
@@ -325,7 +331,13 @@ export const moveProduct = DatabaseConnects(async (product: IProduct, newOrden: 
   else {
     // we substract 1 from currOrden up until newOrden
     try {
-      await Product.updateMany({ sectionOrden: product.sectionOrden, orden: { $gt: currOrden, $lte: newOrden } }, { $inc: { orden: -1 } });
+      await Product.updateMany(
+        {
+          sectionOrden: product.sectionOrden,
+          orden: { $gt: currOrden, $lte: newOrden }
+        },
+        { $inc: { orden: -1 } }
+      );
     }
     catch (err) {
       console.error(`Error while moving products, original sku: ${product.sku}\n\n${err}`);
@@ -338,15 +350,18 @@ export const moveProduct = DatabaseConnects(async (product: IProduct, newOrden: 
 });
 
 /** Used for inserting and deleteing products, we offset the products from the given order until the end */
-export const insertProduct = DatabaseConnects(async (section: string, orden: number, deletion?: boolean): Promise<false | true> => {
-  try {
-    if (deletion) await Product.updateMany({ orden: { $gt: orden } }, { $inc: { orden: -1 } });
-    else await Product.updateMany({ orden: { $gte: orden } }, { $inc: { orden: 1 } });
-  }
-  catch (err) {
-    console.error(`Error while moving products.\n\n${err}`);
-    return false;
-  };
+export const insertProduct = DatabaseConnects(
+  async (section: string, orden: number, deletion?: boolean):
+    Promise<false | true> => {
 
-  return true
-});
+    try {
+      if (deletion) await Product.updateMany({ orden: { $gt: orden } }, { $inc: { orden: -1 } });
+      else await Product.updateMany({ orden: { $gte: orden } }, { $inc: { orden: 1 } });
+    }
+    catch (err) {
+      console.error(`Error while moving products.\n\n${err}`);
+      return false;
+    };
+
+    return true
+  });

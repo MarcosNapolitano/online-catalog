@@ -12,6 +12,7 @@
   "dependencies": {
     "@aws-sdk/client-s3": "^3.876.0",
     "@aws-sdk/s3-request-presigner": "^3.876.0",
+    "@sparticuz/chromium": "^141.0.0",
     "@types/mongodb": "^4.0.6",
     "@types/mongoose": "^5.11.96",
     "bcrypt": "^6.0.0",
@@ -21,6 +22,8 @@
     "mongodb": "^6.17.0",
     "mongoose": "^8.16.1",
     "next": "15.3.5",
+    "pdf-lib": "^1.17.1",
+    "puppeteer": "^24.31.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },
