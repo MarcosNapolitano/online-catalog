@@ -148,7 +148,7 @@ export const Search: React.FC<SearchComp> = ({ products, backAction }): React.JS
         </select>
       </div>
 
-      <p style={{marginBottom: "2%"}}>{
+      <p style={{ marginBottom: "2%" }}>{
         products ?
           `Resultados para "${searchString}"` :
           "Could not Fetch Products"}</p>

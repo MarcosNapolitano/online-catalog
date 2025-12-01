@@ -5,7 +5,7 @@ import NotFound from '@/app/not-found'
 
 export async function middleware(request: NextRequest) {
 
-  if (process.env.NODE_ENV == "production") {
+  if (process.env.NODE_ENV === "production") {
 
     const isAuthenticated = request.cookies.has('auth_token');
     const user = request.cookies.get('userName')?.value;

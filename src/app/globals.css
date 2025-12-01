@@ -112,7 +112,8 @@ body {
   margin-bottom: 10%;
 }
 
-.notFound>p, .notFound>a{
+.notFound>p,
+.notFound>a {
   font-size: clamp(1rem, calc(1vw + 1rem), 1.2rem);
 }
 
@@ -137,6 +138,10 @@ section,
   align-items: center;
   background-size: cover;
   background-blend-mode: soft-light;
+  page-break-before: always;
+  page-break-after: always;
+  break-before: page;
+  break-after: page;
 }
 
 .notFoundSection {
@@ -272,7 +277,7 @@ section:first-of-type {
   background-color: var(--varios);
 }
 
-.footer-link{
+.footer-link {
   color: whitesmoke;
   font-size: clamp(.3rem, .6vw + .3rem, 1.2rem);
   font-weight: 800;
