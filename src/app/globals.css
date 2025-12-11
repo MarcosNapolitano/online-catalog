@@ -93,89 +93,6 @@ h6 {
   isolation: isolate;
 }
 
-/* ----------- Catalog Section ----------- */
-
-@page {
-  size: A4;
-  margin: 20mm;
-}
-
-@media print {
-  body {
-    margin: 0;
-    padding: 0;
-  }
-
-  .section {
-    width: 210mm;
-    height: 297mm;
-    box-sizing: border-box;
-    overflow: hidden;
-    break-inside: avoid;
-    display: grid !important;
-    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  }
-
-  .header-row,
-  .row {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr 1fr;
-    break-inside: avoid;
-    page-break-inside: avoid;
-    page-break-inside: avoid;
-    margin-top: 0% !important;
-  }
-
-  .prod-image {
-    width: 100px !important;
-    height: 100px !important;
-  }
-
-  .ribbon {
-    max-width: 60px !important;
-  }
-
-  .no-print {
-    display: none !important;
-  }
-
-  .index {
-    height: 40dvh;
-    justify-content: space-evenly;
-  }
-
-  .index-header {
-    margin-bottom: 0px;
-    width: auto;
-  }
-
-  .section-footer {
-    margin-top: 0% !important;
-  }
-
-  .svg {
-    margin: 0% !important;
-  }
-
-  .section-header>.logo{
-
-    margin: 0% !important;
-
-  }
-
-  .category-header {
-    height: 20dvh;
-    gap: 0%;
-  }
-
-  .header-logo {
-    transform: rotate(180deg);
-    margin-right: 0;
-  }
-
-}
-
-/* ----------- Catalog Section ----------- */
 
 body {
   background-color: #242424;
@@ -222,10 +139,7 @@ section,
   align-items: center;
   background-size: cover;
   background-blend-mode: soft-light;
-  page-break-before: always;
-  page-break-after: always;
-  break-before: page;
-  break-after: page;
+  justify-content: space-between;
 }
 
 .notFoundSection {
@@ -258,7 +172,6 @@ section:first-of-type {
 .index-logo {
   transform: rotate(180deg);
   scale: 200%;
-  margin-right: 0;
 }
 
 .index-categories {
@@ -356,16 +269,13 @@ section:first-of-type {
 
 .footer {
   margin-left: min(2%, 2rem);
-  color: whitesmoke;
   z-index: 1;
-  background-color: var(--varios);
 }
 
 .footer-link {
   color: whitesmoke;
   font-size: clamp(.3rem, .6vw + .3rem, 1.2rem);
   font-weight: 800;
-  background-color: var(--varios);
   text-decoration: none;
 }
 
@@ -466,6 +376,7 @@ section:first-of-type {
   position: absolute;
   top: -50px;
   right: -20px;
+  z-index: 10;
 }
 
 .inactive {
@@ -699,6 +610,7 @@ section:first-of-type {
   background: url("data:image/svg+xml;utf8,\<svg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'> <path d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' className='shape-fill'></path> </svg>");
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 90%;
   z-index: -1;
 }
 
@@ -715,29 +627,31 @@ section:first-of-type {
   background: url("data:image/svg+xml;utf8,\<svg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'> <path d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' className='shape-fill'></path> </svg>");
   background-repeat: no-repeat;
   background-size: cover;
+  opacity: 90%;
 }
 
 .index {
-  height: 40dvh;
+  min-height: 40dvh;
+  padding-bottom: 200px;
+  display: flex;
+  flex-direction: column;
   justify-content: space-evenly;
 }
 
-.index-header {
-  margin-bottom: 200px;
-  width: auto;
+.index::before {
+  min-height: 50dvh !important;
 }
 
-.index>svg {
-  height: 100% !important;
-  width: calc(300% + 1.3px) !important;
-  opacity: 85% !important;
+.index-header {
+  width: auto;
+  color: black;
+  opacity: 90%;
 }
 
 .section-header {
   top: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   transform: rotate(180deg);
 }
@@ -746,7 +660,8 @@ section:first-of-type {
   margin-top: 5%;
   bottom: 0;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column-reverse;
+  justify-content: center;
   align-items: center;
   transform: none;
 }
@@ -754,7 +669,7 @@ section:first-of-type {
 .category-header {
   gap: 10%;
   height: auto;
-  padding: 5%;
+  padding: 3%;
 }
 
 .header-logo {
@@ -878,3 +793,108 @@ section:first-of-type {
     font-size: clamp(1rem, .5vw + 1rem, 1.125rem);
   }
 }
+
+/* ----------- Catalog Section ----------- */
+
+@page {
+  size: A4;
+  margin: 20mm;
+}
+
+@media print {
+  body {
+    margin: 0;
+    padding: 0;
+  }
+
+  .section:first-of-type {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+  }
+
+  .section {
+    width: 210mm;
+    height: 297mm;
+    box-sizing: border-box;
+    overflow: hidden;
+    break-inside: avoid;
+    display: grid !important;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    justify-content: space-between;
+  }
+
+  .header-row,
+  .row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr;
+    break-inside: avoid;
+    page-break-inside: avoid;
+    page-break-inside: avoid;
+    margin-top: 0% !important;
+  }
+
+  .prod-image {
+    width: 100px !important;
+    height: 100px !important;
+  }
+
+  .ribbon {
+    max-width: 60px !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  .index {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    justify-content: space-between;
+  }
+
+  .index-categories {
+    height: auto;
+  }
+
+  .index-category {
+    font-size: 1.5rem;
+  }
+
+  .index-header {
+    margin: 0px;
+    font-size: 2rem;
+    width: auto;
+  }
+
+  .index-logo {
+    scale: 100%
+  }
+
+  .section-footer {
+    margin: 0;
+    width: 100%;
+  }
+
+  .svg {
+    margin: 0% !important;
+  }
+
+  .section-header {
+    padding-top: 5%;
+  }
+
+  .section-header>.logo {
+    margin: 0% !important;
+  }
+
+  .header-logo {
+    width: 250px !important;
+  }
+
+}
+
+/* ----------- Catalog Section ----------- */

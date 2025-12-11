@@ -22,7 +22,7 @@ export const createProducts = DatabaseConnects(async (): Promise<string> => {
 
   const products: Array<IProduct> = [];
 
-  for (let i = 0; i < productsData.length; i += 10) {
+  for (let i = 0; i < productsData.length; i += 9) {
     const product: IProduct = new Product;
 
     product.sku = productsData[i];
@@ -34,7 +34,7 @@ export const createProducts = DatabaseConnects(async (): Promise<string> => {
     product.sectionOrden = parseInt(productsData[i + 6]);
     product.section = productsData[i + 7];
     product.special = productsData[i + 8] as "" | "oferta" | "novedad";
-    product.url = productsData[i + 9];
+    product.url = productsData[i];
 
     products.push(product);
     console.log(`Creating product ${product.sku}`);

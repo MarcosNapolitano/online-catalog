@@ -23,9 +23,6 @@ export const CategoryIndex = ({user}: {user: string}): ReactNode => {
   return (
     <section id="0" className="section" style={{ backgroundImage: `url(${backgroundImage.src})`, minHeight: "100dvh" }}>
       <div className="svg section-header index">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
-        </svg>
         <h2 className='header index-header' >Elija la categoría deseada</h2>
         {user !== "gianfranco" && logo}
       </div>
@@ -51,13 +48,7 @@ export const CategoryIndex = ({user}: {user: string}): ReactNode => {
         {process.env.NODE_ENV === "development" && <Deslogeo action={logout} />}
       </div>
       <div className="svg section-footer">
-        <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z" className="shape-fill"></path>
-        </svg>
         <footer className="footer">
-          <a href={`https://wa.me/54${phone}`} className="footer-link">Recibí Nuestras Ofertas</a>
-          <br />
-          <a href={`https://wa.me/54${phone}`} className="footer-link">WhatsApp: 11-6679-5149</a>
         </footer>
       </div>
     </section>

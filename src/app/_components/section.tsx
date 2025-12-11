@@ -11,22 +11,22 @@ export const Section: React.FC<ISection> = ({ id, name, user, children }) => {
   const phone = user === "gianfranco" ? "11-3478-6787" : "11-6679-5149";
 
   return (
-    <section id={ name + "-" + id } className={`${name} section`} style={{ backgroundImage: `url(${backgroundImage.src})` }}>
-        <div className={`svg section-header ${id === "1" ? "category-header" : ""}`}>
-            <h2 className={ `header header-` + name }>{name?.toUpperCase()}</h2>
-            {id === "1" && user !== "gianfranco" && logoHeader }
-        </div>
-        {children}
-        <div className="svg section-footer">
-            <footer className="footer">
-              <a href={`https://wa.me/54${phone}`} className="footer-link">Recibí Nuestras Ofertas</a>
-              <br />
-              <a href={`https://wa.me/54${phone}`} className="footer-link">WhatsApp: 11-6679-5149</a>
-            </footer>
-            <a href={"#0"} style={{ zIndex: "2"}} >
-              { user !== "gianfranco" && logoFooter }
-            </a>
-        </div>
+    <section id={name + "-" + id} className={`${name} section`} style={{ backgroundImage: `url(${backgroundImage.src})` }}>
+      <div className={`svg section-header ${id === "1" ? "category-header" : ""}`}>
+        <h2 className={`header header-` + name}>{name?.toUpperCase()}</h2>
+        {id === "1" && user !== "gianfranco" && logoHeader}
+      </div>
+      {children}
+      <div className="svg section-footer">
+        <footer className="footer">
+          <a href={`https://wa.me/54${phone}`} className="footer-link">
+            Recibí Nuestras Ofertas Al WhatsApp: 11-6679-5149
+          </a>
+        </footer>
+        <a href={"#0"} style={{ zIndex: "2" }} >
+          {user !== "gianfranco" && logoFooter}
+        </a>
+      </div>
     </section>
   );
 };
