@@ -12,11 +12,12 @@ const initialState: Response = {
 
 const CsvForm = (): React.JSX.Element => {
 
-  const [state, formAction, isPending] = useActionState(async (initialState: Response, formData: FormData) => {
+  const [state, formAction, isPending] = useActionState(
+    async (initialState: Response, formData: FormData) => {
 
-    return await updateProducts(formData);
+      return await updateProducts(formData);
 
-  }, initialState);
+    }, initialState);
 
   return <div style={{ marginTop: "2%" }}>
     <form className="csv-form" action={formAction}>
@@ -27,7 +28,7 @@ const CsvForm = (): React.JSX.Element => {
 
         <input value="Subir CSV" type="submit" />
       </fieldset>
-      <p style={state.error ? { color: "red" } : { color: "green" }}>{state.message}</p>
+      <p style={state.error ? { color: "red" } : { color: "green" }}>{state.error}</p>
     </form>
   </div>
 };

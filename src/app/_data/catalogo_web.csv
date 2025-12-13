@@ -1,1232 +1,1240 @@
-﻿FEL0061;Boc. Cericet x24u.;1645.99;1575.21;false;1;1;kiosco;
-FEL0063;Dulech Felfort 21g x20u.;716.58;685.75;true;2;1;kiosco;novedad
-FEL0050;Licorfort Whisky x30u.;752.43;720.09;false;3;1;kiosco;
-FEL0014;Cereal Fort x24u.;481.95;461.25;true;4;1;kiosco;
-FEL0052;Nobel x15u.;1205.37;1153.53;false;5;1;kiosco;
-FEL0005;Barrita Felfort 70% x30ux16g.;0;0;false;6;1;kiosco;
-FEL0018;Chupelatin x32u.;945.52;904.87;true;7;1;kiosco;
-FEL0042;Tivis x 20u.;819.19;784;true;8;1;kiosco;
-FEL0022;Dos Corazones x20u.;1077.68;1031.35;true;9;1;kiosco;
-FEL0023;Feeling x30u.;560.88;536.73;true;10;1;kiosco;
-FEL0024;Felfort Mani 75gx10u.;2985.73;2857.4;true;11;1;kiosco;
-FEL0025;Felfort 70% cacao 50gx16u.;3359.07;3214.67;false;12;1;kiosco;
-FEL0043;Torroncino 23gx30u.;1471.75;1408.5;true;13;1;kiosco;
-FEL0049;Jackelin x30u.;788.26;754.37;true;14;1;kiosco;
-FEL0037;Moneda Pirata x60u.;339.63;325.02;true;15;1;kiosco;
-FEL0038;Paraguita x40u.;620.45;593.8;true;16;1;kiosco;
-FEL0031;Kooky Bon x30u.;304.11;291.04;true;17;1;kiosco;
-FEL0062;Bombon Dor Felfort 12g x30u.;394.11;377.17;true;18;1;kiosco;novedad
-FEL0033;Marroc x60u.;604.16;578.18;true;19;1;kiosco;
-FRA0011;Licoritas x25u.;842.71;806.48;true;20;1;kiosco;
-FEL0035;Med.Dulce de Leche Felfort x20u.;0;0;false;21;1;kiosco;
-FEL0036;Mentitas Felfort 20gx30u.;497.43;476.07;true;22;1;kiosco;
-FEL0064;De a 2 Cereal Felfort 12g x20u.;656.88;628.65;true;23;1;kiosco;novedad
-FEL0065;Wining Felfort 20g x25u.;696.66;666.72;true;24;1;kiosco;
-FEL0067;Botellita Whisky x 20u.;1112.48;1064.61;true;25;1;kiosco;
-FER0018;Tic Tac x12u.;775.58;742.08;true;26;1;kiosco;
-FER0006;Ferrero x3x16u.;2354.06;2254;true;27;1;kiosco;
-FER0007;Ferrero x8u.;7847.39;7509;true;28;1;kiosco;
-FER0022;Unidad Nutella 350g.;7170.93;6863;true;29;1;kiosco;
-FER0021;Unidad Nutella 140g.;0;0;false;30;1;kiosco;
-FER0023;Kinder Barrita x24u.;612.19;585.88;true;31;1;kiosco;
-FER0009;Huevo Kinder x12u.;1853.74;1774;true;32;1;kiosco;
-FER0027;Choc. Kinder x4 x20u.;0;0;false;33;1;kiosco;
-FER0012;Kinder Maxi x10u.;940.01;899.6;false;34;1;kiosco;
-FER0020;Unid. Kinder Bueno.;2352.86;2251;true;35;1;kiosco;
-FER0026;Huevo Kinder Joy x12u.;2052.55;1964.33;true;36;1;kiosco;
-JOR0005;Caja Alfajor Jorgito x24u.;677.41;648.3;true;37;1;kiosco;
-JOR0020;Caja Alf. Jorgito x24u. s/gluten;728.06;696.77;false;38;1;kiosco;
-JOR0004;Caja Alfajor Jorgelin x24u.;913.36;874.09;true;39;1;kiosco;
-GUA0005;Caja Alf. Guaymallen Platinum x24u.;660.29;631.88;true;40;1;kiosco;
-GUA0001;Caja Alf. Guaymallen x40u.;225.81;216.1;true;41;1;kiosco;
-GUA0002;Caja Alf. Guaymallen Triple x24u.;376.35;360.17;true;42;1;kiosco;
-GUA0004;Caja Alf. Guaymallen Oro x24u.;465.07;445.08;true;43;1;kiosco;
-MON0146;Alf. Terrabusi s/gluten.;1279.94;1225.35;true;44;1;kiosco;novedad
-MON0086;Alfajor Triple Oreo.;1324.89;1267.93;true;45;1;kiosco;
-MON0142;Alf. Terrabusi glaceado.;771.06;737.1;true;46;1;kiosco;
-MON0139;Alf. Shot simple 44g.;0;0;false;47;1;kiosco;
-FEL0066;Alfafort.;0;0;false;48;1;kiosco;novedad
-MON0129;Alfajor Mini Trishot.;2712.42;2595.6;true;49;1;kiosco;
-MON0128;Alfajor Mini Milka.;2712.42;2595.6;true;50;1;kiosco;
-VAQ0010;Tableta Vauquita 80g.;0;0;false;51;1;kiosco;
-VAQ0009;Tableta Vauquita 140g.;1343.84;1286;true;52;1;kiosco;
-VAQ0013;Vauquita Light x18u.;239.5;228.96;true;53;1;kiosco;
-VAQ0015;Vauquita x18u.;0;0;false;54;1;kiosco;
-TOP0039;Cubanito Archok 28g x12u.;660.29;631.83;true;55;1;kiosco;novedad
-VAQ0027;Bombon Vauquita 15g x30u.;184.32;176.4;true;56;1;kiosco;
-ARC0018;Bombon Bon o Bon x30u.OFERTA;302.12;289.17;false;57;1;kiosco;oferta
-MON0100;Mini Rhodesia 60g.;1786.49;1705;false;58;1;kiosco;
-ARC0008;Banana Dolca 30g x16u.OFERTA;0;0;false;59;1;kiosco;oferta
-MON0149;Barra Toddy x20u.;665.85;637.25;true;60;1;kiosco;novedad
-ARC0029;Cabsha x48u.OFERTA;0;0;false;61;1;kiosco;oferta
-JOR0016;Conito Jorgito x12u.;768.15;735.14;true;62;1;kiosco;
-ARC0165;Rocklets 40g x18u.OFERTA;1055.68;1010.28;false;63;1;kiosco;oferta
-ARV0165;MyM.;2180.34;2086;true;64;1;kiosco;
-MON0064;Tita x36u.;651.94;623.92;true;65;1;kiosco;
-MON0059;Rhodesia x36u.;733.56;702.01;true;66;1;kiosco;
-BON0007;Chocman 35g x18u.;0;0;false;67;1;kiosco;
-BON0021;Chocman Black 35g x18u.;0;0;false;68;1;kiosco;
-BON0001;Bocadito Bonafide x24u.;384.95;368.36;true;69;1;kiosco;
-BON0065;Taza Bonafide Blanco 100g x12u.;3712.21;3554.33;true;70;1;kiosco;novedad
-BON0015;Taza Bonafide 100g x12u.;3715.33;3555.58;true;71;1;kiosco;
-BON0020;Taza Bonafide 60% Cacao 100g x12u.;4483.25;4290.42;true;72;1;kiosco;
-BON0014;Nugaton x24u.;493.32;472.08;true;73;1;kiosco;
-BON0051;Bolsa Moneda Capitan Morgan 500g.;20151.93;19286;true;74;1;kiosco;
-BON0011;Mecano 19g x24u.;576.01;551.25;true;75;1;kiosco;
-ARV0013;Biznike Nevado 20g x15u.;848.45;811.93;true;76;1;kiosco;
-ARC0212;Choc. Arcor 25g x30u.;858.06;822;true;77;1;kiosco;
-BON0064;Bonafide Tabl. Leche mani 90g x14u.;1294.87;1239.14;true;78;1;kiosco;novedad
-MON0078;Milka Solido 55g.;2080.46;1992;true;79;1;kiosco;
-MON0077;MIlka Lila Oreo.;0;0;false;80;1;kiosco;
-MON0097;Shot 90g.;0;0;false;81;1;kiosco;
-MON0019;Caja Shot 35g x25u.;1403.45;1343.12;true;82;1;kiosco;
-MON0130;Bombon Milka Oreo x11u.;0;0;false;83;1;kiosco;
-NES0001;Garoto Surtido 250g.OFERTA;7691.1;7361.4;true;84;1;kiosco;oferta
-MON0009;Cadb.Tres Sueños x12u.;0;0;false;85;1;kiosco;
-MON0010;Cadb.Yoghurt x12u.;1551.83;1485.17;true;86;1;kiosco;
-MON0011;Cadbury 82g.;3851.06;3668;true;87;1;kiosco;
-MON0049;Milka Leger 50g.;0;0;false;88;1;kiosco;
-MON0134;Milka Chocopause 45g.;1310.02;1253.7;true;89;1;kiosco;
-TOP0040;Anillo Ring Pop x24u.;248.42;237.71;true;90;1;kiosco;
-TOP0057;Anillo Ring Pop Terror x24u.;248.42;237.71;true;91;1;kiosco;
-TOP0024;Push Pop x20u.;436.8;418.05;true;92;1;kiosco;
-TOP0053;Exhibidor Push Pop.;13558.71;12976;true;93;1;kiosco;
-TOP0061;Dragon Pop x6u.;2335.83;2235.33;true;94;1;kiosco;novedad
-ARC0081;Chup. Mister Pop´sx50u.;84.6;77.62;true;95;1;kiosco;
-ARC0082;Chup. Mr. Pops Evolution 480g.;4414.02;4048;true;96;1;kiosco;
-ARC0058;Car. Sugus 700g.;0;0;false;97;1;kiosco;
-ARC0184;Sugus confite x30u.;926.92;887.03;true;98;1;kiosco;
-SUS0010;Caramelo Billiken 600g;3237.02;3097;true;99;1;kiosco;
-SUS0002;Bombon Classic Billiken x60u.;5301.59;5074;true;100;1;kiosco;
-SUS0018;Pastillas Rueditas 30gx12u.;259.8;248.59;true;101;1;kiosco;
-SUS0024;Gotita de Amor x12u.;283.18;271;true;102;1;kiosco;
-ARV0070;Car. Super Acidos Lipo 454g.;2309.73;2211;true;103;1;kiosco;
-IMS0033;Water Pop x8u.;2038.18;1950.63;true;104;1;kiosco;novedad
-IMS0078;Chupete Fun Pop Mix x12u.;1595.79;1527.21;true;105;1;kiosco;
-TOP0062;Witches Pop x6u.;2335.83;2235.33;true;106;1;kiosco;novedad
-IMS0057;Shark Pop x8u.;2188.6;2094.5;true;107;1;kiosco;
-TOP0036;Frosty Pop x8u.;1771.28;1695.2;true;108;1;kiosco;
-IMS0123;Jirafa G-Raf Fun x6u.;2531.15;2422.42;true;109;1;kiosco;novedad
-IMS0009;Coco Pop x8u.;1883.67;1802.63;true;110;1;kiosco;
-IMS0053;Emoti Pop x9u.;1682.9;1610.51;true;111;1;kiosco;
-IMS0008;Catch Pop x8u.;1623.8;1553.94;true;112;1;kiosco;
-IMS0043;Sport Pop x6u.;1699.52;1626.7;true;113;1;kiosco;
-IMS0056;Uni Pop x9u.;1905.41;1823.44;true;114;1;kiosco;
-MON0058;Palito de la selva.;8498.68;8132.97;true;115;1;kiosco;
-MON0126;Caja Palito de la Selva 480g.;5452.54;5218;true;116;1;kiosco;
-MON0127;Palito de la Selva Acido 150g.;1368.81;1310;true;117;1;kiosco;
-MON0136;Chupetin Palito de la selva x24u.;194.46;186.08;true;118;1;kiosco;
-MON0152;Marshmallow Palito de la selva x24u.;378.33;362.08;true;119;1;kiosco;novedad
-ARC0172;Rollo mogul x12u.;384.39;367.92;false;120;1;kiosco;
-ARC0213;Caramelo menta cristal.;9848.4;9426;true;121;1;kiosco;novedad
-ARC0214;Caramelo Miel cristal.;7393.39;7075;true;122;1;kiosco;novedad
-MON0034;"Halls vita ""C"" x12u.";0;0;false;123;1;kiosco;
-MON0035;Halls x12u.;653.1;625;true;124;1;kiosco;
-SUS0015;D.R.F. x12u.;221.8;212.25;true;125;1;kiosco;
-PRO0001;Mentos x12u.;573.84;549.17;true;126;1;kiosco;
-SUS0058;Caramelo Masticable Yum-Yum 600g.;2471.33;2364.87;true;127;1;kiosco;
-SUS0019;Gomas Billiken x12u.;314.24;300.69;true;128;1;kiosco;
-SUS0017;Goma Billiken x800g.;4424.23;4235;true;129;1;kiosco;
-SUS0078;Yummy 50g x10u. Diente-Huevo frito;523.01;500.5;true;130;1;kiosco;novedad
-SUS0036;Yummy 30g x12u.;336.24;321.83;true;131;1;kiosco;
-SUS0051;Yummy 150g.;1217.86;1165;true;132;1;kiosco;
-SUS0079;Yummy 10g x36u. Ojitos;263.26;251.94;true;133;1;kiosco;novedad
-SUS0077;Caramelo Pote Billiken Cream 600g.;4213.12;4032;true;134;1;kiosco;novedad
-SUS0064;Rollo Bull Dog Acido x12u.;289.05;276.67;true;135;1;kiosco;
-SUS0063;Regaliz Bulldog 75g.;741.16;710;true;136;1;kiosco;novedad
-SUS0062;Bull dog Crazy Chupetin x10u.;4588.81;4392;true;137;1;kiosco;
-LHE0025;Baby Doll Acido x18u.;356.89;341.5;true;138;1;kiosco;
-IMS0011;Crazy Pop x20u.;493.84;429.71;true;139;1;kiosco;
-LHE0002;Baby Doll x12u.;496.37;475;true;140;1;kiosco;
-LHE0006;Chupetoncito x12u.;409.64;392;true;141;1;kiosco;
-LHE0008;Pico dulce x48u.;158.99;152.17;true;142;1;kiosco;
-MON0006;Chicle Beldent x20u.;637.13;609.74;true;143;1;kiosco;
-MON0070;Chicle Beldent Infinit x12u.;1649.7;1578.78;true;144;1;kiosco;
-GEO0016;Flyn paff x70u.;85.42;81.74;true;145;1;kiosco;
-ARC0211;Chicle Top Line 7 x16.;641.13;613.56;true;146;1;kiosco;
-MON0008;Bubbaloo x60u.;85.54;81.87;true;147;1;kiosco;
-IMS0128;Candy Warheads x6u.;2533.7;2424.83;true;148;1;kiosco;novedad
-IMS0130;Gummi Zone bear burger x24u.;191.53;183.33;true;149;1;kiosco;novedad
-IMS0131;Gummi Zone Big Doughnuts x24u.;602.78;576.88;false;150;1;kiosco;novedad
-IMS0132;Gummi Zone Big Toastie x18u.;772.62;739.39;true;151;1;kiosco;novedad
-IMS0133;Gummi Zone Cupcake x24u.;191.53;183.33;true;152;1;kiosco;novedad
-TOP0052;Go Dipperz x12u.;1132.26;1083.58;true;153;1;kiosco;
-BEV0001;FunDipperz x12u.;962.76;921.42;false;154;1;kiosco;
-IMS0066;Gummi Pizza x24u.;344.12;329.31;true;155;1;kiosco;
-IMS0097;Gummi XXL Pizza x24u.;604.02;578.04;true;156;1;kiosco;
-TOP0030;Spring Pop x25u.;220.28;214.96;true;157;1;kiosco;
-IMS0074;Gummi Burguer x24u.;191.54;183.73;true;158;1;kiosco;
-IMS0070;Catz Pop x6u.;1959.61;1875.16;true;159;1;kiosco;
-PRO0004;Pipas x30u.;226.47;216.73;true;160;1;kiosco;
-PRO0018;Pipas Peladas x20u.;295.04;282.4;true;161;1;kiosco;
-PRO0002;Pipas gigantes x12u.;578.28;553.42;true;162;1;kiosco;novedad
-MON0037;Lenguetazo x32u.;189.15;181.03;true;163;1;kiosco;
-IMS0036;Xtreme 25g x12u.;467.68;443.67;true;164;1;kiosco;
-MOL0003;Oblea Gallo x24u.;643.78;616.13;false;165;1;kiosco;
-MOL0002;Chocobar x24u.;543.85;520.38;true;166;1;kiosco;
-MOL0006;Chocoarroz x30u.;760.98;728.27;true;167;1;kiosco;
-MON0123;Mantecol untable 250gr.;4881.64;4672;true;168;1;kiosco;
-MON0045;Mantecol 41g x12u.;1036.66;992.09;true;169;1;kiosco;
-MON0046;Mantecol 64gx9u.;1213.86;1161.66;true;170;1;kiosco;
-MON0041;Mantecol 111g x40u.;2128.83;2041.63;true;171;1;kiosco;
-MON0042;Mantecol 26g x16u.;673.45;687.47;true;172;1;kiosco;
-MON0094;Mantecol 253g.;3593.51;3439.24;true;173;1;kiosco;
-MON0144;Mantecol 111g coco/car/cafe;2144.28;2054.4;true;174;1;kiosco;
-MON0145;Mantecol bañado choc. 26g x18u.;718.83;687.94;false;175;1;kiosco;novedad
-GEO0045;Hersheys Macizo Cacao 40% 92g.;2691.09;2576;true;176;1;kiosco;novedad
-GEO0046;Hersheys 77g. Blanco;2131.53;2040;true;177;1;kiosco;
-GEO0047;Hersheys x85g. Aireado;2308.59;2209;true;178;1;kiosco;
-GEO0026;Hersheys 82g Leche;2131.53;2040;true;179;1;kiosco;novedad
-GEO0048;Oblea Hersheys 102g.;0;0;false;180;1;kiosco;
-TOP0059;Trolli Gomitas x15u.;2029.38;1942.07;true;181;1;kiosco;novedad
-IMS0011-1;Crazy Pop x20u.;493.84;429.71;true;182;1;kiosco;
-IMS0032;Wacky Monkey x8u.;2399.16;2296.14;true;183;1;kiosco;
-IMS0029;Punchy Monkey x8u.;2411.81;2308.29;true;184;1;kiosco;
-IMS0127;Pastillero Pez.;3806.79;3643;true;185;1;kiosco;novedad
-ARV0265;Caramelo Florestal blandos x10u.;473.84;453.4;true;186;1;kiosco;novedad
-IMS0004;Bubble roll x8u.;1801.95;1724.5;true;187;1;kiosco;
-IMS0030;Puppy House x8u.;2104.19;2013.8;true;188;1;kiosco;
-URQ0019;Merenbom 25g x12u.;219.08;209.72;false;189;1;kiosco;
-URQ0020;Merenkoa 15g x12u.;368.33;352.56;true;190;1;kiosco;
-ARV0246;Caramelo Lata Corazon 40g.;3541.65;3389.4;false;191;1;kiosco;
-ARV0247;Caramelo Lata Flopi 40g.;2580.54;2469.6;true;192;1;kiosco;novedad
-SUS0027;Mentita La Casa x12u.;272.4;260.67;true;193;1;kiosco;
-PRO0022;Mentos Goma de mascar x6u.;4041.17;3867.5;true;194;1;kiosco;novedad
-ARV0250;Pastillas Icekiss x12u.;197.38;188.9;true;195;1;kiosco;novedad
-FEL0039;Refresco x12u.;456.08;436.5;true;196;1;kiosco;
-ARV0192;Snickers 48g.;1525.66;1459.38;true;197;1;kiosco;
-SUS0023;Gongys x28g.;333.84;263.68;true;198;1;kiosco;
-SUS0022;Gongys 200g.;1742.23;1666;true;199;1;kiosco;
-IMS0020;Marshmallows Barril x65u.;13945.75;13346;true;200;1;kiosco;novedad
-IMS0122;Marshmallows 12g x30u.;6436.59;6159;true;201;1;kiosco;
-ARV0142;Dame Mani 510g x12u.;3963.41;3792.8;true;202;1;kiosco;oferta
-SUS0030;Naranju 50cc x6x10u.;103.11;98.68;true;203;1;kiosco;novedad
-GOP0009;Caja Atun Trozo Gomez x24u.;2463.42;2357.53;true;1;2;almacen;
-GOP0007;Caja Atun Desm. Gomez x24u.;1718.97;1645.12;true;2;2;almacen;
-GOP0008;Caja Atun Lomo Gomez x24u.;2683.54;2568.22;false;3;2;almacen;
-GOP0019;Caja Atun Gomez Claro x24u.;3074.56;2942.45;true;4;2;almacen;
-GOP0024;Caja Atun Gomez Lomo Bajo Sodio 170g x24u.;2795.08;2674.92;true;5;2;almacen;
-GOP0026;Caja Filet Atun Aceite Gomez 125g x24u.;4022.15;3849.24;true;6;2;almacen;
-GOP0027;Caja Filet Atun Gomez Aceite c/ajo 125g x24u.;4022.15;3849.24;true;7;2;almacen;
-GOP0021;Mejillones Choritos Gomez.;3277.71;3134.32;true;8;2;almacen;
-GOP0010;Caja Atun Gomez Ahumado x24u.;2683.54;2568.22;true;9;2;almacen;
-GOP0034;Caja Atun Desm. Picante Gomez x24u.;1718.97;1645.12;true;10;2;almacen;
-GOP0041;Sardinas c/limon Gomez 125g.;1683.21;1611;true;11;2;almacen;novedad
-GOP0044;Sardinas tomate Gomez 250g.;2680.87;2566;true;12;2;almacen;novedad
-INC0007;Durazno Inca 820g x12u.;2451.66;2346.25;false;13;2;almacen;
-INC0031;Champignones Inca x24u.;2426.68;2327.25;true;14;2;almacen;
-INC0035;Champignon en trozo Inca x24u.;2102.3;2016.17;true;15;2;almacen;novedad
-INC0012;Lentejas Inca 202g x24u.;791.24;757.28;true;16;2;almacen;
-INC0002;Arvejas Inca 202g x24u.;492.21;471.04;true;17;2;almacen;
-INC0009;Garbanzos Inca 202g x24u.;660.38;632;true;18;2;almacen;
-INC0010;Jardinera Inca 220g x24u.;728.02;696.73;true;19;2;almacen;
-INC0016;Primavera Inca 220g x24u.;850.49;813.96;true;20;2;almacen;
-INC0003;Choclo Amarillo Inca x24u.;1119.91;1071.77;true;21;2;almacen;
-INC0005;Choclo Cremoso Am. Inca x24u.;799.09;764.71;true;22;2;almacen;
-INC0015;Porotos Inca 202g x24u.;815.33;780.28;true;23;2;almacen;
-INC0029;Poroto Negro Inca x24u.;779.52;745.98;true;24;2;almacen;
-INC0028;Poroto Colorado Inca x24u.;828.78;793.04;true;25;2;almacen;
-INC0006;Coctel Fruta Inca 820g x12u.;2702.91;2586.75;true;26;2;almacen;novedad
-INC0017;Pure Tomate Inca 520g x12u.;705.4;675.08;true;27;2;almacen;
-INC0008;Concentrado Tomate Inca 150g x30u.;825.49;790;true;28;2;almacen;
-INC0033;Tomate Triturado Lata Inca 400g x24u.;801.28;766.91;true;29;2;almacen;
-INC0019;Tomate Perita Inca 240g x24u.;1030.31;985.98;true;30;2;almacen;
-INC0037;Pimiento Morron Inca 185g x24u.;1960.76;1880.46;true;31;2;almacen;novedad
-INC0034;Salsa Passata Inca 500g x8u.;1923.54;1840.88;true;32;2;almacen;novedad
-INC0020;Tomate Triturado Inca 910g x8u.;1971.21;1886.38;true;33;2;almacen;
-QUA0005;Caja Quaker Instantaneo 280g x18u.;1746.77;1675.22;true;34;2;almacen;
-QUA0023;Caja Quaker Tradicional 550g x18u.;2770.28;2656.78;true;35;2;almacen;
-QUA0007;Caja Quaker Tradicional 280g x18u.;1749.04;1673.83;true;36;2;almacen;novedad
-QUA0022;Caja Quaker instantaneo 500 x18u.;2770.28;2656.78;true;37;2;almacen;
-QUA0002;Caja Quaker Extrafino 470g x18u.;2745.19;1313.59;true;38;2;almacen;
-LMA0143;Froot Loops 195g.;2953.67;2827.62;true;39;2;almacen;
-GRA0015;Copos de Maiz 160g.;1022.03;900.47;true;40;2;almacen;
-LMA0160;Corn Flakes.;1651.7;1582.12;true;41;2;almacen;
-LMA0036;Musli Manzana y Pasas 270g.;2899.29;2774.54;true;42;2;almacen;
-LMA0014;Choco Krispis Pop 165g.;3074.16;2941.56;true;43;2;almacen;
-LMA0158;Choco Krispis Rice 240g.;4421.68;4229.78;true;44;2;almacen;
-LMA0015;Choco Zucaritas Caja 240g.;1988.21;1903.21;true;45;2;almacen;
-LMA0085;Zucaritas Caja 150g.;1318.13;1262.33;false;46;2;almacen;
-LMA0141;Zucaritas caja 240g.;2318.85;2219.12;true;47;2;almacen;
-LMA0161;Granola Kellogs.;1629.86;1560;true;48;2;almacen;
-GRA0057;Copos de Maiz Granix 400g;1794.23;1580.82;true;49;2;almacen;
-GRA0048;Skarchitos 240g.;1403.59;1236.64;true;50;2;almacen;
-MON0151;Flow Cereal 180g. frutilla;2117.91;2027;true;51;2;almacen;novedad
-CMN0010;Choclo Cremoso Cumana 300g x24u.;1062.12;1016.46;true;52;2;almacen;novedad
-CMN0011;Garbanzos Cumana 300g x24u.;1013.46;969.88;true;53;2;almacen;novedad
-CMN0012;Jardinera Cumana 300g x24u.;954.44;913.42;true;54;2;almacen;novedad
-CMN0002;Atun Cumana Desmenuzado 170g.Nat- Ac;1089.6;1043;true;55;2;almacen;novedad
-CMN0003;Atun Cumana Lomo 170g. Ac- Nat;2241.63;2145;false;56;2;almacen;novedad
-CMN0007;Caballa Cumana 380g. Nat - Ac.;3303.99;3162;true;57;2;almacen;novedad
-CMN0004;Durazno mitad Cumana 820g x12u.;2065.23;1976.34;true;58;2;almacen;novedad
-CMN0008;Champignon entero Cumana 400g.;2551.48;2442;true;59;2;almacen;novedad
-CMN0013;Morron Cumana 185g.;1389.24;1330;true;60;2;almacen;novedad
-CMN0005;Palmito entero Cumana 396g.;3440.19;3293;true;61;2;almacen;novedad
-CMN0006;Palmito trozo Cumana 395g.;1497.07;1432;true;62;2;almacen;novedad
-CMN0001;Anana en rodajas Cumana 836g x12u.;4809.09;4601.83;true;63;2;almacen;novedad
-CMN0014;Peras en mitad Cumana 820g x12u.;2882.15;2822;true;64;2;almacen;novedad
-CMN0018;Alcaparras Cumana 100g x12u.;2551.95;2442.33;true;65;2;almacen;novedad
-DUL0056;Jalea Membrillo Emeth x6u.;1812.03;1734.17;true;66;2;almacen;
-DUL0008;Merm. Emeth Fco. Flla 454g x6u.;1987.57;1902.17;true;67;2;almacen;
-DUL0035;Merm. Emeth Fco. F. Bosque 454gx6u.;1874.07;1802.17;true;68;2;almacen;
-DUL0011;Merm. Emeth Fco. Cir. 454gx6u.;1582.19;1514.17;true;69;2;almacen;
-DUL0054;Merm. Emeth Fco. Maracuya x6u.;1817.63;1718.74;true;70;2;almacen;
-DUL0010;Merm. Emeht Fco Damazco 454g x6u.;1479.66;1416;true;71;2;almacen;
-DUL0012;Merm. Emeth Fco. Nja 454g x6u.;1582.19;1514.17;true;72;2;almacen;
-DUL0048;Merm. Emeth Fco. B.C. Mzna 390g x6u.;2012.92;1926.33;true;73;2;almacen;
-DUL0006;Merm.Emeth Fco B.C.Fbosque 390gx6u.;2211.36;2116.33;true;74;2;almacen;
-DUL0040;Merm. Emeth Fco. B.C. Nja 390gx6u.;2000.25;1914.17;true;75;2;almacen;
-DUL0002;Merm.Emeth Fco B.C.Framb 390gx6u.;2260.35;2163.17;true;76;2;almacen;
-RPB0020;Merm. de la Huerta x12u.;0;0;false;77;2;almacen;
-DUL0055;Esencia Vainilla Emeth 120cc x24u.;636.97;609.58;true;78;2;almacen;
-MON0141;Gelatina Royal x8u.;852.53;816;true;79;2;almacen;
-MON0114;Polvo Hornear Royal 50g x20u.;1298.38;1242.57;true;80;2;almacen;
-MON0147;Mouse chocolate Royal.;11313.68;10828;true;81;2;almacen;novedad
-MON0104;Flan Vainilla Royal 60g x6u.;883.03;845.07;true;82;2;almacen;
-COC0082;Leche Las Tres Niñas 1L x12u.;1850.81;1894.75;true;83;2;almacen;novedad
-COC0084;Crema p/cocinar Las Tres Niñas 200cc x12u.;1979.91;1894.75;true;84;2;almacen;novedad
-MCA0024;Mama Cocina Reb. Horno 500gx12u.;2346.37;1092.33;true;85;2;almacen;
-MCA0117;Mama Cocina Reb. Horno 1kg x10u.;2139.48;2047.6;true;86;2;almacen;
-MCA0023;Mama Cocina Reb. Freir 500gx12u.;868.94;831.67;true;87;2;almacen;
-CAL0004;Caldiet tarrito s/s azul.;5313.3;5083.67;true;88;2;almacen;
-CAL0001;Caldiet Caja c/s verde x10u.;2137.65;2046.94;false;89;2;almacen;
-CAL0002;Caldiet Caja s/s azul x10u.;2137.65;2046.94;true;90;2;almacen;
-MON0036;Jugo Clight x20u.;388.28;371.59;true;91;2;almacen;
-MON0063;Jugo Tang x20u.;369.79;353.85;true;92;2;almacen;
-ARV0042;Fainalind 200gx8u.;1522.77;1457.11;true;93;2;almacen;
-ARV0140;Faina 200g x8u.;1422.37;1361.5;true;94;2;almacen;
-ARV0200;Pure de Papas Fleiss 100g x20u.;908.45;869.4;true;95;2;almacen;
-ARV0102;Levex 20g x25u.;575.31;550.56;true;96;2;almacen;
-ARV0256;Levex Masamadre.;690.35;660.68;true;97;2;almacen;novedad
-MCA0032;H. Pureza 0000 1kg ult.ref x10u;917.65;858.6;false;98;2;almacen;
-MCA0033;H. Pureza Leudante 1Kg x10u.;1130.8;1058;true;99;2;almacen;
-MCA0036;Harina Pureza Pizza 1Kg x10u.;1080.95;1011.24;true;100;2;almacen;
-MCA0037;Harina Cañuelas 000 1kg x10u.;0;0;false;101;2;almacen;
-MCA0113;Harina Pureza 000 1kg x10u.;605.22;566.3;true;102;2;almacen;
-GRI0010;Fideos Grimaldi Ave Maria 500gx12u.;1310.17;1253.83;true;103;2;almacen;
-GRI0013;Fideos Grimaldi Coditos 500gx12u.;1182.48;1131.83;true;104;2;almacen;
-GRI0006;Fideos Grimaldi Nido Verde 500gx12u.;1721.23;1647.25;true;105;2;almacen;
-GRI0005;Fideos Grimaldi Cinta N°1-2 500gx12u.;1772.59;1696.42;true;106;2;almacen;
-GRI0019;Fideos Grimaldi Penne Rigatti 500g x12u.;1122.03;1073.63;true;107;2;almacen;
-GRI0024;Fideos Grimaldi Tirabuzon 500gx12u.;1213.88;1161.67;true;108;2;almacen;
-GRI0016;Fideos Grimaldi Mostachol 500gx12u.;1201.65;1150.06;true;109;2;almacen;
-GRI0014;Fideos Grimaldi Codo 500g x12u.;1213.88;1161.67;true;110;2;almacen;
-GRI0018;Fideos Grimaldi Spaguetti 500g x12u.;1213.88;1161.67;true;111;2;almacen;
-GRI0035;Fideos Grimaldi Cabello Angel 500gx12u.;1592.78;1524.33;true;112;2;almacen;
-GRI0011;Fideos Grimaldi Moños 500gx12u.;1721.23;1647.25;true;113;2;almacen;
-GRI0031;Fideos Grimaldi Moñitos 500gx12u.;1721.23;1647.25;true;114;2;almacen;
-GRI0021;Fideos Grimaldi Municion 500g x12u.;1310.17;1253.83;true;115;2;almacen;
-VIR0157;Giacomo 250g. JyQ-Vd-Carne;2294.97;2196.94;true;116;2;almacen;
-VIR0180;Giacomo 500g.;0;0;false;117;2;almacen;
-FID0004;Fideos 308 Tallar. Nº2 Huevo 500g x12u;1432.46;1370.92;true;118;2;almacen;
-FID0006;Fideos 308 Tirab. Huevo 500g x12u.;833.28;797.5;true;119;2;almacen;
-FID0008;Fideos 308 Nidos 1 Huevo 500g x12u.;1801.15;1723.75;true;120;2;almacen;
-FID0001;Fideos 308 Cab.Angel Huevo 500g x12u.;1189.75;1138.64;true;121;2;almacen;
-FID0002;Fideos 308 Mostach. Huevo 500g x12u.;833.28;797.5;true;122;2;almacen;
-FID0003;Fideos 308 Tall.Espinaca Nº2 500g x12u.;1269.5;1214.92;true;123;2;almacen;
-FID0005;Fideos 308 Tallar. Nº3 Huevo 500g x12u.;1145.99;1096.8;true;124;2;almacen;
-FID0007;Fideos 308 Cab.Angel Semola 500g x12u;1071.58;1025.47;true;125;2;almacen;
-FID0009;Fideos 308 Nidos 2 Huevo 500g x12u.;1801.15;1723.75;true;126;2;almacen;
-FID0010;Fideos 308 Nidos 3 Huevo 500g x12u.;1801.15;1723.75;true;127;2;almacen;
-FID0011;Fideos 308 Nidos 4 Huevo 500g x12u.;1801.15;1805.43;false;128;2;almacen;
-FID0012;Fideos 308 Nidos Espinaca Nº2 500g x12u.;1438.14;1376.33;true;129;2;almacen;
-FID0013;Fideo 308 Ave Maria semola x12u.;767.26;734.24;true;130;2;almacen;
-WAK0002;Caja Fideos Wakas Bolsa 300g. x12u.;2179.62;2085.9;true;131;2;almacen;
-WAK0013;Fideos Wakas 250g. Garb- Alubia;3576.17;3150.81;true;132;2;almacen;
-DHH0005;Arroz 2 Hnos. Largo 1Kg x10u.;879.49;840.74;true;133;2;almacen;
-DHH0001;Arroz 2 Hnos. Doble 1Kg x10u.;1509.52;1444.69;true;134;2;almacen;
-DHH0004;Arroz 2 Hnos. Parboil 1Kg x10u.;945.8;905.1;true;135;2;almacen;
-DHH0019;Arroz Dos Hnos. Doble 500g x10u.;827.3;791.66;true;136;2;almacen;
-DHH0007;Arroz Dos Hnos. Largo 500g x10u.;490.82;469.69;true;137;2;almacen;
-DHH0012;Arroz Dos Hnos. Parboil 500g x10u.;589.72;564.29;true;138;2;almacen;
-DHH0003;Arroz 2 Hnos. Integral 1Kg x10u.;1009.17;965.7;true;139;2;almacen;
-DHH0013;Arroz Dos Hnos. Sushi 500g.;1483.45;1452;true;140;2;almacen;
-DHH0014;Arroz Dos Hnos.Yamani 500g.;1517.5;1452;true;141;2;almacen;
-DHH0015;Arroz Dos Hnos Carnaroli 500g.;2139.48;2047;true;142;2;almacen;
-LMA0108;Arroz Maria Largo Fino 500gx10u.;458.18;438.58;true;143;2;almacen;
-LMA0107;Arroz Maria Largo Fino 1Kg x10u.;1250.54;1196.8;true;144;2;almacen;
-ARV0251;Queso Rallado La Quesera 40g x20u.;484.33;463.52;false;145;2;almacen;
-RPB0063;Pulpa Tomate La Huerta 520cc x12u.;664.64;636;true;146;2;almacen;
-RPB0021;Pure Tomate La Huerta 530cc x12u.;855.22;818.42;true;147;2;almacen;
-RPB0022;Pure Tomate La Huerta 210cc x18u.;431.83;413.36;true;148;2;almacen;
-RPB0023;Pure Tomate La Huerta 1030cc x8u.;1376.54;1317.34;true;149;2;almacen;
-ARV0100;5 Azucar Tucu x10u.;766.96;735.54;true;150;2;almacen;
-MCA0101;Mayonesa Cañuelas 125g x20u.Oferta;163.5;156.48;true;151;2;almacen;oferta
-MCA0102;Mayonesa Cañuelas 250g x12u.Oferta;615.54;589.15;true;152;2;almacen;oferta
-DOS0130;Caja Mayonesa Heinz 350g x12u.;1837.89;1758.9;true;153;2;almacen;
-DOS0133;Caja Mayonesa Heinz Light 350g x12u.;1931.68;1848.67;true;154;2;almacen;
-DOS0129;Caja Mayonesa Heinz Light 200g x24u.;1006.7;963.46;true;155;2;almacen;
-DOS0128;Caja Mayonesa Heinz 200g x24u.;1064.83;1019.07;true;156;2;almacen;
-VIR0156;Chocolino 180g.;1904.97;1824.8;true;157;2;almacen;
-VIR0184;Chocolino 360g.;3743.48;3583.05;true;158;2;almacen;
-VIR0185;Chocolino menos azucar 300g.;5107.62;4887.43;true;159;2;almacen;
-MON0150;Cacao Toddy 180g x12u.;1688.97;1616.33;true;160;2;almacen;novedad
-DOS0158;Salsa Tau Vegan Cheddar 300g.;3115.8;2981.85;true;161;2;almacen;
-DOS0156;Salsa Tau Guacamole 290g.;3423.38;3276.21;false;162;2;almacen;
-DOS0078;Salsa Tau Coleslaw 310g.;0;0;false;163;2;almacen;
-DOS0119;Salsa Tau Ranch.;0;0;false;164;2;almacen;
-DOS0157;Salsa Tau Mayonesa c/oliva 290g.;2626.12;2513.22;true;165;2;almacen;
-DOS0079;Salsa Tau Teriyaki 320g.;3054.75;2923.43;false;166;2;almacen;
-DOS0095;Salsa Tau Chimichurri 310g.;2673.16;2557.33;true;167;2;almacen;
-DOS0091;Salsa Tau Barbacoa 340g.;3000.94;2872.47;false;168;2;almacen;
-DOS0097;Salsa Tau Caesar 300g.;3149.15;3013.8;false;169;2;almacen;
-DOS0080;Salsa Tau Most. Dulce 320g.;3223.98;3085.39;true;170;2;almacen;
-DOS0094;Salsa Tau Cheddar 300g.;3115.8;2981.89;true;171;2;almacen;
-DOS0088;Salsa Tau Mayo. Picante 300g.;2481.11;2374.63;true;172;2;almacen;
-DOS0081;Salsa Tau Mayonesa c/ajo 300g.;2413.94;2309.77;true;173;2;almacen;
-DOS0159;Salsa Tau Vegan Mayonesa 300g.;2283.36;2185.2;true;174;2;almacen;
-DOS0090;Salsa Tau Big 300g.;2768.67;2650.26;true;175;2;almacen;
-DOS0096;Salsa Tau Caesar light 310g.;2930.57;2804.62;true;176;2;almacen;
-DOS0099;Salsa Dos Anclas Chocolate.;2582.03;2470.94;true;177;2;almacen;
-DOS0106;Salsa Caramelo Dos Anclas.;1905.94;1779.43;true;178;2;almacen;
-DOS0102;Salsa Dos Anclas Frutilla.;3667.25;2338.08;true;179;2;almacen;
-DOS0110;Salsa Aji Picante Dos Anclas.;2161.18;2068.32;true;180;2;almacen;
-DOS0105;Salsa Cheddar Dos Anclas.;3481.65;3331.97;true;181;2;almacen;
-DOS0109;Salsa Ranch c/sem. Dos Anclas.;3681.7;3523.43;true;182;2;almacen;
-DOS0103;Salsa Caesar Light Dos Anclas .;3281.59;3140.51;true;183;2;almacen;
-DOS0111;Salsa Alioli Dos Anclas.;3436.53;3288.79;true;184;2;almacen;
-DOS0101;Salsa Parmesano Dos Anclas.;3368.15;3224.53;true;185;2;almacen;
-DOS0098;Salsa Barbacoa Dos Anclas.;2320.58;3014.91;true;186;2;almacen;
-DOS0100;Salsa Chimichurri Dos Anclas.;2945.38;2818.76;true;187;2;almacen;
-DOS0180;Salsa Dos Anclas Curry 250g.;2059.15;1970;true;188;2;almacen;novedad
-DOS0104;Salsa Caesar Dos Anclas.;3150.34;3014.91;false;189;2;almacen;
-DOS0112;Salsa Mostaza c/miel D.Anclas.;3215.46;3078.08;true;190;2;almacen;
-DOS0125;Salsa Inglesa Dos Anclas.;2288.16;2190;true;191;2;almacen;
-DOS0011;Sal Fina Dos Anclas Paq.Tril. 500gx12u.;964.99;923.5;true;192;2;almacen;
-DOS0032;Sal Parrillera D.Anclas Paq.1Kg x15u.;1875.23;1794.62;true;193;2;almacen;
-DOS0046;Sal Gruesa D.Anclas Paq.Tril 1Kg x15u.;1875.23;1794.62;true;194;2;almacen;
-DOS0005;Sal gruesa Dos Anclas Estuche 1kg x15u.;1340.5;1282.87;true;195;2;almacen;
-DOS0004;Sal Gruesa D.Anclas Est. 500g x24u.;1028.22;984.03;true;196;2;almacen;
-DOS0029;Sal Light Dos Anclas Est. 500gx12u.;3496.41;3346.18;true;197;2;almacen;
-DOS0003;Sal Fina Est. Dos Anclas 500gx24u.;1070.41;1024.38;true;198;2;almacen;
-DOS0031;Sal Parrillera D.Anclas Est. 1kg x15u.;1357.23;1298.79;true;199;2;almacen;
-DOS0026;Sal Parrillera Est. Dos Anclas 500gx24u.;894;855.54;true;200;2;almacen;
-DOS0012;Sal Fina D.Anclas Salero Vint. 500gx6u.;2670.96;2556.14;true;201;2;almacen;
-DOS0137;Sal Fina Salero D. Anclas 100g x12u.;1465.24;1402.25;true;202;2;almacen;
-DOS0010;Sal Fina D.Anclas Salero 250gx6u.;2075.49;1986.26;true;203;2;almacen;
-DOS0051;Sal Fina Salero D.Anclas 500gx6u.;2550.17;2439.65;true;204;2;almacen;
-DOS0058;Salero Light Dos Anclas 250gx6u.;4025.63;3852.37;true;205;2;almacen;
-DOS0025;Sal Parrillera Salero D.Anclas 500gx6u.;2499.31;2391.87;true;206;2;almacen;
-DOS0030;Sal Gruesa Salero D.Anclas 500g x6u.;2325.43;2225.5;true;207;2;almacen;
-DOS0001;Sal Gruesa Dos Estrellas 1Kg x10u.;1044.54;999.74;true;208;2;almacen;
-DOS0002;Sal Fina Dos Estrellas 500gx24u.;576.2;551.42;true;209;2;almacen;
-DOS0176;Sal Entrefina Dos Estrellas x10u.;1121.17;1072.94;true;210;2;almacen;
-DOS0048;Vinagre Vino Dos Anclas 1L x12u.;2034.45;1946.99;true;211;2;almacen;
-DOS0035;Vinagre Vino D.Anclas 500ccx12u.;1372.07;1313.09;true;212;2;almacen;
-DOS0034;Vinagre Alcohol D.Anclas 1L x12u.;1140.08;1091.06;true;213;2;almacen;
-DOS0033;Vinagre Alcohol D.Anclas 500ccx12u.;789.28;755.35;true;214;2;almacen;
-DOS0047;Vinagre Mzna D.Anclas 1L x12u.;2744.14;2626.17;true;215;2;almacen;
-DOS0139;Vinagre Mzna Dos Anclas 500cc x12u.;1622.41;1552.67;true;216;2;almacen;
-DOE0006;Maiz Pisado Col. Elio 500gx10u.;470.21;449.91;false;217;2;almacen;
-DOE0024;Arvejas Partidas Elio x10x400g.;669.2;640.4;true;218;2;almacen;
-DOE0015;Porotos Alubia Elio 500gx10u.;1678.67;1606.5;true;219;2;almacen;
-DOE0004;Lentejon Elio 400gx20u.;1444.4;1382.3;true;220;2;almacen;
-DOE0002;Porotos Pallares 500gx10u.;3804.97;3641;true;221;2;almacen;
-DOE0012;Semola Elio 400g x10u.;1138.97;1090;true;222;2;almacen;
-DOE0008;Lentejas Elio 400g x20u.;969.35;927.7;true;223;2;almacen;
-DOE0018;Arvejas Enteras Elio 400gx10u.;576.97;552.22;false;224;2;almacen;
-DOE0016;Porotos Colorados Elio 500gx10u.;0;0;false;225;2;almacen;
-DOE0011;Porotos Negros Elio 500g x10u.;1928.82;1845.9;true;226;2;almacen;
-DOE0010;Maiz Pisado Blanco Elio 400gx10u.;1252.63;1496.8;true;227;2;almacen;
-DOE0003;Garbanzos Elio 400gx10u.;1009.81;966.4;true;228;2;almacen;
-DOE0014;Maiz Pisingallo Elio 400g x20u.;541.57;518.3;true;229;2;almacen;
-DOE0023;Porotos Manteca Elio.;2413.92;2310.2;true;230;2;almacen;
-DOS0020;Aceto Bals. Dos Anclas 250cc x6u.;2448.54;2343.29;true;231;2;almacen;
-DOS0021;Jugo Limon Dos Anclas 500ccx12u.;1579.86;1511.96;true;232;2;almacen;
-DOS0042;Jugo Limon Dos Anclas 1L x6u.;2758.04;2639.47;true;233;2;almacen;
-VIR0037;Alicante Bicarbonato 50g x25u.;564.69;540.42;false;234;2;almacen;
-VIR0040;Comino Molido Alicante 25gx12u.;868.23;830.91;true;235;2;almacen;
-VIR0044;Nuez Mosc. Molida Alicante 25gx12u.;1765.14;1689.26;true;236;2;almacen;
-VIR0055;Alicante Nuez Moscada Ent. 20g x20u.;1725.76;1651.65;true;237;2;almacen;
-VIR0134;Alicante Aji Triturado 25g x12u.;764.39;731.49;true;238;2;almacen;
-VIR0023;Alicante Pimienta Bca Molida 25gx12u.;1549.21;1501.41;true;239;2;almacen;
-VIR0142;Alicante Ajo Triturado 50g x12u.;1259.52;1204.43;true;240;2;almacen;
-VIR0059;Pimienta Bca. grano Alicante 25gx12u.;1142.08;1092.84;true;241;2;almacen;
-VIR0049;Pimienta Neg.Molida Alicante 25gx12u.;1148.53;1099.17;true;242;2;almacen;
-VIR0143;Pimienta Negra grano Alicante 25g x12u.;1146.64;1097.29;true;243;2;almacen;
-DOS0007;Azucar Imp. Dos Anclas 300gx15u.;1912.02;1829.82;true;244;2;almacen;
-DOS0006;Azucar Neg. Dos Anclas 250gx12u.;1808.81;1731.08;false;245;2;almacen;
-DOS0056;Polvo Chantilly D. Anclas 50gx12u.;1284.14;1228.93;true;246;2;almacen;
-VIR0036;Alicante Coco Rallado 50g x25u.;1444.9;1382.8;true;247;2;almacen;
-VIR0073;Anis grano Alicante 25g. x12u.;812.19;777.26;true;248;2;almacen;
-VIR0050;Alicante Canela en rama 20g x12u.;2209.61;2114.62;true;249;2;almacen;
-VIR0022;Pimenton Alicante 25g x24u.;651.69;623.66;true;250;2;almacen;
-VIR0071;Cond. p/milanesas Alicante 25gx12u.;856.56;819.9;true;251;2;almacen;
-VIR0070;Cond. p/empanadas Alicante 25gx12u.;986.88;944.38;true;252;2;almacen;
-VIR0057;Cond. p/carnes blancas Alicante 25g x12u.;925.41;885.68;true;253;2;almacen;
-VIR0068;Cond. p/vegetales Alicante 25g x25u.;384.38;367.85;true;254;2;almacen;
-VIR0151;Cond. Chimichurri Alicante 25gx12u.;963.8;922.33;true;255;2;almacen;
-VIR0140;Cond. Pizza Alicante 25g x12u.;823.57;788.17;true;256;2;almacen;
-VIR0141;Cond. Arroz Alicante 25g x12u.;909.61;870.55;true;257;2;almacen;
-VIR0140-1;Cond. Pizza Alicante 25g x12u.;823.57;788.17;true;258;2;almacen;
-VIR0051;Alicante Oregano 50gx25u.;2123.8;2029.6;true;259;2;almacen;
-VIR0024;Provenzal Alicante 25gx12u.;1013.98;970.24;true;260;2;almacen;
-VIR0021;Alicante Oregano 25gx12u.;1175.6;1125.03;false;261;2;almacen;
-VIR0144;Provenzal Alicante 50g x12u.;1889.4;1808.13;true;262;2;almacen;
-VIR0039;Laurel Hoja Alicante 10g x12u.;1573.17;1505.52;true;263;2;almacen;
-VIR0052;Alicante Perejil desh. 25g x12u.;1289.64;1234.19;true;264;2;almacen;
-VIR0046;Azafran Capsulas Alicante x2u.;2229.36;2133.22;false;265;2;almacen;
-VIR0175;Azafran Capsulas Alicante x8u.;0;0;false;266;2;almacen;
-VIR0138;Sab. Alicante 7,5g Verdura x12u.;249.79;239.08;true;267;2;almacen;
-VIR0083;Sab. Alicante 7,5 Hierb-Alb x12u.;286.4;274.17;true;268;2;almacen;
-VIR0135;Sab. Alicante 7,5g Champigc/hongos x12u.;286.4;274.19;true;269;2;almacen;
-VIR0083-1;Sab. Alicante 7,5 Hierb-Alb x12u.;286.4;274.17;true;270;2;almacen;
-VIR0084;Sab. Alicante 7,5g Carne-Gall. x12u.;249.77;239.14;true;271;2;almacen;
-VIR0084-1;Sab. Alicante 7,5g Carne-Gall. x12u.;249.77;239.14;true;272;2;almacen;
-DOS0177;Salsa Soja Dos Anclas 500g x12u.;4384.13;4195.74;true;273;2;almacen;novedad
-CON0005;Salsa Soja Sakura 500ml.;3628.6;3473;true;274;2;almacen;
-IFI0002;Salsa Soja Lee Kum Kee 500ml.;2115.73;2025;true;275;2;almacen;
-CON0004;Salsa Soja Sakura 150ml.;1919.29;1837;true;276;2;almacen;
-CON0001;Nissin Cup Carne.Oferta;1805.44;1728.9;true;277;2;almacen;oferta
-CON0003;Nissin Ramen Pollo 85g.Oferta;1071.26;1025.18;true;278;2;almacen;oferta
-VIR0033;Esencia Vainilla Alicante 100cc x16u.;1422.58;1361.44;true;279;2;almacen;
-DOS0070;Esencia Vainilla D.Anclas 100cc x20u.;1564.59;1497.41;true;280;2;almacen;
-DUL0049;Brownie Emeth 425g.;1954.47;1870;true;281;2;almacen;
-DUL0050;Chipa Emeth 250g.;1977.17;1890;true;282;2;almacen;
-DUL0028;Bizc. Emeth Chocolate 450g.;1520.9;1455;true;283;2;almacen;
-NUC0054;Caja Ac. Oliva Nucete Intenso 500ccx12u.;11995.64;11479.92;true;1;3;nucete;
-NUC0059;Caja Ac. Oliva Nucete Suave 500ccx12u.;8863.15;8482.03;true;2;3;nucete;oferta
-NUC0056;Caja Ac. Oliva Nucete Clasico 500ccx12u.;9467.13;9141.67;false;3;3;nucete;oferta
-NUC0058;Caja Ac. Oliva Nucete Clas. 250ccx24u.;6209;5942.04;true;4;3;nucete;oferta
-NUC0008;Aceite Nucete Oliva Lata Roja 500cc.;12130.66;11609;true;5;3;nucete;
-NUC0009;Aceite Nucete Oliva Lata Verde 500cc.;10794.12;10329.17;true;6;3;nucete;
-NUC0060;Pack Rocio Vegetal Nucete x12u.;3196.54;3059.36;true;7;3;nucete;
-NUC0102;Caja Ac. Oliva Nucete Ex. Virgen 500cc x12u.;10941.97;10471.67;true;8;3;nucete;
-NUC0022;Aceituna Premium Verde Rell. 220g.;4740.75;4535.91;true;9;3;nucete;
-NUC0095;Aceituna Premium Verde Desc. x180g.;4152.72;3974.19;false;10;3;nucete;
-NUC0018;Aceituna Fco. Verde Desc.Light x180g.;3647.61;3490.8;true;11;3;nucete;
-NUC0012;Aceituna Fco. Negra Desc.Light x180g.;3965.43;3794.96;true;12;3;nucete;
-NUC0019;Aceituna Premium Verde 220g.;3776.63;3614.28;true;13;3;nucete;
-NUC0001;Aceituna Fco. Largo Negra 200g.;3349.16;3204.79;true;14;3;nucete;
-NUC0020;Aceituna Fco. Largo Verde Desc. 330g.;3501.6;3351.07;true;15;3;nucete;
-NUC0045;Aceituna Fco. Largo Verde Rod.x24u. ;0;0;false;16;3;nucete;
-NUC0023;Aceituna Fco. Largo Verde Rell. 200g.;3794.41;3630.33;true;17;3;nucete;
-NUC0003;Aceituna Fco. Largo Verde 200g.;3196.72;3058.52;true;18;3;nucete;
-NUC0066;Nucete Rellena Cebolla;0;0;false;19;3;nucete;
-NUC0067;Nucete Rellena Ajo;0;0;false;20;3;nucete;
-NUC0070;Nucete rellena;0;0;false;21;3;nucete;
-NUC0072;Nucete Rellena Jalapeño;0;0;false;22;3;nucete;
-NUC0038;Pepinos Nucete;0;0;false;23;3;nucete;
-NUC0039;Pepinitos Nucete;0;0;false;24;3;nucete;
-NUC0041;Picles Nucete Frasco 220g.;3520.77;3369.91;true;25;3;nucete;
-NUC0040;Picles doypack Nucete 150g.;1756.98;1682;true;26;3;nucete;
-NUC0104;Ajies Nucete 220g x12u.;5591.25;5350.83;true;27;3;nucete;
-NUC0025;Ajies Nucete 110g.;4389.08;4199.47;true;28;3;nucete;
-NUC0106;Salsa Nucete Filetto fco. 340g.;2408.74;2305;true;29;3;nucete;novedad
-NUC0107;Salsa Nucete Mediterranea fco 340g.;2752.85;2634;true;30;3;nucete;novedad
-NUC0108;Salsa Nucete Portuguesa fco. 340g.;2752.85;2634;true;31;3;nucete;novedad
-NUC0037;Pasta Aceitunas Nucete x190g.;3080.39;2948;false;32;3;nucete;
-NUC0030;Aceituna doypack Vde Desc.150g x8u.;1600.92;1532.16;true;33;3;nucete;
-NUC0079;Aceituna doypack Verde Desc. x30u.;1522.64;1457.18;true;34;3;nucete;
-NUC0028;Aceituna doypack Negra Rodaja 150g.;1700.13;1627.04;true;35;3;nucete;
-NUC0084;Aceituna doypack Negra Rod. x30u.;1650.61;1579.65;true;36;3;nucete;
-NUC0031;Aceituna doypack Verde 180g x8u.;1329.69;1272.5;true;37;3;nucete;
-NUC0078;Aceituna doypack Verde x30u.;1264.06;1209.7;true;38;3;nucete;
-NUC0033;Aceituna doypack Vde Rell 180gx8u.;1892.14;1810.75;true;39;3;nucete;
-NUC0081;Aceituna doypack Rellena x30u.;1650.83;1579.86;true;40;3;nucete;
-NUC0032;Aceituna doypack Vde Rod.150g x8u.;1673.7;1601.75;true;41;3;nucete;
-NUC0080;Aceituna doypack Rodajas Vde. x30u.;1458.74;1396.03;true;42;3;nucete;
-NUC0029;Aceituna doypack Negra 180gx8u.;1673.7;1601.75;true;43;3;nucete;
-NUC0082;Aceituna doypack Negra x30u.;1458.74;1396.03;true;44;3;nucete;
-NUC0017;Aceituna Sachet Verde Rell. 100g x18u.;1182.29;1131.44;true;45;3;nucete;
-NUC0014;Aceituna Sachet Negra 100g x18u.;999.35;956.39;true;46;3;nucete;
-NUC0015;Aceituna Sachet Verde Desc. 80g x18u.;999.35;956.39;true;47;3;nucete;
-NUC0016;Aceituna Sachet Verde 100g x18u.;908.93;869.83;true;48;3;nucete;
-NUC0090;Caja Aceituna x60u. Sachet Verde 100g.;793.21;759.23;true;49;3;nucete;
-NUC0091;Caja Aceituna x60u. Sachet Vde. Rellena 100g.;902.33;863.53;true;50;3;nucete;
-NUC0093;Caja Aceituna x60u Sachet Negra 100g.Oferta;951.4;910.48;true;51;3;nucete;
-NUC0092;Caja Aceituna x60u Sachet Vde. Desc. 80g.;950.39;909.52;false;52;3;nucete;
-NUC0096;Aceituna Cebila Vde. Desc. 180g x30u.;1299.31;1243.47;true;53;3;nucete;
-NUC0097;Aceituna Cebila Verde 180g x30u.;1181.08;1130.3;true;54;3;nucete;
-BON0002;Cafe Bonafide 500g x12u.;9222.82;8826.33;true;1;4;cafe;
-BON0002-1;Cafe Bonafide 500g x12u.;9222.82;8826.33;true;2;4;cafe;
-BON0003;Cafe Bonafide 250g x8u.;4667.26;4466.63;true;3;4;cafe;
-BON0003-1;Cafe Bonafide 250g x8u.;4667.26;4466.63;true;4;4;cafe;
-BON0005;Cafe Bonafide 125g x12u.;2594.33;2482.83;true;5;4;cafe;
-BON0005-1;Cafe Bonafide 125g x12u.;2594.33;2482.83;true;6;4;cafe;
-BON0067;Cafe Bonafide Tostado Equilibrado 200g x6u.;6643.53;6358;true;7;4;cafe;
-BON0068;Cafe Bonafide Tostado Intenso 200g x6u.;6643.53;6358;true;8;4;cafe;
-CAB0024;Cafe Super Cabrales 125g x12u.;5500.4;5264;true;9;4;cafe;
-CAB0021;Cafe La Planta 500g x6u.;10087.31;9653.83;true;10;4;cafe;
-CAB0020;Cafe La Planta 250g x12u.;5043.75;4826.92;true;11;4;cafe;novedad
-CAB0001;Cafe La Planta 125g x12u.;2522.44;2414;true;12;4;cafe;
-CAB0011;Cafe Super Cabrales 250gx12u.;10999.29;10526.5;true;13;4;cafe;
-CAB0022;Cafe Super Cabrales 500g x6u.;21998.57;21053;true;14;4;cafe;
-VIR0159;Cafe La Virginia Frasco 50g. Suave;0;0;false;15;4;cafe;
-VIR0007;Cafe La Virginia Frasco 50g.;2470.87;2365.6;true;16;4;cafe;
-VIR0009;Cafe La Virginia 170g.;6382.37;6107.29;true;17;4;cafe;
-VIR0003;Cafe Instantaneo La Virginia x36u.;4628.88;4430.46;true;18;4;cafe;
-VIR0147;Cafe La Virginia Kalma 100g.;5257.18;5031.18;true;19;4;cafe;
-VIR0011;Cafe La Virginia Frasco 100g.;3864.68;3688.52;true;20;4;cafe;
-VIR0182;Mix Cortado La Virg. 125g.;3120.52;2955.18;true;21;4;cafe;
-VIR0119;Cafe La Virginia 125g.;2826.35;2703.62;true;22;4;cafe;
-VIR0078;Cafe La Virginia 500g.;9407.72;9004.03;true;23;4;cafe;
-VIR0010;Cafe La Virginia 250g.;5325.68;5096.85;true;24;4;cafe;
-VIR0137;Cafe La Morenita 125g.;2702.34;2585.47;true;25;4;cafe;
-VIR0004;Cafe La Morenita 250g.;4977.85;4764.38;true;26;4;cafe;
-VIR0105;Capsulas La Virginia 5,2g x10u.;5540.23;5303.07;true;27;4;cafe;
-BON0004;Cafe Bonafide Saquito x20u.;3082.15;2948.8;true;28;4;cafe;
-CAB0014;Cafe en Saq. Cabrales 18saq x18u.;4847.24;4638.9;true;29;4;cafe;
-VIR0002;Cafe La Morenita saq.x20u.;4096.98;3919.8;true;30;4;cafe;
-VIR0008;Cafe La Virginia Saq.5gx20u.;4243.52;4059.55;true;31;4;cafe;
-LHE0023;Malta El Pocillo 115g.;1332.49;1275;true;32;4;cafe;
-LHE0018;El Pocillo 125g.;0;0;false;33;4;cafe;
-LHE0015;Malta El Pocillo 170g.;2203.04;2108;true;34;4;cafe;
-CAB0050;Filtro Melita Nº 4 x24x30u.;3276.27;3142.05;true;35;4;cafe;
-CAB0051;Filtro Melita Nº2 x24x30u.;3053.95;2928.82;true;36;4;cafe;
-VIR0012;Caja Filtro La Virginia x10u.;4206.45;4025.75;true;37;4;cafe;
-VIR0181;Mix Cappuccino La Virg. 125g.;2943.16;2816.7;true;38;4;cafe;novedad
-VIR0015;Capuchino La Virginia 12,5g x10u.;4269.46;4085.92;true;39;4;cafe;
-VIR0150;Caps. La Morenita 5,2g Hond-Ital x10u.;6466.33;6188.35;true;40;4;cafe;novedad
-VIR0183;Mix Latte La Virg. 125g.;3120.52;2985.68;true;41;4;cafe;novedad
-LLO0018;Te Green Hills x100x9u.;4077.3;3902.11;true;1;5;te;
-LLO0005;3 Pack Te Green Hills x25 x20u;1129.4;1080.85;true;2;5;te;
-LLO0006;3 Pack Te Green Hills x50 x10u;2146.66;2054.37;true;3;5;te;
-LLO0016;Te Green Hills 100 hebras x20u.;1214.51;1162.25;true;4;5;te;
-LLO0031;Te Green Hills Manzanilla x20 x12u.;1003.62;960.42;true;5;5;te;
-LLO0019;Te Green Hills Limon x20x12u.;1456.9;1394.36;true;6;5;te;
-LLO0029;Te Green Hills Boldo x20saq x12u.;1968.42;1883.72;true;7;5;te;
-LLO0032;Te Green Hills Frutilla x20saq x12u.;1456.9;1394.36;true;8;5;te;
-LLO0037;Te Green Hills Breakfast x20sobx12u.;1866.7;1786.42;true;9;5;te;
-CAC0012;Te Cachamai Verde 20saq. x6u.;958.89;917.67;true;10;5;te;
-CAC0009;Te Cachamai Rosa 20saqx6u.;962.1;920.83;true;11;5;te;
-CAC0010;Te Cachamai Tilo 20saq. x6u.;1846.65;1767.17;true;12;5;te;
-CAC0007;Te Cachamai Menta 20saq x6u.;913.3;874;true;13;5;te;
-CAC0008;Te Cachamai Manzanilla 20saq. x6u.;868.28;830;true;14;5;te;
-CAC0011;Te Cachamai Verde Flla. 20saq x6u.;1396.88;1336.77;true;15;5;te;
-CAC0003;Te Cachamai Amarillo 20saq.x6u.;1062.55;1016.83;true;16;5;te;
-PLA0006;Mate Cocido Playadito 25x10u.;888.71;850.5;true;17;5;te;novedad
-LMA0030;Mate Cocido Union x100x4u.;4732.99;4529.76;true;18;5;te;
-LMA0091;3 Pack Mate Cocido x50x5u. Tar/Un;1517.5;1814.27;true;19;5;te;
-LMA0092;3 Pack Mate Cocido Tar/Un x25x10u.;1022.92;981;true;20;5;te;
-CRY0003;Te Crysf x50x10u.;993.47;950.7;true;21;5;te;
-CRY0002;Te Crysf x25x10u.;496.79;475.4;true;22;5;te;
-CRY0005;Mate Cocido Crysf 25saq x10u.;613.35;586.9;true;23;5;te;
-CRY0006;Mate Cocido Crysf 50saq x12u.;1226.65;1173.92;true;24;5;te;
-LMA0065;Te Taragui x25x10u.;752.52;721.7;true;25;5;te;
-LMA0055;Te Taragui 50x10u.;1458.18;1398.43;true;26;5;te;
-LMA0023;Mate Cocido c/sobre x40x4u.;2292.42;2193.75;true;27;5;te;
-LMA0032;Mate Cocido Taragui niñosx8u.;2502.76;2395.04;true;28;5;te;
-LMA0046;Te Hebras Taragui x180gx5u.;3310.06;3167.47;true;29;5;te;
-LMA0155;Te Taragui Mix x20sob x6u.;1327.3;1270.1;true;30;5;te;
-LMA0062;Te Taragui Tilo x25x6u.;2443.52;2338.41;true;31;5;te;
-LMA0154;Te Manzanilla Taragui x20x6u.;1208.79;1156.68;true;32;5;te;
-LMA0066;Te Taragui Verde 20x6u.;1970.49;1778.98;true;33;5;te;
-LMA0120;Te Taragui Chai 25x6u.;3776.81;3614.67;true;34;5;te;
-LMA0129;Te Taragui Internacional 25 sob x10u.;2284.28;2195.21;true;35;5;te;
-LMA0052;Te Taragui Placeres F.Rojos x20x6u.;2249.92;2153.54;true;36;5;te;
-LMA0121;Te Taragui Verde/Jazmin 25 x6u.;4003.35;3614.67;true;37;5;te;
-LMA0060;Te Taragui Manz/Can/ Miel x20x6u.;2249.92;2153.54;true;38;5;te;
-LMA0045;Te Taragui Ensueño x20saq x6u.;1483.98;1420.24;true;39;5;te;
-LLO0008;M.Cocido La Tranquera x25x24u.;814.88;779.88;true;40;5;te;
-LLO0009;M. Cocido La Tranquera x50 x12u.;1577.65;1509.83;true;41;5;te;
-VIR0133;Te La Morenita Manzanilla 20sob x6u.;1319.2;880.25;true;42;5;te;novedad
-VIR0193;Te La Morenita Tilo 20x6u.;1816.22;1738.26;true;43;5;te;novedad
-VIR0191;Te La Virginia Manzanilla 25x6u.;1319.07;1262.37;true;44;5;te;novedad
-VIR0190;Te La Virginia Detox 25x6u.;1836.65;1757.53;true;45;5;te;
-VIR0086;Te La Virginia Boldo 25x6u.;1645.66;1575.55;true;46;5;te;
-VIR0064;Te La Virginia Tilo/Mznill/Cedron 25x6u.;1896.73;1815.33;true;47;5;te;
-VIR0189;Te La Virginia Menta x6.;1321.37;1264.36;true;48;5;te;
-VIR0031;Te La Virginia x25ux10u.;774.51;741.08;true;49;5;te;
-VIR0094;Te La Virginia Limon 20x6u.;1588.86;1508.3;true;50;5;te;
-VIR0098;Te La Virginia Chai 20x6u.;1866.45;1786.11;true;51;5;te;
-VIR0103;Te La Virginia Rosa Mosq.20x6u.;2375;2272.93;true;52;5;te;
-VIR0101;Te La Virginia Mezc. Hierbas 25x6u.;1486.72;1422.96;true;53;5;te;
-VIR0114;Te La Virginia Ftos. Trop 20s x6u.;1794.59;1717.72;true;54;5;te;
-ESA0002;Yerba Cbse Regulase 500gx12u.;1607.35;1538.25;true;1;6;yerba;
-ESA0004;Yerba Cbse Kg x12u.;3099.02;2957.67;true;2;6;yerba;
-IMS0060;Yerba Canarias 500g x20u.;5237.17;5022.56;true;3;6;yerba;
-IMS0059;Yerba Canarias 1Kg. x20u.;9932.52;9525.53;true;4;6;yerba;
-IMS0110;Yerba Canarias Edicion Especial 500 x20u.;5799.75;5562.13;true;5;6;yerba;
-IMS0075;Yerba Canarias Serena 500 x20u.;5709.12;5475.23;true;6;6;yerba;
-IMS0121;Yerba Canarias Te Vde. y Jeng 500x20u.;5799.75;5562.13;true;7;6;yerba;novedad
-IMS0082;Yerba Canarias 250g x20u.;3004.04;2874.96;true;8;6;yerba;
-IMS0135;Yerba Canarias 100g x24u.;1312.82;1256.42;true;9;6;yerba;novedad
-LCM0002;Y. La Cumbrecita Naranja 500g x10u.;1246.34;1192.8;true;10;6;yerba;
-LCM0003;Y. La Cumbrecita Clasica 500gx10u.;1246.34;1192.8;true;11;6;yerba;
-LCM0001;Y. La Cumbrecita Especial 500gx10u.;1390.59;1330.87;true;12;6;yerba;
-ARV0197;Yerba Andresito Suave 500g x10u.;1763.9;1688.1;true;13;6;yerba;
-ARV0196;Yerba Andresito Especial 500g x10u.;1458.02;1395.3;true;14;6;yerba;
-ARV0146;Yerba Andresito 1Kg x5u.;2759.64;2641;true;15;6;yerba;
-ARV0195;Yerba Andresito 1/4 x20u;870.43;833;true;16;6;yerba;
-CAC0024;Yerba Cachamate Rosa 500g x12u.;1278.96;1224;true;17;6;yerba;
-LMA0070;Yerba La Merced 500gx6u.;2945.14;2818.5;true;18;6;yerba;
-LMA0163;La Merced Campo Sur Kg.x10u.;4369.75;4181.9;true;19;6;yerba;novedad
-PLA0001;Yerba Playadito 500gx10u.;2110.25;2019.71;true;20;6;yerba;
-PLA0003;Yerba Playadito Hierbas 500gx10u.;2432.42;2327.9;true;21;6;yerba;
-PLA0002;Yerba Playadito 1Kg x5u.;3948.25;3778.21;true;22;6;yerba;
-PLA0005;Yerba Playadito 250g x20u.;1175.75;1125.2;true;23;6;yerba;novedad
-PLA0004;Yerba Playadito Despalada x500x10u.;2619.24;2506.6;true;24;6;yerba;
-LCA0006;Yerba Amanda 500gx10u.;1694.78;1621.92;true;25;6;yerba;
-LCA0007;Yerba Amanda 1/4 x20u.;967.93;926.3;true;26;6;yerba;
-LCA0009;Yerba Amanda Suave 500g x10u.;1890.12;1808.89;true;27;6;yerba;
-LCA0003;Yerba Amanda Especial 500gx10u.;1890.12;1808.89;true;28;6;yerba;
-LCA0005;Yerba Amanda Especial 1kg x10u.;3183.11;3046.3;true;29;6;yerba;
-LMA0073;Yerba Taragui 1kg x10u.;3633.82;3477.6;true;30;6;yerba;
-LMA0072;Yerba Taragui 1/4x10u.;1019.58;975.74;true;31;6;yerba;
-LMA0077;Yerba Taragui s/palo 500g x10u.;2565.28;2455.01;true;32;6;yerba;
-LMA0033;Mate Listo.;1672.99;1600;true;33;6;yerba;
-LMA0152;Termo Lumilagro.;20037.29;19176;true;34;6;yerba;novedad
-LMA0012;Botella Termica.;2577.59;2467;true;35;6;yerba;
-LMA0079;Yerba Union 1/4x10u.;1019.58;975.74;true;36;6;yerba;
-LMA0082;Yerba Union Liviana 500g x10u.;2110.84;2020.1;true;37;6;yerba;
-LMA0104;Yerba Union 500x10u.;1793.75;1716.6;true;38;6;yerba;
-LMA0080;Yerba Union 1kg x10u.;3633.82;3477.6;true;39;6;yerba;
-LMA0101;Yerba Mañanita 1/4 x10u.;1019.58;975.74;true;40;6;yerba;
-LMA0071;Y. Mañanita BCP 4 Flex 500g x10u.;1793.75;1716.6;true;41;6;yerba;
-LMA0100;Yerba Mañanita 1kg x10u.;3334.29;3190.9;true;42;6;yerba;novedad
-LLO0027;Yerba Tranquera 500gx12u.;1611.32;1533.75;true;43;6;yerba;
-LLO0024;Yerba Tranquera 1Kg x6u.;3142.63;3007.5;true;44;6;yerba;
-LLO0040;Yerba Tranquera Liviana 1kg x6u.OFERTA;1768.53;1712.27;true;45;6;yerba;oferta
-LLO0058;Y. Tranquera Suave 500gx12u.Oferta;836.89;800.97;true;46;6;yerba;novedad
-LLO0025;Yerba Tranquera Suave x1kg x6u.;3195.03;3057.83;true;47;6;yerba;
-ROM0002;Yerba Romance 1/4x20u.;919.63;880.1;true;48;6;yerba;
-ROM0004;Yerba Romance 1Kg x10u.;2761;2642.4;true;49;6;yerba;
-ROM0003;Yerba Romance 500g x10u.;1504.44;1439.6;true;50;6;yerba;
-ROM0005;Yerba Romance Suave 1kg x10u.;2918.31;2792.8;true;51;6;yerba;
-ROM0001;Yerba Romance Suave 500g x10u.;1655.74;1584.5;true;52;6;yerba;
-ROS0018;Yerba Rosamonte Suave 500g x10u.;1664.93;1593.3;true;53;6;yerba;
-ROS0003;Yerba Rosamonte Suave 1/4 x20u.;849.43;812.95;true;54;6;yerba;
-ROS0015;Yerba Rosamonte Suave 1kg x10u.;3366.18;3221.4;true;55;6;yerba;
-ROS0013;Y.Rosamonte Suave Plus x500gx10u.;1679.46;1607.3;true;56;6;yerba;
-ROS0016;Y.Rosamonte Suave Plus 1kg x10u.;3404.09;3257.7;true;57;6;yerba;
-ROS0020;Yerba Rosamonte Plus 500gx10u.;1687.75;1615.2;true;58;6;yerba;
-ROS0019;Yerba Rosamonte Plus 1kg x10u.;3056.56;2925.1;true;59;6;yerba;
-ROS0012;Yerba Rosamonte Esp. 1kg x10u.;4083.05;3907.6;true;60;6;yerba;
-ROS0005;Yerba Rosamonte Esp. 500gx10u.;2293.49;2194.9;true;61;6;yerba;
-ROS0014;Yerba Rosamonte 1kg x10u.;2969.05;2841.4;true;62;6;yerba;
-ROS0009;Yerba Rosamonte 1/4x20u.;842.96;806.75;true;63;6;yerba;
-ROS0010;Yerba Rosamonte 500gx10u.;1569.25;1501.8;true;64;6;yerba;
-ROS0022;Yerba Rosamonte Organica 250g.;1662.78;1591;true;65;6;yerba;novedad
-ROS0021;Yerba Rosamonte Campeones 500g x10u.;0;0;false;66;6;yerba;
-ARV0243;Yerba VerdeFlor 500g x12u.;1475.24;1411.76;true;67;6;yerba;
-ARV0243-1;Yerba VerdeFlor 500g x12u.;1475.24;1411.76;true;68;6;yerba;
-ARV0243-2;Yerba VerdeFlor 500g x12u.;1475.24;1411.76;true;69;6;yerba;
-LMA0140;Yerba Buenas y Santas 500g x10u.;1808.15;1730.42;true;70;6;yerba;
-ARV0243-3;Yerba VerdeFlor 500g x12u.;1475.24;1411.76;true;71;6;yerba;
-CAC0044;Yerba Cachamate 500g x12u.Coco - Lit.;1761.71;1686;true;72;6;yerba;novedad
-MCA0097;Edulcorante Cañuelas 500ml x6u.;1575.14;1507.5;true;1;7;edulcorantes;oferta
-RPB0050;Si Diet Stevia 200cc x6u.;1289.93;1234.33;true;2;7;edulcorantes;novedad
-RPB0045;Si Diet Stevia 500cc x6u.;2407.71;2304.17;true;3;7;edulcorantes;novedad
-RPB0052;Si Diet 600cc x6u.;2356.45;2260;true;4;7;edulcorantes;novedad
-RPB0024;Si Diet 200ccx6u.;1007.63;966.3;true;5;7;edulcorantes;novedad
-RPB0025;Si Diet 500ccx6u.;2039.97;1956.67;true;6;7;edulcorantes;novedad
-MER0003;Chucker c/Stevia 200cc x6u.;2274.55;2176.77;true;7;7;edulcorantes;
-MER0004;Chucker c/Stevia 400cc x6u.;3368.49;3223.83;true;8;7;edulcorantes;
-MER0001;3 Pack Chucker 400 x6u.;2041.36;1957.78;true;9;7;edulcorantes;
-MER0002;3 Pack Chucker x200x6u.;1354.56;1299.11;true;10;7;edulcorantes;oferta
-MER0036;Chucker Sucralosa Liq. 200cc x6u.;1835.86;1757;true;11;7;edulcorantes;
-MER0037;Chucker Sucralosa Liq. 400cc x6u.;2906.55;2781.67;true;12;7;edulcorantes;
-MER0027;Sucaryl Sucralosa Liquido 180ccx6u.;2025.6;1938.53;false;13;7;edulcorantes;
-MER0017;Equalsweet Stevia Liq. x180u x6u.;2215.14;2119.83;true;14;7;edulcorantes;
-MER0010;Equalsweet Liq. 360cc x6u.;2921.68;2796;true;15;7;edulcorantes;
-MER0011;Equalsweet Liq. 180cc x6u.;1780.63;1704;true;16;7;edulcorantes;
-MER0022;Sucaryl Liquido 180cc x6u.;1879.56;1802.67;true;17;7;edulcorantes;
-MER0021;Sucaryl Liquido 360cc x6u.;2790.02;2675.67;true;18;7;edulcorantes;
-MER0030;Equalsweet Sucralosa 50sob.x6u.;1467.18;1404.17;true;19;7;edulcorantes;
-MER0018;Equalsweet Sucralosa 100u x6u.;2552.05;2442.33;true;20;7;edulcorantes;
-MER0016;Equalsweet Stevia 50sob x6u.;1544.55;1478.17;true;21;7;edulcorantes;
-MER0015;Equalsweet Stevia 100sob x6u.;2685.79;2570.33;true;22;7;edulcorantes;
-MER0013;Equalsweet sob. 50x6u.;1263.63;1209.17;true;23;7;edulcorantes;
-MER0014;Equalsweet 100sob x6u.;2198.31;2103.83;true;24;7;edulcorantes;
-MER0012;Equalsweet 400 sobres.;6669.26;6383;true;25;7;edulcorantes;
-MER0032;Equalsweet Stevia x400 sob.;8303.66;7947;true;26;7;edulcorantes;
-MER0029;Sucaryl Sucralosa 50sob. x6u.;1496.98;1432.62;true;27;7;edulcorantes;
-MER0028;Sucaryl Sucralosa 100u x6u.;2603.44;2491.52;true;28;7;edulcorantes;
-MER0023;Sucaryl Sobre x50x6u.;1262.81;1208.52;true;29;7;edulcorantes;
-MER0024;Sucaryl Sobre 100sob x6u.;2174.11;2080.65;true;30;7;edulcorantes;
-MER0025;Sucaryl Stevia 50sob. x6u.;1627.75;1557.78;true;31;7;edulcorantes;
-MER0026;Sucaryl Stevia Sobre 100 x6u.;2830.88;2709.19;true;32;7;edulcorantes;
-HIL0089;Hil. Zucra Forte 100sob x8u.;2030.05;1946.99;true;33;7;edulcorantes;
-HIL0101;Hil. Sweet Forte 200 sob. x8u.;3499.49;3349.1;true;34;7;edulcorantes;novedad
-HIL0100;Hil. Clasico Forte 200 sob. x8u.;3517.09;3285.86;true;35;7;edulcorantes;novedad
-HIL0077;Hil. Clasico Forte 50sob x8u.;1111.59;1066.05;true;36;7;edulcorantes;
-HIL0027;Hil. Clasico Forte 100sob x8u.;1994.01;1862.98;true;37;7;edulcorantes;
-HIL0075;Hil. Clasico Forte x500sob.;7055.16;6767.16;true;38;7;edulcorantes;
-HIL0013;Hil. Stevia Forte 50sob x8u.;1383.91;1327.21;true;39;7;edulcorantes;
-HIL0091;Hil. Stevia Forte 100sob x8u.;2401.23;2302.75;true;40;7;edulcorantes;
-HIL0098;Hil. Stevia Forte 400sob.;7985.04;7657.88;true;41;7;edulcorantes;
-HIL0085;Hil. Sweet 50sob x8u.;1177.53;1129.27;true;42;7;edulcorantes;
-HIL0099;Hil. Sweet Forte 100sob x8u.;2009.09;1926.8;true;43;7;edulcorantes;
-HIL0074;Hil. Sweet Forte 400sob.;6216.79;5962.07;true;44;7;edulcorantes;
-HIL0022;Hil. Clasico Forte Liq. 500ml x9u.;2442.43;2342.46;true;45;7;edulcorantes;
-HIL0096;Hil. Clasico Forte Liq. 250ml x9u.;1332.01;1277.33;true;46;7;edulcorantes;
-HIL0032;Hil. Sweet Forte Liq. 400ml x9u.;2324.1;2228.98;true;47;7;edulcorantes;
-HIL0086;Hil. Sweet Forte Liq. 200ml x9u.;1343.09;1288.14;true;48;7;edulcorantes;
-HIL0090;Hil. Stevia Forte Liq. 200ml x9u.;2723.87;2612.37;false;49;7;edulcorantes;
-HIL0088;Hil. Zucra Forte Liq. 400ml x9u.;2837.1;2720.82;true;50;7;edulcorantes;
-HIL0087;Hil. Zucra Forte Liq. 200ml x9u.;2315.94;2216.33;true;51;7;edulcorantes;
-HIL0025;Hil. Azucar Light 250gx9u.;1035.04;966.94;true;52;7;edulcorantes;
-HIL0026;Hil. Azucar Light 500g x9u.;2032.71;1945.28;true;53;7;edulcorantes;
-HIL0096-1;Hil. Clasico Forte Liq. 250ml x9u.;1332.01;1277.33;true;54;7;edulcorantes;
-LDC0005;Budin Pudding Choc. 300g x8u.;2039.03;1951.5;true;1;8;galletitas;
-GAV0004;Caja Gall. Celosas 350gx10u.;1409.9;1349.3;true;2;8;galletitas;
-GAV0003;Caja Gall. Celosas 230gx15u.;939.93;899.53;true;3;8;galletitas;
-GAV0002;Caja Gall. Celosas 110g x30u.;469.97;449.77;true;4;8;galletitas;
-BON0009;Donuts 78g x24u.;1325.63;1268.67;true;5;8;galletitas;
-DON0027;Magdalenas D.Satur 220g x10u.;1258.63;1204.58;true;6;8;galletitas;
-DON0008;Caja Don Satur x30u.;932.14;892.07;true;7;8;galletitas;
-DON0038;Caja Don Satur queso 140g x30u.;1518.89;1453.63;true;8;8;galletitas;novedad
-DON0004;Caja Talitas Satur x20u.Oferta;992.95;950;true;9;8;galletitas;oferta
-DON0003;Caja Talita Don Satur c/queso x20u.OFERTA;992.95;950;true;10;8;galletitas;oferta
-DON0031;Caja Talitas Semillas D. Satur x20u.;969.74;928.1;true;11;8;galletitas;novedad
-DON0010;Caja Pepas Don Satur 300g x15u.;929.07;889.13;true;12;8;galletitas;
-DON0034;Pan dulce Don Satur 400g x6u. s/fruta;2654.75;2540.64;true;13;8;galletitas;novedad
-DON0029;Budin Don Satur;0;0;false;14;8;galletitas;
-URQ0018;Tarteletas Saladas 180g x14u.;2677.56;2562.42;true;15;8;galletitas;
-URQ0021;Barquillos Urquiza 150g x15u.;1332.34;1275.07;true;16;8;galletitas;novedad
-MON0140;Gall. Scons Terrabusi 160g.;0;0;false;17;8;galletitas;
-MON0027;Gall. Cerealita 212g.;1546.72;1481.61;true;18;8;galletitas;
-MON0106;Gall. Boca de dama 170g.;0;0;false;19;8;galletitas;
-MON0107;Gall. Duquesa 115g.;1086.99;1040.26;true;20;8;galletitas;
-MON0131;Gall. Anillos surtidos 170g.;1333.31;1275.99;true;21;8;galletitas;
-MON0029;Gall. Lincoln.;1337.64;1280.71;true;22;8;galletitas;
-MON0030;Gall. Melba.;1098.59;1051.37;true;23;8;galletitas;
-MON0031;Gall. Oreo.;1773.73;1697.48;true;24;8;galletitas;
-GAV0027;Tostadas Risky-Dit x24u.;1040.89;996.13;true;25;8;galletitas;
-CER0002;Macrobioticas x12u.;920.2;880.67;true;26;8;galletitas;
-CER0001;Arrocitas x12u.;1005.52;962.33;true;27;8;galletitas;
-CER0003;Mini Arrocitas x10u.;1198.9;1147.4;true;28;8;galletitas;
-JOR0007;Caja Alf. Jorgito x 6 x18u.;2070.08;1981.12;true;29;8;galletitas;
-JOR0014;Caja Gall. Jorgito Rellenas limon x12u.;2433.29;2328.67;true;30;8;galletitas;
-JOR0008;Caja Bizcocho Jorgito 200gx24u.;700.94;670.75;true;31;8;galletitas;
-JOR0009;Caja Bizcocho Jorgito 400gx12u.;1401.89;1341.49;true;32;8;galletitas;
-URQ0009;Talitas Urquiza 100g x15u.;803.58;769;true;33;8;galletitas;
-URQ0011;Talitas Urquiza Clasica 110g x13u.;803.49;768.92;false;34;8;galletitas;
-URQ0022;Cubanitos Urquiza 150g x15u.;1332.34;1275.07;true;35;8;galletitas;novedad
-GAV0039;Caja Pepas Surt. Terepin 360g x14u.;1166.78;1116.64;true;36;8;galletitas;
-GAV0008;Caja Gall. Terepin 200g x24u.;555.06;531.17;true;37;8;galletitas;
-GAV0030;Caja Pepas Terepin Batata 300g x14u.;981.78;886.29;true;38;8;galletitas;
-GAV0037;Caja Terepin Rellenas 260g x18u.;832.33;796.56;true;39;8;galletitas;
-GAV0007;Caja Gall. Terepin 400g x14u.;1099.41;1052.14;true;40;8;galletitas;
-GAV0076;Caja Terepin Durazno 260g x18u.;851.25;814.61;true;41;8;galletitas;novedad
-GRA0051;Granagua Sandwich Granix x3x8u.;0;0;false;42;8;galletitas;novedad
-GRA0008;Caja Gall. Granix s/s 200g x24u.;1042.09;918.14;true;43;8;galletitas;
-GRA0009;Caja Gall. Granix s/s 140g x32u.;739.41;651.46;true;44;8;galletitas;
-GRA0005;Caja Gall. Granagua Sandwich x24u.;1002.71;883.44;true;45;8;galletitas;
-GRA0011;Caja Gall. Granix Salvado 240gx24u.;1224.23;1078.62;true;46;8;galletitas;
-GRA0013;Caja Gall. Frutigran Salvado x24u.;1048.89;924.13;true;47;8;galletitas;
-GRA0040;Caja Gall. Granix Cereal x32u.;962.88;848.36;true;48;8;galletitas;novedad
-GRA0042;Caja Gall. Granix Lino x32u.;919.97;810.55;true;49;8;galletitas;novedad
-GRA0045;Caja Gall. Granix Sesamo s/s 175gx32u.;988.96;871.33;true;50;8;galletitas;novedad
-GRA0047;Caja Gall. Granix Sesamo x32u.;963.98;849.32;true;51;8;galletitas;novedad
-GRA0052;Caja Gall. Frutigran Tropical 250g x24u.;2180.36;1921.02;true;52;8;galletitas;
-GRA0025;Caja Gall. Frutigran c/chia x24u.;1548.48;1364.3;true;53;8;galletitas;
-GRA0017;Gall. Frutigran Salvado 250g.;1439.63;1268.4;true;54;8;galletitas;
-GRA0021;Caja Gall. Frutigran Frutos Rojos 250gx24u.;2180.36;1921.02;true;55;8;galletitas;
-GRA0023;Caja Gall. Frutigran c/amaranto x24u.;1503.83;1324.96;true;56;8;galletitas;
-GRA0028;Caja Gall. Frutigran Chocolate x24u.;2212.38;1949.24;true;57;8;galletitas;
-NSS0016;Galleta NS mix semillas veganas 400g x10u.;1197.99;1146.6;true;58;8;galletitas;novedad
-NSS0003;Galleta NS 300g 7 Semillas x16u.Oferta;900.55;861.81;true;59;8;galletitas;oferta
-NSS0015;Bizcochos NS 200g x35u.;555.99;532.06;true;60;8;galletitas;novedad
-TST0008;Tosti Talitas Clasica 100g x12u.;591.89;566.51;true;61;8;galletitas;
-TST0005;Tostadas Tosti Cajita 140g x16u.;1031.84;987.49;true;62;8;galletitas;
-TST0004;Tostadas Tosti 200g x12u.;765.2;732.33;false;63;8;galletitas;
-GAV0071;Caja Palitos bañados Cory 68g x30u.;954.54;913.5;true;64;8;galletitas;novedad
-LIP0001;Gall. Molinos del Bosque x18u.;1382.62;1323.22;false;65;8;galletitas;
-MON0148;Gall. Amor.;216.16;206.87;true;66;8;galletitas;novedad
-GAV0073;Gall. Mellizas 112g.;1130.46;1081;true;67;8;galletitas;
-DHH0025;Snack arroz Dos Hnos.60g x14u.jalap;941.32;879.5;true;68;8;galletitas;novedad
-ARV0275;Pochoclo Inflado Caramel 100g.;1719.53;1646;true;69;8;galletitas;novedad
-ARV0276;Pochoclo Inflado dulce 60g.;1211.05;1158;true;70;8;galletitas;novedad
-ARV0277;Pochoclo Inflado Spicy Hot 40g.;828.55;793;true;71;8;galletitas;novedad
-ARV0055;Pochoclo Marloms x12u.;1217.48;1165.17;true;72;8;galletitas;
-DHH0022;Discos arroz Dos Hnos. 80g x10u.Jamon;941.37;865;true;73;8;galletitas;novedad
-DHH0024;Palitos Arroz Dos Hnos. queso 80g x10u.;941.37;865;true;74;8;galletitas;novedad
-CER0011;Nachos Maiz blanco 200g x16u.;2378.46;2276.25;true;75;8;galletitas;novedad
-CER0004;Nachos 90g x12u.;1243.87;1190.42;true;76;8;galletitas;
-CER0006;Nachos 250g x15u.;2314.04;2214.6;true;77;8;galletitas;
-CER0005;Nachos 150g x14u.;1998.25;1912.36;true;78;8;galletitas;
-BIM0027;Takis Original 140g x16u.;3078.01;2951.89;true;79;8;galletitas;novedad
-BIM0023;Takis Fuego 85g x35u.;1941.87;1862.31;true;80;8;galletitas;novedad
-BIM0022;Takis Fuego 49g x36u.;1291.32;1238.41;false;81;8;galletitas;novedad
-LMA0114;Pringles chicas x12u.;1919.27;1836.75;true;82;8;galletitas;
-LMA0117;Pringles Grandes x18u.;3954.63;3784.62;true;83;8;galletitas;
-BIM0012;Pan Dulce Valente 350g x12u. s/fruta;2711.1;2594.54;true;84;8;galletitas;novedad
-BIM0014;Pan Dulce Valente 400g x12u. Chipschoco;3390.49;3244.77;true;85;8;galletitas;novedad
-BIM0004;Madalenas Valente rell. 200gx12u.Marm-vlla;1501.23;1436.75;true;86;8;galletitas;novedad
-BIM0003;Madalenas Valente rell. 200g x14u.Ch-dle;1501.28;1436.71;true;87;8;galletitas;novedad
-BIM0007;Vainilla Valente 74g x30u.;569.96;545.43;true;88;8;galletitas;novedad
-BIM0009;Vainillas Valente 148g x30u.;1030.73;986.4;true;89;8;galletitas;novedad
-BIM0005;Vainilla Valente 444g x10u.;2791.99;2671.9;true;90;8;galletitas;novedad
-BIM0011;Budin Valente 170g x15u.;1547.84;1481.27;true;91;8;galletitas;novedad
-BIM0011-1;Budin Valente Dulce de Leche 170g x15u.;1547.84;1481.27;true;92;8;galletitas;novedad
-MAS0005;Caja Buquitas Choc. Cilo 300g x12u.;888.18;851.78;true;93;8;galletitas;
-MAS0010;Caja Gall. Chip Cilo 300g x12u.;888.18;851.78;true;94;8;galletitas;
-MAS0007;Caja Doblinas Cilo 320g x12u. Memb-Bat;493.43;473.21;true;95;8;galletitas;
-MAS0015;Caja Lenguitas Cilo 400g x12u.;888.18;851.78;true;96;8;galletitas;
-MAS0003;Caja Anillos limon Cilo 400g. x12u.;888.18;851.78;true;97;8;galletitas;
-MAS0014;Caja Lenguitas Cilo 200g x18u.;495.5;475.17;true;98;8;galletitas;
-MAS0026;Caja Topings Cilo 300g x12u.;888.18;851.78;true;99;8;galletitas;
-MAS0024;Caja Polvoron Chip choc. 150g x18u.;495.5;475.17;true;100;8;galletitas;
-MAS0016;Caja Lenguitas Coco Cilo 340g x12u.;0;0;false;101;8;galletitas;
-MAS0018;Caja Mini Scon 400g x12u.;0;0;false;102;8;galletitas;
-MAS0025;Caja Polvoron vainilla Cilo 400g x12u.;888.18;851.78;true;103;8;galletitas;
-MAS0020;Caja Pepas Cilo 200g x18u.;0;0;false;104;8;galletitas;
-MAS0021;Caja Pepas Cilo 400g x12u.;0;0;false;105;8;galletitas;
-MAS0022;Caja Pepas Decoradas Cilo 300g x18u.;888.21;851.78;true;106;8;galletitas;
-MAS0023;Caja Pepas Light Cilo 300g x12u.;888.18;851.78;true;107;8;galletitas;
-ARV0249;Gall. Rellenas Hipopo 100g.;495.3;474.01;true;108;8;galletitas;
-GAV0055;Mini Tapita Veteadas 200g x12u.;967.49;852.42;true;109;8;galletitas;novedad
-GAV0061;Galletitas Hipopo 80gr. x40u.;415.86;398.85;true;110;8;galletitas;novedad
-GAV0048;Caja Gall. Coco Pais 140g x30u.;768.02;676.67;true;111;8;galletitas;oferta
-GAV0064;Gall. Boom 140g x30u.;794.46;760.3;true;112;8;galletitas;novedad
-GAV0067;Gall. Chispitas 140gr.x30u.;794.46;760.3;true;113;8;galletitas;novedad
-GAV0070;Gall. Tartitas 140g x30u.;794.46;760.3;true;114;8;galletitas;novedad
-PAR0001;Caja Gall. Parnor Barritas 160gx30u.Fbosq;698.32;668.3;true;115;8;galletitas;novedad
-PAR0002;Caja Gall. Parnor Barritas 160gx30u.Memb;698.32;668.3;true;116;8;galletitas;novedad
-PAR0003;Caja Gall. Parnor Coco 170g x30u.;698.32;668.3;true;117;8;galletitas;novedad
-PAR0004;Caja Gall. Parnor Coquitos 170g x30u.;698.32;668.3;true;118;8;galletitas;novedad
-PAR0005;Caja Gall. Parnor Mini Mantecadas 170gx30u.;698.32;668.3;true;119;8;galletitas;novedad
-PAR0006;Caja Gall. Parnor Mini Marmoladas 170gx30u.;698.32;668.3;true;120;8;galletitas;novedad
-PAR0007;Caja Gall. Parnor Morochitas 140g x30u.;698.32;668.3;true;121;8;galletitas;novedad
-PAR0008;Caja Gall. Parnor Pepitas 160g x30u.;698.32;668.3;true;122;8;galletitas;novedad
-PAR0009;Caja Gall. Parnor Pitusas 160g x30u.;783.43;749.75;true;123;8;galletitas;novedad
-PAR0010;Caja Gall. Parnor Suavecitas 140g x30u.;698.32;668.3;true;124;8;galletitas;novedad
-KOK0002;Caja Gall. Cañoncito Membrillo 500gx8u.;0;0;false;125;8;galletitas;oferta
-KOK0004;Caja Gall. Membrillito 500g x8u.;0;0;false;126;8;galletitas;
-GAV0075;Marinera GyM x12u.;693.77;663.83;true;127;8;galletitas;novedad
-KOK0007;Caja Pepos Membrillo 350g x12u.;0;0;false;128;8;galletitas;
-KOK0006;Caja Pepos Membrillo 200g x18u.;0;0;false;129;8;galletitas;
-KOK0005;Gall. Kokis Chips 180g x18u.;0;0;false;130;8;galletitas;
-GAV0047;Caja Gall. ChocoCake 250g x20u.Oferta;1075.02;852.42;false;131;8;galletitas;oferta
-GAV0063;Caja galleta azucarada 300gx12u.;210.52;701.67;false;132;8;galletitas;novedad
-BEN0014;Caja Gall. Naomi x20u.;409.56;360.85;true;133;8;galletitas;oferta
-URQ0017;Merengue Color 100g x20u.;704.04;673.75;false;134;8;galletitas;
-GAV0043;Caja Gall. Membrillito Coco 200g x18u.;0;0;false;135;8;galletitas;oferta
-BEN0001;Caja Gall. Nankin 160g x20u.;427.67;409.3;true;136;8;galletitas;oferta
-BEN0002;Caja Gall. Yabila 160g x20u.;395.94;378.9;true;137;8;galletitas;oferta
-BEN0013;Caja Gall. Anillos Coco Benjamin x20u.;427.67;409.3;true;138;8;galletitas;
-BEN0005;Caja Pepas Benjamin c/chips 320g x16u.;0;0;false;139;8;galletitas;
-BEN0004;Caja Pepas Benjamin 200g x22u.;558.52;492.09;true;140;8;galletitas;
-MED0002;Actron 400g x20u.;230.67;220.77;true;1;9;merdicamentos;
-MED0003;Actron 600 x20u.;609.1;582.9;true;2;9;merdicamentos;
-MED0004;Al Maximo x20u.;737.75;706;true;3;9;merdicamentos;
-MED0005;Alikal x30u.;656.22;628;true;4;9;merdicamentos;oferta
-MED0006;Amoxicilina.;2738.02;2620.13;true;5;9;merdicamentos;
-MED0007;Amoxidal 500 x8u.;309.67;296.24;false;6;9;merdicamentos;
-MED0008;Anaflex Plus x16u.;366.43;350.64;true;7;9;merdicamentos;
-MED0009;Dioxaflex x16u.;332.08;317.9;true;8;9;merdicamentos;
-MED0010;Aspirineta x98u.;49.04;46.94;true;9;9;merdicamentos;
-MED0011;"Bayasp ""C"" caliente x24u.";1079.95;1033.49;true;10;9;merdicamentos;
-MED0012;"Bayaspirina ""C""x24u.";720.17;689.3;true;11;9;merdicamentos;
-MED0013;Bayaspirina Forte x20u.;206.88;198.16;true;12;9;merdicamentos;
-MED0014;Bayaspirina x30u.;156.6;149.95;true;13;9;merdicamentos;
-MED0014-1;Bayaspirina x30u.;156.6;149.95;true;14;9;merdicamentos;
-MED0016;Bicarbonato.;371.21;355.45;true;15;9;merdicamentos;
-MED0017;Buscapina Perlas x10u.;455.2;435.47;true;16;9;merdicamentos;
-MED0018;Cafiaspirina Plus x20u.;228.24;218.51;true;17;9;merdicamentos;
-MED0019;Cafiaspirina x30u.;180.83;173.01;true;18;9;merdicamentos;
-MED0020;Caja Buscapinax60u.;627.87;600.84;true;19;9;merdicamentos;
-MED0021;Caja Ibupirac 600x50u.;441.05;422.07;true;20;9;merdicamentos;
-MED0023;Chicle Laxante Feen-a-mint x6u.;601.42;575.55;true;21;9;merdicamentos;
-MED0024;Diclofenac x15u.;425.08;406.58;false;22;9;merdicamentos;
-MED0025;Dorixina x20u.;190.65;182.52;true;23;9;merdicamentos;
-MED0026;Dristan Triple Acción;0;0;false;24;9;merdicamentos;
-MED0027;Ibu. Accion Rapida x20u.;177.18;169.57;false;25;9;merdicamentos;
-MED0029;Ibuevanol Max.;5569.12;5330;true;26;9;merdicamentos;
-MED0030;Ibuevanol plus x20u;213.64;204.13;true;27;9;merdicamentos;
-MED0028;Ibuevanol Forte x16u.;284.91;272.7;true;28;9;merdicamentos;
-MED0031;Ibuprofeno 400 x10u.;548.21;524;true;29;9;merdicamentos;
-MED0032;Ibuprofeno 600.;727.54;697;true;30;9;merdicamentos;
-MED0033;Keterolac 20mg.;590.13;565.01;true;31;9;merdicamentos;
-MED0034;Loratadina;0;0;false;32;9;merdicamentos;
-MED0035;Mejoral.;2611.64;2500;true;33;9;merdicamentos;
-MED0036;Next x20u.;304.82;302.28;true;34;9;merdicamentos;
-MED0037;Novalgina x10u.;5229.25;5003.45;true;35;9;merdicamentos;
-MED0038;Omeprazol tira x14u.;488.05;466;true;36;9;merdicamentos;
-MED0040;Pastilla carbon.;1566.3;1500;true;37;9;merdicamentos;
-MED0041;Qura Plus x20u.;390.99;374.13;true;38;9;merdicamentos;
-MED0042;Renie x12u.;325.92;411.91;true;39;9;merdicamentos;
-MED0043;Sertal Perlas x10u.;428.51;410.22;true;40;9;merdicamentos;
-MED0044;Sertal x10u.;584.03;559.13;true;41;9;merdicamentos;
-MED0045;Tafirol 1g x8u.;193.66;185.25;true;42;9;merdicamentos;
-MED0046;Tafirol Capsula Plus x16u.;337.13;332.98;true;43;9;merdicamentos;
-MED0047;Tafirol forte x10u.;198.5;190.07;true;44;9;merdicamentos;
-MED0048;Tafirol tira.;173.54;166;true;45;9;merdicamentos;
-MED0058;Te Vent3 Sobres.;674.19;646;true;46;9;merdicamentos;
-MED0050;Te Vick forte.;2002.14;1916;true;47;9;merdicamentos;
-MED0049;Te Vick.;1647.36;1576.1;true;48;9;merdicamentos;
-MED0052;Uvasal x2x15u.;821.6;786.33;true;49;9;merdicamentos;oferta
-MED0053;Vimax x2u.;2084.22;1994.77;true;50;9;merdicamentos;
-MED0057;Aerotina x10u.;516.03;493.65;true;51;9;merdicamentos;
-MED0051;Tira Migral x10u.;371.07;355.18;true;52;9;merdicamentos;
-MED0061;Te Next.;1574.25;1590.29;true;53;9;merdicamentos;novedad
-MAK0059;Esponja Acero 10g x24u.;480.01;216;true;1;10;limpieza;novedad
-MAK0012;Esponja Dorada 10gx24u.;424.49;406;true;2;10;limpieza;
-MAK0029;Esponja Acero 30g x12u.;426.25;407.92;true;3;10;limpieza;novedad
-MAK0066;Esponja Redonda c/plateado x12u.;1166.5;1116.33;true;4;10;limpieza;
-MAK0060;Esponja Redonda combinada x12u.;1390.38;1330.5;true;5;10;limpieza;
-MAK0003;Esponja c/salva uñas x12u.;512.38;490.35;true;6;10;limpieza;
-MAK0030;Esponja Baño x12u.;258.02;246.92;true;7;10;limpieza;
-MAK0087;Esponja Baño Infantil x12u.;631.82;604.73;true;8;10;limpieza;novedad
-MAK0089;Esponja Slim Flat x12u.;657.38;629.12;true;9;10;limpieza;novedad
-MAK0076;Esponja Fibra p/sanitarios x12u.;589.82;564.5;true;10;10;limpieza;novedad
-MAK0075;Esponja azul c/fibra x12u.;350.49;335.42;true;11;10;limpieza;novedad
-MAK0077;Esponja Fibra plateada x12u.;577.4;552.58;true;12;10;limpieza;novedad
-MAK0061;Esponja Spugnella x12u.;930.73;890.72;true;13;10;limpieza;
-MAK0058;Paño Surtido x3u.;1283.69;1228;true;14;10;limpieza;
-MAK0062;Pulverizador profesional.;2090.67;2000;true;15;10;limpieza;
-MAK0018;Pulverizador x750cc.;1300.71;969.1;true;16;10;limpieza;
-MAK0027;Escoba Recta Premium.;3180.27;3043.56;true;17;10;limpieza;
-MAK0028;Escobillon Gondola.;2635.47;2522.84;true;18;10;limpieza;
-MAK0081;Repasador estampado 40x60.;1614.67;1545.26;true;19;10;limpieza;novedad
-MAK0082;Repasador toalla estampado.;2683.59;2568.43;true;20;10;limpieza;novedad
-MAK0090;Perfume Textil Ropa.;3039.36;2906.54;true;21;10;limpieza;novedad
-MAK0071;Paño Microfibra multiuso.;935.24;895;true;22;10;limpieza;novedad
-MAK0078;Franela naranja Make.;838.69;802.57;true;23;10;limpieza;novedad
-MAK0073;Trapo Piso Rayado 50x60.;1438.09;1376;true;24;10;limpieza;novedad
-MAK0023;Velas Make 205m x25u.;887.43;849.28;true;25;10;limpieza;
-ARV0157;Velas de Cumpleaños x10u.;890.49;852.21;true;26;10;limpieza;
-MAK0092;Velas Primera Calidad x4u. Bc-roja;1048.76;1003.68;true;27;10;limpieza;novedad
-MAK0083;Velas Noche Make x12u.;2106.61;2016.05;true;28;10;limpieza;novedad
-MAK0084;Bolsa Ecologica.;461.68;441.84;true;29;10;limpieza;novedad
-MAK0017;Rollo Aluminio x5mts.;1096.58;1049.46;true;30;10;limpieza;
-MAK0010;Rollo Film x 30mts.;1438.05;1376;true;31;10;limpieza;
-MAK0019;Rollo Manteca x5mts.;1226.14;1173;true;32;10;limpieza;
-MAK0067;Bolsa de Horno.;1406.47;1344.96;true;33;10;limpieza;novedad
-MAK0032;Separador Freezer.;2237.09;2141.35;true;34;10;limpieza;
-MAK0063;Bolsa Hermetica grande x18u.;2161.89;2068.95;true;35;10;limpieza;
-MAK0068;Bolsa Freezer 25cm x35cm.;1052.32;1007.07;true;36;10;limpieza;novedad
-MAK0001;Bombilla Recta Blister x12u.;2090.67;2000.83;false;37;10;limpieza;
-MAK0013;Guantes Make x12u.;1290.77;1235.28;true;38;10;limpieza;
-MAK0057;Guantes Flex x12u.;832.05;796.25;true;39;10;limpieza;
-MAK0021;Guantes Soft x12u.;1154.58;1105;true;40;10;limpieza;
-MAK0015;Cabo Madera.;878.49;840;true;41;10;limpieza;
-MAK0016;Cabo Chapa.;1117.98;1070;true;42;10;limpieza;
-ARV0242;Broches Madera.;742.2;710.29;true;43;10;limpieza;
-MAK0065;Broches Plastico.;741.16;709;true;44;10;limpieza;
-MAK0072;Sopapa negra.;1258.72;1204;true;45;10;limpieza;novedad
-MAK0080;Limpiavidrios cola de ballena.;884.65;846.62;true;46;10;limpieza;novedad
-MAK0085;Cepillo Planchita c/mango.;1984.4;1899.09;true;47;10;limpieza;novedad
-MAK0074;Cepillo uñas.;720.45;689.48;true;48;10;limpieza;novedad
-MAK0041;Rallador Cilindrico.;2472.54;2366.25;true;49;10;limpieza;novedad
-MAK0051;Rallador Estaño Cilindrico.;2962.2;2834;true;50;10;limpieza;novedad
-MAK0040;Pisapapas Aluminio.;2829.56;2708.89;true;51;10;limpieza;novedad
-MAK0043;Tostador Estaño.;3107.97;2974.36;true;52;10;limpieza;novedad
-MAK0046;Colador Nº8 Galvanizado.;1961.6;1877.27;true;53;10;limpieza;novedad
-MAK0047;Colador Nº8 Plastico.;1769;1692.96;true;54;10;limpieza;novedad
-MAK0044;Cepillo Mano Base Madera.;1434.07;1372.42;true;55;10;limpieza;novedad
-MAK0045;Cepillo de espalda.;1906.61;4939.2;true;56;10;limpieza;novedad
-MAK0048;Escobilla Palito.;899.24;860.58;true;57;10;limpieza;novedad
-MAK0050;Posa Esponja y Detergente.;862.37;825.3;true;58;10;limpieza;novedad
-MAK0042;Secador Goma doble Nº 40.;2625.18;2512.32;true;59;10;limpieza;novedad
-MAK0049;Pasacera.;1306.07;1249.92;true;60;10;limpieza;novedad
-MAK0052;Rejilla Americana.;393.55;376.63;true;61;10;limpieza;novedad
-MAK0086;Embudo plastico Nº10.;616.27;589.77;true;62;10;limpieza;novedad
-MAK0091;Trapo piso Extra suave gris.;610.3;584.06;true;63;10;limpieza;novedad
-MAK0039;Pala Rebatible c/goma.;2689.95;2574.31;true;64;10;limpieza;
-MAK0037;Pala Plastica c/goma.;1056.83;1011.4;true;65;10;limpieza;
-MAK0038;Pala Plastica.;654.96;626.81;true;66;10;limpieza;
-MAK0070;Bolsa plegada 45x60.;826.8;791.72;true;67;10;limpieza;novedad
-MAK0025;Bolsa Consorcio x50 x 70.;501.52;479.96;true;68;10;limpieza;
-MAK0005;Bolsa Consorcio x60x90.;844.84;808.52;true;69;10;limpieza;
-MAK0006;Bolsa Consorcio x80x110.;1566.86;1499.88;false;70;10;limpieza;
-MAK0007;Bolsa Consorcio x90x120.;1974.22;1890.1;true;71;10;limpieza;
-MAK0024;Bolsa Consorcio 45 x60.;458.05;496.25;true;72;10;limpieza;
-ARV0078;Prestobarba Venus Simply x8u.;1786.63;1709.75;true;1;11;higiene;
-ARV0062;Prestobarba Ultragrip 2 filos x20u.;811;776.13;true;2;11;higiene;
-ARV0063;Prestobarba Regular x3x10u.;2088.63;1998.8;true;3;11;higiene;
-ARV0065;Repuesto Match 3x2.;0;0;false;4;11;higiene;
-ARV0002;Alcohol de quemar x12u.;2419.83;2315.8;true;5;11;higiene;
-ARV0138;Alcohol 70% Purocol 500cc x20u.;1370.28;1311.41;true;6;11;higiene;
-ARV0003;Alcohol Purocol 500cc x20u.;1526.45;1460.82;true;7;11;higiene;
-ARV0125;Alcohol Purocol 1L x12u.;2755.09;2636.5;true;8;11;higiene;
-ARV0139;Alcohol 70% Purocol 1L x12u.;2464.89;2358.9;true;9;11;higiene;
-ARV0279;Cepillo de dientes x12u.;426.76;408.42;true;10;11;higiene;novedad
-ARV0278;Colgate 180g.;2889.71;2765;true;11;11;higiene;novedad
-ARV0259;Pasta dental Oral-B.;1502.74;1437;true;12;11;higiene;
-ARV0050;Jabon rexona;0;0;false;13;11;higiene;
-ARV0257;Shampoo Sedal x24u.;206.62;197.82;true;14;11;higiene;novedad
-ARV0258;Enjuague Sedal x24u.;206.62;197.82;true;15;11;higiene;novedad
-ARV0073;Tira Pantene Shampoo x24u.;126.65;121.21;true;16;11;higiene;
-ARV0028;Desodorante Axe.;3125.79;2991;true;17;11;higiene;
-ARV0031;Desodorante Rexona Rollon 50ml.;1648.02;1452;true;18;11;higiene;
-PAP0025;Papel Hig. doble hoja x4u.;2177.45;2084.89;true;19;11;higiene;
-PAP0022;Bolson Papel Hig. Aloe 6u x12u.;1870.54;1790.03;true;20;11;higiene;
-PAP0023;Bolson Hig. Elegante Triple Hoja 30m x4 x6u.;3025.11;2895.05;true;21;11;higiene;
-PAP0002;Bolson Elegante P. Hig. 30m x4u x12u.;1135;1086.08;true;22;11;higiene;
-PAP0012;Bolson Elegante Prem. P. Hig. 80m x10u.;2875.3;2751.7;true;23;11;higiene;
-PAP0019;Bolson Elegante P.Hig. 30m x6x12u.;1883.64;1802.63;true;24;11;higiene;
-PAP0009;Bolson R.Cocina Eleg. 200 paños x12u.;1664.86;1593.33;false;25;11;higiene;
-PAP0020;Bolson Rollo Cocina Elegante x3x8u.;1255.64;1201.58;false;26;11;higiene;
-PAP0016;Bolson Rollo Cocina Dicha x12u x3u.;1142.44;1093.37;true;27;11;higiene;
-IMS0068;Pañuelo Candela x6u.;1188.35;1137;true;28;11;higiene;
-ARV0018;Caja Elite x6ux35u.;1079.61;1033.2;true;29;11;higiene;
-PAP0004;Caja Servilleta Elegante 80 x30u.;1057.67;1012.25;true;30;11;higiene;
-ARV0266;Cutex.;1665.5;1593.9;true;31;11;higiene;novedad
-ARV0026;Curitas x24u.;725.03;693.83;true;32;11;higiene;
-ARV0253;Hisopos barrilito 150u.;2029.38;1942;true;33;11;higiene;novedad
-ARV0254;Hisopos cotton baby 75x12u.;1063.5;1017.75;true;34;11;higiene;novedad
-ARV0255;Toallitas humedas Candy doypack;477.84;458;true;35;11;higiene;novedad
-ARV0269;Toallita Lina.;981.78;939;true;36;11;higiene;novedad
-ARV0149;Calipso Toalla c/alas x8u.;757.05;725;true;37;11;higiene;
-ARV0076;Calipso Toalla s/alas.;821.74;786;true;38;11;higiene;
-ARV0079;Calipso Toalla Nocturna x8u.;1344.98;1286;true;39;11;higiene;
-ARV0233;Toallas Nosotras Nocturna.;2567.37;2457;true;40;11;higiene;
-ARV0211;Protector Nosotras Normal.;1191.75;1142;false;41;11;higiene;
-ARV0171;Protectores Nosotras respirable.;2922.63;699.3;true;42;11;higiene;
-ARV0252;Toalla Nosotras ultrainvisible.;2172.39;2079;true;43;11;higiene;novedad
-ARV0176;Toallas Nosotras Normal Suave.;1566.3;1500;true;44;11;higiene;novedad
-BUH0014;Pvo. Prime.;2184.88;2092;true;45;11;higiene;
-ARV0064;Pvo. Tulipan x16u.;1533.81;1467.88;true;46;11;higiene;
-ARV0260;Desodorante Dove aerosol.;3179.14;3042;true;47;11;higiene;novedad
-ARV0261;Jabon Dove.;1447.13;1385;true;48;11;higiene;novedad
-ARV0262;Jabon Lux.;911.41;872;true;49;11;higiene;novedad
-ARV0263;Jabon Rexona.;911.41;872;true;50;11;higiene;novedad
-RAI0010;Lysoform.;2692.22;2576;true;51;11;higiene;novedad
-ARV0048;Jabon Dove.;1665.05;1594;true;52;11;higiene;
-ARV0244;Detergente Magistral 300ml.;2336.97;2236;true;53;11;higiene;novedad
-ARV0148;Azufre Gonzalito x5x20u.;723.9;692.8;true;54;11;higiene;
-CTF0008;Fosf. Tres patitos x400x10u.;999.48;956.5;true;1;12;varios;
-CTF0005;Fosf. Tres Patitos 222ux10u.;628;601.1;true;2;12;varios;
-CTF0012;Fosforos Tres Estrellas 222 x10u.;476.08;455.6;true;3;12;varios;
-CTF0002;Fosf. Fragata x400x10u.;961;919.7;true;4;12;varios;
-CTF0006;Fosf. Ranchera 220 x10u.;603.93;578;true;5;12;varios;
-CIG0004;OCB x25u.;857.88;821;true;6;12;varios;
-IMS0129;Exhibidor Pilas Candela AA-AAA x30c/u.;774.83;741.5;true;7;12;varios;novedad
-IMS0103;Pila Candela AA x10u.;386.92;370.3;true;8;12;varios;
-ARV0103;Energizer AA x1 x20u.;868.96;831.6;true;9;12;varios;
-ARV0104;Energizer AAA x1 x20u.;868.96;831.6;true;10;12;varios;
-DLL0004;Duracell AA x12u.;987.45;945;true;11;12;varios;
-DLL0011;Duracell AAA x12u.;987.45;945;true;12;12;varios;
-DLL0006;Duracell D x2u.;9477.25;9016;true;13;12;varios;
-DLL0007;Duracell C x2u.;8795.12;8416;true;14;12;varios;
-DLL0005;Duracell bateria.;5654.57;5412;true;15;12;varios;
-RAI0015;Raid Espirales x4u.;711.65;681;true;16;12;varios;novedad
-RAI0004;Fuyi Tableta 24u;3331.23;3187;true;17;12;varios;
-BUH0010;Loctite x12u.;65.83;66.08;true;18;12;varios;
-POX0001;Eccole x6u.;3951.38;3781.55;true;19;12;varios;
-POX0005;Poxilina x6u.;3594.94;3440.42;true;20;12;varios;
-POX0006;Poxipol x6u.;4122.02;3944.79;true;21;12;varios;oferta
-POX0007;Poxiran x6u.;3027.1;2896.89;true;22;12;varios;
-POX0002;Fastix x6u.;3990.28;3818.65;true;23;12;varios;oferta
-POX0009;Voligoma x12u.;1247.92;1194.27;true;24;12;varios;
-POX0010;Pulpito x6u.;4010.47;3837.78;true;25;12;varios;
-POX0004;La gotita x6u.;1419.61;1358.59;true;26;12;varios;
-POX0008;Unipox x6u.;1698.78;1625.69;true;27;12;varios;
-POX0003;Gotita gel x6u.;1876.03;1795.46;true;28;12;varios;
-ARV0021;Naipes Casino x 40u;1743.36;1668;true;29;12;varios;
-ARV106;WD 40 x155g.;5262.76;5035.42;true;30;12;varios;
-IMS0067;Candela Extensible.;2106.79;2015.01;false;31;12;varios;
-IMS0077;Candela Hogar.;2496.14;2388.54;true;32;12;varios;
-ARV0039;Encendedor Mini bic x12u.;842.64;808.33;true;33;12;varios;
-ARV0037;Encendedor Bic x12u.;1231;1178.08;true;34;12;varios;
-IMS0015;Enc. Candela x25u.;221.19;211.68;true;35;12;varios;
-IMS0006;Candela Flex.;2823.47;2703.62;true;36;12;varios;
-IMS0107;Enc. Candela Electronico Black x20u.;646.24;618.54;true;37;12;varios;
-BUH0003;Enc. Shark x25u.;276.49;264.6;true;38;12;varios;
-IMS0118;Enc. Candela Flameador.;3081.59;2948.83;true;39;12;varios;
-IMS0115;Enc. Candela Recargable Mini x10u.;469.23;449;true;40;12;varios;
-IMS0126;Candado Candela 50mm.;2106.56;2016;true;41;12;varios;
-IMS0079;Cinta Confitera Candela 42mt x6u.;369.06;353.17;false;42;12;varios;
-IMS0112;Cinta Papel Azul 36mm x 40mt x6u.;2452.4;2346.98;true;43;12;varios;
-IMS0093;Cinta Papel Candela 24mm x50mtx6u.;1456.18;1393.59;true;44;12;varios;oferta
-IMS0086;Cinta Embalar Candela Transp. 100mts x6u.;1314.14;1257.5;true;45;12;varios;oferta
-IMS0089;Cinta Aisladora Negra 10mt x10u.;575.63;552;true;46;12;varios;
-IMS0051;Cinta Ancha Transp. Candela 42mt x6u.;712.4;681.83;true;47;12;varios;
-ARV0014;Boligrafo bic.;612.9;586;true;48;12;varios;
-RAI0012;Off Crema 60g.;3818.14;3654;true;49;12;varios;
-RAI0011;Off aerosol naranja x165cc.;7241.3;6930;true;50;12;varios;
-ARV0235;Repelente Pica Crema 120g.;3580.93;3427;true;51;12;varios;
-RAI0014;Raid MMM.;5299.32;5071;true;52;12;varios;novedad
-IMS0040;Lampara Led 12w x5u.;986.26;943.76;true;53;12;varios;
-IMS0041;Lampara Led 9w x5u.;774.07;740.6;true;54;12;varios;
-IMS0098;Lampara Led 7w x5u.;836.14;800.11;true;55;12;varios;
-ARV0264;Nieve Nashville 320g.;1838.7;1760;true;56;12;varios;novedad
-ARV0077;Velas Ms x25u.;887.43;849.28;true;57;12;varios;
-CTF0009;Velas Ranchera 120g x25u.;1689.56;1609.72;false;58;12;varios;
-ARV0017;Bombucha.;939.78;900;true;59;12;varios;
-IMS0073;Globos liso Candela;1696.83;1624;true;60;12;varios;
-RPB0007;Baggio Chocolatada 1L x8u.Oferta;1972.63;1891.88;true;1;13;bebidas;
-RPB0038;Baggio Choc. 200cc x18u.;613.09;586.72;true;2;13;bebidas;
-RPB0064;Gaseosa Fresh 2,25 x6u.;992.78;951.97;true;3;13;bebidas;
-RPB0067;Baggio litro x8u.;1536.79;1473.88;true;4;13;bebidas;
-RPB0032;Baggio 200cc x18u.;411.63;394.78;true;5;13;bebidas;
-COC0012;5 Pack Powerade 500cc.;1065.62;1021.99;true;6;13;bebidas;
-COC0009;5 Pack Lata Monster.;2755.01;2551.07;true;7;13;bebidas;
-BEB0018;Jugo Puro Sol;0;0;false;8;13;bebidas;
-COC0085;Lata Coca 354cc x6u.;1371.12;1312.22;true;9;13;bebidas;novedad
-COC0010;5 Pack Linea Coca 600.;1159.77;1112.24;true;10;13;bebidas;
-COC0052;Coca Cola 1,75 x8u.;2875.38;2757.66;true;11;13;bebidas;novedad
-COC0029;Coca Cola 2,25 x8u.;3561.58;3408.34;true;12;13;bebidas;novedad
-COC0026;Cepita 200cc x6u.Oferta;0;0;false;13;13;bebidas;
-DAN0016;Villavicencio 500ccx12u.Oferta;549.82;529.67;false;14;13;bebidas;
-LLO0053;Vodka Bols 750cc x6u.OFERTA;3800.13;3636.9;true;15;13;bebidas;
-LLO0054;Ginebra Bols 195ml x12u.OFERTA;1633.6;1563.35;true;16;13;bebidas;
-LLO0055;Ginebra Bols 1L x6u.;9181.58;8805.5;true;17;13;bebidas;
-RPB0058;Vino Uvita x12u.;1590.42;1522.08;true;18;13;bebidas;
-RPB0036;Vino Bodega Priv. Llave Malbec 750cc x6u.;2696.37;2580.46;true;19;13;bebidas;
-FRA0012;Vino Fabre Montmayou Malbec 750cc x6u.;12984.59;12426.33;true;20;13;bebidas;novedad
-FRA0024;Vino Montmayou Gran Vin 750cc x6u.;0;0;false;21;13;bebidas;novedad
-LLO0034;Whisky Criadores 750cc x8u.;5664.31;5432.48;true;22;13;bebidas;
-LLO0007;3 Pack Petaca Criadores x12u.;1848.69;1727.11;true;23;13;bebidas;
-PET0003;Petaca Peters Tequila x12u.;1800.49;1723.08;true;24;13;bebidas;
-RPB0064-1;Gaseosa Fresh 2,25 x6u.;992.78;951.97;true;25;13;bebidas;
-BEB0001;Cunnington Ind. Tonic Suave 2,25 cc x6u.;1294.66;1238.17;true;26;13;bebidas;
-BEB0002;Cunnington Lima Limon 2,25 cc x6u.;1294.66;1238.17;true;27;13;bebidas;
-BEB0008;Cunnington Pomelo 2,25cc x6u.;1294.66;1238.17;true;28;13;bebidas;
-ARV0270;Anana Fizz Real 720cc x6u.;3139.27;3004.37;false;29;13;bebidas;novedad
-ARV0271;Anana Fizz La Victoria;0;0;false;30;13;bebidas;novedad
-ARV0272;Sidra 1888 750cc x6u.;5902.38;5648.64;true;31;13;bebidas;novedad
-ARV0273;Sidra Real 750cc x6u.;2775.06;2655.89;true;32;13;bebidas;novedad
-ARV0274;Sidra Victoria 720cc x6u.;2120.59;2029.35;true;33;13;bebidas;novedad
-SDP0014;Sifon Limonada S. de los Padres 1,75x6u.;1018.28;974.5;true;34;13;bebidas;novedad
-SDP0013;Sifon Manaos 2L x6u.;1188.53;1137.5;true;35;13;bebidas;novedad
-SDP0012;Sifon Sierra de los Padres 1,75L x6u.;1018.28;974.5;true;36;13;bebidas;
-SDP0005;Sierra de los Padres 2Lts x6u.;738.89;707.17;true;37;13;bebidas;
-SDP0008;Sierra de los Padres 600ccx12u.;420.04;402;true;38;13;bebidas;
-BEB0015;Agua Cellier s/gas 2L. x6u.;604.93;578.93;true;39;13;bebidas;
-BEB0013;Agua Cellier c/gas 2L x6u.;677.51;648.38;true;40;13;bebidas;
-BEB0016;Agua Cellier s/gas 600cc x9u.;338.87;324.26;true;41;13;bebidas;
-BEB0014;Agua Cellier c/gas 600 cc x9u.;371.08;355.18;true;42;13;bebidas;
-FRA0010;Punt E Mes 750cx6u.;9167.4;8773.67;true;43;13;bebidas;
-FRA0022;Sernova Vodka 700cc x12u.;6882.26;6586.33;true;44;13;bebidas;
-FRA0025;Fernet Branca 1L x6u.;22321.67;21028.33;true;45;13;bebidas;novedad
-FRA0004;Fernet Branca 450ccx12u.;8667.33;8312.17;true;46;13;bebidas;
-FRA0002;Fernet Branca 750ccx12u.;13069.15;12533.67;true;47;13;bebidas;
-FRA0005;Fernet Branca Mini 50ccx12u.;3024.02;2894;true;48;13;bebidas;
-LMA0001;3 Pack Te Taragui x50x10u.;1415.77;1357.81;true;1;14;promocion;
-LMA0090;3 Pack Te Taragui x25x10u.;730.66;700.78;true;2;14;promocion;
-LMA0091-1;3 Pack Mate Cocido x50x5u. Tar/Un;1517.5;1814.27;true;3;14;promocion;
-LMA0092-1;3 Pack Mate Cocido Tar/Un x25x10u.;1022.92;981;true;4;14;promocion;
-LLO0005-1;3 Pack Te Green Hills x25 x20u;1129.4;1080.85;true;5;14;promocion;
-LLO0006-1;3 Pack Te Green Hills x50 x10u;2146.66;2054.37;true;6;14;promocion;
-HIL0039;3 Pack Hil. Zucra Forte 50sob x8u.;1201.54;1152.26;true;7;14;promocion;
-HIL0080;3 Pack Hil. Zucra Forte 100sob x8u.;1971.15;1890.39;true;8;14;promocion;
-HIL0078;3 Pack Hil. Zucra Liq. Forte 400ml x9u.;2754.6;2641.73;true;9;14;promocion;
-HIL0079;3 Pack Hil. Zucra Liq. Forte 200ml x9u.;2248.65;2152.01;true;10;14;promocion;
-HIL0038;3 Pack Hil. Azucar Light 250gx9u;1005.06;938.96;true;11;14;promocion;
-HIL0043;3 Pack Hil. Azucar Light 500g x9u;1973.51;1888.7;true;12;14;promocion;
-HIL0083;3 Pack Hil. Sweet Forte Liq. 200ml x9u.;1304.03;1250.59;true;13;14;promocion;
-HIL0040;3 Pack Hil. Sweet Forte Liq. 400ml x9u.;2256.51;2164.04;true;14;14;promocion;
-HIL0073;3 Pack Hil. Sweet Forte 400sob.;6035.72;5788.42;true;15;14;promocion;
-HIL0084;3 Pack Hil. Sweet Forte 100sob x8u.;1950.6;1870.67;true;16;14;promocion;
-HIL0066;3 Pack Hil. Sweet Forte 50sob x8u.;1143.23;1096.38;true;17;14;promocion;
-HIL0072;3 Pack Hil. Clasico Forte 500sob.;6850.76;6570.06;true;18;14;promocion;
-HIL0076;3 Pack Hil. Clasico Forte 50sob x8u.;1079.24;1035;true;19;14;promocion;
-HIL0057;3 Pack Hil. Clasico Forte 100sob x8u;1936.15;1808.89;true;20;14;promocion;
-HIL0095;3 Pack Hil. Clasico Forte Liq. 250ml x9u.;1293.19;1240.23;true;21;14;promocion;
-HIL0052;3 Pack Hil. Clasico Forte Liq. 500ml x9u.;2371.47;2274.31;true;22;14;promocion;
-HIL0054;3 Pack Hil. Mate Liq. 200ml x9u.;1545.41;1479.03;true;23;14;promocion;
-HIL0059;3 Pack Hil. Mate Liq. 400ml x9u.;2598.3;2427.39;true;24;14;promocion;
-HIL0081;3 Pack Hil. Stevia Forte Liq. 200ml x9u.;2644.72;2536.37;false;25;14;promocion;
-HIL0068;3 Pack Hil. Stevia Forte 50sob x8u.;1343.6;1288.54;true;26;14;promocion;
-HIL0082;3 Pack Hil. Stevia Forte 100sob x8u.;2331.29;2235.79;true;27;14;promocion;
-HIL0094;3 Pack Hil. Stevia Forte 400 sob.;7752.48;7434.67;true;28;14;promocion;
-MER0002-1;3 Pack Chucker x200x6u.;1354.56;1299.11;true;29;14;promocion;oferta
-MER0001-1;3 Pack Chucker 400 x6u.;2041.36;1957.78;true;30;14;promocion;
-MER0034;3 Pack Sucaryl Liq. 360cc x6u.;2708.8;2597.83;true;31;14;promocion;
-MER0033;3 Pack Sucaryl Liq. 180cc x6u.;1824.95;1750.22;true;32;14;promocion;
-RPB0031;3 Si Diet x600x6u.;2287.91;2194.17;true;33;14;promocion;
-RPB0001;3 Si Diet 500x6u.;1980.7;1899.56;true;34;14;promocion;oferta
-RPB0002;3 Si Diet x200x6u.;978.4;938.33;true;35;14;promocion;oferta
-RPB0026;3 Si Diet 250cc x6u.;1215.1;1162.94;true;36;14;promocion;
-MCA0097-1;Edulcorante Cañuelas 500ml x6u.;1575.14;1507.5;true;37;14;promocion;oferta
-MCA0100;Edulcorante Cañuelas Sucralosa 500ml x6u.;1925.07;1842.59;true;38;14;promocion;oferta
-MCA0098;Edulcorante Cañuelas sobre 80g x12u.;1400.18;1339.95;true;39;14;promocion;oferta
-MCA0099;Edulcorante Cañuelas Stevia Sobre 80gx12u.;1837.73;1758.78;true;40;14;promocion;oferta
-MCA0106;Mama Cocina Reb. Horno 500gx12u.OFERTA;3910.61;764.61;true;41;14;promocion;
-COC0071;5 Pack Agua Smart 500cc.;0;0;false;42;14;promocion;
-VAQ0013-1;Vauquita Light x18u.;239.5;228.96;true;43;14;promocion;
-MAS0007-1;Caja Doblinas Cilo 320g x12u. Memb-Bat;493.43;473.21;true;44;14;promocion;
+FEL0061;1645.99;1575.21
+FEL0063;716.58;1
+FEL0050;752.43;720.09
+FEL0014;481.95;461.25
+FEL0052;1205.37;1153.53
+FEL0005;0;0
+FEL0018;945.52;904.87
+FEL0042;819.19;784.00
+FEL0022;1077.68;1031.35
+FEL0023;560.88;536.73
+FEL0024;2985.73;2857.40
+FEL0025;3359.07;3214.67
+FEL0043;1471.75;1408.50
+FEL0049;788.26;754.37
+FEL0037;339.63;325.02
+FEL0038;620.45;593.80
+FEL0031;304.11;291.04
+FEL0062;394.11;377.17
+FEL0033;604.16;578.18
+FRA0011;842.71;806.48
+FEL0035;0;0
+FEL0036;497.43;476.07
+FEL0064;656.88;628.65
+FEL0065;696.66;666.72
+FEL0067;1112.48;1064.61
+FER0018;775.58;742.08
+FER0006;2354.06;2254.00
+FER0007;7847.39;7509.00
+FER0022;7170.93;6863.00
+FER0021;0;0
+FER0023;612.19;585.88
+FER0009;1853.74;1774.00
+FER0027;0;0
+FER0012;940.01;899.60
+FER0020;2352.86;2251.00
+FER0026;2052.55;1964.33
+JOR0005;677.41;648.30
+JOR0020;728.06;696.77
+JOR0004;913.36;874.09
+GUA0005;660.29;631.88
+GUA0001;225.81;216.10
+GUA0002;376.35;360.17
+GUA0004;465.07;445.08
+MON0146;1279.94;1225.35
+MON0086;1324.89;1267.93
+MON0142;771.06;737.10
+MON0139;0;0
+FEL0066;0;0
+MON0129;2712.42;2595.60
+MON0128;2712.42;2595.60
+VAQ0010;0;0
+VAQ0009;1343.84;1286.00
+VAQ0013;239.50;228.96
+VAQ0015;0;0
+TOP0039;660.29;631.83
+VAQ0027;184.32;176.40
+ARC0018;302.12;289.17
+MON0100;1786.49;1705.00
+ARC0008;0;0
+MON0149;665.85;637.25
+ARC0029;0;0
+JOR0016;0;0
+ARC0165;1055.68;1010.28
+ARV0165;2180.34;2086.00
+MON0064;651.94;623.92
+MON0059;733.56;702.01
+BON0007;0;0
+BON0021;0;0
+BON0001;384.95;368.36
+BON0065;3712.21;3554.33
+BON0015;3715.33;3555.58
+BON0020;4483.25;4290.42
+BON0014;493.32;472.08
+BON0051;20151.93;19286.00
+BON0011;576.01;551.25
+ARV0013;848.45;811.93
+ARC0212;858.06;822.00
+BON0064;1294.87;1239.14
+MON0078;2080.46;1992.00
+MON0077;0;0
+MON0097;0;0
+MON0019;1403.45;1343.12
+MON0130;0;0
+NES0001;7691.10;7361.40
+MON0009;0;0
+MON0010;1551.83;1485.17
+MON0011;3851.06;3668.00
+MON0049;0;0
+MON0134;1310.02;1253.70
+TOP0040;248.42;237.71
+TOP0057;248.42;237.71
+TOP0024;436.80;418.05
+TOP0053;13558.71;12976.00
+TOP0061;2335.83;2235.33
+ARC0081;84.60;77.62
+ARC0082;4414.02;4048.00
+ARC0058;0;0
+ARC0184;926.92;887.03
+SUS0010;3237.02;3097.00
+SUS0002;5301.59;5074.00
+SUS0018;259.80;248.59
+SUS0024;283.18;271.00
+ARV0070;2309.73;2211.00
+IMS0033;2038.18;1950.63
+IMS0078;1595.79;1527.21
+TOP0062;2335.83;2235.33
+IMS0057;2188.60;2094.50
+TOP0036;1771.28;1695.20
+IMS0123;2531.15;2422.42
+IMS0009;1883.67;1802.63
+IMS0053;1682.90;1610.51
+IMS0008;1623.80;1553.94
+IMS0043;1699.52;1626.70
+IMS0056;1905.41;1823.44
+MON0058;8498.68;8132.97
+MON0126;5452.54;5218.00
+MON0127;1368.81;1310.00
+MON0136;194.46;186.08
+MON0152;378.33;362.08
+ARC0172;384.39;367.92
+ARC0213;9848.40;9426.00
+ARC0214;7393.39;7075.00
+MON0034;0;0
+MON0035;653.10;625.00
+SUS0015;221.80;212.25
+PRO0001;573.84;549.17
+SUS0058;2471.33;2364.87
+SUS0019;314.24;300.69
+SUS0017;4424.23;4235.00
+SUS0078;523.01;500.50
+SUS0036;336.24;321.83
+SUS0051;1217.86;1165.00
+SUS0079;263.26;251.94
+SUS0077;4213.12;4032.00
+SUS0064;289.05;276.67
+SUS0063;741.16;710.00
+SUS0062;4588.81;4392.00
+LHE0025;356.89;341.50
+IMS0011;493.84;429.71
+LHE0002;496.37;475.00
+LHE0006;409.64;392.00
+LHE0008;158.99;152.17
+MON0006;637.13;609.74
+MON0070;1649.70;1578.78
+GEO0016;85.42;81.74
+ARC0211;641.13;613.56
+MON0008;85.54;81.87
+IMS0128;2533.70;2424.83
+IMS0130;191.53;183.33
+IMS0131;602.78;576.88
+IMS0132;772.62;739.39
+IMS0133;191.53;183.33
+TOP0052;1132.26;1083.58
+BEV0001;962.76;921.42
+IMS0066;344.12;329.31
+IMS0097;604.02;578.04
+TOP0030;220.28;214.96
+IMS0074;191.54;183.73
+IMS0070;1959.61;1875.16
+PRO0004;226.47;216.73
+PRO0018;295.04;282.40
+PRO0002;578.28;553.42
+MON0037;189.15;181.03
+IMS0036;467.68;443.67
+MOL0003;643.78;616.13
+MOL0002;543.85;520.38
+MOL0006;760.98;728.27
+MON0123;4881.64;4672.00
+MON0045;1036.66;992.09
+MON0046;1213.86;1161.66
+MON0041;2128.83;2041.63
+MON0042;673.45;687.47
+MON0094;3593.51;3439.24
+MON0144;2144.28;2054.40
+MON0145;718.83;687.94
+GEO0045;2691.09;2576.00
+GEO0046;2131.53;2040.00
+GEO0047;2308.59;2209.00
+GEO0026;2131.53;2040.00
+GEO0048;0;0
+TOP0059;2029.38;1942.07
+IMS0011-1;0;0
+IMS0032;2399.16;2296.14
+IMS0029;2411.81;2308.29
+IMS0127;3806.79;3643.00
+ARV0265;473.75;453.40
+IMS0004;1801.95;1724.50
+IMS0030;2104.19;2013.80
+URQ0019;219.08;209.72
+URQ0020;368.33;352.56
+ARV0246;3541.65;3389.40
+ARV0247;2580.54;2469.60
+SUS0027;272.40;260.67
+PRO0022;4041.17;3867.50
+ARV0250;224.81;188.90
+FEL0039;456.08;436.50
+ARV0192;0;0
+SUS0023;333.84;263.68
+SUS0022;1742.23;1666.00
+IMS0020;13945.75;13346.00
+IMS0122;6436.59;6159.00
+ARV0142;3963.41;3792.80
+SUS0030;103.11;98.68
+GOP0009;2463.42;2357.53
+GOP0007;1718.97;1645.12
+GOP0008;2683.54;2568.22
+GOP0019;3074.56;2942.45
+GOP0024;2795.08;2674.92
+GOP0026;4022.15;3849.24
+GOP0027;4022.15;3849.24
+GOP0021;3277.71;3134.32
+GOP0010;2683.54;2568.22
+GOP0034;1718.97;1645.12
+GOP0041;1683.21;1611.00
+GOP0044;2680.87;2566.00
+INC0007;2451.66;2346.25
+INC0031;2426.68;2327.25
+INC0035;2102.30;2016.17
+INC0012;791.24;757.28
+INC0002;492.21;471.04
+INC0009;660.38;632.00
+INC0010;728.02;696.73
+INC0016;850.49;813.96
+INC0003;1119.91;1071.77
+INC0005;799.09;764.71
+INC0015;815.33;780.28
+INC0029;779.52;745.98
+INC0028;828.78;793.04
+INC0006;2702.91;2586.75
+INC0017;705.40;675.08
+INC0008;825.49;790.00
+INC0033;801.28;766.91
+INC0019;1030.31;985.98
+INC0037;1960.76;1880.46
+INC0034;1923.54;1840.88
+INC0020;1971.21;1886.38
+QUA0005;1746.77;1675.22
+QUA0023;2770.28;2656.78
+QUA0007;1749.04;1673.83
+QUA0022;2770.28;2656.78
+QUA0002;2745.19;1313.59
+LMA0143;2953.67;2827.62
+GRA0015;1022.03;900.47
+LMA0160;1651.70;1582.12
+LMA0036;2899.29;2774.54
+LMA0014;3074.16;2941.56
+LMA0158;4421.68;4229.78
+LMA0015;1988.21;1903.21
+LMA0085;1318.13;1262.33
+LMA0141;2318.85;2219.12
+LMA0161;1629.86;1560.00
+GRA0057;1794.23;1580.82
+GRA0048;1403.59;1236.64
+MON0151;2117.91;2027.00
+CMN0010;1062.12;1016.46
+CMN0011;1013.46;969.88
+CMN0012;954.44;913.42
+CMN0002;1089.60;1043.00
+CMN0003;2241.63;2145.00
+CMN0007;3303.99;3162.00
+CMN0004;2065.23;1976.34
+CMN0008;2551.48;2442.00
+CMN0013;1389.24;1330.00
+CMN0005;3440.19;3293.00
+CMN0006;1497.07;1432.00
+CMN0001;4809.09;4601.83
+CMN0014;2882.15;2822.00
+CMN0018;2551.95;2442.33
+DUL0056;1812.03;1734.17
+DUL0008;1987.57;1902.17
+DUL0035;1874.07;1802.17
+DUL0011;1582.19;1514.17
+DUL0054;1817.63;1718.74
+DUL0010;1479.66;1416.00
+DUL0012;1582.19;1514.17
+DUL0048;2012.92;1926.33
+DUL0006;2211.36;2116.33
+DUL0040;2000.25;1914.17
+DUL0002;2260.35;2163.17
+RPB0020;0;0
+DUL0055;636.97;609.58
+MON0141;852.53;816.00
+MON0114;1298.38;1242.57
+MON0147;11313.68;10828.00
+MON0104;883.03;845.07
+COC0082;1850.81;1894.75
+COC0084;1979.91;1894.75
+MCA0024;2346.37;1092.33
+MCA0117;2139.48;2047.60
+MCA0023;868.94;831.67
+CAL0004;5313.30;5083.67
+CAL0001;2137.65;2046.94
+CAL0002;2137.65;2046.94
+MON0036;388.28;371.59
+MON0063;369.79;353.85
+ARV0042;1522.77;1457.11
+ARV0140;1422.37;1361.50
+ARV0200;908.45;869.40
+ARV0102;575.31;550.56
+ARV0256;690.35;660.68
+MCA0032;917.65;858.60
+MCA0033;1130.80;1058.00
+MCA0036;1080.95;1011.24
+MCA0037;0;0
+MCA0113;605.22;566.30
+GRI0010;1310.17;1253.83
+GRI0013;1182.48;1131.83
+GRI0006;1721.23;1647.25
+GRI0005;1531.49;1465.83
+GRI0019;1122.03;1073.63
+GRI0024;1213.88;1161.67
+GRI0016;1201.65;1150.06
+GRI0014;1213.88;1161.67
+GRI0018;1213.88;1161.67
+GRI0035;1592.78;1524.33
+GRI0011;1721.23;1647.25
+GRI0031;1721.23;1647.25
+GRI0021;1310.17;1253.83
+VIR0157;2294.97;2196.94
+VIR0180;0;0
+FID0004;1432.46;1370.92
+FID0006;833.28;797.50
+FID0008;1801.15;1723.75
+FID0001;1189.75;1138.64
+FID0002;833.28;797.50
+FID0003;1269.50;1214.92
+FID0005;1145.99;1096.80
+FID0007;1071.58;1025.47
+FID0009;1801.15;1723.75
+FID0010;1801.15;1723.75
+FID0011;1801.15;1805.43
+FID0012;1438.14;1376.33
+FID0013;767.26;734.24
+WAK0002;2116.96;2030.25
+WAK0013;0;0
+DHH0005;879.49;840.74
+DHH0001;1509.52;1444.69
+DHH0004;945.80;905.10
+DHH0019;827.30;791.66
+DHH0007;490.82;469.69
+DHH0012;589.72;564.29
+DHH0003;1009.17;965.70
+DHH0013;1483.45;1452.00
+DHH0014;1517.50;1452.00
+DHH0015;2139.48;2047.00
+LMA0108;458.18;438.58
+LMA0107;1125.39;1077.02
+ARV0251;484.33;463.52
+RPB0063;664.64;636.00
+RPB0021;855.22;818.42
+RPB0022;431.83;413.36
+RPB0023;1376.54;1317.34
+ARV0100;766.96;735.54
+MCA0101;163.50;156.48
+MCA0102;615.54;589.15
+DOS0130;1837.85;1758.90
+DOS0133;2320.60;1848.67
+DOS0129;1006.70;963.46
+DOS0128;1064.83;1019.07
+ARV0280;587.76;562.50
+ARV0281;1471.91;1408.67
+VIR0156;1904.97;1824.80
+VIR0184;3743.48;3583.05
+VIR0185;5107.62;4887.43
+MON0150;1688.97;1616.33
+DOS0158;3115.80;2981.85
+DOS0156;3423.38;3276.21
+DOS0157;2626.12;2513.22
+DOS0079;3054.78;2923.43
+DOS0095;2673.16;2557.33
+DOS0091;3000.94;2872.47
+DOS0097;3148.49;3013.80
+DOS0080;3223.98;3085.39
+DOS0094;3115.80;2981.89
+DOS0088;2481.11;2374.63
+DOS0081;2699.03;2309.77
+DOS0159;2283.36;2185.20
+DOS0090;2768.67;2650.26
+DOS0096;3206.38;2804.62
+DOS0099;2582.03;2470.94
+DOS0106;1905.94;1779.43
+DOS0102;3667.25;2338.08
+DOS0110;2161.18;2068.32
+DOS0105;3481.65;3331.97
+DOS0109;3681.70;3523.43
+DOS0103;3453.81;3140.51
+DOS0111;3436.53;3288.79
+DOS0101;3368.15;3224.53
+DOS0098;2320.58;3014.91
+DOS0100;2945.38;2818.76
+DOS0180;2059.15;1970.00
+DOS0104;3149.63;3014.91
+DOS0112;3215.46;3078.08
+DOS0125;2667.25;2190.00
+DOS0011;964.99;923.50
+DOS0032;1875.17;1794.62
+DOS0046;1875.23;1794.62
+DOS0005;1340.50;1282.87
+DOS0004;1028.22;984.03
+DOS0029;3496.41;3346.18
+DOS0003;1070.41;1024.38
+DOS0031;1357.23;1298.79
+DOS0026;894.00;855.54
+DOS0012;2670.96;2556.14
+DOS0137;1549.46;1402.25
+DOS0010;2075.49;1986.26
+DOS0051;2550.17;2439.65
+DOS0058;4025.63;3852.37
+DOS0025;2499.31;2391.87
+DOS0030;2248.62;2225.50
+DOS0001;1007.88;999.74
+DOS0002;571.09;551.42
+DOS0176;1121.17;1072.94
+DOS0048;2034.45;1946.99
+DOS0035;1372.07;1313.09
+DOS0034;1230.06;1091.06
+DOS0033;789.28;755.35
+DOS0047;2744.14;2626.17
+DOS0139;1622.41;1552.67
+DOE0006;470.21;449.91
+DOE0024;669.20;640.40
+DOE0015;1678.67;1606.50
+DOE0004;1444.40;1382.30
+DOE0002;3804.97;3641.00
+DOE0012;1138.97;1090.00
+DOE0008;969.35;927.70
+DOE0018;576.97;552.22
+DOE0016;0;0
+DOE0011;1928.82;1845.90
+DOE0010;1252.63;1496.80
+DOE0003;1009.81;966.40
+DOE0014;541.57;518.30
+DOE0023;2413.92;2310.20
+DOS0020;2448.54;2343.29
+DOS0021;1579.86;1511.96
+DOS0042;2758.04;2639.47
+VIR0037;564.69;540.42
+VIR0040;868.23;830.91
+VIR0044;1765.14;1689.26
+VIR0055;1725.76;1651.65
+VIR0134;764.39;731.49
+VIR0023;1549.21;1501.41
+VIR0142;1259.52;1204.43
+VIR0059;1142.08;1092.84
+VIR0049;1148.53;1099.17
+VIR0143;1146.64;1097.29
+DOS0007;1912.02;1829.82
+DOS0006;1808.81;1731.08
+DOS0056;1284.14;1228.93
+VIR0036;1444.90;1382.80
+VIR0073;812.19;777.26
+VIR0050;2209.61;2114.62
+VIR0022;651.69;623.66
+VIR0071;856.56;819.90
+VIR0070;986.88;944.38
+VIR0057;925.41;885.68
+VIR0068;384.38;367.85
+VIR0151;963.80;922.33
+VIR0140;823.57;788.17
+VIR0141;909.61;870.55
+VIR0140-1;0;0
+VIR0051;2123.80;2029.60
+VIR0024;1013.98;970.24
+VIR0021;1175.60;1125.03
+VIR0144;1889.40;1808.13
+VIR0039;1573.17;1505.52
+VIR0052;1289.64;1234.19
+VIR0046;2229.36;2133.22
+VIR0175;0;0
+VIR0138;249.79;239.08
+VIR0083;286.40;274.17
+VIR0135;286.40;274.19
+VIR0083-1;0;0
+VIR0084;249.77;239.14
+VIR0084-1;0;0
+DOS0177;4384.13;4195.74
+CON0005;3628.60;3473.00
+IFI0002;2115.73;2025.00
+CON0004;1919.29;1837.00
+CON0001;1805.44;1728.90
+CON0003;1071.26;1025.18
+VIR0033;1422.58;1361.44
+DOS0070;1564.59;1497.41
+DUL0049;1954.47;1870.00
+DUL0050;1977.17;1890.00
+DUL0028;1520.90;1455.00
+NUC0054;11995.64;11479.92
+NUC0059;8863.15;8482.03
+NUC0056;9467.13;9141.67
+NUC0058;6209.00;5942.04
+NUC0008;12130.66;11609.00
+NUC0009;10794.12;10329.17
+NUC0060;3196.54;3059.36
+NUC0102;10941.97;10471.67
+NUC0022;4740.75;4535.91
+NUC0095;4152.72;3974.19
+NUC0018;3647.61;3490.80
+NUC0012;3965.43;3794.96
+NUC0019;3776.63;3614.28
+NUC0001;3349.16;3204.79
+NUC0020;3501.60;3351.07
+NUC0045;0;0
+NUC0023;3794.41;3630.33
+NUC0003;3196.72;3058.52
+NUC0066;0;0
+NUC0067;0;0
+NUC0070;0;0
+NUC0072;0;0
+NUC0038;0;0
+NUC0039;0;0
+NUC0041;3520.77;3369.91
+NUC0040;1756.98;1682.00
+NUC0104;5591.25;5350.83
+NUC0025;4389.08;4199.47
+NUC0106;2408.74;2305.00
+NUC0107;2752.85;2634.00
+NUC0108;2752.85;2634.00
+NUC0037;3080.39;2948.00
+NUC0030;1600.92;1532.16
+NUC0079;1522.64;1457.18
+NUC0028;1700.13;1627.04
+NUC0084;1650.61;1579.65
+NUC0031;1329.69;1272.50
+NUC0078;1264.06;1209.70
+NUC0033;1892.14;1810.75
+NUC0081;1650.83;1579.86
+NUC0032;1673.70;1601.75
+NUC0080;1458.74;1396.03
+NUC0029;1673.70;1601.75
+NUC0082;1458.74;1396.03
+NUC0017;1182.29;1131.44
+NUC0014;999.35;956.39
+NUC0015;999.35;956.39
+NUC0016;908.93;869.83
+NUC0090;793.21;759.23
+NUC0091;902.33;863.53
+NUC0093;951.40;910.48
+NUC0092;950.39;909.52
+NUC0096;1299.31;1243.47
+NUC0097;1181.08;1130.30
+BON0002;9222.82;8826.33
+BON0002-1;0;0
+BON0003;4667.26;4466.63
+BON0003-1;0;0
+BON0005;2594.33;2482.83
+BON0005-1;0;0
+BON0067;6643.53;6358.00
+BON0068;6643.53;6358.00
+CAB0024;5500.40;5264.00
+CAB0021;10087.31;9653.83
+CAB0020;5043.75;4826.92
+CAB0001;2522.44;2414.00
+CAB0011;10999.29;10526.50
+CAB0022;21998.57;21053.00
+VIR0159;0;0
+VIR0007;2470.87;2365.60
+VIR0009;6382.37;6107.29
+VIR0003;4628.88;4430.46
+VIR0147;5257.18;5031.18
+VIR0011;3864.68;3688.52
+VIR0182;3120.52;2955.18
+VIR0119;2826.35;2703.62
+VIR0078;9407.72;9004.03
+VIR0010;5325.68;5096.85
+VIR0137;2702.34;2585.47
+VIR0004;4977.85;4764.38
+VIR0105;5540.23;5303.07
+BON0004;3082.15;2948.80
+CAB0014;4847.24;4638.90
+VIR0002;4096.98;3919.80
+VIR0008;4243.52;4059.55
+LHE0023;1332.49;1275.00
+LHE0018;0;0
+LHE0015;2203.04;2108.00
+CAB0050;3276.27;3142.05
+CAB0051;3053.95;2928.82
+VIR0012;4206.45;4025.75
+VIR0181;2943.16;2816.70
+VIR0015;4269.46;4085.92
+VIR0150;6466.33;6188.35
+VIR0183;3120.52;2985.68
+LLO0018;4077.30;3902.11
+LLO0005;1129.40;1080.85
+LLO0006;2146.66;2054.37
+LLO0016;1214.51;1162.25
+LLO0031;1003.62;960.42
+LLO0019;1456.90;1394.36
+LLO0029;1968.42;1883.72
+LLO0032;1456.90;1394.36
+LLO0037;1866.70;1786.42
+CAC0012;958.89;917.67
+CAC0009;962.10;920.83
+CAC0010;1846.65;1767.17
+CAC0007;913.30;874.00
+CAC0008;868.28;830.00
+CAC0011;1396.88;1336.77
+CAC0003;1062.55;1016.83
+PLA0006;888.71;850.50
+LMA0030;4732.99;4529.76
+LMA0091;1517.50;1814.27
+LMA0092;1022.92;981.00
+CRY0003;993.47;950.70
+CRY0002;496.79;475.40
+CRY0005;613.35;586.90
+CRY0006;1226.65;1173.92
+LMA0065;752.52;721.70
+LMA0055;1458.18;1398.43
+LMA0023;2292.42;2193.75
+LMA0032;2502.76;2395.04
+LMA0046;3310.06;3167.47
+LMA0155;1327.30;1270.10
+LMA0062;2443.52;2338.41
+LMA0154;1208.79;1156.68
+LMA0066;1970.49;1778.98
+LMA0120;3776.81;3614.67
+LMA0129;2284.28;2195.21
+LMA0052;2249.92;2153.54
+LMA0121;4003.35;3614.67
+LMA0060;2249.92;2153.54
+LMA0045;1483.98;1420.24
+LLO0008;814.88;779.88
+LLO0009;1577.65;1509.83
+VIR0133;1319.20;880.25
+VIR0193;1816.22;1738.26
+VIR0191;1319.07;1262.37
+VIR0190;1836.65;1757.53
+VIR0086;1645.66;1575.55
+VIR0064;1896.73;1815.33
+VIR0189;1321.37;1264.36
+VIR0031;774.51;741.08
+VIR0094;1588.86;1508.30
+VIR0098;1866.45;1786.11
+VIR0103;2375.00;2272.93
+VIR0101;1486.72;1422.96
+VIR0114;1794.59;1717.72
+ESA0002;1607.35;1538.25
+ESA0004;3099.02;2957.67
+IMS0060;5237.17;5022.56
+IMS0059;9932.52;9525.53
+IMS0110;5799.75;5562.13
+IMS0075;5709.12;5475.23
+IMS0121;5799.75;5562.13
+IMS0082;3004.04;2874.96
+IMS0135;1312.82;1256.42
+LCM0002;1246.34;1192.80
+LCM0003;1246.34;1192.80
+LCM0001;1390.59;1330.87
+ARV0197;1763.90;1688.10
+ARV0196;1458.02;1395.30
+ARV0146;2759.64;2641.00
+ARV0195;870.43;833.00
+CAC0024;1278.96;1224.00
+CAC0044;1761.71;1686.00
+LMA0070;2945.14;2818.50
+LMA0163;4369.75;4181.90
+PLA0001;2110.25;2019.71
+PLA0003;2432.42;2327.90
+PLA0002;3948.25;3778.21
+PLA0005;1175.75;1125.20
+PLA0004;2619.24;2506.60
+LCA0006;1694.78;1621.92
+LCA0007;967.93;926.30
+LCA0009;1890.12;1808.89
+LCA0003;1890.12;1808.89
+LCA0005;3183.11;3046.30
+LMA0073;3633.82;3477.60
+LMA0072;1019.58;975.74
+LMA0077;2565.28;2455.01
+LMA0033;1672.99;1600.00
+LMA0152;20037.29;19176.00
+LMA0012;2577.59;2467.00
+LMA0079;1019.58;975.74
+LMA0082;2110.84;2020.10
+LMA0104;1793.75;1716.60
+LMA0080;3633.82;3477.60
+LMA0101;1019.58;975.74
+LMA0071;1793.75;1716.60
+LMA0100;3334.29;3190.90
+LLO0027;1611.32;1533.75
+LLO0024;3142.63;3007.50
+LLO0040;1768.53;1712.27
+LLO0058;836.89;800.97
+LLO0025;3195.03;3057.83
+ROM0002;919.63;880.10
+ROM0004;2761.00;2642.40
+ROM0003;1504.44;1439.60
+ROM0005;2918.31;2792.80
+ROM0001;1655.74;1584.50
+ROS0018;1664.93;1593.30
+ROS0003;849.43;812.95
+ROS0015;3366.18;3221.40
+ROS0013;1679.46;1607.30
+ROS0016;3404.09;3257.70
+ROS0020;1687.75;1615.20
+ROS0019;3056.56;2925.10
+ROS0012;4083.05;3907.60
+ROS0005;2293.49;2194.90
+ROS0014;2969.05;2841.40
+ROS0009;842.96;806.75
+ROS0010;1569.25;1501.80
+ROS0022;1662.78;1591.00
+ROS0021;0;0
+ARV0243;1475.24;1411.76
+ARV0243-1;0;0
+ARV0243-2;0;0
+LMA0140;1808.15;1730.42
+ARV0243-3;0;0
+MCA0097;1575.14;1507.50
+RPB0050;1289.93;1234.33
+RPB0045;2407.71;2304.17
+RPB0052;2356.45;2260.00
+RPB0024;1007.63;966.30
+RPB0025;2039.97;1956.67
+MER0003;2274.55;2176.77
+MER0004;3368.49;3223.83
+MER0001;2041.36;1957.78
+MER0002;1354.56;1299.11
+MER0036;1835.86;1757.00
+MER0037;2906.55;2781.67
+MER0027;2025.60;1938.53
+MER0017;2215.14;2119.83
+MER0010;2921.68;2796.00
+MER0011;1780.63;1704.00
+MER0022;1879.56;1802.67
+MER0021;2790.02;2675.67
+MER0030;1467.18;1404.17
+MER0018;2552.05;2442.33
+MER0016;1544.55;1478.17
+MER0015;2685.79;2570.33
+MER0013;1263.63;1209.17
+MER0014;2198.31;2103.83
+MER0012;6669.26;6383.00
+MER0032;8303.66;7947.00
+MER0029;1496.98;1432.62
+MER0028;2603.44;2491.52
+MER0023;1262.81;1208.52
+MER0024;2174.11;2080.65
+MER0025;1627.75;1557.78
+MER0026;2830.88;2709.19
+HIL0089;2030.05;1946.99
+HIL0101;3499.49;3349.10
+HIL0100;3517.09;3285.86
+HIL0077;1111.59;1066.05
+HIL0027;1994.01;1862.98
+HIL0075;7055.16;6767.16
+HIL0013;1383.91;1327.21
+HIL0091;2401.23;2302.75
+HIL0098;7985.04;7657.88
+HIL0085;1177.53;1129.27
+HIL0099;2009.09;1926.80
+HIL0074;6216.79;5962.07
+HIL0022;2442.43;2342.46
+HIL0096;1332.01;1277.33
+HIL0032;2324.10;2228.98
+HIL0086;1343.09;1288.14
+HIL0090;2723.87;2612.37
+HIL0088;2837.10;2720.82
+HIL0087;2315.94;2216.33
+HIL0025;1035.04;966.94
+HIL0026;2032.71;1945.28
+HIL0096-1;0;0
+LDC0005;2039.03;1951.50
+GAV0004;1409.90;1349.30
+GAV0003;939.93;899.53
+GAV0002;469.97;449.77
+BON0009;1325.63;1268.67
+DON0027;1258.63;1204.58
+DON0008;932.14;892.07
+DON0038;1442.94;1380.93
+DON0004;992.95;950.00
+DON0003;992.95;950.00
+DON0031;969.74;928.10
+DON0010;929.07;889.13
+DON0034;2654.75;2540.64
+DON0029;0;0
+URQ0018;2142.03;2049.88
+URQ0021;1332.34;1275.07
+MON0140;0;0
+MON0027;1546.72;1481.61
+MON0106;0;0
+MON0107;1086.99;1040.26
+MON0131;1333.31;1275.99
+MON0029;1337.64;1280.71
+MON0030;1098.59;1051.37
+MON0031;1773.73;1697.48
+GAV0027;1382.76;996.13
+CER0002;920.20;880.67
+CER0001;1005.52;962.33
+CER0003;1198.90;1147.40
+JOR0007;2070.08;1981.12
+JOR0014;2433.29;2328.67
+JOR0008;700.94;670.75
+JOR0009;1401.89;1341.49
+URQ0009;803.58;769.00
+URQ0011;803.49;768.92
+URQ0022;1332.34;1275.07
+GAV0039;1166.78;1116.64
+GAV0008;555.06;531.17
+GAV0030;981.78;886.29
+GAV0037;832.33;796.56
+GAV0007;1099.41;1052.14
+GAV0076;851.25;814.61
+GRA0051;0;0
+GRA0008;1042.09;918.14
+GRA0009;739.41;651.46
+GRA0005;1002.71;883.44
+GRA0011;1224.23;1078.62
+GRA0013;1048.89;924.13
+GRA0040;962.88;848.36
+GRA0042;919.97;810.55
+GRA0045;988.96;871.33
+GRA0047;963.98;849.32
+GRA0052;2180.36;1921.02
+GRA0025;1548.48;1364.30
+GRA0017;1439.63;1268.40
+GRA0021;2180.36;1921.02
+GRA0023;1503.83;1324.96
+GRA0028;1854.21;1778.25
+NSS0016;1197.99;1146.60
+NSS0003;900.55;861.81
+NSS0015;555.99;532.06
+TST0008;591.89;566.51
+TST0005;1031.84;987.49
+TST0004;765.20;732.33
+GAV0071;954.54;913.50
+LIP0001;1382.62;1323.22
+MON0148;216.16;206.87
+GAV0073;1130.46;1081.00
+DHH0025;941.32;879.50
+ARV0275;1719.53;1646.00
+ARV0276;1211.05;1158.00
+ARV0277;828.55;793.00
+ARV0055;1217.48;1165.17
+DHH0022;941.37;865.00
+DHH0024;941.37;865.00
+CER0011;2378.46;2276.25
+CER0004;1243.87;1190.42
+CER0006;2314.04;2214.60
+CER0005;1998.25;1912.36
+BIM0027;3078.01;2951.89
+BIM0023;1941.87;1862.31
+BIM0022;1291.32;1238.41
+LMA0114;1919.27;1836.75
+LMA0117;3954.63;3784.62
+BIM0012;2711.10;2594.54
+BIM0014;3390.49;3244.77
+BIM0004;1501.23;1436.75
+BIM0003;1501.28;1436.71
+BIM0007;569.96;545.43
+BIM0009;1030.73;986.40
+BIM0005;2791.99;2671.90
+BIM0011;1547.84;1481.27
+BIM0011-1;0;0
+MAS0005;888.18;851.78
+MAS0010;888.18;851.78
+MAS0007;493.43;473.21
+MAS0015;888.18;851.78
+MAS0003;888.18;851.78
+MAS0014;495.50;475.17
+MAS0026;888.18;851.78
+MAS0024;495.50;475.17
+MAS0016;0;0
+MAS0018;0;0
+MAS0025;888.18;851.78
+MAS0020;0;0
+MAS0021;0;0
+MAS0022;888.21;851.78
+MAS0023;888.18;851.78
+ARV0249;495.30;474.01
+GAV0055;967.49;852.42
+GAV0061;415.86;398.85
+GAV0048;768.02;676.67
+GAV0064;794.46;760.30
+GAV0067;794.46;760.30
+GAV0070;794.46;760.30
+PAR0001;698.32;668.30
+PAR0002;698.32;668.30
+PAR0003;698.32;668.30
+PAR0004;698.32;668.30
+PAR0005;698.32;668.30
+PAR0006;698.32;668.30
+PAR0007;698.32;668.30
+PAR0008;698.32;668.30
+PAR0009;783.43;749.75
+PAR0010;698.32;668.30
+KOK0002;0;0
+KOK0004;0;0
+GAV0075;693.77;663.83
+KOK0007;0;0
+KOK0006;0;0
+KOK0005;0;0
+GAV0047;1075.02;852.42
+GAV0063;839.69;803.58
+BEN0014;409.56;360.85
+URQ0017;704.04;673.75
+BEN0003;839.71;803.58
+BEN0001;427.67;409.30
+BEN0002;395.94;378.90
+BEN0013;427.67;409.30
+BEN0005;0;0
+BEN0004;558.52;492.09
+MED0002;246.80;236.22
+MED0003;615.17;588.69
+MED0004;737.75;706.00
+MED0005;656.22;628.00
+MED0006;2738.02;2620.13
+MED0007;309.67;296.24
+MED0008;366.43;350.64
+MED0009;332.08;317.90
+MED0010;50.26;48.10
+MED0011;1106.91;1059.33
+MED0012;738.15;706.53
+MED0013;208.90;200.12
+MED0014;158.13;151.42
+MED0014-1;0;0
+MED0016;371.21;355.45
+MED0017;455.20;435.47
+MED0018;230.46;220.65
+MED0019;182.63;174.72
+MED0020;627.87;600.84
+MED0021;441.05;422.07
+MED0023;601.42;575.55
+MED0024;425.08;406.58
+MED0025;190.65;182.52
+MED0026;0;0
+MED0027;177.18;169.57
+MED0029;5569.12;5330.00
+MED0030;213.64;204.13
+MED0028;284.91;272.70
+MED0031;548.21;524.00
+MED0032;727.54;697.00
+MED0033;590.13;565.01
+MED0034;0;0
+MED0035;2611.64;2500.00
+MED0036;304.82;302.28
+MED0037;5229.25;5003.45
+MED0038;488.05;466.00
+MED0040;1566.30;1500.00
+MED0041;390.99;374.13
+MED0042;333.97;422.20
+MED0043;428.51;410.22
+MED0044;584.03;559.13
+MED0045;193.66;185.25
+MED0046;337.13;332.98
+MED0047;198.50;190.07
+MED0048;173.54;166.00
+MED0058;674.19;646.00
+MED0050;2002.14;1916.00
+MED0049;1647.36;1576.10
+MED0052;821.60;786.33
+MED0053;2084.22;1994.77
+MED0057;516.03;493.65
+MED0051;371.07;355.18
+MED0061;1574.25;1590.29
+MAK0059;480.01;216.00
+MAK0012;424.49;406.00
+MAK0029;426.19;407.92
+MAK0066;1139.73;1090.75
+MAK0060;1390.00;1330.25
+MAK0003;512.38;490.35
+MAK0030;258.02;246.92
+MAK0087;631.82;604.73
+MAK0089;657.38;629.12
+MAK0076;589.82;564.50
+MAK0075;350.43;335.42
+MAK0077;600.42;574.67
+MAK0061;930.73;890.72
+MAK0058;1283.69;1228.00
+MAK0062;2090.67;2000.00
+MAK0018;1300.71;969.10
+MAK0027;3180.27;3043.56
+MAK0028;2635.47;2522.84
+MAK0081;1614.67;1545.26
+MAK0082;2683.59;2568.43
+MAK0090;3039.36;2906.54
+MAK0071;935.24;895.00
+MAK0078;838.69;802.57
+MAK0073;1438.09;1376.00
+MAK0023;887.43;849.28
+ARV0157;890.49;852.21
+MAK0092;1048.76;1003.68
+MAK0083;2106.61;2016.05
+MAK0084;461.68;441.84
+MAK0017;1096.58;1049.46
+MAK0010;1438.05;1376.00
+MAK0019;1226.14;1173.00
+MAK0067;1406.47;1344.96
+MAK0032;2237.09;2141.35
+MAK0063;2161.89;2068.95
+MAK0068;1052.32;1007.00
+MAK0001;2090.67;2000.83
+MAK0013;1290.77;1235.28
+MAK0057;832.24;796.47
+MAK0021;1154.58;1105.00
+MAK0015;878.49;840.00
+MAK0016;1117.98;1070.00
+ARV0242;742.20;710.29
+MAK0065;741.16;709.00
+MAK0072;1258.72;1204.00
+MAK0080;884.65;846.62
+MAK0085;1984.40;1899.00
+MAK0074;720.45;689.48
+MAK0041;2472.54;2366.25
+MAK0051;2962.20;2834.00
+MAK0040;2829.56;2708.89
+MAK0043;3107.97;2974.36
+MAK0046;1961.60;1877.27
+MAK0047;1769.00;1692.96
+MAK0044;1434.07;1372.42
+MAK0045;1906.61;4939.20
+MAK0048;899.24;860.58
+MAK0050;862.37;825.30
+MAK0042;2625.18;2512.32
+MAK0049;1306.07;1249.92
+MAK0052;393.55;376.63
+MAK0086;616.27;589.00
+MAK0091;610.30;584.06
+MAK0039;3481.05;3331.00
+MAK0037;1056.83;1011.40
+MAK0038;896.65;859.14
+MAK0070;826.80;791.72
+MAK0025;501.52;479.96
+MAK0005;844.84;808.52
+MAK0006;1566.30;1499.00
+MAK0007;1973.77;1889.00
+MAK0024;458.05;496.25
+MAK0094;918.87;879.00
+MAK0095;639.27;611.75
+MAK0096;197.86;189.33
+MAK0097;682.32;652.99
+MAK0098;1656.80;1585.00
+MAK0100;2338.78;2238.00
+MAK0009;1152.31;1046.48
+MAK0022;1435.78;1375.00
+ARV0078;1786.63;1709.75
+ARV0062;811.00;776.13
+ARV0063;2088.63;1998.80
+ARV0065;0;0
+ARV0002;2419.83;2315.80
+ARV0138;1370.28;1311.41
+ARV0003;1526.45;1460.82
+ARV0125;2755.09;2636.50
+ARV0139;2464.89;2358.90
+ARV0279;426.76;408.42
+ARV0278;2889.71;2765.00
+ARV0259;1502.74;1437.00
+ARV0050;0;0
+ARV0257;294.86;282.19
+ARV0258;294.86;282.19
+ARV0073;126.65;121.21
+ARV0028;3125.79;2991.00
+ARV0031;1648.02;1452.00
+PAP0025;2177.45;2084.89
+PAP0022;1870.54;1790.03
+PAP0023;3025.11;2895.05
+PAP0002;1177.75;1125.00
+PAP0012;2875.30;2751.70
+PAP0019;1883.64;1802.63
+PAP0009;1664.86;1593.33
+PAP0020;1331.78;1274.50
+PAP0016;1142.44;1093.37
+IMS0068;1188.35;1137.00
+ARV0018;1079.61;1033.20
+PAP0004;1057.67;1012.25
+ARV0266;1665.50;1593.90
+ARV0026;725.03;693.83
+ARV0253;2029.38;1942.00
+ARV0254;1063.50;1017.75
+ARV0255;477.84;458.00
+ARV0269;981.78;939.00
+ARV0149;757.05;725.00
+ARV0076;821.74;786.00
+ARV0079;1344.98;1286.00
+ARV0233;2567.37;2457.00
+ARV0211;1191.75;1142.00
+ARV0171;2922.63;699.30
+ARV0252;2172.39;2079.00
+ARV0176;1566.30;1500.00
+BUH0014;2184.88;2092.00
+ARV0064;1533.81;1467.88
+ARV0260;3179.14;3042.00
+ARV0261;1447.13;1385.00
+ARV0262;911.41;872.00
+ARV0263;911.41;872.00
+RAI0010;2692.22;2576.00
+ARV0048;1665.05;1594.00
+ARV0244;2336.97;2236.00
+ARV0148;723.90;692.80
+CTF0008;999.48;956.50
+CTF0005;628.00;601.10
+CTF0012;476.08;455.60
+CTF0002;961.00;919.70
+CTF0006;603.93;578.00
+CIG0004;857.88;821.00
+IMS0129;774.83;741.50
+IMS0103;386.92;370.30
+ARV0103;868.96;831.60
+ARV0104;868.96;831.60
+DLL0004;987.45;945.00
+DLL0011;987.45;945.00
+DLL0006;9477.25;9016.00
+DLL0007;8795.12;8416.00
+DLL0005;5654.57;5412.00
+RAI0015;711.65;681.00
+RAI0004;3331.23;3187.00
+BUH0010;65.83;66.08
+POX0001;3951.38;3781.55
+POX0005;3594.94;3440.42
+POX0006;4122.02;3944.79
+POX0007;3027.10;2896.89
+POX0002;3990.28;3818.65
+POX0009;1247.92;1194.27
+POX0010;4010.47;3837.78
+POX0004;1419.61;1358.59
+POX0008;1698.78;1625.69
+POX0003;1876.03;1795.46
+ARV0021;1743.36;1668.00
+ARV106;5262.76;5035.42
+IMS0067;2106.79;2015.01
+IMS0077;2496.14;2388.54
+ARV0039;842.64;808.33
+ARV0037;1231.00;1178.08
+IMS0015;221.19;211.68
+IMS0006;2823.47;2703.62
+IMS0107;646.24;618.54
+BUH0003;276.49;264.60
+IMS0118;3081.59;2948.83
+IMS0115;469.23;449.00
+IMS0126;2106.56;2016.00
+IMS0079;369.06;353.17
+IMS0112;2452.40;2346.98
+IMS0093;1456.18;1393.59
+IMS0086;1314.14;1257.50
+IMS0089;575.63;552.00
+IMS0051;712.40;681.83
+ARV0014;612.90;586.00
+RAI0012;3818.14;3654.00
+RAI0011;7241.30;6930.00
+ARV0235;3580.93;3427.00
+RAI0014;5299.32;5071.00
+IMS0040;986.26;943.76
+IMS0041;774.07;740.60
+IMS0098;836.14;800.11
+ARV0264;1843.43;1764.00
+ARV0077;887.43;849.28
+CTF0009;1689.56;1609.72
+ARV0017;939.78;900.00
+IMS0073;1696.83;1624.00
+RPB0007;1972.63;1891.88
+RPB0038;613.09;586.72
+RPB0064;992.78;951.97
+RPB0067;1536.79;1473.88
+RPB0032;411.63;394.78
+COC0012;1065.62;1021.99
+COC0009;2755.01;2551.07
+BEB0018;0;0
+COC0085;1371.12;1312.22
+COC0010;1159.77;1112.24
+COC0052;2875.38;2757.66
+COC0029;3561.58;3408.34
+COC0026;0;0
+DAN0016;549.82;529.67
+LLO0053;3800.13;3636.90
+LLO0054;1633.60;1563.35
+LLO0055;9181.58;8805.50
+RPB0058;1590.42;1522.08
+RPB0036;2696.37;2580.46
+FRA0012;12984.59;12426.33
+FRA0024;0;0
+LLO0034;5664.31;5432.48
+LLO0007;1848.69;1727.11
+PET0003;1800.49;1723.08
+RPB0064-1;0;0
+BEB0001;1294.66;1238.17
+BEB0002;1294.66;1238.17
+BEB0008;1294.66;1238.17
+ARV0270;3139.27;3004.37
+ARV0271;0;0
+ARV0272;5902.38;5648.64
+ARV0273;2775.06;2655.89
+ARV0274;2120.59;2029.35
+SDP0014;1018.28;974.50
+SDP0013;1188.53;1137.50
+SDP0012;1018.28;974.50
+SDP0005;738.89;707.17
+SDP0008;420.04;402.00
+BEB0015;604.93;578.93
+BEB0013;677.51;648.38
+BEB0016;338.87;324.26
+BEB0014;371.08;355.18
+FRA0010;9167.40;8773.67
+FRA0022;6882.26;6586.33
+FRA0025;22321.67;21028.33
+FRA0004;8667.33;8312.17
+FRA0002;13069.15;12533.67
+FRA0005;3024.02;2894.00
+LMA0001;1415.77;1357.81
+LMA0090;730.66;700.78
+LMA0091-1;0;0
+LMA0092-1;0;0
+LLO0005-1;0;0
+LLO0006-1;0;0
+HIL0039;1201.54;1152.26
+HIL0080;1971.15;1890.39
+HIL0078;2754.60;2641.73
+HIL0079;2248.65;2152.01
+HIL0038;1005.06;938.96
+HIL0043;1973.51;1888.70
+HIL0083;1304.03;1250.59
+HIL0040;2256.51;2164.04
+HIL0073;6035.72;5788.42
+HIL0084;1950.60;1870.67
+HIL0066;1143.23;1096.38
+HIL0072;6850.76;6570.06
+HIL0076;1079.24;1035.00
+HIL0057;1936.15;1808.89
+HIL0095;1293.19;1240.23
+HIL0052;2371.47;2274.31
+HIL0054;1545.41;1479.03
+HIL0059;2598.30;2427.39
+HIL0081;2644.72;2536.37
+HIL0068;1343.60;1288.54
+HIL0082;2331.29;2235.79
+HIL0094;7752.48;7434.67
+MER0002-1;0;0
+MER0001-1;0;0
+MER0034;2708.80;2597.83
+MER0033;1824.95;1750.22
+RPB0031;2287.91;2194.17
+RPB0001;1980.70;1899.56
+RPB0002;978.40;938.33
+RPB0026;1215.10;1162.94
+MCA0097-1;0;0
+MCA0100;1925.07;1842.59
+MCA0098;1400.18;1339.95
+MCA0099;1837.73;1758.78
+MCA0106;3910.61;764.61
+COC0071;0;0
+VAQ0013-1;0;0
+MAS0007-1;0;0

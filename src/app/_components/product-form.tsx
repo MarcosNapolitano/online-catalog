@@ -87,7 +87,7 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
       <input name="orden" type="number" defaultValue={data.orden} required />
 
       <label htmlFor="special"><b>Etiqueta:</b></label>
-      <select name="special" id="cat-select" defaultValue="">
+      <select name="special" id="cat-select" defaultValue={data.special}>
         <option value="">Ninguna</option>
         <option value="oferta">Oferta</option>
         <option value="novedad">Novedad</option>

@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { type IProduct } from '@/app/_data/types';
 import { type SearchComp } from '@/app/_data/types';
 import { type ResultList } from '@/app/_data/types';
@@ -116,7 +116,7 @@ export const Search: React.FC<SearchComp> = ({ products, backAction }): React.JS
   const [searchCat, setSearchCat] = useState<string>("kiosco");
 
   return (
-    <div className='search-panel'>
+    <div className='search-panel' >
       <div className='admin-category'>
         <h3>Búsqueda</h3>
         <input id="inputBar" type='search'
@@ -154,6 +154,6 @@ export const Search: React.FC<SearchComp> = ({ products, backAction }): React.JS
           "Could not Fetch Products"}</p>
 
       <ResultList products={products} category={searchCat} filter={searchString} backAction={backAction} />
-    </div>
+    </div >
   );
 };

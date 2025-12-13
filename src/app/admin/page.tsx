@@ -7,6 +7,7 @@ import Link from "next/link";
 import { revalidateTag } from "next/cache";
 import CsvForm from "@/app/_components/csv-form";
 import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
 const toggleActive = async (sku: string): Promise<true | false> => {
   'use server'
@@ -36,6 +37,11 @@ export default async function Home() {
 
   };
 
+  const downloadCSV = async () => {
+    'use server'
+    redirect("/api/export");
+  };
+
   const user = await cookies().then((cookie) => cookie.get('userName')?.value)
   return (
     <div className="admin-panel">
@@ -45,6 +51,7 @@ export default async function Home() {
       <h3>Funciones Varias</h3>
       <div className="misc-functions">
         <button onClick={refreshCatalog}>Refresh Catalog</button>
+        <button onClick={downloadCSV}>Download CSV</button>
         <button>
           <Link href="/admin/create">Crear Producto</Link>
         </button>

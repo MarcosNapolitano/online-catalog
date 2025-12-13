@@ -59,8 +59,13 @@ export const createProduct = async (formData: FormData): Promise<Response> => {
   product.orden = parseInt(formData.get("orden") as string);
   product.section = productSection[0];
   product.sectionOrden = parseInt(productSection[1]);
+  product.special = "novedad";
 
-  if (!await insertProduct(product.section, product.orden)) {
+  // if no order given, set it last
+  if (!product.orden)
+    product.orden = await findLastOrderOfCategory(product.sectionOrden) || 999;
+
+  if (!await insertProduct(product.sectionOrden, product.orden)) {
 
     console.error(moveError);
     return { success: false, message: moveError, error: "Error on moveProduct" }
@@ -98,63 +103,58 @@ export const saveProducts = DatabaseConnects(async (prods: IProduct[]): Promise<
 });
 
 /** Save single product to database */
-export const saveProduct = DatabaseConnects(async (prod: IProduct): Promise<IProduct | false> => {
+export const saveProduct = DatabaseConnects(
+  async (prod: IProduct): Promise<IProduct | false> => {
 
-  console.log(`${prod.sku} - is being saved on Database`);
-  try { return await prod.save() }
-  catch (err) {
-    console.error(saveError + err);
-    return false;
-  };
-
-});
+    console.log(`${prod.sku} - is being saved on Database`);
+    try { return await prod.save() }
+    catch (err) {
+      console.error(saveError + err);
+      return false;
+    };
+  }
+);
 
 /** Connects to database and creates products from csv */
-export const updateProducts = DatabaseConnects(async (formData: FormData): Promise<Response> => {
+export const updateProducts = DatabaseConnects(
+  async (formData: FormData): Promise<Response> => {
 
-  const file = formData.get("csv") as File;
-  if (file.size) {
+    const file = formData.get("csv") as File;
+    if (file.size) {
+      try {
+        const data = await file.arrayBuffer();
+        await writeFile(`./src/app/_data/catalogo_web.csv`, Buffer.from(data));
+      }
+      catch (err) { return { success: false, message: "Couldn't save CSV", error: `${err}` } };
+    }
+
+    const productsData = await readFromCsv();
+    if (!productsData) return { success: false, message: "Couldn't read data", error: "check server log" };
+
     try {
-      const data = await file.arrayBuffer();
-      await writeFile(`./src/app/_data/catalogo_web.csv`, Buffer.from(data));
+      for (let i = 0; i < productsData.length; i += 3) {
+
+        console.log(`Updating product ${i + 1} from ${productsData.length / 3}`);
+        await Product.updateMany({ sku: productsData[i] },
+          {
+            $set: {
+              price: new mongoose.Types.Decimal128(productsData[i + 1]),
+              price2: new mongoose.Types.Decimal128(productsData[i + 2])
+            }
+          })
+      }
+      return { success: true, message: "Productos actualizados correctamente", error: undefined }
     }
-    catch (err) { return { success: false, message: "Couldn't save CSV", error: `${err}` } };
+    catch (err) { return { success: false, message: saveError, error: `${err}` } };
   }
-
-  const productsData = await readFromCsv();
-  if (!productsData) return { success: false, message: "Couldn't read data", error: "check server log" };
-
-  const products = [];
-
-  for (let i = 0; i < productsData.length; i += 9) {
-
-    const product = {
-      sku: productsData[i],
-      name: productsData[i + 1],
-      url: productsData[i],
-      price: new mongoose.Types.Decimal128(productsData[i + 2]),
-      price2: new mongoose.Types.Decimal128(productsData[i + 3]),
-      section: productsData[i + 6],
-      orden: parseInt(productsData[i + 5]),
-      active: productsData[i + 4] == "true" ? true : false,
-      sectionOrden: parseInt(productsData[i + 7]),
-      special: productsData[i + 8] as "" | "oferta" | "novedad"
-    };
-    products.push(product);
-  };
-  try {
-    for (let i = 0; i < products.length; i++) {
-
-      console.log(`Updating product ${i + 1} from ${products.length}`);
-      await Product.replaceOne({ sku: products[i].sku }, products[i])
-    }
-    return { success: true, message: "Productos actualizados correctamente", error: undefined }
-  }
-  catch (err) { return { success: false, message: saveError, error: `${err}` } };
-});
+);
 
 /** Saves an edited product from a form to the database */
-export const editProduct = async (formData: FormData, originalSku: string, originalOrden: number): Promise<Response> => {
+export const editProduct = async (
+  formData: FormData,
+  originalSku: string,
+  originalOrden: number):
+  Promise<Response> => {
 
   const product = await findSingleProduct(originalSku);
 
@@ -209,33 +209,37 @@ export const findProducts = DatabaseConnects(async () => {
 
 /** Find and display all products but only the name and section
 since this is used to populate a simple product list*/
-export const findProductsSimplified = DatabaseConnects(async (): Promise<IProduct[] | undefined> => {
-  try {
-    return await Product.find({}, {
-      name: 1,
-      section: 1,
-      sku: 1,
-      orden: 1,
-      active: 1,
-      _id: 0
-    }).sort({ sectionOrden: "asc", orden: "asc" })
-      .lean<IProduct[]>();
+export const findProductsSimplified = DatabaseConnects(
+  async (): Promise<IProduct[] | undefined> => {
+    try {
+      return await Product.find({}, {
+        name: 1,
+        section: 1,
+        sku: 1,
+        orden: 1,
+        active: 1,
+        _id: 0
+      }).sort({ sectionOrden: "asc", orden: "asc" })
+        .lean<IProduct[]>();
+    }
+    catch (err) {
+      console.error(findError + err);
+      return undefined
+    };
   }
-  catch (err) {
-    console.error(findError + err);
-    return undefined
-  };
-});
+);
 
 /** Find products by order, used to insert or move single products in database */
-export const findProductbyOrder = DatabaseConnects(async (section: string, orden: number): Promise<IProduct[]> => {
+export const findProductbyOrder = DatabaseConnects(
+  async (section: string, orden: number): Promise<IProduct[]> => {
 
-  try { return await Product.find({ section: section, orden: { $gte: orden } }).sort({ orden: "asc" }); }
-  catch (err) {
-    console.error(findError + err);
-    return [];
-  };
-});
+    try { return await Product.find({ section: section, orden: { $gte: orden } }).sort({ orden: "asc" }); }
+    catch (err) {
+      console.error(findError + err);
+      return [];
+    };
+  }
+);
 
 /** Find and display a single product based on a given sku */
 export const findSingleProduct = DatabaseConnects(async (sku: string): Promise<IProduct | null> => {
@@ -248,33 +252,56 @@ export const findSingleProduct = DatabaseConnects(async (sku: string): Promise<I
 });
 
 /** Find and display a single product based on section and order*/
-export const findSingleProductByOrder = DatabaseConnects(async (section: string, order: number): Promise<IProduct | null> => {
+export const findSingleProductByOrder = DatabaseConnects(
+  async (section: string, order: number): Promise<IProduct | null> => {
 
-  try { return await Product.findOne({ section: section, order: order }, {}); }
-  catch (err) {
-    console.error(findError + err);
-    return null;
-  };
-});
+    try { return await Product.findOne({ section: section, order: order }, {}); }
+    catch (err) {
+      console.error(findError + err);
+      return null;
+    };
+  }
+);
+
+/** Find last product of a section in order to insert after */
+export const findLastOrderOfCategory = DatabaseConnects(
+  async (sectionOrden: number): Promise<number | null> => {
+
+    try {
+      const product = await Product.find({ sectionOrden: sectionOrden }, {
+        orden: 1,
+        _id: 0
+      }).sort({ orden: "asc" })
+        .lean<IProduct[]>();
+
+      return product[product.length - 1].orden + 1
+    }
+    catch (err) {
+      console.error(findError + err);
+      return null;
+    };
+  }
+);
 
 /** Deletes single product from database */
-export const findAndDelete = DatabaseConnects(async (sku: string): Promise<IProduct | null> => {
+export const findAndDelete = DatabaseConnects(
+  async (sku: string): Promise<IProduct | null> => {
 
-  console.log(`${sku} - is being deleted from Database`);
-  try { return await Product.findOneAndDelete({ sku: sku }) }
-  catch (err) {
-    console.error(saveError + err);
-    return null;
-  };
-
-});
+    console.log(`${sku} - is being deleted from Database`);
+    try { return await Product.findOneAndDelete({ sku: sku }) }
+    catch (err) {
+      console.error(saveError + err);
+      return null;
+    };
+  }
+);
 
 /** Deletes a product from the database and moves the adjacents elements */
 export const deleteProduct = async (sku: string): Promise<Response> => {
   try {
     const product = await findAndDelete(sku);
 
-    if (product) await insertProduct(product.section, product.orden, true);
+    if (product) await insertProduct(product.sectionOrden, product.orden, true);
 
     return { success: true, message: "Producto borrado correctamente", error: undefined };
   }
@@ -298,70 +325,64 @@ export const toggleProduct = async (sku: string): Promise<true | false> => {
 };
 
 /** Used for editing and products, we offset the products depending on the orders given */
-export const moveProduct = DatabaseConnects(async (product: IProduct, newOrden: number): Promise<false | IProduct> => {
+export const moveProduct = DatabaseConnects(
+  async (product: IProduct, newOrden: number): Promise<false | IProduct> => {
 
-  const currOrden = product.orden;
+    const currOrden = product.orden;
 
-  if (currOrden === newOrden) return product;
-  if (newOrden <= 0) {
+    if (currOrden === newOrden) return product;
+    if (newOrden <= 0) {
 
-    console.log(`${moveError}orden not valid`);
-    return false;
-  }
+      console.log(`${moveError}orden not valid`);
+      return false;
+    }
 
-  console.log(`${product.sku} is being moved from position ${currOrden} to ${newOrden}`);
+    console.log(`${product.sku} is being moved from position ${currOrden} to ${newOrden}`);
 
-  if (currOrden > newOrden) {
     // we add 1 from newOrden up until currOrden
+    // or we substract one from currOrden until newOrden
+    const orderObject = currOrden > newOrden ?
+      { $gte: newOrden, $lt: currOrden } : { $gt: currOrden, $lte: newOrden };
+
+    const orderNumber = currOrden > newOrden ? 1 : -1;
+
     try {
-      console.log("fue mayor")
       await Product.updateMany(
         {
           sectionOrden: product.sectionOrden,
-          orden: { $gte: newOrden, $lt: currOrden }
+          orden: orderObject
         },
-        { $inc: { orden: 1 } }
+        { $inc: { orden: orderNumber } }
       );
     }
     catch (err) {
       console.error(`Error while moving products, original sku: ${product.sku}\n\n${err}`);
       return false;
     };
-  }
-  else {
-    // we substract 1 from currOrden up until newOrden
-    try {
-      await Product.updateMany(
-        {
-          sectionOrden: product.sectionOrden,
-          orden: { $gt: currOrden, $lte: newOrden }
-        },
-        { $inc: { orden: -1 } }
-      );
-    }
-    catch (err) {
-      console.error(`Error while moving products, original sku: ${product.sku}\n\n${err}`);
-      return false;
-    };
-  }
 
-  product.orden = newOrden;
-  return product;
-});
+    product.orden = newOrden;
+    return product;
+  }
+);
 
-/** Used for inserting and deleteing products, we offset the products from the given order until the end */
+/** Used for inserting and deleteing products, 
+  * we offset the products from the given order until the end */
 export const insertProduct = DatabaseConnects(
-  async (section: string, orden: number, deletion?: boolean):
+  async (section: number, orden: number, deletion?: boolean):
     Promise<false | true> => {
 
+    const orderNumber = deletion ? -1 : 1;
+
     try {
-      if (deletion) await Product.updateMany({ orden: { $gt: orden } }, { $inc: { orden: -1 } });
-      else await Product.updateMany({ orden: { $gte: orden } }, { $inc: { orden: 1 } });
+      if (deletion) await Product.updateMany({
+        sectionOrden: section,
+        orden: { $gt: orden }
+      }, { $inc: { orden: orderNumber } });
     }
     catch (err) {
       console.error(`Error while moving products.\n\n${err}`);
       return false;
     };
-
     return true
-  });
+  }
+);
