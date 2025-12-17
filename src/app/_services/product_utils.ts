@@ -125,7 +125,13 @@ export const updateProducts = DatabaseConnects(
         const data = await file.arrayBuffer();
         await writeFile(`./src/app/_data/catalogo_web.csv`, Buffer.from(data));
       }
-      catch (err) { return { success: false, message: "Couldn't save CSV", error: `${err}` } };
+      catch (err) {
+        return {
+          success: false,
+          message: "Couldn't save CSV",
+          error: `${err}`
+        }
+      };
     }
 
     const productsData = await readFromCsv();
@@ -166,6 +172,14 @@ export const editProduct = async (
   product.price2 = new mongoose.Types.Decimal128(formData.get("price2") as string);
   product.section = formData.get("section") as string;
   product.special = formData.get("special") as "" | "oferta" | "novedad";
+  if (formData.get("sub-sku")) {
+
+    product.subProduct = {
+      sku: formData.get("sub-sku") as string,
+      price: new mongoose.Types.Decimal128(formData.get("sub-price") as string),
+      price2: new mongoose.Types.Decimal128(formData.get("sub-price2") as string),
+    } 
+  }
 
   if (!await moveProduct(product, parseInt(formData.get('orden') as string))) {
 

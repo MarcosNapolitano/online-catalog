@@ -21,12 +21,20 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
     special: data.special
   }
 
+  if (data.subProduct) {
+    const subProduct = {
+      sku: data.subProduct.sku,
+      price: data.subProduct.price.toString(),
+      price2: data.subProduct.price2.toString()
+    };
+    prop.subProduct = subProduct;
+  }
   return (
     <div>
       <h1>{data.name}</h1>
       <Image alt="prod-image" src={`/img/` + data.sku + ".webp"} width={200} height={200} />
       <ProductForm data={prop} />
-      <button style={{marginTop: "2%"}}><Link href="/admin/">Volver</Link></button>
+      <button style={{ marginTop: "2%" }}><Link href="/admin/">Volver</Link></button>
     </div>
   );
 }

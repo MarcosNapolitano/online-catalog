@@ -43,7 +43,7 @@ function createPushAndEmpty(
 
 };
 
-const fetchData = async (): Promise<IProduct[]> =>{
+const fetchData = async (): Promise<IProduct[]> => {
   'use cache'
   cacheTag('catalog')
   return await readData();
@@ -174,9 +174,18 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
 
     // workaround for Decimal128 type
     const price = products[i].active ?
-      ((userName === "gianfranco" ? products[i].price : products[i].price2) as unknown as { $numberDecimal: string })
-        .$numberDecimal as string :
-      "Sin Stock";
+      ((userName === "gianfranco" ?
+        products[i].price : products[i].price2) as unknown as
+        { $numberDecimal: string }).$numberDecimal as string : "Sin Stock";
+
+    let subProductPrice;
+
+    if (products[i].subProduct) {
+
+      subProductPrice = ((userName === "gianfranco" ?
+        products[i].subProduct?.price : products[i].subProduct?.price2) as
+        unknown as { $numberDecimal: string }).$numberDecimal as string
+    }
 
 
     //We Create the elements and we push them into arrays
@@ -191,7 +200,8 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
         price: price,
         url: products[i].url,
         active: products[i].active,
-        special: products[i].special
+        special: products[i].special,
+        price2: subProductPrice
       });
 
     productPlaceholder.push(prod);

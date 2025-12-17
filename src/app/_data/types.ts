@@ -1,4 +1,4 @@
-import mongoose, { Document }  from 'mongoose';
+import mongoose, { Document } from 'mongoose';
 import { ReactNode } from 'react';
 
 export interface JsonWebToken {
@@ -7,19 +7,24 @@ export interface JsonWebToken {
 }
 
 interface Product {
+  sku: string,
+  name: string,
+  url: string,
+  price: mongoose.Types.Decimal128,
+  price2: mongoose.Types.Decimal128,
+  section: string,
+  orden: number,
+  active: boolean,
+  sectionOrden: number,
+  special: "" | "oferta" | "novedad",
+  subProduct?: {
     sku: string,
-    name: string,
-    url: string,
     price: mongoose.Types.Decimal128,
-    price2: mongoose.Types.Decimal128,
-    section: string,
-    orden: number,
-    active: boolean,
-    sectionOrden: number,
-    special: "" | "oferta" | "novedad"
+    price2: mongoose.Types.Decimal128
+  }
 };
 
-interface User{
+interface User {
   name: string;
   password: string;
 }
@@ -37,7 +42,7 @@ export interface CsvForm {
   file: File;
 }
 
-export interface IDeslogeo{
+export interface IDeslogeo {
   action: () => void;
 }
 
@@ -49,6 +54,11 @@ export interface ProductForm {
   section: string;
   orden: number;
   special: string;
+  subProduct?: {
+    sku: string,
+    price: string,
+    price2: string,
+  }
 }
 
 export interface IProductComp {
@@ -58,27 +68,28 @@ export interface IProductComp {
   price: string,
   url: string,
   active: boolean,
-  special: "oferta" | "novedad" | ""
+  special: "oferta" | "novedad" | "",
+  price2?: string
 }
 
-export interface IEmptyProduct{
+export interface IEmptyProduct {
   id: string;
   section?: string;
 }
 
-export interface ISection{
+export interface ISection {
   id: string;
   name?: string;
   children?: ReactNode;
   user?: string
 }
 
-export interface IRow{
+export interface IRow {
   id: string;
   children?: ReactNode;
 }
 
-export interface IColumn{
+export interface IColumn {
   id: string;
   section?: string;
   children?: ReactNode;

@@ -15,23 +15,32 @@ const initialState: Response = {
 const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
 
   const router = useRouter();
-  const [state, formAction, isPending] = useActionState(async (initialState: Response, formData: FormData) => {
+  const [state, formAction, isPending] = useActionState(
+    async (initialState: Response, formData: FormData) => {
 
-    const response: Response = await editProduct(formData, data.sku, data.orden);
-    if (response.success) {
-      data.sku = formData.get("sku") as string;
-      data.name = formData.get("name") as string;
-      data.price = formData.get("price") as string;
-      data.price2 = formData.get("price2") as string;
-      data.section = formData.get("section") as string;
-      data.orden = parseInt(formData.get("orden") as string);
-      data.special = formData.get("special") as string;
-    }
-    else { console.error(response.error) };
+      const response: Response = await editProduct(formData, data.sku, data.orden);
+      if (response.success) {
+        data.sku = formData.get("sku") as string;
+        data.name = formData.get("name") as string;
+        data.price = formData.get("price") as string;
+        data.price2 = formData.get("price2") as string;
+        data.section = formData.get("section") as string;
+        data.orden = parseInt(formData.get("orden") as string);
+        data.special = formData.get("special") as string;
 
-    return response;
+        if (formData.get("sub-sku")) {
+          data.subProduct = {
+            sku: formData.get("sub-sku") as string,
+            price: formData.get("sub-price") as string,
+            price2: formData.get("sub-price2") as string
+          };
+        };
+      }
+      else { console.error(response.error) };
 
-  }, initialState);
+      return response;
+
+    }, initialState);
 
   const handleDeletion = async (): Promise<void> => {
 
@@ -51,55 +60,70 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
   };
 
   return (
-  <div>
-    <form className="csv-form" action={formAction}>
-      <label htmlFor="sku"><b>SKU:</b></label>
-      <input name="sku" type="text" defaultValue={data.sku} required />
+    <div>
+      <form className="csv-form" action={formAction}>
+        <label htmlFor="sku"><b>SKU:</b></label>
+        <input name="sku" type="text" defaultValue={data.sku} required />
 
-      <label htmlFor="name"><b>Nombre:</b></label>
-      <input name="name" type="text" defaultValue={data.name} required />
+        <label htmlFor="name"><b>Nombre:</b></label>
+        <input name="name" type="text" defaultValue={data.name} required />
 
-      <label htmlFor="price"><b>Precio GF:</b></label>
-      <input name="price" type="number" step="0.01" min="0" max="999999" defaultValue={data.price.toString()} required />
+        <label htmlFor="price"><b>Precio GF:</b></label>
+        <input name="price" type="number" step="0.01" min="0" max="999999" defaultValue={data.price.toString()} required />
 
-      <label htmlFor="price2"><b>Precio Distri:</b></label>
-      <input name="price2" type="number" step="0.01" min="0" max="999999" defaultValue={data.price2.toString()} required />
+        <label htmlFor="price2"><b>Precio Distri:</b></label>
+        <input name="price2" type="number" step="0.01" min="0" max="999999" defaultValue={data.price2.toString()} required />
 
-      <label htmlFor="section"><b>Sección:</b></label>
-      <select name="section" id="cat-select" defaultValue={data.section}>
-        <option value="almacen">Almacén</option>
-        <option value="bebidas">Bebidas</option>
-        <option value="cafe">Café</option>
-        <option value="edulcorantes">Edulcorantes</option>
-        <option value="galletitas">Galletitas</option>
-        <option value="medicamentos">Medicamentos</option>
-        <option value="nucete">Nucete</option>
-        <option value="kiosco">Kiosco</option>
-        <option value="limpieza">Limpieza</option>
-        <option value="higiene">Higiene</option>
-        <option value="varios">Varios</option>
-        <option value="te">Té</option>
-        <option value="yerba">Yerba</option>
-        <option value="promocion">Promoción</option>
-      </select>
+        <label htmlFor="section"><b>Sección:</b></label>
+        <select name="section" id="cat-select" defaultValue={data.section}>
+          <option value="almacen">Almacén</option>
+          <option value="bebidas">Bebidas</option>
+          <option value="cafe">Café</option>
+          <option value="edulcorantes">Edulcorantes</option>
+          <option value="galletitas">Galletitas</option>
+          <option value="medicamentos">Medicamentos</option>
+          <option value="nucete">Nucete</option>
+          <option value="kiosco">Kiosco</option>
+          <option value="limpieza">Limpieza</option>
+          <option value="higiene">Higiene</option>
+          <option value="varios">Varios</option>
+          <option value="te">Té</option>
+          <option value="yerba">Yerba</option>
+          <option value="promocion">Promoción</option>
+        </select>
 
-      <label htmlFor="orden"><b>Orden:</b></label>
-      <input name="orden" type="number" defaultValue={data.orden} required />
+        <label htmlFor="orden"><b>Orden:</b></label>
+        <input name="orden" type="number" defaultValue={data.orden} required />
 
-      <label htmlFor="special"><b>Etiqueta:</b></label>
-      <select name="special" id="cat-select" defaultValue={data.special}>
-        <option value="">Ninguna</option>
-        <option value="oferta">Oferta</option>
-        <option value="novedad">Novedad</option>
-      </select>
-      <label htmlFor="image"><b>Imágen:</b></label>
-      <input style={{ color: "whitesmoke" }} name="image" type="file" />
+        <label htmlFor="special"><b>Etiqueta:</b></label>
+        <select name="special" id="cat-select" defaultValue={data.special}>
+          <option value="">Ninguna</option>
+          <option value="oferta">Oferta</option>
+          <option value="novedad">Novedad</option>
+        </select>
+        <label htmlFor="image"><b>Imágen:</b></label>
+        <input style={{ color: "whitesmoke" }} name="image" type="file" />
 
-      <input value="Editar Producto" type="submit" />
-      <p style={state.error ? { color: "red" } : { color: "green" }}>{state.message}</p>
-    </form>
-    <button onClick={handleDeletion} style={{ backgroundColor: "red", color: "white" }}>Borrar Producto</button>
-  </div>
+
+        <fieldset>
+          <legend style={{ color: "whitesmoke" }}>SubProducto</legend>
+          <label htmlFor="sub-sku"><b>SKU:</b></label>
+          <input name="sub-sku" type="text" defaultValue={data.subProduct?.sku} />
+
+          <label htmlFor="sub-price"><b>Precio GF:</b></label>
+          <input name="sub-price" type="number" step="0.01" min="0" max="999999"
+            defaultValue={data.subProduct?.price.toString() || 0} />
+
+          <label htmlFor="sub-price2"><b>Precio Distri:</b></label>
+          <input name="sub-price2" type="number" step="0.01" min="0" max="999999"
+            defaultValue={data.subProduct?.price2.toString() || 0} />
+        </fieldset>
+
+        <input value="Editar Producto" type="submit" />
+        <p style={state.error ? { color: "red" } : { color: "green" }}>{state.message}</p>
+      </form>
+      <button onClick={handleDeletion} style={{ backgroundColor: "red", color: "white" }}>Borrar Producto</button>
+    </div>
   );
 };
 
