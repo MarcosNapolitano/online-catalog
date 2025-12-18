@@ -178,7 +178,7 @@ export const editProduct = async (
       sku: formData.get("sub-sku") as string,
       price: new mongoose.Types.Decimal128(formData.get("sub-price") as string),
       price2: new mongoose.Types.Decimal128(formData.get("sub-price2") as string),
-    } 
+    }
   }
 
   if (!await moveProduct(product, parseInt(formData.get('orden') as string))) {
@@ -388,10 +388,11 @@ export const insertProduct = DatabaseConnects(
     const orderNumber = deletion ? -1 : 1;
 
     try {
-      if (deletion) await Product.updateMany({
-        sectionOrden: section,
-        orden: { $gt: orden }
-      }, { $inc: { orden: orderNumber } });
+      await Product.updateMany(
+        {
+          sectionOrden: section,
+          orden: { $gte: orden }
+        }, { $inc: { orden: orderNumber } });
     }
     catch (err) {
       console.error(`Error while moving products.\n\n${err}`);

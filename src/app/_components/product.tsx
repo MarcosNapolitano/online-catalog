@@ -48,7 +48,7 @@ export const Product: React.FC<IProductComp> = (
         src={`/img/${id}.webp`} width={200} height={200} />
       <div className="prod-info">
         {price2 ?
-          <p id={"title-" + id} className="title">{`${title}. Precio Unitario: $${price2}`}</p>
+          <p id={"title-" + id} className="title">{`${title} Precio Unitario: $${price2}`}</p>
           :
           <p id={"title-" + id} className="title">{title}</p>
         }
