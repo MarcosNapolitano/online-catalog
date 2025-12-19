@@ -7,11 +7,26 @@ export async function GET() {
   if (products) {
 
     const headers = Object.keys(products[1]).join(",");
-    const rows = products.map(obj =>
-      Object.values(obj)
-        .map(v => `"${String(v).replace(/"/g, '""')}"`)
-        .join(",")
-    );
+    const rows = products.map(obj => {
+
+      const objData = [
+        obj["active"],
+        obj["special"],
+        obj["sku"],
+        obj["name"],
+        obj["price"],
+        obj["price2"],
+        obj["orden"],
+        obj["sectionOrden"],
+        obj["section"],
+        obj["url"]
+      ]
+
+      if(obj.subProduct) 
+        objData.push(obj.subProduct.sku, obj.subProduct.price, obj.subProduct.price2);
+
+      return objData.map(v => `"${String(v).replace(/"/g, '""')}"`).join(",");
+    });
 
     const csv = [headers, ...rows].join("\n");
 

@@ -214,7 +214,10 @@ export const editProduct = async (
 /** Find and display all products ordered by section and category */
 export const findProducts = DatabaseConnects(async () => {
 
-  try { return await Product.find({}).sort({ sectionOrden: "asc", orden: "asc" }).lean<IProduct[]>(); }
+  try {
+    return await Product.find({}, { _id: 0, __v: 0 })
+      .sort({ sectionOrden: "asc", orden: "asc" }).lean<IProduct[]>();
+  }
   catch (err) {
     console.error(findError + err);
     return undefined;
