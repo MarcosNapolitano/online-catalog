@@ -799,6 +799,7 @@ section:first-of-type {
 @page {
   size: A4;
   margin: 20mm;
+  width: 1200px;
 }
 
 @media print {
@@ -895,6 +896,9 @@ section:first-of-type {
     width: 250px !important;
   }
 
+  .sub-title{
+    font-size: .4rem;
+  }
 }
 
 /* ----------- Catalog Section ----------- */
