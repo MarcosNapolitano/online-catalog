@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 import { getSession } from '@/app/_services/auth'
 import NotFound from '@/app/not-found'
+import { use } from 'react';
 
 export async function middleware(request: NextRequest) {
 
@@ -9,14 +10,14 @@ export async function middleware(request: NextRequest) {
 
     const isAuthenticated = request.cookies.has('auth_token');
     const user = request.cookies.get('userName')?.value;
-    const isRouteAdmin = request.nextUrl.pathname.startsWith("./admin");
-    const isRouteApi = request.nextUrl.pathname.startsWith("./api");
+    const isRouteAdmin = request.nextUrl.pathname.startsWith("/admin");
+    const isRouteApi = request.nextUrl.pathname.startsWith("/api");
 
     if (!isAuthenticated) {
       return NextResponse.redirect(new URL('/login', request.url));
     };
 
-    if (user != "marcos" && (isRouteAdmin || isRouteApi)){
+    if (user !== "marcos" && (isRouteAdmin || isRouteApi)) {
       return NextResponse.error()
     };
   };
