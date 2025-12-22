@@ -33,19 +33,22 @@ export const Product: React.FC<IProductComp> = (
   if (price2)
     price2 = priceFormatter(price2);
 
-  return (
+  const prefix = process.env.NODE_ENV === "production" ?
+    "https://raw.githubusercontent.com/MarcosNapolitano/online-catalog/refs/heads/main/public/img/" : "/img/"
+
+    return (
     <div id={"product-" + id} className="product">
 
       {special !== "" && active &&
         <Image id={"image-" + id} alt="oferta" className="ribbon prod-image"
-          src={`/img/${special === "oferta" ? "oferta" : "novedad"}.webp`}
+          src={`${prefix}${special === "oferta" ? "oferta" : "novedad"}.webp`}
           width={100}
           height={100} />}
 
       <Image id={"image-" + id}
         alt="producto"
         className={active ? "prod-image" : "prod-image inactive"}
-        src={`/img/${id}.webp`} width={200} height={200} />
+        src={`${prefix}${id}.webp`} width={200} height={200} />
       <div className="prod-info">
         {price2 ?
           <p id={"title-" + id} className="sub-title title">{`${title} Precio Unitario: $${price2}`}</p>

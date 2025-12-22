@@ -29,10 +29,13 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
     };
     prop.subProduct = subProduct;
   }
+  const prefix = process.env.NODE_ENV === "production" ?
+    "https://raw.githubusercontent.com/MarcosNapolitano/online-catalog/refs/heads/main/public/img/" : "/img/"
+
   return (
     <div>
       <h1>{data.name}</h1>
-      <Image alt="prod-image" src={`/img/` + data.sku + ".webp"} width={200} height={200} />
+      <Image alt="prod-image" src={`${prefix}${data.sku}.webp`} width={200} height={200} />
       <ProductForm data={prop} />
       <button style={{ marginTop: "2%" }}><Link href="/admin/">Volver</Link></button>
     </div>

@@ -8,7 +8,10 @@ import { JsonWebToken } from "../_data/types";
 
 export const CategoryIndex = ({user}: {user: string}): ReactNode => {
 
-  const logo = <Image className="logo index-logo" alt="logo" src="/img/logo.png" height={100} width={250} />
+  const prefix = process.env.NODE_ENV === "production" ?
+    "https://raw.githubusercontent.com/MarcosNapolitano/online-catalog/refs/heads/main/public/img/" : "/img/"
+
+  const logo = <Image className="logo index-logo" alt="logo" src={`${prefix}logo.png`} height={100} width={250} />
   const phone = user === "gianfranco" ? "11-3478-6787" : "11-6679-5149";
 
   const logout = async () => {

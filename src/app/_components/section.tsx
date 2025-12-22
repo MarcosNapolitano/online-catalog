@@ -6,8 +6,11 @@ import { ISection } from '@/app/_data/types';
 
 export const Section: React.FC<ISection> = ({ id, name, user, children }) => {
 
-  const logoHeader = <Image className="logo header-logo" alt="logo" src="/img/logo.png" height={100} width={250} />
-  const logoFooter = <Image className="logo" alt="logo" src="/img/logo.png" height={100} width={250} />
+  const prefix = process.env.NODE_ENV === "production" ?
+    "https://raw.githubusercontent.com/MarcosNapolitano/online-catalog/refs/heads/main/public/img/" : "/img/"
+
+  const logoHeader = <Image className="logo header-logo" alt="logo" src={`${prefix}logo.png`} height={100} width={250} />
+  const logoFooter = <Image className="logo" alt="logo" src={`${prefix}logo.png`} height={100} width={250} />
   const phone = user === "gianfranco" ? "11-3478-6787" : "11-6679-5149";
 
   return (
