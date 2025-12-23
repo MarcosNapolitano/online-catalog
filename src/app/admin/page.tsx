@@ -6,6 +6,7 @@ import Populate from "@/app/_app/home";
 import Link from "next/link";
 import { revalidateTag } from "next/cache";
 import CsvForm from "@/app/_components/csv-form";
+import TxtForm from "@/app/_components/txtForm";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
 
@@ -42,6 +43,11 @@ export default async function Home() {
     redirect("/api/export");
   };
 
+  const getTxt = async () => {
+    'use server'
+    redirect("/api/txt");
+  };
+
   const user = await cookies().then((cookie) => cookie.get('userName')?.value)
   return (
     <div className="admin-panel">
@@ -57,6 +63,7 @@ export default async function Home() {
         </button>
       </div>
       <CsvForm />
+      <TxtForm />
     </div>
   );
 }
