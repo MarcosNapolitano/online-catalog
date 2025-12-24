@@ -200,11 +200,11 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
         key: products[i].sku,
         title: products[i].name,
         section: actualSection,
-        price: price,
+        price: price as string,
         url: products[i].url,
         active: products[i].active,
         special: products[i].special,
-        price2: subProductPrice
+        price2: subProductPrice as string
       });
 
     productPlaceholder.push(prod);

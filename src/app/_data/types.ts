@@ -10,8 +10,8 @@ interface Product {
   sku: string,
   name: string,
   url: string,
-  price: string,
-  price2: string,
+  price: string | mongoose.Types.Decimal128,
+  price2: string | mongoose.Types.Decimal128,
   section: string,
   orden: number,
   active: boolean,
@@ -19,8 +19,8 @@ interface Product {
   special: "" | "oferta" | "novedad",
   subProduct?: {
     sku: string,
-    price: string,
-    price2: string
+    price: string | mongoose.Types.Decimal128,
+    price2: string | mongoose.Types.Decimal128,
   }
 };
 
