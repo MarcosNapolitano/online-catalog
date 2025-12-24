@@ -43,11 +43,6 @@ export default async function Home() {
     redirect("/api/export");
   };
 
-  const getTxt = async () => {
-    'use server'
-    redirect("/api/txt");
-  };
-
   const user = await cookies().then((cookie) => cookie.get('userName')?.value)
   return (
     <div className="admin-panel">
@@ -63,7 +58,7 @@ export default async function Home() {
         </button>
       </div>
       <CsvForm />
-      <TxtForm />
+      {/* <TxtForm /> */}
     </div>
   );
 }

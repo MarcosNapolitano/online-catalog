@@ -120,27 +120,33 @@ export const updateProducts = DatabaseConnects(
   async (formData: FormData): Promise<Response> => {
 
     const file = formData.get("csv") as File;
-    if (file.size) {
-      try {
-        const data = await file.arrayBuffer();
-        await writeFile(`./src/app/_data/catalogo_web.csv`, Buffer.from(data));
+    if (!file.size) {
+      return {
+        success: false,
+        message: "Couldn't receive CSV",
+        error: "No CSV"
       }
-      catch (err) {
-        return {
-          success: false,
-          message: "Couldn't save CSV",
-          error: `${err}`
-        }
-      };
-    }
+    };
 
-    const productsData = await readFromCsv();
-    if (!productsData) return { success: false, message: "Couldn't read data", error: "check server log" };
+    const productsData = new TextDecoder("utf-8")
+      .decode(await file.arrayBuffer())
+      .replaceAll("\r", "")
+      .replaceAll("\n", ";")
+      .split(";")
+
+    //a white space is added at the end
+    productsData.pop();
+
+    if (!productsData) return {
+      success: false,
+      message: "Couldn't read data",
+      error: "check server log"
+    };
 
     try {
-      for (let i = 0; i < productsData.length; i += 3) {
+      for (let i = 0, j = 1; i < productsData.length; i += 3, j++) {
 
-        console.log(`Updating product ${i + 1} from ${productsData.length / 3}`);
+        console.log(`Updating ${productsData[i]} ${j} from ${productsData.length / 3}`);
         await Product.updateMany({ sku: productsData[i] },
           {
             $set: {
@@ -149,7 +155,11 @@ export const updateProducts = DatabaseConnects(
             }
           })
       }
-      return { success: true, message: "Productos actualizados correctamente", error: undefined }
+      return {
+        success: true,
+        message: "Productos actualizados correctamente",
+        error: undefined
+      }
     }
     catch (err) { return { success: false, message: saveError, error: `${err}` } };
   }
