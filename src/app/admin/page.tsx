@@ -1,7 +1,6 @@
 import { Search } from "@/app/_components/search"
 import { type IProduct } from "@/app/_data/types";
 import { findProducts, findProductsSimplified, toggleProduct } from "@/app/_services/product_utils";
-import { writeBaseJson, readData } from "@/app/_services/json_utils";
 import Populate from "@/app/_app/home";
 import Link from "next/link";
 import { revalidateTag } from "next/cache";
