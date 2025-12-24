@@ -8,8 +8,10 @@ function priceFormatter(price: string): string {
 
     case 8:
       price = price.slice(0, 2).concat(".").concat(price.slice(-6));
+      break
     case 7:
       price = price.slice(0, 1).concat(".").concat(price.slice(-6));
+      break
     default:
       break
   };
@@ -36,7 +38,7 @@ export const Product: React.FC<IProductComp> = (
   const prefix = process.env.NODE_ENV === "production" ?
     "https://raw.githubusercontent.com/MarcosNapolitano/online-catalog/refs/heads/main/public/img/" : "/img/"
 
-    return (
+  return (
     <div id={"product-" + id} className="product">
 
       {special !== "" && active &&
