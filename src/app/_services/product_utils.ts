@@ -225,8 +225,21 @@ export const editProduct = async (
 export const findProducts = DatabaseConnects(async () => {
 
   try {
-    return await Product.find({}, { _id: 0, __v: 0 })
+    const products = await Product.find({}, { _id: 0, __v: 0 })
       .sort({ sectionOrden: "asc", orden: "asc" }).lean<IProduct[]>();
+
+    for (const product of products) {
+
+      product.price = product.price.toString()
+      product.price2 = product.price2.toString()
+
+      if (product.subProduct) {
+        product.subProduct.price = product.subProduct.price.toString()
+        product.subProduct.price2 = product.subProduct.price2.toString()
+      };
+    };
+
+    return products;
   }
   catch (err) {
     console.error(findError + err);

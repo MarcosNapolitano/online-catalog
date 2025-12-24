@@ -4,7 +4,8 @@ import { type ISection } from "@/app/_data/types"
 import { type IColumn } from "@/app/_data/types"
 import { type IRow } from "@/app/_data/types"
 import { type IProduct } from '@/app/_data/types';
-import { readData, readFromJson } from "@/app/_services/json_utils";
+import { readData } from "@/app/_services/json_utils";
+import { findProducts } from "@/app/_services/product_utils";
 import { Section } from "@/app/_components/section";
 import { Row } from "@/app/_components/row";
 import { Column } from "@/app/_components/column";
@@ -43,12 +44,12 @@ function createPushAndEmpty(
 
 };
 
-const fetchData = async (): Promise<IProduct[]> => {
+const fetchData = async (): Promise<IProduct[] | undefined> => {
   'use cache'
   cacheTag('catalog')
-  return await readData();
-
-}
+  const products = await findProducts();
+  return products;
+};
 
 //Main function responsible for populating the catalog
 export default async function Populate(userName: string): Promise<ReactNode[] | void> {
@@ -172,19 +173,20 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
       sectionCounter = 0;
     }
 
-    // workaround for Decimal128 type
-    const price = products[i].active ?
-      ((userName === "gianfranco" ?
-        products[i].price : products[i].price2) as unknown as
-        { $numberDecimal: string }).$numberDecimal as string : "Sin Stock";
+
+    const price = products[i].active ? (
+      userName === "gianfranco" ?
+        products[i].price :
+        products[i].price2
+    ) : "Sin Stock"
 
     let subProductPrice;
 
     if (products[i].subProduct) {
 
-      subProductPrice = ((userName === "gianfranco" ?
-        products[i].subProduct?.price : products[i].subProduct?.price2) as
-        unknown as { $numberDecimal: string }).$numberDecimal as string
+      subProductPrice = userName === "gianfranco" ?
+        products[i].subProduct?.price :
+        products[i].subProduct?.price2
     }
 
 
@@ -192,6 +194,7 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
     //until they hold the right amount to be pushed onto their parents
     //we do this kind of recursively, base case being the end of the JSON
     const prod = createElement(Product,
+
       {
         id: products[i].sku,
         key: products[i].sku,

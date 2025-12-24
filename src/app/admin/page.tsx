@@ -25,17 +25,7 @@ export default async function Home() {
 
   const refreshCatalog = async () => {
     'use server'
-    const products: IProduct[] | undefined = await findProducts();
-    if (products) {
-
-      await writeBaseJson(products);
-      await readData();
-      revalidateTag('catalog');
-
-      console.log("Data fetched and updated");
-
-    } else { console.error("No Data Received"); };
-
+    revalidateTag('catalog');
   };
 
   const downloadCSV = async () => {
