@@ -139,7 +139,6 @@ section,
   align-items: center;
   background-size: cover;
   background-blend-mode: soft-light;
-  justify-content: space-between;
 }
 
 .notFoundSection {
@@ -178,7 +177,6 @@ section:first-of-type {
   display: flex;
   gap: 5%;
   height: 50dvh;
-  justify-content: center;
   align-items: center;
 }
 
@@ -191,7 +189,7 @@ section:first-of-type {
 
 .index-category {
   border-radius: 0% 0% 1rem 1rem;
-  font-size: clamp(1rem, 2vw + 1rem, 2.5rem);
+  font-size: clamp(1rem, 2vw + 1rem, 1.5rem);
   font-weight: bold;
   text-align: center;
   list-style: none;
@@ -632,14 +630,14 @@ section:first-of-type {
 
 .index {
   min-height: 40dvh;
-  padding-bottom: 200px;
+  padding-bottom: 5dvh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
 }
 
 .index::before {
-  min-height: 50dvh !important;
+  min-height: 10dvh !important;
 }
 
 .index-header {
@@ -657,7 +655,6 @@ section:first-of-type {
 }
 
 .section-footer {
-  margin-top: 5%;
   bottom: 0;
   display: flex;
   flex-direction: column-reverse;
@@ -808,10 +805,10 @@ section:first-of-type {
     padding: 0;
   }
 
+
   .section:first-of-type {
     display: flex !important;
     flex-direction: column !important;
-    width: 100% !important;
     justify-content: space-between !important;
     align-items: center !important;
   }
@@ -852,9 +849,14 @@ section:first-of-type {
 
   .index {
     display: flex;
+      padding-bottom: 200px !important;
     flex-direction: column;
     align-self: center;
     justify-content: space-between;
+  }
+
+  .index::before {
+    min-height: 20dvh !important;
   }
 
   .index-categories {
@@ -896,7 +898,7 @@ section:first-of-type {
     width: 250px !important;
   }
 
-  .sub-title{
+  .sub-title {
     font-size: .4rem;
   }
 }
