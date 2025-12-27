@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# <div align="center">Online Catalog</div>
 
-## Getting Started
+This is an app developed in **NextJS and React** using **Typescript.** It is 
+mainly a catalog used in door to door sales. Several sellers can access with
+their own credentials. Feel free to request a tour through the app.
 
-First, run the development server:
+You can visit the site [here](https://online-catalog-production.up.railway.app)!
+:rocket:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Tech Stack
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+* Typescript
+* React
+* NextJs
+* MongoDb
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Quickview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+![Screenshot of the site](https://marcosnapolitano.github.io/Assets/online-catalog.webp)
 
-## Learn More
+## Quickstart
 
-To learn more about Next.js, take a look at the following resources:
+*Make sure both node.js and npm are installed on your OS.*
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Fork the project.
+2. Clone project using `git clone git@github.com:<YOUR-USERNAME>/online-catalog.git`.
+3. Navigate into the project using `cd online-catalog`.
+4. Run `npm install`
+5. Run `npm run dev`.
+6. Now the app is running at `localhost:3000`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+*Disclaimer: you need to generate your own MongoDb env variables.*
 
-## Deploy on Vercel
+## Docs
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+All logic contained in the `src/app` folder.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+* **App**: Here is the main logic for the app. 
+* **Componentes**: Every React component used.
+* **Data**: Schemas used for *Mongoose* and types declaration.
+* **Services**: Utilities logic, database insertions, file management, etc.
+
+### App Main Idea
+
+We iterate through a list of products stored in a MongoDb database. We organize
+them in groups of 2, which are organized themselves in groups of 3 columns, which 
+then again, are organized in 6 rows per page. All this logic is present in 
+`home.tsx` as well as some helper functions in order to make code more readable.
+This process is only done once, that is to save resources and not query the 
+database every single time, since changes only happen once a day. The app has 
+it's own **Admin Panel** which provides a **refresh button** that basically 
+resets the cache.
+
+The app also counts with several utilities which can be found in the `Services`
+folder. These files provide helpers for dealing with database connections, 
+product creation and authentication.
+
+### Admin Panel
+
+The admin panel is reserved for the *super user.* It provides features to create, 
+edit and remove products. Products can be moved in their own category, inserted
+and searched by name.
+
+## Final Notes
+
+This site was deployed using [railway](https://railway.com).
