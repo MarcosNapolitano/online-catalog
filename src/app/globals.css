@@ -209,10 +209,10 @@ section:first-of-type {
   border-radius: 0% 0% 1rem 1rem;
   color: whitesmoke;
   text-align: center;
-  font-size: clamp(1rem, 3vw + 1rem, 3rem);
+  font-size: clamp(1rem, 3vw + 1rem, 2.5rem);
   padding: min(5%, 1rem);
   padding-top: 0px;
-  width: 40%;
+  min-width: 40%;
 }
 
 .header-almacen {
@@ -796,13 +796,17 @@ section:first-of-type {
 @page {
   size: A4;
   margin: 20mm;
-  width: 1200px;
+  width: 210mm;
+  height: 297mm;
 }
 
 @media print {
+
   body {
     margin: 0;
     padding: 0;
+    width: 210mm;
+    height: 297mm;
   }
 
 
@@ -824,6 +828,7 @@ section:first-of-type {
     justify-content: space-between;
   }
 
+
   .header-row,
   .row {
     display: grid !important;
@@ -834,10 +839,21 @@ section:first-of-type {
     margin-top: 0% !important;
   }
 
+  .header {
+    width: auto;
+  }
+
+  /* ----------------------------------------------------------- */
   .prod-image {
-    width: 100px !important;
+    width: 127px !important;
     height: 100px !important;
   }
+
+  #medicamentos-2 .prod-image{
+    width: 130px !important;
+  }
+
+  /* ----------------------------------------------------------- */
 
   .ribbon {
     max-width: 60px !important;
@@ -849,7 +865,7 @@ section:first-of-type {
 
   .index {
     display: flex;
-      padding-bottom: 200px !important;
+    padding-bottom: 200px !important;
     flex-direction: column;
     align-self: center;
     justify-content: space-between;
@@ -900,6 +916,14 @@ section:first-of-type {
 
   .sub-title {
     font-size: .4rem;
+  }
+
+  #medicamentos-2>.svg {
+    width: 100% !important;
+  }
+
+  #medicamentos-2>.row {
+    max-width: 100% !important;
   }
 }
 
