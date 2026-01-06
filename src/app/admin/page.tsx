@@ -32,7 +32,11 @@ export default async function Home() {
     redirect("/api/export");
   };
 
-  const user = await cookies().then((cookie) => cookie.get('userName')?.value)
+  const user = await cookies().then((cookie) => {
+    const userName = cookie.get('userName')?.value
+    return userName ? ''.concat(userName[0].toUpperCase(), userName?.slice(1)) : ''
+  });
+
   return (
     <div className="admin-panel">
       <h1>Admin Panel</h1>

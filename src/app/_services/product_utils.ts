@@ -308,6 +308,7 @@ export const findLastOrderOfCategory = DatabaseConnects(
   async (sectionOrden: number): Promise<number | null> => {
 
     try {
+      // to do: refactor this with documentCount() and review other methods
       const product = await Product.find({ sectionOrden: sectionOrden }, {
         orden: 1,
         _id: 0
@@ -405,7 +406,7 @@ export const moveProduct = DatabaseConnects(
   }
 );
 
-/** Used for inserting and deleteing products, 
+/** Used for inserting and deleting products, 
   * we offset the products from the given order until the end */
 export const insertProduct = DatabaseConnects(
   async (section: number, orden: number, deletion?: boolean):

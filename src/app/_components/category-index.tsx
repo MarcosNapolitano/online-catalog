@@ -42,13 +42,13 @@ export const CategoryIndex = ({user}: {user: string}): ReactNode => {
         <ul className='index-list-container'>
           <li className="index-category header-nucete"><a href="#nucete-1">Nucete</a></li>
           <li className="index-category header-kiosco"><a href="#kiosco-1">Kiosco</a></li>
-          <li className="index-category header-limpieza"><a href="#limpieza-1">Limpieza</a></li>
+          <li className="index-category header-limpieza"><a href="#limpieza-1">Make</a></li>
           <li className="index-category header-varios"><a href="#varios-1">Varios</a></li>
           <li className="index-category header-te"><a href="#te-1">Té</a></li>
           <li className="index-category header-yerba"><a href="#yerba-1">Yerba</a></li>
           <li className="index-category header-promocion"><a href="#promocion-1">Promocion</a></li>
         </ul>
-        {process.env.NODE_ENV === "development" && <Deslogeo action={logout} />}
+        {process.env.NODE_ENV === "production" && <Deslogeo action={logout} />}
       </div>
       <div className="svg section-footer">
         <footer className="footer">
@@ -57,4 +57,3 @@ export const CategoryIndex = ({user}: {user: string}): ReactNode => {
     </section>
   )
 };
-
