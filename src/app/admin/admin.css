@@ -102,20 +102,71 @@ form {
   justify-content: space-evenly;
   align-items: center;
   gap: .5rem;
-
+  border-radius: .5rem;
 }
 
-.misc-functions>button {
+.misc-functions>input.button{
+  margin: 0 !important;
   cursor: pointer;
 }
 
-button>a {
-  color: black;
-}
-
-.csv-form{
+.csv-form {
   display: flex;
   gap: .5rem;
+  margin-bottom: 5%;
+}
+
+.success-message {
+  margin-top: 2%;
+  text-align: center;
+  color: var(--te);
+  font-weight: bold;
+}
+
+.error-message {
+  margin-top: 2%;
+  text-align: center;
+  color: var(--kiosco);
+  font-weight: bold;
+}
+
+.button {
+  margin-top: 1%;
+  background-color: var(--admin-accent-3);
+  border: 2px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: .5rem;
+  padding: .5% 3%;
+  transition: background-color .2s ease-in-out, color .2s ease-in-out;
+}
+
+.button:hover {
+  color: #242424;
+  background-color: orange;
+}
+
+.edit-button {
+  background-color: var(--yerba);
+}
+
+.edit-button:hover {
+  background-color: var(--te);
+}
+
+.delete-button {
+  background-color: var(--kiosco);
+}
+
+.delete-button:hover {
+  background-color: red;
+  color: whitesmoke;
+}
+
+.product-submit {
+  border: none;
+  display: flex;
+  justify-content: center;
+  gap: 1rem
 }
 
 @media (max-width: 479px) {}

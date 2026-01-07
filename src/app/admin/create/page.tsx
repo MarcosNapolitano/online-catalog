@@ -10,7 +10,7 @@ export default async function Page() {
     <div>
       <h1>Crear Producto</h1>
       <ProductCreateForm />
-      <button style={{ marginTop: "2%"}}><Link href="/admin/">Volver</Link></button>
+      <Link className="button" href="/admin/">Volver</Link>
     </div>
   );
 }

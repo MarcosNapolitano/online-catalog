@@ -63,4 +63,3 @@ export const Product: React.FC<IProductComp> = (
     </div>
   );
 };
-

@@ -12,7 +12,7 @@ export async function databaseConnect(){
     catch(err){ console.error("Could not connect to Database \n\n" + err); };
 
     //if error after connection
-    mongoose.connection.on('error', err => {
+    mongoose.connection.once('error', err => {
         console.error("Connection to DataBase lost\n\n" + err);
     });
 

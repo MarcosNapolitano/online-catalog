@@ -94,9 +94,15 @@ const ResultList: React.FC<ResultList> = ({ products, filter, category, backActi
 
   for (let i = 0; i < pages.length; i++) {
 
-    pages[i] = <p key={linkId} id={linkId.toString()} className='pageLink'
-      onClick={(a) => handleClick(a)}>
-      {i ? <span className='pageLink'>- </span> : <span></span>}{i + 1}&nbsp;</p>
+    pages[i] = <p
+      key={linkId}
+      id={linkId.toString()}
+      className='pageLink'
+      onClick={(a) => handleClick(a)}
+    >
+      {i ? <span className='pageLink'>- </span> : <span></span>}{i + 1}&nbsp;
+    </p>
+
     linkId += RESULT_LIMIT;
 
   }
@@ -151,9 +157,13 @@ export const Search: React.FC<SearchComp> = ({ products, backAction }): React.JS
       <p style={{ marginBottom: "2%" }}>{
         products ?
           `Resultados para "${searchString}"` :
-          "Could not Fetch Products"}</p>
+          "Could not Fetch Products"}
+      </p>
 
-      <ResultList products={products} category={searchCat} filter={searchString} backAction={backAction} />
+      <ResultList products={products}
+        category={searchCat}
+        filter={searchString}
+        backAction={backAction} />
     </div >
   );
 };

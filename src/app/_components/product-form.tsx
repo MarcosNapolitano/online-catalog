@@ -52,10 +52,10 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
 
         state.message = "No se pudo borrar el producto";
         state.error = "error at deleteProduct";
-      }
+      };
       router.push("/admin");
       return;
-    }
+    };
     return;
   };
 
@@ -118,11 +118,16 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
           <input name="sub-price2" type="number" step="0.01" min="0" max="999999"
             defaultValue={data.subProduct?.price2.toString() || 0} />
         </fieldset>
-
-        <input value="Editar Producto" type="submit" />
-        <p style={state.error ? { color: "red" } : { color: "green" }}>{state.message}</p>
+        <fieldset className="product-submit">
+          <input className="button edit-button" value="Editar Producto" type="submit" />
+          <button onClick={handleDeletion} className="button delete-button">
+            Borrar Producto
+          </button>
+        </fieldset>
+        <p className={state.error ? 'error-message' : 'success-message'}>
+          {state.message}
+        </p>
       </form>
-      <button onClick={handleDeletion} style={{ backgroundColor: "red", color: "white" }}>Borrar Producto</button>
     </div>
   );
 };

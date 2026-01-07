@@ -22,6 +22,7 @@
   --varios: #292929;
   --te: #2DC234;
   --yerba: #196B1D;
+  --background: #242424;
 }
 
 html {
@@ -95,13 +96,13 @@ h6 {
 
 
 body {
-  background-color: #242424;
+  background-color: var(--background);
 }
 
 .notFound {
   height: 300px;
   width: min(600px, 90%);
-  background-color: #242424;
+  background-color: var(--background);
   color: whitesmoke;
   box-shadow: rgba(0, 0, 0, 0.2) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -2px;
   padding: 5%;
@@ -202,6 +203,39 @@ section:first-of-type {
   color: whitesmoke;
   width: 100%;
   display: inline-block;
+}
+
+.loader {
+  width: 3rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 8px solid;
+  border-color: whitesmoke #0000;
+  animation: l1 1s infinite;
+}
+
+@keyframes l1 {
+  to {
+    transform: rotate(.5turn)
+  }
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  min-height: 100dvh;
+}
+
+.loader-container {
+
+  display: flex;
+  border: 2px solid whitesmoke;
+  color: whitesmoke;
+  border-radius: .7rem;
+  padding: 2rem;
+  gap: 1rem;
 }
 
 .header {
@@ -849,7 +883,7 @@ section:first-of-type {
     height: 100px !important;
   }
 
-  #medicamentos-2 .prod-image{
+  #medicamentos-2 .prod-image {
     width: 130px !important;
   }
 

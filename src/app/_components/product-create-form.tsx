@@ -66,7 +66,7 @@ const ProductCreateForm = (): React.JSX.Element => {
     <label htmlFor="image"><b>Imágen:</b></label>
     <input style={{ color: "whitesmoke" }} name="image" type="file" />
 
-    <input value="Crear Producto" type="submit" required />
+    <input className="button edit-button" value="Crear Producto" type="submit" required />
   </form>
   );
 };

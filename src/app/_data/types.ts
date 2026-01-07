@@ -100,6 +100,10 @@ export interface SearchComp {
   backAction: (sku: string) => Promise<true | false>;
 }
 
+export interface MiscComp {
+  refreshCatalog: () => Promise<Response>;
+}
+
 export interface ResultList {
   products: IProduct[] | void;
   filter: string;

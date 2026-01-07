@@ -15,7 +15,12 @@ const CsvForm = (): React.JSX.Element => {
   const [state, formAction, isPending] = useActionState(
     async (initialState: Response, formData: FormData) => {
 
-      return await updateProducts(formData);
+      const Response = await updateProducts(formData);
+
+      while (isPending)
+        state.message = "Cargando datos..."
+
+      return Response
 
     }, initialState);
 
@@ -25,9 +30,11 @@ const CsvForm = (): React.JSX.Element => {
       <label>Columnas: SKU - PRICE - PRICE2</label>
       <fieldset className="misc-functions">
         <input style={{ color: "whitesmoke" }} name="csv" type="file" />
-        <input value="Subir CSV" type="submit" />
+        <input className="button" value="Subir CSV" type="submit" />
       </fieldset>
-      <p style={state.error ? { color: "red" } : { color: "green" }}>{state.error}</p>
+      <p className={state.success ? 'success-message' : 'error-message'}>
+        {state.message}
+      </p>
     </form>
   </div>
 };
