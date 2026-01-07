@@ -871,13 +871,23 @@ section:first-of-type {
     page-break-inside: avoid;
     page-break-inside: avoid;
     margin-top: 0% !important;
+    z-index: 1;
+  }
+
+  .row {
+    margin-bottom: 1.5% !important;
   }
 
   .header {
     width: auto;
   }
 
-  /* ----------------------------------------------------------- */
+  .ribbon {
+    top: -45px;
+    right: -10px;
+    max-width: 60px !important;
+  }
+
   .prod-image {
     width: 127px !important;
     height: 100px !important;
@@ -885,12 +895,6 @@ section:first-of-type {
 
   #medicamentos-2 .prod-image {
     width: 130px !important;
-  }
-
-  /* ----------------------------------------------------------- */
-
-  .ribbon {
-    max-width: 60px !important;
   }
 
   .no-print {
@@ -928,16 +932,18 @@ section:first-of-type {
   }
 
   .section-footer {
-    margin: 0;
     width: 100%;
-  }
-
-  .svg {
-    margin: 0% !important;
+    margin-top: -5%;
+    z-index: 0;
   }
 
   .section-header {
     padding-top: 5%;
+  }
+
+  .section-footer>a>.logo {
+    width: 150px;
+    height: 50px;
   }
 
   .section-header>.logo {
