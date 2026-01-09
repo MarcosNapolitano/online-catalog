@@ -118,7 +118,7 @@ export const createTask = async () => {
 
   const taskID = crypto.randomUUID();
   const Body = JSON.stringify({ id: taskID })
-  const URL = `https://www.${process.env.RAILWAY_PUBLIC_DOMAIN}` || "http://localhost:3000"
+  const URL = process.env.RAILWAY_PUBLIC_DOMAIN ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN}` : "http://localhost:3000"
 
   const Response = await fetch(`${URL}/api/job`,
     {
@@ -139,7 +139,7 @@ const updateTask = async (
 
   const Update: Task = { status: message, progress: progress };
   if (done) Update.done = true;
-  const URL = `https://www.${process.env.RAILWAY_PUBLIC_DOMAIN}` || "http://localhost:3000"
+  const URL = process.env.RAILWAY_PUBLIC_DOMAIN ? `https://${process.env.RAILWAY_PUBLIC_DOMAIN}` : "http://localhost:3000"
 
   const Body = JSON.stringify(Update);
   const Response = await fetch(`${URL}/api/job?id=${taskID}`,
