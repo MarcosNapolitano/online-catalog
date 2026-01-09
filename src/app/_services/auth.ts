@@ -1,10 +1,7 @@
-import dotenv from 'dotenv';
 import * as jose from 'jose';
 import { cookies } from 'next/headers'
 import { cache } from 'react'
 import { JsonWebToken } from '@/app/_data/types';
-
-dotenv.config();
 
 const JWT_SECRET = new TextEncoder().encode(process.env.JWT_SECRET)
 const JWT_EXPIRATION = '7d' // 7 days

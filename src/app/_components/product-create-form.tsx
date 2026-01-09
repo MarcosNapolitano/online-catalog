@@ -52,7 +52,7 @@ const ProductCreateForm = (): React.JSX.Element => {
       <option value="medicamentos-9">Medicamentos</option>
       <option value="nucete-3">Nucete</option>
       <option value="kiosco-1">Kiosco</option>
-      <option value="limpieza-10">Limpieza</option>
+      <option value="make-10">Make</option>
       <option value="higiene-11">Higiene</option>
       <option value="varios-12">Varios</option>
       <option value="te-5">Té</option>
@@ -64,7 +64,7 @@ const ProductCreateForm = (): React.JSX.Element => {
     <input name="orden" type="number" defaultValue="101" required />
 
     <label htmlFor="image"><b>Imágen:</b></label>
-    <input style={{ color: "whitesmoke" }} name="image" type="file" />
+    <input style={{ color: "whitesmoke" }} name="image" accept=".webp" type="file" />
 
     <input className="button edit-button" value="Crear Producto" type="submit" required />
   </form>

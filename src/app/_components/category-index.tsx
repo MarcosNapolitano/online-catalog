@@ -42,7 +42,7 @@ export const CategoryIndex = ({user}: {user: string}): ReactNode => {
         <ul className='index-list-container'>
           <li className="index-category header-nucete"><a href="#nucete-1">Nucete</a></li>
           <li className="index-category header-kiosco"><a href="#kiosco-1">Kiosco</a></li>
-          <li className="index-category header-limpieza"><a href="#limpieza-1">Make</a></li>
+          <li className="index-category header-make"><a href="#make-1">Make</a></li>
           <li className="index-category header-varios"><a href="#varios-1">Varios</a></li>
           <li className="index-category header-te"><a href="#te-1">Té</a></li>
           <li className="index-category header-yerba"><a href="#yerba-1">Yerba</a></li>

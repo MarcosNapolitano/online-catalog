@@ -1,5 +1,4 @@
 'use server'
-import dotenv from 'dotenv';
 import mongoose, { Connection } from 'mongoose'
 import DatabaseConnects from './db_connect';
 import { writeFile } from 'node:fs/promises';
@@ -119,11 +118,15 @@ export const createTask = async () => {
 
   const taskID = crypto.randomUUID();
   const Body = JSON.stringify({ id: taskID })
-  const Response = await fetch("http://localhost:3000/api/job", {
-    method: 'POST',
-    headers: { "Content-Type": "application/json" },
-    body: Body
-  })
+  const URL = process.env.RAILWAY_PUBLIC_DOMAIN || "http://localhost:3000"
+
+  const Response = await fetch(`${URL}/api/job`,
+    {
+      method: 'POST',
+      headers: { "Content-Type": "application/json" },
+      body: Body
+    }
+  )
 
   return taskID
 };
@@ -135,14 +138,17 @@ const updateTask = async (
   done?: boolean) => {
 
   const Update: Task = { status: message, progress: progress };
-  if(done) Update.done = true;
+  if (done) Update.done = true;
+  const URL = process.env.RAILWAY_PUBLIC_DOMAIN || "http://localhost:3000"
 
   const Body = JSON.stringify(Update);
-  const Response = await fetch(`http://localhost:3000/api/job?id=${taskID}`, {
-    method: 'PUT',
-    headers: { "Content-Type": "application/json" },
-    body: Body
-  })
+  const Response = await fetch(`${URL}/api/job?id=${taskID}`,
+    {
+      method: 'PUT',
+      headers: { "Content-Type": "application/json" },
+      body: Body
+    }
+  )
 
 };
 
@@ -180,14 +186,14 @@ export const updateProducts = DatabaseConnects(
         const Message =
           `Updating ${productsData[i]} ${j} from ${productsData.length / 3}`;
 
-        // await Product.updateMany({ sku: productsData[i] },
-        //   {
-        //     $set: {
-        //       price: new mongoose.Types.Decimal128(productsData[i + 1]),
-        //       price2: new mongoose.Types.Decimal128(productsData[i + 2])
-        //     }
-        //   })
-        //
+        await Product.updateMany({ sku: productsData[i] },
+          {
+            $set: {
+              price: new mongoose.Types.Decimal128(productsData[i + 1]),
+              price2: new mongoose.Types.Decimal128(productsData[i + 2])
+            }
+          })
+
         await updateTask(taskID, Message, (i + 1) * 100 / (productsData.length / 3))
       }
 
@@ -349,14 +355,7 @@ export const findLastOrderOfCategory = DatabaseConnects(
   async (sectionOrden: number): Promise<number | null> => {
 
     try {
-      // to do: refactor this with documentCount() and review other methods
-      const product = await Product.find({ sectionOrden: sectionOrden }, {
-        orden: 1,
-        _id: 0
-      }).sort({ orden: "asc" })
-        .lean<IProduct[]>();
-
-      return product[product.length - 1].orden + 1
+      return await Product.countDocuments({ sectionOrden: sectionOrden }) + 1
     }
     catch (err) {
       console.error(findError + err);
@@ -460,7 +459,9 @@ export const insertProduct = DatabaseConnects(
         {
           sectionOrden: section,
           orden: { $gte: orden }
-        }, { $inc: { orden: orderNumber } });
+        },
+        { $inc: { orden: orderNumber } }
+      );
     }
     catch (err) {
       console.error(`Error while moving products.\n\n${err}`);

@@ -1,9 +1,6 @@
-import dotenv from 'dotenv';
 import mongoose, { Connection } from 'mongoose'
 
 export async function databaseConnect(){
-
-    dotenv.config();
 
     const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@distri.scp8dpz.mongodb.net/Distri?&w=majority`;
 
@@ -21,7 +18,6 @@ export async function databaseConnect(){
 export default function DatabaseConnects<T extends (...args: any[]) => Promise<any>>(fn: T): T {
 
   const connect = async (): Promise<Connection | void> => {
-    dotenv.config();
 
     const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@distri.scp8dpz.mongodb.net/Distri?&w=majority`;
     try { await mongoose.connect(uri); }
@@ -29,7 +25,7 @@ export default function DatabaseConnects<T extends (...args: any[]) => Promise<a
 
 
     //if error after connection
-    return mongoose.connection.on('error', err => {
+    return mongoose.connection.once('error', err => {
       console.error("Connection to DataBase lost\n\n" + err);
     });
   };

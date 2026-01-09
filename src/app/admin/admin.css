@@ -184,8 +184,9 @@ form {
 }
 
 .modal-content {
-  padding: 10%;
-  max-height: 90dvh;
+  padding: 2%;
+  max-width: 500px;
+  max-height: 700px;
   overflow-y: auto;
   background: var(--background);
   border-radius: 12px;
@@ -216,5 +217,9 @@ form {
     width: 80%;
     display: flex;
     flex-direction: column;
+  }
+
+  .modal-content {
+    padding: 4%;
   }
 }

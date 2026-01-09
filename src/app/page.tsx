@@ -1,7 +1,6 @@
 import './_app/home';
 import Populate from './_app/home';
 import Image from 'next/image';
-import { redirect, RedirectType } from 'next/navigation';
 import { getSession } from './_services/auth';
 import { CategoryIndex } from './_components/category-index';
 import { JsonWebToken } from './_data/types';
@@ -29,7 +28,7 @@ export default async function Home() {
           <li className="side-menu-item"><a href="#medicamentos-1">Medicamentos</a></li>
           <li className="side-menu-item"><a href="#nucete-1">Nucete</a></li>
           <li className="side-menu-item"><a href="#kiosco-1">Kiosco</a></li>
-          <li className="side-menu-item"><a href="#limpieza-1">Limpieza</a></li>
+          <li className="side-menu-item"><a href="#make-1">Make</a></li>
           <li className="side-menu-item"><a href="#varios-1">Varios</a></li>
           <li className="side-menu-item"><a href="#te-1">Té</a></li>
           <li className="side-menu-item"><a href="#yerba-1">Yerba</a></li>

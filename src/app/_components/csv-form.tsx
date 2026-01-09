@@ -17,6 +17,7 @@ const CsvForm = (): React.JSX.Element => {
 
   const [filename, setFilename] = useState("Ningún archivo seleccionado")
   const [taskID, setTaskID] = useState("")
+
   const [state, formAction, isPending] = useActionState(
     async (initialState: Response, formData: FormData) => {
 
@@ -64,13 +65,10 @@ function ProgressModal({ taskID }: { taskID: string }) {
 
     es.onerror = () => {
       return () => es.close()
-    }
-    es.onmessage = (e) => {
-      setMessage(e.data)
-      console.log(e.data)
-    }
-    return () => es.close()
+    };
 
+    es.onmessage = (e) => setMessage(e.data);
+    return () => es.close();
   }, [taskID]);
 
   return (
@@ -78,8 +76,9 @@ function ProgressModal({ taskID }: { taskID: string }) {
       <div className="modal-overlay">
         <div className="modal-content">
           <h3>Actualizando productos...</h3>
-          <p>{taskID}</p>
-          <p>{message}</p>
+          <p><strong>Task: </strong>{taskID}</p>
+          <br />
+          <p style={{color: "orangered"}}>{message}</p>
         </div>
       </div>
     </Portal>

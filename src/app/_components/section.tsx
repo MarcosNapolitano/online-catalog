@@ -13,13 +13,10 @@ export const Section: React.FC<ISection> = ({ id, name, user, children }) => {
   const logoFooter = <Image className="logo" alt="logo" src={`${prefix}logo.png`} height={100} width={250} />
   const phone = user === "gianfranco" ? "11-3478-6787" : "11-6679-5149";
 
-  // to do: this is a provisional patch up, fix later
-  const Make = name === 'limpieza' ? 'make' : name
-
   return (
     <section id={name + "-" + id} className={`${name} section`} style={{ backgroundImage: `url(${backgroundImage.src})` }}>
       <div className={`svg section-header ${id === "1" ? "category-header" : ""}`}>
-        <h2 className={`header header-` + name}>{Make?.toUpperCase()}</h2>
+        <h2 className={`header header-` + name}>{name?.toUpperCase()}</h2>
         {id === "1" && user !== "gianfranco" && logoHeader}
       </div>
       {children}
