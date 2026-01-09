@@ -6,6 +6,12 @@ export interface JsonWebToken {
   [key: string]: string | number | boolean | null | undefined
 }
 
+export interface Task{
+  status: string;
+  progress: number;
+  done?: true;
+}
+
 interface Product {
   sku: string,
   name: string,

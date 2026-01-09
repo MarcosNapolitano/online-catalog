@@ -26,7 +26,7 @@ export const Section: React.FC<ISection> = ({ id, name, user, children }) => {
       <div className="svg section-footer">
         <footer className="footer">
           <a href={`https://wa.me/54${phone}`} className="footer-link">
-            Recibí Nuestras Ofertas Al WhatsApp: 11-6679-5149
+            Recibí Nuestras Ofertas Al WhatsApp: {phone}
           </a>
         </footer>
         <a href={"#0"} style={{ zIndex: "2" }} >

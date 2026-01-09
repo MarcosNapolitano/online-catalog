@@ -97,6 +97,10 @@ form {
   color: var(--admin-accent-3);
 }
 
+.result-list>ul {
+  padding-left: 0;
+}
+
 .misc-functions {
   display: flex;
   justify-content: space-evenly;
@@ -105,7 +109,7 @@ form {
   border-radius: .5rem;
 }
 
-.misc-functions>input.button{
+.misc-functions>input.button {
   margin: 0 !important;
   cursor: pointer;
 }
@@ -132,6 +136,7 @@ form {
 
 .button {
   margin-top: 1%;
+  text-align: center;
   background-color: var(--admin-accent-3);
   border: 2px solid whitesmoke;
   color: whitesmoke;
@@ -169,4 +174,47 @@ form {
   gap: 1rem
 }
 
-@media (max-width: 479px) {}
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal-content {
+  padding: 10%;
+  max-height: 90dvh;
+  overflow-y: auto;
+  background: var(--background);
+  border-radius: 12px;
+}
+
+.file-input {
+
+  width: 20%;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+
+}
+
+@media (max-width: 500px) {
+
+  .admin-category {
+    flex-direction: column;
+  }
+
+  .misc-functions {
+    flex-direction: column;
+  }
+
+
+  .file-input {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+  }
+}

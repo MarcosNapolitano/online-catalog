@@ -24,7 +24,6 @@ export const userSchema: Schema = new Schema<IUser>({
 
 })
 
-
 //prevents overwriting scheme
 export const Product = mongoose.models.Products || mongoose.model<IProduct>("Products", productSchema);
 export const User = mongoose.models.Users || mongoose.model<IProduct>("Users", userSchema);

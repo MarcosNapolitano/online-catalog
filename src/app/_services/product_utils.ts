@@ -4,15 +4,15 @@ import mongoose, { Connection } from 'mongoose'
 import DatabaseConnects from './db_connect';
 import { writeFile } from 'node:fs/promises';
 import { readFromCsv } from './json_utils';
-import { type IProduct } from '@/app/_data/types';
+import { Task, type IProduct } from '@/app/_data/types';
 import { type Response } from '@/app/_data/types';
 import { Product } from '@/app/_data/data';
+import { TASKS } from '@/app/_data/task';
 
 const saveError = "Could not save Product in database\n\n";
 const findError = "Could not find product in database\n\n";
 const moveError = "Could not move product\n\n";
 const saveImageError = "Could not save product image\n\n";
-
 
 /** Connects to database and creates products from csv */
 export const createProducts = DatabaseConnects(async (): Promise<string> => {
@@ -115,9 +115,40 @@ export const saveProduct = DatabaseConnects(
   }
 );
 
+export const createTask = async () => {
+
+  const taskID = crypto.randomUUID();
+  const Body = JSON.stringify({ id: taskID })
+  const Response = await fetch("http://localhost:3000/api/job", {
+    method: 'POST',
+    headers: { "Content-Type": "application/json" },
+    body: Body
+  })
+
+  return taskID
+};
+
+const updateTask = async (
+  taskID: string,
+  message: string,
+  progress: number,
+  done?: boolean) => {
+
+  const Update: Task = { status: message, progress: progress };
+  if(done) Update.done = true;
+
+  const Body = JSON.stringify(Update);
+  const Response = await fetch(`http://localhost:3000/api/job?id=${taskID}`, {
+    method: 'PUT',
+    headers: { "Content-Type": "application/json" },
+    body: Body
+  })
+
+};
+
 /** Connects to database and creates products from csv */
 export const updateProducts = DatabaseConnects(
-  async (formData: FormData): Promise<Response> => {
+  async (formData: FormData, taskID: string): Promise<Response> => {
 
     const file = formData.get("csv") as File;
     if (!file.size) {
@@ -146,22 +177,32 @@ export const updateProducts = DatabaseConnects(
     try {
       for (let i = 0, j = 1; i < productsData.length; i += 3, j++) {
 
-        console.log(`Updating ${productsData[i]} ${j} from ${productsData.length / 3}`);
-        await Product.updateMany({ sku: productsData[i] },
-          {
-            $set: {
-              price: new mongoose.Types.Decimal128(productsData[i + 1]),
-              price2: new mongoose.Types.Decimal128(productsData[i + 2])
-            }
-          })
+        const Message =
+          `Updating ${productsData[i]} ${j} from ${productsData.length / 3}`;
+
+        // await Product.updateMany({ sku: productsData[i] },
+        //   {
+        //     $set: {
+        //       price: new mongoose.Types.Decimal128(productsData[i + 1]),
+        //       price2: new mongoose.Types.Decimal128(productsData[i + 2])
+        //     }
+        //   })
+        //
+        await updateTask(taskID, Message, (i + 1) * 100 / (productsData.length / 3))
       }
+
+      await updateTask(taskID, "Done", 100, true)
       return {
         success: true,
         message: "Productos actualizados correctamente",
         error: undefined
       }
     }
-    catch (err) { return { success: false, message: saveError, error: `${err}` } };
+    catch (err) {
+      console.error(err)
+      await updateTask(taskID, "Couldn't finish task", -1, true)
+      return { success: false, message: saveError, error: `${err}` }
+    };
   }
 );
 
