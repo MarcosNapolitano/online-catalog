@@ -9,6 +9,7 @@ export interface JsonWebToken {
 export interface Task{
   status: string;
   progress: number;
+  token: string;
   done?: true;
 }
 

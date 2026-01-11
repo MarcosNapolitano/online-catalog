@@ -117,100 +117,108 @@ export const saveProduct = DatabaseConnects(
 export const createTask = async () => {
 
   const taskID = crypto.randomUUID();
-  const Body = JSON.stringify({ id: taskID })
-  const URL = process.env.RAILWAY_PUBLIC_DOMAIN || "http://localhost:3000"
+  const token = crypto.randomUUID();
+
+  const Body = JSON.stringify({ id: taskID, token: token });
+  const URL = process.env.RAILWAY_PUBLIC_DOMAIN ?
+    `https://${process.env.RAILWAY_PUBLIC_DOMAIN}` : "http://localhost:3000"
 
   const Response = await fetch(`${URL}/api/job`,
     {
       method: 'POST',
       headers: { "Content-Type": "application/json" },
-      body: Body
+      body: Body,
+      cache: 'no-store'
     }
   )
 
-  return taskID
+  return { taskID, token };
 };
 
 const updateTask = async (
   taskID: string,
   message: string,
   progress: number,
+  token: string,
   done?: boolean) => {
 
-  const Update: Task = { status: message, progress: progress };
+  const Update: Task = { status: message, progress: progress, token: token };
+  
   if (done) Update.done = true;
-  const URL = process.env.RAILWAY_PUBLIC_DOMAIN || "http://localhost:3000"
+
+  const URL = process.env.RAILWAY_PUBLIC_DOMAIN ?
+    `https://${process.env.RAILWAY_PUBLIC_DOMAIN}` : "http://localhost:3000"
 
   const Body = JSON.stringify(Update);
   const Response = await fetch(`${URL}/api/job?id=${taskID}`,
     {
       method: 'PUT',
       headers: { "Content-Type": "application/json" },
+      credentials: "include",
       body: Body
     }
   )
-
 };
 
 /** Connects to database and creates products from csv */
-export const updateProducts = DatabaseConnects(
-  async (formData: FormData, taskID: string): Promise<Response> => {
+export const updateProducts = DatabaseConnects(async (
+  formData: FormData, taskID: string, token: string): Promise<Response> => {
 
-    const file = formData.get("csv") as File;
-    if (!file.size) {
-      return {
-        success: false,
-        message: "Couldn't receive CSV",
-        error: "No CSV"
-      }
-    };
-
-    const productsData = new TextDecoder("utf-8")
-      .decode(await file.arrayBuffer())
-      .replaceAll("\r", "")
-      .replaceAll("\n", ";")
-      .split(";")
-
-    //a white space is added at the end
-    productsData.pop();
-
-    if (!productsData) return {
+  const file = formData.get("csv") as File;
+  if (!file.size) {
+    return {
       success: false,
-      message: "Couldn't read data",
-      error: "check server log"
-    };
-
-    try {
-      for (let i = 0, j = 1; i < productsData.length; i += 3, j++) {
-
-        const Message =
-          `Updating ${productsData[i]} ${j} from ${productsData.length / 3}`;
-
-        await Product.updateMany({ sku: productsData[i] },
-          {
-            $set: {
-              price: new mongoose.Types.Decimal128(productsData[i + 1]),
-              price2: new mongoose.Types.Decimal128(productsData[i + 2])
-            }
-          })
-
-        await updateTask(taskID, Message, (i + 1) * 100 / (productsData.length / 3))
-      }
-
-      await updateTask(taskID, "Done", 100, true)
-      return {
-        success: true,
-        message: "Productos actualizados correctamente",
-        error: undefined
-      }
+      message: "Couldn't receive CSV",
+      error: "No CSV"
     }
-    catch (err) {
-      console.error(err)
-      await updateTask(taskID, "Couldn't finish task", -1, true)
-      return { success: false, message: saveError, error: `${err}` }
-    };
+  };
+
+  const productsData = new TextDecoder("utf-8")
+    .decode(await file.arrayBuffer())
+    .replaceAll("\r", "")
+    .replaceAll("\n", ";")
+    .split(";")
+
+  //a white space is added at the end
+  productsData.pop();
+
+  if (!productsData) return {
+    success: false,
+    message: "Couldn't read data",
+    error: "check server log"
+  };
+
+  try {
+    for (let i = 0, j = 1; i < productsData.length; i += 3, j++) {
+
+      const Message =
+        `Updating ${productsData[i]} ${j} from ${productsData.length / 3}`;
+
+      const progress = (i + 1) * 100 / (productsData.length / 3);
+      await Product.updateMany({ sku: productsData[i] },
+        {
+          $set: {
+            price: new mongoose.Types.Decimal128(productsData[i + 1]),
+            price2: new mongoose.Types.Decimal128(productsData[i + 2])
+          }
+        })
+
+      await updateTask(taskID, Message, progress, token)
+    }
+
+    await updateTask(taskID, "Done", 100, token, true)
+    return {
+      success: true,
+      message: "Productos actualizados correctamente",
+      error: undefined
+    }
   }
-);
+  catch (err) {
+    console.error(err)
+    await updateTask(taskID, "Couldn't finish task", -1, token, true)
+    return { success: false, message: saveError, error: `${err}` }
+  };
+});
 
 /** Saves an edited product from a form to the database */
 export const editProduct = async (

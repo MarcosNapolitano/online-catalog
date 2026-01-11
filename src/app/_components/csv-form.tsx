@@ -21,10 +21,10 @@ const CsvForm = (): React.JSX.Element => {
   const [state, formAction, isPending] = useActionState(
     async (initialState: Response, formData: FormData) => {
 
-      const taskID = await createTask();
+      const data = await createTask();
       state.message = "Actualizando Productos...";
-      setTaskID(taskID)
-      return updateProducts(formData, taskID);
+      setTaskID(data.taskID)
+      return updateProducts(formData, data.taskID, data.token);
 
     }, initialState);
 

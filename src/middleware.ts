@@ -8,18 +8,18 @@ export async function middleware(request: NextRequest) {
 
   if (process.env.NODE_ENV === "production") {
 
-    const isAuthenticated = request.cookies.has('auth_token');
     const user = request.cookies.get('userName')?.value;
     const isRouteAdmin = request.nextUrl.pathname.startsWith("/admin");
     const isRouteApi = request.nextUrl.pathname.startsWith("/api");
 
-    if (!isAuthenticated) {
+    if (!user) {
       return NextResponse.redirect(new URL('/login', request.url));
     };
 
-    if (user !== "marcos" && (isRouteAdmin || isRouteApi)) {
-      return NextResponse.error()
-    };
+    if (user !== "marcos" && isRouteAdmin) return NextResponse.error();
+    if (user === "marcos" && isRouteApi) {
+      return NextResponse.next();
+    }
   };
 
   return NextResponse.next();
@@ -32,6 +32,6 @@ export const config = {
      * 2. /login (exclude the login page)
      * 3. /_next/* (exclude Next.js assets, e.g., /_next/static/*)
      */
-    '/((?!login|_next/static|_next/image).*)',
+    '/((?!login|api|_next/static|_next/image).*)',
   ],
 };
