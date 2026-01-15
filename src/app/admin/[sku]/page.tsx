@@ -29,13 +29,12 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
     };
     prop.subProduct = subProduct;
   }
-  const prefix = process.env.NODE_ENV === "production" ?
-    "https://raw.githubusercontent.com/MarcosNapolitano/online-catalog/refs/heads/main/public/img/" : "/img/"
+  const URL = `${process.env.URL}/${process.env.CDN_ACCOUNT_ID}/${data.url}/public`;
 
   return (
     <div>
       <h1>{data.name}</h1>
-      <Image alt="prod-image" src={`${prefix}${data.sku}.webp`} width={200} height={200} />
+      <Image alt="prod-image" src={URL} width={200} height={200} />
       <ProductForm data={prop} />
       <Link className='button' href="/admin/">Volver</Link>
     </div>

@@ -73,7 +73,7 @@ export interface IProductComp {
   title: string,
   section: string,
   price: string,
-  url: string,
+  url: { url: string, oferta: string, novedad: string},
   active: boolean,
   special: "oferta" | "novedad" | "",
   price2?: string
@@ -82,6 +82,7 @@ export interface IProductComp {
 export interface IEmptyProduct {
   id: string;
   section?: string;
+  url: string;
 }
 
 export interface ISection {

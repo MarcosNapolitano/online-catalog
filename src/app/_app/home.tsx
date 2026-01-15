@@ -44,11 +44,11 @@ function createPushAndEmpty(
 
 };
 
-const fetchData = async (): Promise<IProduct[] | undefined> => {
+const fetchData = async (): Promise<IProduct[]> => {
   'use cache'
   cacheTag('catalog')
   const products = await findProducts();
-  return products;
+  return products?.length ? products : [];
 };
 
 //Main function responsible for populating the catalog
@@ -56,7 +56,7 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
 
   const products = await fetchData();
 
-  if (!products) return console.error("can't load home BBDD not fetched");
+  if (!products.length) return console.error("can't load home BBDD not fetched");
 
   //Components collecting arrays to be passed as children
   //to React.createElement
@@ -64,6 +64,11 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
   const columnPlaceholder: ReactNode[] = [];
   const productPlaceholder: ReactNode[] = [];
   const sectionPlaceholder: ReactNode[] = [];
+
+  const URL = `${process.env.CDN_URL}/${process.env.CDN_ACCOUNT_ID}`
+  const PLACEHOLDER = '7573ba21683f3d6edca8e0641336e9a7323bba6d621fb82ebc5823ddeaf03ea3'
+  const OFERTA = 'fe699cef9fda6fcbe461f7c604a9518fca4624b3f1e53c2659dfe728662aee88'
+  const NOVEDAD = '20f98cbc8022cb249589a12a16e97ef02f4c833a361fe3e34a160669aaf6d46a'
 
   //These counter basically indicate pagination
   //for every 2 products there is 1 column
@@ -79,8 +84,23 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
 
     colCounter++;
 
-    const prod0 = createElement(EmptyProduct, { id: "0", key: "0", section: actualSection });
-    const prod1 = createElement(EmptyProduct, { id: "1", key: "1", section: actualSection });
+    const prod0 = createElement(EmptyProduct,
+      {
+        id: "0",
+        key: "0",
+        section: actualSection,
+        url: `${URL}/${PLACEHOLDER}/public`
+      }
+    );
+
+    const prod1 = createElement(EmptyProduct,
+      {
+        id: "1",
+        key: "1",
+        section: actualSection,
+        url: `${URL}/${PLACEHOLDER}/public`
+      }
+    );
 
     productPlaceholder.push(prod0);
     productPlaceholder.push(prod1);
@@ -104,7 +124,15 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
 
       colCounter++;
 
-      const prod = createElement(EmptyProduct, { id: "1", key: "1", section: actualSection });
+      const prod = createElement(EmptyProduct,
+        {
+          id: "1",
+          key: "1",
+          section: actualSection,
+          url: `${URL}/${PLACEHOLDER}/public`
+        }
+      );
+
       productPlaceholder.push(prod);
 
       createPushAndEmpty(Column, productPlaceholder, columnPlaceholder,
@@ -201,7 +229,11 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
         title: products[i].name,
         section: actualSection,
         price: price as string,
-        url: products[i].url,
+        url: {
+          url: `${URL}/${products[i].url}/public`,
+          oferta: `${URL}/${OFERTA}/public`,
+          novedad: `${URL}/${NOVEDAD}/public`
+        },
         active: products[i].active,
         special: products[i].special,
         price2: subProductPrice as string

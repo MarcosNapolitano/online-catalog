@@ -143,7 +143,7 @@ const updateTask = async (
   done?: boolean) => {
 
   const Update: Task = { status: message, progress: progress, token: token };
-  
+
   if (done) Update.done = true;
 
   const URL = process.env.RAILWAY_PUBLIC_DOMAIN ?

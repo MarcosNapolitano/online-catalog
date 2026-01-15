@@ -11,7 +11,13 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: 'raw.githubusercontent.com',
         port: '',
-        pathname: '/MarcosNapolitano/online-catalog/refs/heads/main/public/img/**',
+        pathname: '/marcosnapolitano/online-catalog/refs/heads/main/public/img/**',
+        search: '',
+      },
+      {
+        protocol: 'https',
+        hostname: 'imagedelivery.net',
+        port: '',
         search: '',
       },
     ]
