@@ -7,7 +7,7 @@ import { ISection } from '@/app/_data/types';
 export const Section: React.FC<ISection> = ({ id, name, user, children }) => {
 
   const LOGO = '22a17ae3b8c185b6112779f08ebc580a8c46c737ceeac04f6384d2a3e3a0176f';
-  const URL = `${process.env.CDN_URL}/${process.env.CDN_HASH}/${LOGO}`;
+  const URL = `${process.env.CDN_URL}/${process.env.CDN_HASH}/${LOGO}/public`;
   const logoHeader = <Image className="logo header-logo" alt="logo" src={URL} height={100} width={250} />
   const logoFooter = <Image className="logo" alt="logo" src={URL} height={100} width={250} />
   const phone = user === "gianfranco" ? "11-3478-6787" : "11-6679-5149";
