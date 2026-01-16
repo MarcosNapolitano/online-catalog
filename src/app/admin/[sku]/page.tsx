@@ -29,7 +29,7 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
     };
     prop.subProduct = subProduct;
   }
-  const URL = `${process.env.URL}/${process.env.CDN_ACCOUNT_ID}/${data.url}/public`;
+  const URL = `${process.env.CDN_URL}/${process.env.CDN_HASH}/${data.url}/public`;
 
   return (
     <div>

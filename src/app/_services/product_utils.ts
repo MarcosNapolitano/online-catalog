@@ -1,4 +1,5 @@
 'use server'
+import crypto from 'crypto'
 import mongoose, { Connection } from 'mongoose'
 import DatabaseConnects from './db_connect';
 import { writeFile } from 'node:fs/promises';
@@ -47,14 +48,18 @@ export const createProducts = DatabaseConnects(async (): Promise<string> => {
 /** Saves an new product from a form to the database */
 export const createProduct = async (formData: FormData): Promise<Response> => {
 
+
   const product: IProduct = new Product();
-  const productSection = (formData.get("section") as string).split("-")
+  const productSection: string[] = (formData.get("section") as string).split("-");
+  const file: File = formData.get("image") as File;
+  const buffer: Buffer = Buffer.from(await file.arrayBuffer());
+  const url: string = crypto.createHash("sha256").update(buffer).digest("hex");
 
   product.sku = formData.get("sku") as string;
   product.name = formData.get("name") as string;
   product.price = new mongoose.Types.Decimal128(formData.get("price") as string);
   product.price2 = new mongoose.Types.Decimal128(formData.get("price2") as string);
-  product.url = formData.get("sku") as string;
+  product.url = url;
   product.orden = parseInt(formData.get("orden") as string);
   product.section = productSection[0];
   product.sectionOrden = parseInt(productSection[1]);
@@ -76,12 +81,24 @@ export const createProduct = async (formData: FormData): Promise<Response> => {
     return { success: false, message: saveError, error: "Error on saveProduct" }
   };
 
-  const file = formData.get("image") as File;
 
   try {
-    console.log(`Saving ${product.sku}'s image.'`)
-    const data = await file.arrayBuffer();
-    await writeFile(`./public/img/${product.sku}.webp`, Buffer.from(data));
+    console.log(`Saving ${product.sku}'s image.`)
+
+    const imageForm = new FormData();
+    imageForm.append("file", file);
+    imageForm.append("id", url);
+
+    const res = await fetch(
+      `https://api.cloudflare.com/client/v4/accounts/${process.env.CDN_ACCOUNT_ID}/images/v1`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.CDN_API_TOKEN}`,
+        },
+        body: imageForm,
+      }
+    );
   }
   catch (err) {
     console.error(err);
@@ -252,25 +269,42 @@ export const editProduct = async (
     return { success: false, message: moveError, error: "Error on moveProduct" }
   };
 
-  if (!await saveProduct(product)) {
-
-    console.error(saveError);
-    return { success: false, message: saveError, error: "Error on saveProduct" }
-  };
-
   const file = formData.get("image") as File;
 
   if (file.size) {
     try {
-      console.log(`Saving ${product.sku}'s image.'`)
-      const data = await file.arrayBuffer();
-      await writeFile(`./public/img/${product.sku}.webp`, Buffer.from(data));
+      console.log(`Saving ${product.sku}'s image.`)
+
+      const buffer: Buffer = Buffer.from(await file.arrayBuffer());
+      const url: string = crypto.createHash("sha256").update(buffer).digest("hex");
+      const imageForm = new FormData();
+
+      imageForm.append("file", file);
+      imageForm.append("id", url);
+      product.url = url;
+
+      const res = await fetch(
+        `https://api.cloudflare.com/client/v4/accounts/${process.env.CDN_ACCOUNT_ID}/images/v1`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${process.env.CDN_API_TOKEN}`,
+          },
+          body: imageForm,
+        }
+      );
     }
     catch (err) {
       console.error(err);
       return { success: false, message: saveImageError, error: "check server log" };
     };
   }
+
+  if (!await saveProduct(product)) {
+
+    console.error(saveError);
+    return { success: false, message: saveError, error: "Error on saveProduct" }
+  };
 
   console.log(`${product.sku} edited successfully!`);
   return { success: true, message: "Producto editado correctamente", error: undefined }

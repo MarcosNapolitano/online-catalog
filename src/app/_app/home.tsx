@@ -65,7 +65,7 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
   const productPlaceholder: ReactNode[] = [];
   const sectionPlaceholder: ReactNode[] = [];
 
-  const URL = `${process.env.CDN_URL}/${process.env.CDN_ACCOUNT_ID}`
+  const URL = `${process.env.CDN_URL}/${process.env.CDN_HASH}`
   const PLACEHOLDER = '7573ba21683f3d6edca8e0641336e9a7323bba6d621fb82ebc5823ddeaf03ea3'
   const OFERTA = 'fe699cef9fda6fcbe461f7c604a9518fca4624b3f1e53c2659dfe728662aee88'
   const NOVEDAD = '20f98cbc8022cb249589a12a16e97ef02f4c833a361fe3e34a160669aaf6d46a'
