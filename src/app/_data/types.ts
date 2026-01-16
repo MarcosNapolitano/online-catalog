@@ -89,7 +89,7 @@ export interface ISection {
   id: string;
   name?: string;
   children?: ReactNode;
-  user?: string
+  user?: string;
 }
 
 export interface IRow {
