@@ -5,9 +5,11 @@ import Populate from "@/app/_app/home";
 import Link from "next/link";
 import CsvForm from "@/app/_components/csv-form";
 import { cookies } from "next/headers";
-import { MiscFunctions } from "../_components/misc-functions";
+import { MiscFunctions } from "@/app/_components/misc-functions";
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
+import { Suspense } from "react";
+import Loading from "@/app/loading";
 
 const toggleActive = async (sku: string): Promise<true | false> => {
   'use server'
@@ -32,7 +34,7 @@ const refreshCatalog = async (): Promise<Response> => {
 
 export default async function Home() {
 
-  const products: IProduct[] | undefined = await findProductsSimplified();
+  const products: Promise<IProduct[] | undefined> = findProductsSimplified();
 
   const user = await cookies().then((cookie) => {
     const userName = cookie.get('userName')?.value
@@ -43,7 +45,9 @@ export default async function Home() {
     <div className="admin-panel">
       <h1>Admin Panel</h1>
       <h2>Wellcome <span className="pageLink-active">{user}</span></h2>
-      <Search products={products} backAction={toggleActive} />
+      <Suspense fallback={<Loading />}>
+        <Search products={products} backAction={toggleActive} />
+      </Suspense>
       <MiscFunctions refreshCatalog={refreshCatalog} />
       <CsvForm />
     </div>

@@ -1,10 +1,11 @@
 'use client'
-import React, { useEffect, useRef, useState } from 'react';
+import React, { use, useEffect, useRef, useState } from 'react';
 import { type IProduct } from '@/app/_data/types';
 import { type SearchComp } from '@/app/_data/types';
 import { type ResultList } from '@/app/_data/types';
 import { type Result } from '@/app/_data/types';
 import Link from 'next/link';
+import { profile } from 'node:console';
 
 const Result: React.FC<Result> = ({ sku, orden, active, name, backAction }): React.JSX.Element => {
 
@@ -131,6 +132,7 @@ export const Search: React.FC<SearchComp> = ({ products, backAction }): React.JS
   const [resetPage, setResetPage] = useState<0>(0);
   const [searchCat, setSearchCat] = useState<string>("kiosco");
   const inputRef = useRef<HTMLInputElement>(null);
+  const productsList = use(products);
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -182,12 +184,12 @@ export const Search: React.FC<SearchComp> = ({ products, backAction }): React.JS
       </div>
 
       <p style={{ marginBottom: "2%" }}>{
-        products ?
+        productsList ?
           `Resultados para "${searchString}"` :
           "Could not Fetch Products"}
       </p>
 
-      <ResultList products={products}
+      <ResultList products={productsList}
         category={searchCat}
         filter={searchString}
         backAction={backAction} />

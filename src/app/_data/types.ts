@@ -104,7 +104,7 @@ export interface IColumn {
 }
 
 export interface SearchComp {
-  products: IProduct[] | undefined;
+  products: Promise<IProduct[] | undefined>;
   backAction: (sku: string) => Promise<true | false>;
 }
 
