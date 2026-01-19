@@ -1,3 +1,0 @@
-Falta crear ultimos productos de promocion
-Falta ajustar la fuente en productos con subprecio
-Estaria bueno en un futuro automatizar la conversion a webp
