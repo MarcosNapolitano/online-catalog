@@ -1,5 +1,5 @@
 'use client'
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { type IProduct } from '@/app/_data/types';
 import { type SearchComp } from '@/app/_data/types';
 import { type ResultList } from '@/app/_data/types';
@@ -12,7 +12,6 @@ const Result: React.FC<Result> = ({ sku, orden, active, name, backAction }): Rea
   const [checkStatus, setCheckStatus] = useState<true | false>(false);
 
   if (productStatus === undefined) return <li className='product-result'>&nbsp;</li>;
-
 
   const handleChange = async () => {
     setProductStatus(!productStatus);
@@ -35,10 +34,23 @@ const Result: React.FC<Result> = ({ sku, orden, active, name, backAction }): Rea
 
 };
 
-const ResultList: React.FC<ResultList> = ({ products, filter, category, backAction }): React.JSX.Element => {
+const ResultList: React.FC<ResultList> = ({
+  products,
+  filter,
+  category,
+  backAction
+}): React.JSX.Element => {
 
   const RESULT_LIMIT = 25;
+  const activePage = useRef<HTMLParagraphElement>(null);
   const [limitArray, setLimit] = useState([0, RESULT_LIMIT]);
+
+  useEffect(() => {
+    setLimit([0, RESULT_LIMIT]);
+    if(activePage.current) 
+      activePage.current.classList.remove("pageLink-active")
+  }, [filter])
+
   if (!products) return <li>No results found </li>;
 
   products = products
@@ -69,9 +81,7 @@ const ResultList: React.FC<ResultList> = ({ products, filter, category, backActi
         name=""
         active={undefined}
         backAction={backAction}
-      />
-    )
-
+      />)
   }
 
   const pages: React.JSX.Element[] = new Array(Math.ceil(products.length / RESULT_LIMIT));
@@ -81,11 +91,11 @@ const ResultList: React.FC<ResultList> = ({ products, filter, category, backActi
     const newLimit = parseInt(e.currentTarget.id);
     if (newLimit === limitArray[1]) return;
 
-    // remove previous active css
-    document.getElementById(limitArray[1].toString())?.classList.remove("pageLink-active")
+    if(activePage.current) 
+      activePage.current.classList.remove("pageLink-active")
 
-    // set current active css
-    e.currentTarget.classList.add("pageLink-active")
+    activePage.current = e.currentTarget as HTMLParagraphElement
+    activePage.current.classList.add("pageLink-active")
 
     setLimit([newLimit - RESULT_LIMIT, newLimit]);
   }
@@ -104,7 +114,6 @@ const ResultList: React.FC<ResultList> = ({ products, filter, category, backActi
     </p>
 
     linkId += RESULT_LIMIT;
-
   }
 
   return <div className='result-list'>
@@ -119,14 +128,32 @@ const ResultList: React.FC<ResultList> = ({ products, filter, category, backActi
 export const Search: React.FC<SearchComp> = ({ products, backAction }): React.JSX.Element => {
 
   const [searchString, setSearchString] = useState<string>("");
+  const [resetPage, setResetPage] = useState<0>(0);
   const [searchCat, setSearchCat] = useState<string>("kiosco");
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.ctrlKey && e.key === "k") {
+        e.preventDefault();
+        inputRef.current?.focus();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
     <div className='search-panel' >
       <div className='admin-category'>
         <h3>Búsqueda</h3>
         <input id="inputBar" type='search'
-          onChange={e => setSearchString(e.target.value)}
+          ref={inputRef}
+          onChange={e => {
+            setResetPage(0)
+            setSearchString(e.target.value)
+          }}
           placeholder='seleccioná categoría primero...' />
       </div>
 
