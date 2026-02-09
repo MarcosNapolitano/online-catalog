@@ -105,7 +105,6 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
         <label htmlFor="image"><b>Imágen:</b></label>
         <input style={{ color: "whitesmoke" }} name="image" accept=".webp" type="file" />
 
-
         <fieldset>
           <label htmlFor="exclusive" style={{ marginRight: "1rem" }}><b>Solo Gianfranco:</b></label>
           <input name="exclusive" type="checkbox" defaultChecked={data.gianfrancoExclusive} />
