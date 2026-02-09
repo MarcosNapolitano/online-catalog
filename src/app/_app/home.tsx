@@ -189,6 +189,8 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
   // Main func starts here
   for (let i = 0; i < products.length; i++) {
 
+    if(products[i].gianfrancoExclusive && userName != "gianfranco") continue;
+    
     //we define the first section
     if (!actualSection) actualSection = products[i].section;
 

@@ -48,7 +48,6 @@ export const createProducts = DatabaseConnects(async (): Promise<string> => {
 /** Saves an new product from a form to the database */
 export const createProduct = async (formData: FormData): Promise<Response> => {
 
-
   const product: IProduct = new Product();
   const productSection: string[] = (formData.get("section") as string).split("-");
   const file: File = formData.get("image") as File;
@@ -64,6 +63,7 @@ export const createProduct = async (formData: FormData): Promise<Response> => {
   product.section = productSection[0];
   product.sectionOrden = parseInt(productSection[1]);
   product.special = "novedad";
+  product.gianfrancoExclusive = formData.get("exclusive") ? true : false;
 
   // if no order given, set it last
   if (!product.orden)
@@ -254,6 +254,8 @@ export const editProduct = async (
   product.price2 = new mongoose.Types.Decimal128(formData.get("price2") as string);
   product.section = formData.get("section") as string;
   product.special = formData.get("special") as "" | "oferta" | "novedad";
+  product.gianfrancoExclusive = formData.get("exclusive") ? true : false;
+
   if (formData.get("sub-sku")) {
 
     product.subProduct = {

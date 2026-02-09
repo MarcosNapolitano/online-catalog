@@ -28,7 +28,8 @@ interface Product {
     sku: string,
     price: string | mongoose.Types.Decimal128,
     price2: string | mongoose.Types.Decimal128,
-  }
+  },
+  gianfrancoExclusive: boolean
 };
 
 interface User {
@@ -65,7 +66,8 @@ export interface ProductForm {
     sku: string,
     price: string,
     price2: string,
-  }
+  },
+  gianfrancoExclusive: boolean
 }
 
 export interface IProductComp {

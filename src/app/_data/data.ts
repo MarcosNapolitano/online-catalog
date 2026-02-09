@@ -14,7 +14,8 @@ export const productSchema: Schema = new Schema<IProduct>({
     active: { type: Boolean, default: true },
     sectionOrden: { type: Number, required: true },
     special: { type: String, default: "" },
-    subProduct: { type: Object, default: undefined }
+    subProduct: { type: Object, default: undefined },
+    gianfrancoExclusive: { type: Boolean, default: false }
 });
 
 export const userSchema: Schema = new Schema<IUser>({

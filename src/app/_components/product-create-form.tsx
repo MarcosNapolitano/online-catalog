@@ -64,6 +64,11 @@ const ProductCreateForm = (): React.JSX.Element => {
       <label htmlFor="orden"><b>Orden:</b></label>
       <input name="orden" type="number" defaultValue="101" required />
 
+      <fieldset>
+        <label htmlFor="exclusive" style={{ marginRight: "1rem" }}><b>Solo Gianfranco:</b></label>
+        <input name="exclusive" type="checkbox" />
+      </fieldset>
+
       <label htmlFor="image"><b>Imágen:</b></label>
       <input style={{ color: "whitesmoke" }} name="image" accept=".webp" type="file" />
 
