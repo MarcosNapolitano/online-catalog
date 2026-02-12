@@ -111,7 +111,8 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
       {
         id: colCounter.toString(),
         key: colCounter.toString(),
-        section: actualSection
+        section: actualSection,
+        user: userName
       });
   };
 
@@ -142,7 +143,8 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
         {
           id: colCounter.toString(),
           key: colCounter.toString(),
-          section: actualSection
+          section: actualSection,
+          user: userName
         });
 
     };
@@ -254,7 +256,8 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
         {
           id: colCounter.toString(),
           key: colCounter.toString(),
-          section: actualSection
+          section: actualSection,
+          user: userName
         });
     };
 

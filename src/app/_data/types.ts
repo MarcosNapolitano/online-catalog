@@ -106,6 +106,7 @@ export interface IColumn {
   id: string;
   section?: string;
   children?: ReactNode;
+  user?: string;
 }
 
 export interface SearchComp {

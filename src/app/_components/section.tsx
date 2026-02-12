@@ -40,7 +40,7 @@ export const Section: React.FC<ISection> = ({ id, name, user, children }) => {
           </a>
         </footer>
         <a href={"#0"} style={{ zIndex: "2" }} >
-          {user !== "gianfranco" && logoFooter}
+          {logoFooter}
         </a>
       </div>
     </section>
