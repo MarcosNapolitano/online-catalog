@@ -3,7 +3,7 @@ import { findProducts } from "@/app/_services/product_utils";
 import { NextResponse } from "next/server";
 
 export async function GET() {
-  const products: IProduct[] | undefined = await findProducts();
+  const products: IProduct[] | undefined = await findProducts("distri");
   if (products) {
 
     const headers = Object.keys(products[1]).join(",");
@@ -18,8 +18,10 @@ export async function GET() {
         obj["price2"],
         obj["orden"],
         obj["sectionOrden"],
+        obj["sectionOrdenGianfranco"],
         obj["section"],
-        obj["url"]
+        obj["url"],
+        obj["gianfrancoExclusive"]
       ]
 
       if(obj.subProduct) 
