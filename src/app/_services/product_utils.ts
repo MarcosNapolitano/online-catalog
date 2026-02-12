@@ -313,11 +313,15 @@ export const editProduct = async (
 };
 
 /** Find and display all products ordered by section and category */
-export const findProducts = DatabaseConnects(async () => {
+export const findProducts = DatabaseConnects(async (user: string) => {
 
   try {
+
     const products = await Product.find({}, { _id: 0, __v: 0 })
-      .sort({ sectionOrden: "asc", orden: "asc" }).lean<IProduct[]>();
+      .sort(user !== "gianfranco" ? 
+            {sectionOrden: "asc", orden: "asc"} : 
+            {sectionOrdenGianfranco: "asc", orden: "asc"})
+      .lean<IProduct[]>();
 
     for (const product of products) {
 

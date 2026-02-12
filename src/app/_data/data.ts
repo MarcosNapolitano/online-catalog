@@ -13,6 +13,7 @@ export const productSchema: Schema = new Schema<IProduct>({
     orden: { type: Number, required: true },
     active: { type: Boolean, default: true },
     sectionOrden: { type: Number, required: true },
+    sectionOrdenGianfranco: { type: Number, required: true},
     special: { type: String, default: "" },
     subProduct: { type: Object, default: undefined },
     gianfrancoExclusive: { type: Boolean, default: false }

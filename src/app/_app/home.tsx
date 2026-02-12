@@ -44,17 +44,17 @@ function createPushAndEmpty(
 
 };
 
-const fetchData = async (): Promise<IProduct[]> => {
+const fetchData = async (userName: string): Promise<IProduct[]> => {
   'use cache'
   cacheTag('catalog')
-  const products = await findProducts();
+  const products = await findProducts(userName);
   return products?.length ? products : [];
 };
 
 //Main function responsible for populating the catalog
 export default async function Populate(userName: string): Promise<ReactNode[] | void> {
 
-  const products = await fetchData();
+  const products = await fetchData(userName);
 
   if (!products.length) return console.error("can't load home BBDD not fetched");
 
@@ -89,7 +89,8 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
         id: "0",
         key: "0",
         section: actualSection,
-        url: `${URL}/${PLACEHOLDER}/public`
+        url: `${URL}/${PLACEHOLDER}/public`,
+        user: userName
       }
     );
 
@@ -98,7 +99,8 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
         id: "1",
         key: "1",
         section: actualSection,
-        url: `${URL}/${PLACEHOLDER}/public`
+        url: `${URL}/${PLACEHOLDER}/public`,
+        user: userName
       }
     );
 
@@ -129,7 +131,8 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
           id: "1",
           key: "1",
           section: actualSection,
-          url: `${URL}/${PLACEHOLDER}/public`
+          url: `${URL}/${PLACEHOLDER}/public`,
+          user: userName
         }
       );
 
@@ -189,8 +192,8 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
   // Main func starts here
   for (let i = 0; i < products.length; i++) {
 
-    if(products[i].gianfrancoExclusive && userName != "gianfranco") continue;
-    
+    if (products[i].gianfrancoExclusive && userName != "gianfranco") continue;
+
     //we define the first section
     if (!actualSection) actualSection = products[i].section;
 
@@ -238,7 +241,8 @@ export default async function Populate(userName: string): Promise<ReactNode[] | 
         },
         active: products[i].active,
         special: products[i].special,
-        price2: subProductPrice as string
+        price2: subProductPrice as string,
+        user: userName
       });
 
     productPlaceholder.push(prod);

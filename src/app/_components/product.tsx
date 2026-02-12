@@ -27,7 +27,9 @@ export const Product: React.FC<IProductComp> = (
     url,
     active,
     special,
-    price2 }
+    price2,
+    user
+  }
 ) => {
 
   price = priceFormatter(price);
@@ -52,14 +54,14 @@ export const Product: React.FC<IProductComp> = (
         src={url.url} width={200} height={200}
         unoptimized
       />
-      <div className="prod-info">
+      <div className={`prod-info ${user === 'gianfranco' && 'prod-info-gf'}`}>
         {price2 ?
           <p id={"title-" + id} className="sub-title title">{`${title} Precio Unitario: $${price2}`}</p>
           :
           <p id={"title-" + id} className="title">{title}</p>
         }
         <p id={"price-" + id}
-          className={`${section}-price price`}>{active ? "$" + price : price}</p>
+          className={`${section}-price price ${user === 'gianfranco' && 'gf-price'}`}>{active ? "$" + price : price}</p>
       </div>
     </div>
   );

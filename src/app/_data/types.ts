@@ -23,6 +23,7 @@ interface Product {
   orden: number,
   active: boolean,
   sectionOrden: number,
+  sectionOrdenGianfranco: number,
   special: "" | "oferta" | "novedad",
   subProduct?: {
     sku: string,
@@ -78,13 +79,15 @@ export interface IProductComp {
   url: { url: string, oferta: string, novedad: string},
   active: boolean,
   special: "oferta" | "novedad" | "",
-  price2?: string
+  price2?: string,
+  user: string
 }
 
 export interface IEmptyProduct {
   id: string;
   section?: string;
   url: string;
+  user: string;
 }
 
 export interface ISection {
