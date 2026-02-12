@@ -11,7 +11,7 @@ export const Section: React.FC<ISection> = ({ id, name, user, children }) => {
   const URL = `${process.env.CDN_URL}/${process.env.CDN_HASH}/${user === 'gianfranco' ? LOGO_JP : LOGO}/public`;
   const logoHeader = <Image className="logo header-logo" alt="logo" src={URL} height={100} width={250} />
   const logoFooter = <Image className="logo" alt="logo" src={URL} height={100} width={250} />
-  const phone = user !== "gianfranco" ? "11-2193-5653" : "11-6679-5149";
+  const phone = user === "gianfranco" ? "11-2193-5653" : "11-6679-5149";
 
   return (
     <section id={name + "-" + id}
