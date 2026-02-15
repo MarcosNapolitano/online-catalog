@@ -62,6 +62,7 @@ export const createProduct = async (formData: FormData): Promise<Response> => {
   product.orden = parseInt(formData.get("orden") as string);
   product.section = productSection[0];
   product.sectionOrden = parseInt(productSection[1]);
+  product.sectionOrdenGianfranco = parseInt(productSection[2]);
   product.special = "novedad";
   product.gianfrancoExclusive = formData.get("exclusive") ? true : false;
 

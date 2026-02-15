@@ -45,20 +45,20 @@ const ProductCreateForm = (): React.JSX.Element => {
 
       <label htmlFor="section"><b>Sección:</b></label>
       <select name="section" id="cat-select" defaultValue="almacen-2">
-        <option value="almacen-2">Almacén</option>
-        <option value="bebidas-13">Bebidas</option>
-        <option value="cafe-4">Café</option>
-        <option value="edulcorantes-7">Edulcorantes</option>
-        <option value="galletitas-8">Galletitas</option>
-        <option value="medicamentos-9">Medicamentos</option>
-        <option value="nucete-3">Nucete</option>
-        <option value="kiosco-1">Kiosco</option>
-        <option value="make-10">Make</option>
-        <option value="higiene-11">Higiene</option>
-        <option value="varios-12">Varios</option>
-        <option value="te-5">Té</option>
-        <option value="yerba-6">Yerba</option>
-        <option value="promocion-14">Promoción</option>
+        <option value="almacen-2-5">Almacén</option>
+        <option value="bebidas-13-1">Bebidas</option>
+        <option value="cafe-4-6">Café</option>
+        <option value="edulcorantes-7-9">Edulcorantes</option>
+        <option value="galletitas-8-8">Galletitas</option>
+        <option value="medicamentos-9-12">Medicamentos</option>
+        <option value="nucete-3-7">Nucete</option>
+        <option value="kiosco-1-2">Kiosco</option>
+        <option value="make-10-11">Make</option>
+        <option value="higiene-11-10">Higiene</option>
+        <option value="varios-12-13">Varios</option>
+        <option value="te-5-4">Té</option>
+        <option value="yerba-6-3">Yerba</option>
+        <option value="promocion-14-14">Promoción</option>
       </select>
 
       <label htmlFor="orden"><b>Orden:</b></label>
