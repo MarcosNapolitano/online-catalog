@@ -49,13 +49,11 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
     if (res) {
       router.prefetch("/admin")
       const deletion = await deleteProduct(data.sku)
-      if (!deletion.success) {
 
+      if (deletion) {
         state.message = "No se pudo borrar el producto";
         state.error = "error at deleteProduct";
       };
-      router.push("/admin");
-      return;
     };
     return;
   };
@@ -125,7 +123,7 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
         </fieldset>
         <fieldset className="product-submit">
           <input className="button edit-button" value="Editar Producto" type="submit" />
-          <button onClick={handleDeletion} className="button delete-button">
+          <button onClick={handleDeletion} className="button delete-button" type="button">
             Borrar Producto
           </button>
         </fieldset>

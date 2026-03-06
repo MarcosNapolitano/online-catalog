@@ -1,55 +1,41 @@
 import mongoose, { Connection } from 'mongoose'
 
-export async function databaseConnect(){
+// export async function databaseConnect(){
+//
+//     const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@distri.scp8dpz.mongodb.net/Distri?&w=majority`;
+//
+//     try{ await mongoose.connect(uri); }
+//
+//     catch(err){ console.error("Could not connect to Database \n\n" + err); };
+//
+//     //if error after connection
+//     mongoose.connection.once('error', err => {
+//         console.error("Connection to DataBase lost\n\n" + err);
+//     });
+//
+// };
 
-    const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@distri.scp8dpz.mongodb.net/Distri?&w=majority`;
+let isConnected = false;
 
-    try{ await mongoose.connect(uri); }
+async function connectDB() {
 
-    catch(err){ console.error("Could not connect to Database \n\n" + err); };
+  if (isConnected) return;
 
-    //if error after connection
-    mongoose.connection.once('error', err => {
-        console.error("Connection to DataBase lost\n\n" + err);
-    });
+  const DBNAME = process.env.NODE_ENV === "production" ? 'Distri' : 'Distri_Dev';
+  const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@distri.scp8dpz.mongodb.net/${DBNAME}?&w=majority`;
+  try { 
+    await mongoose.connect(uri);
+    isConnected = true;
+  }
+  catch (err) { console.error("Could not connect to Database \n\n" + err); };
 
-};
+}
 
 export default function DatabaseConnects<T extends (...args: any[]) => Promise<any>>(fn: T): T {
 
-  const connect = async (): Promise<Connection | void> => {
-
-    const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@distri.scp8dpz.mongodb.net/Distri?&w=majority`;
-    try { await mongoose.connect(uri); }
-    catch (err) { console.error("Could not connect to Database \n\n" + err); };
-
-
-    //if error after connection
-    return mongoose.connection.once('error', err => {
-      console.error("Connection to DataBase lost\n\n" + err);
-    });
-  };
-
-  const close = async (conn: Connection): Promise<void> => {
-
-    if (!conn) return console.warn("no connection to close.");
-
-    try { conn.close() }
-    catch { console.error("error trying to close connection.") };
-
-  };
-
   return (async function(...args: any[]) {
 
-    const Conn = await connect();
-
-    if (Conn) {
-
-      const retValue = await fn(...args);
-      close(Conn);
-
-      return retValue;
-
-    };
+    await connectDB();
+    return await fn(...args);
   }) as T;
 };

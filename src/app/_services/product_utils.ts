@@ -8,6 +8,7 @@ import { Task, type IProduct } from '@/app/_data/types';
 import { type Response } from '@/app/_data/types';
 import { Product } from '@/app/_data/data';
 import { TASKS } from '@/app/_data/task';
+import { redirect } from 'next/navigation';
 
 const saveError = "Could not save Product in database\n\n";
 const findError = "Could not find product in database\n\n";
@@ -319,9 +320,9 @@ export const findProducts = DatabaseConnects(async (user: string) => {
   try {
 
     const products = await Product.find({}, { _id: 0, __v: 0 })
-      .sort(user !== "gianfranco" ? 
-            {sectionOrden: "asc", orden: "asc"} : 
-            {sectionOrdenGianfranco: "asc", orden: "asc"})
+      .sort(user !== "gianfranco" ?
+        { sectionOrden: "asc", orden: "asc" } :
+        { sectionOrdenGianfranco: "asc", orden: "asc" })
       .lean<IProduct[]>();
 
     for (const product of products) {
@@ -427,18 +428,16 @@ export const findAndDelete = DatabaseConnects(
 );
 
 /** Deletes a product from the database and moves the adjacents elements */
-export const deleteProduct = async (sku: string): Promise<Response> => {
+export const deleteProduct = async (sku: string): Promise<void | Response> => {
   try {
     const product = await findAndDelete(sku);
-
     if (product) await insertProduct(product.sectionOrden, product.orden, true);
-
-    return { success: true, message: "Producto borrado correctamente", error: undefined };
   }
   catch (err) {
     console.error(`There was an error while deleting object: ${sku}`);
     return { success: false, message: "Error while deleting object", error: "Check server log" };
   }
+  return redirect("/admin")
 };
 
 /** Toggle active product */
