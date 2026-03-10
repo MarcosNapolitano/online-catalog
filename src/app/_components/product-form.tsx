@@ -15,6 +15,8 @@ const initialState: Response = {
 const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
 
   const router = useRouter();
+  const sectionSuffix = `${data.section}-${data.sectionOrden}-${data.sectionOrdenGianfranco}`
+
   const [state, formAction, isPending] = useActionState(
     async (initialState: Response, formData: FormData) => {
 
@@ -74,23 +76,22 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
         <input name="price2" type="number" step="0.01" min="0" max="999999" defaultValue={data.price2.toString()} required />
 
         <label htmlFor="section"><b>Sección:</b></label>
-        <select name="section" id="cat-select" defaultValue={data.section}>
-          <option value="almacen">Almacén</option>
-          <option value="bebidas">Bebidas</option>
-          <option value="cafe">Café</option>
-          <option value="edulcorantes">Edulcorantes</option>
-          <option value="galletitas">Galletitas</option>
-          <option value="medicamentos">Medicamentos</option>
-          <option value="nucete">Nucete</option>
-          <option value="kiosco">Kiosco</option>
-          <option value="make">Make</option>
-          <option value="higiene">Higiene</option>
-          <option value="varios">Varios</option>
-          <option value="te">Té</option>
-          <option value="yerba">Yerba</option>
-          <option value="promocion">Promoción</option>
+        <select name="section" id="cat-select" defaultValue={sectionSuffix}>
+          <option value="almacen-2-5">Almacén</option>
+          <option value="bebidas-13-1">Bebidas</option>
+          <option value="cafe-4-6">Café</option>
+          <option value="edulcorantes-7-9">Edulcorantes</option>
+          <option value="galletitas-8-8">Galletitas</option>
+          <option value="medicamentos-9-12">Medicamentos</option>
+          <option value="nucete-3-7">Nucete</option>
+          <option value="kiosco-1-2">Kiosco</option>
+          <option value="make-10-11">Make</option>
+          <option value="higiene-11-10">Higiene</option>
+          <option value="varios-12-13">Varios</option>
+          <option value="te-5-4">Té</option>
+          <option value="yerba-6-3">Yerba</option>
+          <option value="promocion-14-14">Promoción</option>
         </select>
-
         <label htmlFor="orden"><b>Orden:</b></label>
         <input name="orden" type="number" defaultValue={data.orden} required />
 

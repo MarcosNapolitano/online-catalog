@@ -19,8 +19,10 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
     section: data.section,
     orden: data.orden,
     special: data.special,
-    gianfrancoExclusive: data.gianfrancoExclusive
-  }
+    gianfrancoExclusive: data.gianfrancoExclusive,
+    sectionOrden: data.sectionOrden,
+    sectionOrdenGianfranco: data.sectionOrdenGianfranco
+  };
 
   if (data.subProduct) {
     const subProduct = {

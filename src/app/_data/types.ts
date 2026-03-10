@@ -68,7 +68,9 @@ export interface ProductForm {
     price: string,
     price2: string,
   },
-  gianfrancoExclusive: boolean
+  gianfrancoExclusive: boolean,
+  sectionOrden: number,
+  sectionOrdenGianfranco: number
 }
 
 export interface IProductComp {

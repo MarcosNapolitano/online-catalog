@@ -1,6 +1,6 @@
 'use server'
 import crypto from 'crypto'
-import mongoose, { Connection } from 'mongoose'
+import mongoose, { Connection, deleteModel } from 'mongoose'
 import DatabaseConnects from './db_connect';
 import { writeFile } from 'node:fs/promises';
 import { readFromCsv } from './json_utils';
@@ -247,6 +247,7 @@ export const editProduct = async (
   Promise<Response> => {
 
   const product = await findSingleProduct(originalSku);
+  const newSection = (formData.get("section") as string).split("-");
 
   if (!product) return { success: false, message: findError, error: "Error on FindSingleProduct" }
 
@@ -254,9 +255,20 @@ export const editProduct = async (
   product.name = formData.get("name") as string;
   product.price = new mongoose.Types.Decimal128(formData.get("price") as string);
   product.price2 = new mongoose.Types.Decimal128(formData.get("price2") as string);
-  product.section = formData.get("section") as string;
   product.special = formData.get("special") as "" | "oferta" | "novedad";
   product.gianfrancoExclusive = formData.get("exclusive") ? true : false;
+
+  if (product.sectionOrden !== parseInt(newSection[1])) {
+
+    // we "delete" from the old section, we update, and we make space in new one
+    await insertProduct(product.sectionOrden, product.orden, true);
+
+    product.section = newSection[0];
+    product.sectionOrden = parseInt(newSection[1]);
+    product.sectionOrdenGianfranco = parseInt(newSection[2]);
+
+    await insertProduct(product.sectionOrden, product.orden);
+  };
 
   if (formData.get("sub-sku")) {
 
@@ -264,13 +276,13 @@ export const editProduct = async (
       sku: formData.get("sub-sku") as string,
       price: new mongoose.Types.Decimal128(formData.get("sub-price") as string),
       price2: new mongoose.Types.Decimal128(formData.get("sub-price2") as string),
-    }
-  }
+    };
+  };
 
   if (!await moveProduct(product, parseInt(formData.get('orden') as string))) {
 
     console.error(moveError);
-    return { success: false, message: moveError, error: "Error on moveProduct" }
+    return { success: false, message: moveError, error: "Error on moveProduct" };
   };
 
   const file = formData.get("image") as File;
@@ -500,6 +512,7 @@ export const insertProduct = DatabaseConnects(
   async (section: number, orden: number, deletion?: boolean):
     Promise<false | true> => {
 
+    console.log(section, orden, deletion);
     const orderNumber = deletion ? -1 : 1;
 
     try {
