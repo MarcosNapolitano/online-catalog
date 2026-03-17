@@ -11,6 +11,19 @@ const Result: React.FC<Result> = ({ sku, orden, active, name, backAction }): Rea
 
   const [productStatus, setProductStatus] = useState<true | false | undefined>(active);
   const [checkStatus, setCheckStatus] = useState<true | false>(false);
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    function handleKeyDown(e: KeyboardEvent) {
+      if (e.ctrlKey && e.key === "d") {
+        e.preventDefault();
+        inputRef.current?.click();
+      }
+    }
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   if (productStatus === undefined) return <li className='product-result'>&nbsp;</li>;
 
@@ -30,7 +43,7 @@ const Result: React.FC<Result> = ({ sku, orden, active, name, backAction }): Rea
     <Link href={"/admin/" + sku}>
       {`${orden.toString()} - ${name}`}
     </Link>
-    <input disabled={checkStatus} type='checkbox' onClick={handleChange} defaultChecked={active} />
+    <input ref={inputRef} disabled={checkStatus} type='checkbox' onClick={handleChange} defaultChecked={active} />
   </li>
 
 };

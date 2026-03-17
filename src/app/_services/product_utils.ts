@@ -1,4 +1,6 @@
 'use server'
+
+import { getJson } from "serpapi"
 import crypto from 'crypto'
 import mongoose, { Connection, deleteModel } from 'mongoose'
 import DatabaseConnects from './db_connect';
@@ -531,3 +533,35 @@ export const insertProduct = DatabaseConnects(
     return true
   }
 );
+
+export const getImage = async (query: string) => {
+
+  const URL = "https://www.googleapis.com/customsearch/v1";
+  const KEY = `?key=${process.env.GOOGLE_API_KEY}`
+  const ENGINE_ID = `&cx=${process.env.ENGINE_ID}`
+
+  return await fetch(`${URL}${KEY}${ENGINE_ID}&q=${query}&searchType=image&num=1`)
+
+}
+
+export const searchImage = async (productName: string): Promise<string[]> => {
+
+  type ImageResult = {
+    original: string
+    thumbnail: string
+    title: string
+    source: string
+  }
+
+  const response = await getJson("google", {
+    api_key: process.env.SERP_KEY,
+    q: productName,
+    location: "Argentina",
+    hl: "es",
+    gl: "ar"
+  });
+
+  return response.images_results
+    .filter((url: string, idx: number) => idx <= 5)
+    .map((url: ImageResult) => url.original) ?? ['']
+};

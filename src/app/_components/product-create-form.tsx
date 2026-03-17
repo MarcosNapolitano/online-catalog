@@ -1,9 +1,9 @@
 "use client"
 
-import { useActionState } from "react"
+import { ChangeEvent, useEffect, useActionState, useState } from "react"
 import { type IProduct } from "@/app/_data/types"
 import { type Response } from "@/app/_data/types"
-import { createProduct } from "@/app/_services/product_utils";
+import { createProduct, searchImage } from "@/app/_services/product_utils";
 import { useRouter } from "next/navigation";
 import Loading from "@/app/loading";
 
@@ -16,6 +16,7 @@ const initialState: Response = {
 const ProductCreateForm = (): React.JSX.Element => {
 
   const router = useRouter();
+  const [productName, setProductName] = useState<string>('');
   const [state, formAction, isPending] = useActionState(async (initialState: Response, formData: FormData) => {
 
     const response: Response = await createProduct(formData);
@@ -29,13 +30,26 @@ const ProductCreateForm = (): React.JSX.Element => {
 
   }, initialState);
 
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => setProductName(event.target.value)
+
+  // to do: terminar de armar array de urls, generar ese estado o ver como
+  // generar iterativamente los thumbnail
+  // usar sharp para resizear y subir pero eso en createProduct un utils
+  useEffect(() => {
+    const timeout = setTimeout( async () => {
+      if (productName) await searchImage(productName)
+    }, 1000)
+
+    return () => clearTimeout(timeout) // cancela el anterior antes de crear uno nuevo
+  }, [productName])
+
   return (isPending ? <Loading /> :
     <form className="csv-form" action={formAction}>
       <label htmlFor="sku"><b>SKU:</b></label>
       <input name="sku" type="text" defaultValue="ARC0001" required />
 
       <label htmlFor="name"><b>Nombre:</b></label>
-      <input name="name" type="text" defaultValue="Chocolate Arcor x18u." required />
+      <input name="name" type="text" onChange={handleChange} defaultValue="Chocolate Arcor x18u." required />
 
       <label htmlFor="price"><b>Precio GF:</b></label>
       <input name="price" type="number" step="0.01" min="0" max="999999" defaultValue="123.45" required />

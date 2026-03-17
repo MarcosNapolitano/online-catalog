@@ -10,13 +10,13 @@ const r2Client = new S3Client({
   },
 });
 
-async function uploadTest(key: string, body: Buffer) {
-  await r2Client.send(
-    new PutObjectCommand({
-      Bucket: process.env.R2_BUCKET_NAME!,
-      Key: key,
-      Body: body,
-    })
-  );
-  console.log("File Uploaded!");
-}
+// async function uploadTest(key: string, body: Buffer) {
+//   await r2Client.send(
+//     new PutObjectCommand({
+//       Bucket: process.env.R2_BUCKET_NAME!,
+//       Key: key,
+//       Body: body,
+//     })
+//   );
+//   console.log("File Uploaded!");
+// }
