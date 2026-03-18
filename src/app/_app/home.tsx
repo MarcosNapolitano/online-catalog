@@ -11,7 +11,7 @@ import { Row } from "@/app/_components/row";
 import { Column } from "@/app/_components/column";
 import { Product } from "@/app/_components/product";
 import { EmptyProduct } from "@/app/_components/empty-product";
-import { unstable_cacheTag as cacheTag } from "next/cache";
+import { cacheTag as cacheTag } from "next/cache";
 
 
 /** Creates element pushes it into it's array and clears child's array*/

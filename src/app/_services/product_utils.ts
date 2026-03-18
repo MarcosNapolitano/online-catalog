@@ -551,6 +551,7 @@ export const searchImage = async (productName: string): Promise<string[]> => {
     thumbnail: string
     title: string
     source: string
+    source_name: string
   }
 
   const response = await getJson("google", {
@@ -561,7 +562,7 @@ export const searchImage = async (productName: string): Promise<string[]> => {
     gl: "ar"
   });
 
-  return response.images_results
+  return response.inline_images
     .filter((url: string, idx: number) => idx <= 5)
     .map((url: ImageResult) => url.original) ?? ['']
 };

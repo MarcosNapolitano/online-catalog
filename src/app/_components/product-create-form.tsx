@@ -1,5 +1,6 @@
 "use client"
 
+import Image from "next/image";
 import { ChangeEvent, useEffect, useActionState, useState } from "react"
 import { type IProduct } from "@/app/_data/types"
 import { type Response } from "@/app/_data/types"
@@ -16,6 +17,7 @@ const initialState: Response = {
 const ProductCreateForm = (): React.JSX.Element => {
 
   const router = useRouter();
+  const [imagesURL, setImagesURL] = useState<Array<string>>([]);
   const [productName, setProductName] = useState<string>('');
   const [state, formAction, isPending] = useActionState(async (initialState: Response, formData: FormData) => {
 
@@ -32,12 +34,10 @@ const ProductCreateForm = (): React.JSX.Element => {
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => setProductName(event.target.value)
 
-  // to do: terminar de armar array de urls, generar ese estado o ver como
-  // generar iterativamente los thumbnail
-  // usar sharp para resizear y subir pero eso en createProduct un utils
   useEffect(() => {
-    const timeout = setTimeout( async () => {
-      if (productName) await searchImage(productName)
+    const timeout = setTimeout(async () => {
+      if (productName) setImagesURL(await searchImage(productName));
+
     }, 1000)
 
     return () => clearTimeout(timeout) // cancela el anterior antes de crear uno nuevo
@@ -87,8 +87,22 @@ const ProductCreateForm = (): React.JSX.Element => {
       <input style={{ color: "whitesmoke" }} name="image" accept=".webp" type="file" />
 
       <input className="button edit-button" value="Crear Producto" type="submit" />
+      <fieldset style={{ display: "flex", gap: "1rem" }}>
+        {imagesURL.map((url: string, index: number) => {
+          return <Image
+            key={index}
+            alt="prod-image"
+            src={url}
+            width={100}
+            height={100}
+          />
+        })}
+      </fieldset>
     </form>
   );
+  // to do: hacer el onclick mande la URL en el formData y que 
+  // createProduct distinga entre URL enviada o FILE enviado
+  // usar sharp para resizear y subir pero eso en createProduct un utils
 };
 
 export default ProductCreateForm;

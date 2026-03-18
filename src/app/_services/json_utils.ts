@@ -1,7 +1,7 @@
 import { writeFile } from 'node:fs/promises';
 import { readFile } from 'node:fs/promises';
 import { type IProduct } from '@/app/_data/types';
-import { unstable_cacheTag as cacheTag } from 'next/cache';
+import { cacheTag as cacheTag } from 'next/cache';
 
 export const writeBaseJson = async (data: Array<IProduct>): Promise<void> => {
   try {

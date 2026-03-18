@@ -15,10 +15,7 @@ const nextConfig: NextConfig = {
         search: '',
       },
       {
-        protocol: 'https',
-        hostname: 'imagedelivery.net',
-        port: '',
-        search: '',
+        hostname: '**'
       },
     ]
   }
