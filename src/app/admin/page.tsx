@@ -22,7 +22,7 @@ const toggleActive = async (sku: string): Promise<true | false> => {
 
 const refreshCatalog = async (): Promise<Response> => {
   'use server'
-  revalidateTag('catalog');
+  revalidateTag('catalog', "max");
 
   return {
     success: true,
