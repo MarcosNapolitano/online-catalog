@@ -102,7 +102,7 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
           <option value="novedad">Novedad</option>
         </select>
         <label htmlFor="image"><b>Imágen:</b></label>
-        <input style={{ color: "whitesmoke" }} name="image" accept=".webp" type="file" />
+        <input style={{ color: "whitesmoke" }} name="image" accept="image/*" type="file" />
 
         <fieldset>
           <label htmlFor="exclusive" style={{ marginRight: "1rem" }}><b>Solo Gianfranco:</b></label>

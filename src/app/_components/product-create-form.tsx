@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { ChangeEvent, useEffect, useActionState, useState } from "react"
+import { MouseEvent, ChangeEvent, useEffect, useActionState, useState, } from "react"
 import { type IProduct } from "@/app/_data/types"
 import { type Response } from "@/app/_data/types"
 import { createProduct, searchImage } from "@/app/_services/product_utils";
@@ -19,6 +19,8 @@ const ProductCreateForm = (): React.JSX.Element => {
   const router = useRouter();
   const [imagesURL, setImagesURL] = useState<Array<string>>([]);
   const [productName, setProductName] = useState<string>('');
+  const [selectedURL, setSelectedURL] = useState<string>('');
+
   const [state, formAction, isPending] = useActionState(async (initialState: Response, formData: FormData) => {
 
     const response: Response = await createProduct(formData);
@@ -26,13 +28,10 @@ const ProductCreateForm = (): React.JSX.Element => {
     if (response.success) {
       window.location.replace(formData.get("sku") as string);
     }
-    else { console.error(response.error) };
 
     return response;
 
   }, initialState);
-
-  const handleChange = (event: ChangeEvent<HTMLInputElement>) => setProductName(event.target.value)
 
   useEffect(() => {
     const timeout = setTimeout(async () => {
@@ -40,8 +39,10 @@ const ProductCreateForm = (): React.JSX.Element => {
 
     }, 1000)
 
-    return () => clearTimeout(timeout) // cancela el anterior antes de crear uno nuevo
+    return () => clearTimeout(timeout) // cancels previous one when demounting
   }, [productName])
+
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => setProductName(event.target.value)
 
   return (isPending ? <Loading /> :
     <form className="csv-form" action={formAction}>
@@ -84,13 +85,16 @@ const ProductCreateForm = (): React.JSX.Element => {
       </fieldset>
 
       <label htmlFor="image"><b>Imágen:</b></label>
-      <input style={{ color: "whitesmoke" }} name="image" accept=".webp" type="file" />
+      <input style={{ color: "whitesmoke" }} name="image" accept="image/*" type="file" />
+      <input type="hidden" name="image-url" value={selectedURL ?? ""} />
 
       <input className="button edit-button" value="Crear Producto" type="submit" />
       <fieldset style={{ display: "flex", gap: "1rem" }}>
         {imagesURL.map((url: string, index: number) => {
           return <Image
             key={index}
+            onClick={() => setSelectedURL(imagesURL[index])}
+            className={selectedURL === url ? 'selected' : ''}
             alt="prod-image"
             src={url}
             width={100}
@@ -98,11 +102,11 @@ const ProductCreateForm = (): React.JSX.Element => {
           />
         })}
       </fieldset>
+      <p className={state.error ? 'error-message' : 'success-message'}>
+        {state.message}
+      </p>
     </form>
   );
-  // to do: hacer el onclick mande la URL en el formData y que 
-  // createProduct distinga entre URL enviada o FILE enviado
-  // usar sharp para resizear y subir pero eso en createProduct un utils
 };
 
 export default ProductCreateForm;

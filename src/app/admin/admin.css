@@ -203,6 +203,12 @@ form {
 
 }
 
+.selected{
+
+  border: 3px solid orangered;
+
+}
+
 @media (max-width: 500px) {
 
   .admin-category {

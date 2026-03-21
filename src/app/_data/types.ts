@@ -134,3 +134,12 @@ export interface Result {
   orden: number;
   backAction: (sku: string) => Promise<true | false>;
 }
+
+export type ImageResult = {
+    original: string
+    thumbnail: string
+    title: string
+    source: string
+    source_name: string
+  }
+

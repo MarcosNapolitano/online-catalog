@@ -1,13 +1,14 @@
 'use server'
 
-import { getJson } from "serpapi"
-import crypto from 'crypto'
+import { getJson } from "serpapi";
+import sharp from "sharp";
+import crypto from 'crypto';
 import mongoose, { Connection, deleteModel } from 'mongoose'
 import DatabaseConnects from './db_connect';
 import { writeFile } from 'node:fs/promises';
 import { readFromCsv } from './json_utils';
 import { Task, type IProduct } from '@/app/_data/types';
-import { type Response } from '@/app/_data/types';
+import { type Response, type ImageResult } from '@/app/_data/types';
 import { Product } from '@/app/_data/data';
 import { TASKS } from '@/app/_data/task';
 import { redirect } from 'next/navigation';
@@ -53,21 +54,39 @@ export const createProduct = async (formData: FormData): Promise<Response> => {
 
   const product: IProduct = new Product();
   const productSection: string[] = (formData.get("section") as string).split("-");
-  const file: File = formData.get("image") as File;
-  const buffer: Buffer = Buffer.from(await file.arrayBuffer());
-  const url: string = crypto.createHash("sha256").update(buffer).digest("hex");
+  const externalUrl = formData.get("image-url") as string;
+  let file: File | null = formData.get("image") as File;
 
   product.sku = formData.get("sku") as string;
   product.name = formData.get("name") as string;
   product.price = new mongoose.Types.Decimal128(formData.get("price") as string);
   product.price2 = new mongoose.Types.Decimal128(formData.get("price2") as string);
-  product.url = url;
   product.orden = parseInt(formData.get("orden") as string);
   product.section = productSection[0];
   product.sectionOrden = parseInt(productSection[1]);
   product.sectionOrdenGianfranco = parseInt(productSection[2]);
   product.special = "novedad";
   product.gianfrancoExclusive = formData.get("exclusive") ? true : false;
+
+  console.log(`Saving ${product.sku}'s image.`)
+
+  if (!file.size) {
+
+    if (!externalUrl)
+      return { success: false, message: "Subi la imagen", error: "check server log" };
+
+    file = await getImage({ url: externalUrl, name: product.sku })
+    if (!file)
+      return { success: false, message: "error while fetching img", error: "check server log" };
+  };
+
+  const url = await saveProductImage(file);
+  if (!url) {
+    console.error(saveImageError);
+    return { success: false, message: saveImageError, error: "check server log" };
+  };
+
+  product.url = url;
 
   // if no order given, set it last
   if (!product.orden)
@@ -84,33 +103,9 @@ export const createProduct = async (formData: FormData): Promise<Response> => {
     console.error(saveError);
     return { success: false, message: saveError, error: "Error on saveProduct" }
   };
-
-
-  try {
-    console.log(`Saving ${product.sku}'s image.`)
-
-    const imageForm = new FormData();
-    imageForm.append("file", file);
-    imageForm.append("id", url);
-
-    const res = await fetch(
-      `https://api.cloudflare.com/client/v4/accounts/${process.env.CDN_ACCOUNT_ID}/images/v1`,
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${process.env.CDN_API_TOKEN}`,
-        },
-        body: imageForm,
-      }
-    );
-  }
-  catch (err) {
-    console.error(err);
-    return { success: false, message: saveImageError, error: "check server log" };
-  };
-
   console.log(`${product.sku} saved successfully!`)
   return { success: true, message: "Producto creado correctamente", error: undefined }
+
 };
 
 /** Save several product to database */
@@ -250,6 +245,7 @@ export const editProduct = async (
 
   const product = await findSingleProduct(originalSku);
   const newSection = (formData.get("section") as string).split("-");
+  const file = formData.get("image") as File;
 
   if (!product) return { success: false, message: findError, error: "Error on FindSingleProduct" }
 
@@ -259,6 +255,17 @@ export const editProduct = async (
   product.price2 = new mongoose.Types.Decimal128(formData.get("price2") as string);
   product.special = formData.get("special") as "" | "oferta" | "novedad";
   product.gianfrancoExclusive = formData.get("exclusive") ? true : false;
+
+  if (file.size) {
+    console.log(`Saving ${product.sku}'s image.`)
+
+    const url = await saveProductImage(file);
+    if (!url) {
+      console.error(saveImageError);
+      return { success: false, message: saveImageError, error: "check server log" };
+    };
+    product.url = url;
+  };
 
   if (product.sectionOrden !== parseInt(newSection[1])) {
 
@@ -286,37 +293,6 @@ export const editProduct = async (
     console.error(moveError);
     return { success: false, message: moveError, error: "Error on moveProduct" };
   };
-
-  const file = formData.get("image") as File;
-
-  if (file.size) {
-    try {
-      console.log(`Saving ${product.sku}'s image.`)
-
-      const buffer: Buffer = Buffer.from(await file.arrayBuffer());
-      const url: string = crypto.createHash("sha256").update(buffer).digest("hex");
-      const imageForm = new FormData();
-
-      imageForm.append("file", file);
-      imageForm.append("id", url);
-      product.url = url;
-
-      const res = await fetch(
-        `https://api.cloudflare.com/client/v4/accounts/${process.env.CDN_ACCOUNT_ID}/images/v1`,
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${process.env.CDN_API_TOKEN}`,
-          },
-          body: imageForm,
-        }
-      );
-    }
-    catch (err) {
-      console.error(err);
-      return { success: false, message: saveImageError, error: "check server log" };
-    };
-  }
 
   if (!await saveProduct(product)) {
 
@@ -483,7 +459,7 @@ export const moveProduct = DatabaseConnects(
     console.log(`${product.sku} is being moved from position ${currOrden} to ${newOrden}`);
 
     // we add 1 from newOrden up until currOrden
-    // or we substract one from currOrden until newOrden
+    // or we substract one from currOrden until newOUden
     const orderObject = currOrden > newOrden ?
       { $gte: newOrden, $lt: currOrden } : { $gt: currOrden, $lte: newOrden };
 
@@ -534,25 +510,60 @@ export const insertProduct = DatabaseConnects(
   }
 );
 
-export const getImage = async (query: string) => {
+const saveProductImage = async (file: File): Promise<string | null> => {
 
-  const URL = "https://www.googleapis.com/customsearch/v1";
-  const KEY = `?key=${process.env.GOOGLE_API_KEY}`
-  const ENGINE_ID = `&cx=${process.env.ENGINE_ID}`
+  const buffer: Buffer = Buffer.from(await file.arrayBuffer());
+  const url: string = crypto.createHash("sha256").update(buffer).digest("hex");
+  const sharpBuffer = await sharp(buffer)
+    .resize(300, 300, { fit: "inside" })
+    .webp({ quality: 100 })
+    .toBuffer()
 
-  return await fetch(`${URL}${KEY}${ENGINE_ID}&q=${query}&searchType=image&num=1`)
+  const optimizedFile = new File([new Uint8Array(sharpBuffer)], `${file.name}.webp`);
 
-}
+  try {
+
+    const imageForm = new FormData();
+    imageForm.append("file", optimizedFile);
+    imageForm.append("id", url);
+
+    const res = await fetch(
+      `https://api.cloudflare.com/client/v4/accounts/${process.env.CDN_ACCOUNT_ID}/images/v1`,
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.CDN_API_TOKEN}`,
+        },
+        body: imageForm,
+      }
+    );
+  }
+  catch (err) {
+    console.error(err);
+    return null
+  };
+  return url;
+};
+
+const getImage = async (product: { url: string, name: string }): Promise<File | null> => {
+
+  let newFile;
+  try { newFile = await fetch(product.url); }
+  catch (err) {
+    console.error(err)
+    return null;
+  };
+
+  const buffer = await newFile.arrayBuffer();
+  const sharpBuffer = await sharp(Buffer.from(buffer))
+    .resize(300, 300, { fit: "inside" })
+    .webp({ quality: 100 })
+    .toBuffer()
+
+  return new File([new Uint8Array(sharpBuffer)], `${product.name}.webp`, { type: "image/webp" });
+};
 
 export const searchImage = async (productName: string): Promise<string[]> => {
-
-  type ImageResult = {
-    original: string
-    thumbnail: string
-    title: string
-    source: string
-    source_name: string
-  }
 
   const response = await getJson("google", {
     api_key: process.env.SERP_KEY,
