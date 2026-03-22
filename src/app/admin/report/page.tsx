@@ -10,7 +10,8 @@ interface ProductChange {
 
 export default async function Home() {
   // return <ListForm />
-
+  //
+  // to do: we need product units in order to get the unitary price for the update
   const list = await getList(1);
   if (!list) return;
 
@@ -50,9 +51,9 @@ export default async function Home() {
   changeIndex.forEach((price: ProductChange, element: string) => {
 
     if (price.old && price.new) {
-      
+
       // sometimes spaces get added to the end of the price
-      if(price.old.trim() === price.new.trim()) return;
+      if (price.old.trim() === price.new.trim()) return;
 
       return priceChanges.push(
         <p key={element}>{`${element} cambio de $${price.old} a `}
@@ -73,12 +74,17 @@ export default async function Home() {
   return <div>
     <div style={{ display: "flex" }}>
       <div>
+        <h2>Productos a Eliminar</h2>
         {productsToEliminate}
       </div>
       <div>
+        <h2>Productos Nuevos</h2>
         {newProducts}
       </div>
     </div>
-    {priceChanges}
+    <div>
+      <h2>Cambios de Precios</h2>
+      {priceChanges}
+    </div>
   </div>;
 }

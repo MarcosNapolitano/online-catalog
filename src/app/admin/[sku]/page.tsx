@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import NotFound from "@/app/not-found";
 import { findSingleProduct, editProduct } from "@/app/_services/product_utils";
@@ -35,13 +34,12 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
     };
     prop.subProduct = subProduct;
   }
-  const URL = `${process.env.CDN_URL}/${process.env.CDN_HASH}/${data.url}/public`;
+  const URL = `${process.env.CDN_URL}/${process.env.CDN_HASH}/`;
 
   return (
     <div>
       <h1>{data.name}</h1>
-      <Image alt="prod-image" src={URL} width={200} height={200} />
-      <ProductForm data={prop} />
+      <ProductForm data={prop} urlPrefix={URL} />
       <Link className='button' href="/admin/">Volver</Link>
     </div>
   );

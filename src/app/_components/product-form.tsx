@@ -1,5 +1,6 @@
 "use client"
-import { useActionState } from "react"
+import Image from "next/image";
+import { useActionState, useState } from "react"
 import { type IProduct } from "@/app/_data/types"
 import { type Response } from "@/app/_data/types"
 import { type ProductForm } from "@/app/_data/types"
@@ -12,9 +13,12 @@ const initialState: Response = {
   error: undefined,
 };
 
-const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
+const ProductForm = (
+  { data, urlPrefix }: { data: ProductForm, urlPrefix: string }
+): React.JSX.Element => {
 
   const router = useRouter();
+  const [selectedUrl, setSelectedUrl] = useState<string>(data.url);
   const sectionSuffix = `${data.section}-${data.sectionOrden}-${data.sectionOrdenGianfranco}`
 
   const [state, formAction, isPending] = useActionState(
@@ -62,6 +66,7 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
 
   return (
     <div>
+      <Image alt="prod-image" src={`${urlPrefix}${selectedUrl}/public`} width={200} height={200} />
       <form className="csv-form" action={formAction}>
         <label htmlFor="sku"><b>SKU:</b></label>
         <input name="sku" type="text" defaultValue={data.sku} required />
@@ -105,8 +110,15 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
         <input style={{ color: "whitesmoke" }} name="image" accept="image/*" type="file" />
 
         {data.isCombo &&
-          <select name="selected-url" id="cat-select" defaultValue={data.url}>
-            {data.imgUrls.map((url, index) => <option key={index} value={url}>{index}</option>)}
+          <select
+            name="selected-url"
+            id="cat-select"
+            defaultValue={data.url}
+            onChange={(e) => setSelectedUrl(e.target.value)}
+          >
+            {data.imgUrls.map((url, index) =>
+              <option key={index} value={url}>{index}</option>)
+            }
           </select>
         }
         <fieldset>
