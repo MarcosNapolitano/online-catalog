@@ -104,9 +104,16 @@ const ProductForm = ({ data }: { data: ProductForm }): React.JSX.Element => {
         <label htmlFor="image"><b>Imágen:</b></label>
         <input style={{ color: "whitesmoke" }} name="image" accept="image/*" type="file" />
 
+        {data.isCombo &&
+          <select name="selected-url" id="cat-select" defaultValue={data.url}>
+            {data.imgUrls.map((url, index) => <option key={index} value={url}>{index}</option>)}
+          </select>
+        }
         <fieldset>
           <label htmlFor="exclusive" style={{ marginRight: "1rem" }}><b>Solo Gianfranco:</b></label>
           <input name="exclusive" type="checkbox" defaultChecked={data.gianfrancoExclusive} />
+          <label htmlFor="isCombo" style={{ marginRight: "1rem" }}><b>Es Combo:</b></label>
+          <input name="isCombo" type="checkbox" defaultChecked={data.isCombo} />
         </fieldset>
 
         <fieldset>

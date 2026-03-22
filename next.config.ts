@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   experimental: {
     useCache: true,
   },
+  serverExternalPackages: ["pdf-parse", "@napi-rs/canvas"],
   images: {
     remotePatterns: [
       {

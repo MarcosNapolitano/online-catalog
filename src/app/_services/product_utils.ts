@@ -246,6 +246,7 @@ export const editProduct = async (
   const product = await findSingleProduct(originalSku);
   const newSection = (formData.get("section") as string).split("-");
   const file = formData.get("image") as File;
+  const selectedUrl = formData.get("selected-url") as string;
 
   if (!product) return { success: false, message: findError, error: "Error on FindSingleProduct" }
 
@@ -255,6 +256,10 @@ export const editProduct = async (
   product.price2 = new mongoose.Types.Decimal128(formData.get("price2") as string);
   product.special = formData.get("special") as "" | "oferta" | "novedad";
   product.gianfrancoExclusive = formData.get("exclusive") ? true : false;
+  product.isCombo = formData.get("isCombo") ? true : false;
+
+  // itialize the array
+  if (product.isCombo && !product.imgUrls.length) product.imgUrls.push(product.url);
 
   if (file.size) {
     console.log(`Saving ${product.sku}'s image.`)
@@ -265,7 +270,12 @@ export const editProduct = async (
       return { success: false, message: saveImageError, error: "check server log" };
     };
     product.url = url;
+    if (product.isCombo) product.imgUrls.push(url);
   };
+
+  // update the new URL
+  if (selectedUrl && selectedUrl !== product.url)
+    product.url = selectedUrl;
 
   if (product.sectionOrden !== parseInt(newSection[1])) {
 
@@ -519,7 +529,10 @@ const saveProductImage = async (file: File): Promise<string | null> => {
     .webp({ quality: 100 })
     .toBuffer()
 
-  const optimizedFile = new File([new Uint8Array(sharpBuffer)], `${file.name}.webp`);
+  // remove file extension
+  const name = file.name.substring(0, file.name.lastIndexOf("."));
+
+  const optimizedFile = new File([new Uint8Array(sharpBuffer)], `${name}.webp`);
 
   try {
 

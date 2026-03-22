@@ -14,6 +14,7 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
   const prop: ProductForm = {
     sku: data.sku,
     name: data.name,
+    url: data.url,
     price: data.price.toString(),
     price2: data.price2.toString(),
     section: data.section,
@@ -21,7 +22,9 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
     special: data.special,
     gianfrancoExclusive: data.gianfrancoExclusive,
     sectionOrden: data.sectionOrden,
-    sectionOrdenGianfranco: data.sectionOrdenGianfranco
+    sectionOrdenGianfranco: data.sectionOrdenGianfranco,
+    isCombo: data.isCombo,
+    imgUrls: data.imgUrls
   };
 
   if (data.subProduct) {

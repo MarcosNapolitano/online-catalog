@@ -6,7 +6,7 @@ export interface JsonWebToken {
   [key: string]: string | number | boolean | null | undefined
 }
 
-export interface Task{
+export interface Task {
   status: string;
   progress: number;
   token: string;
@@ -30,7 +30,10 @@ interface Product {
     price: string | mongoose.Types.Decimal128,
     price2: string | mongoose.Types.Decimal128,
   },
-  gianfrancoExclusive: boolean
+  gianfrancoExclusive: boolean,
+  isCombo: boolean,
+  imgUrls: string[]
+
 };
 
 interface User {
@@ -58,6 +61,7 @@ export interface IDeslogeo {
 export interface ProductForm {
   sku: string;
   name: string;
+  url: string;
   price: string;
   price2: string;
   section: string;
@@ -67,10 +71,12 @@ export interface ProductForm {
     sku: string,
     price: string,
     price2: string,
-  },
-  gianfrancoExclusive: boolean,
-  sectionOrden: number,
-  sectionOrdenGianfranco: number
+  };
+  gianfrancoExclusive: boolean;
+  sectionOrden: number;
+  sectionOrdenGianfranco: number;
+  isCombo: boolean;
+  imgUrls: string[];
 }
 
 export interface IProductComp {
@@ -78,7 +84,7 @@ export interface IProductComp {
   title: string,
   section: string,
   price: string,
-  url: { url: string, oferta: string, novedad: string},
+  url: { url: string, oferta: string, novedad: string },
   active: boolean,
   special: "oferta" | "novedad" | "",
   price2?: string,
@@ -136,10 +142,15 @@ export interface Result {
 }
 
 export type ImageResult = {
-    original: string
-    thumbnail: string
-    title: string
-    source: string
-    source_name: string
-  }
+  original: string;
+  thumbnail: string;
+  title: string;
+  source: string;
+  source_name: string;
+}
 
+export type IPriceList = {
+  listId: number;
+  old: string;
+  new: string;
+}
