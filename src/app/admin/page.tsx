@@ -10,6 +10,7 @@ import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import Loading from "@/app/loading";
+import ListForm from "@/app/_components/list-form";
 
 const toggleActive = async (sku: string): Promise<true | false> => {
   'use server'
@@ -50,6 +51,7 @@ export default async function Home() {
       </Suspense>
       <MiscFunctions refreshCatalog={refreshCatalog} />
       <CsvForm />
+      <ListForm />
     </div>
   );
 }

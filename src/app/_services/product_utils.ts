@@ -12,6 +12,7 @@ import { type Response, type ImageResult } from '@/app/_data/types';
 import { Product } from '@/app/_data/data';
 import { TASKS } from '@/app/_data/task';
 import { redirect } from 'next/navigation';
+import { ProductChange } from "@/app/_data/types";
 
 const saveError = "Could not save Product in database\n\n";
 const findError = "Could not find product in database\n\n";
@@ -67,6 +68,8 @@ export const createProduct = async (formData: FormData): Promise<Response> => {
   product.sectionOrdenGianfranco = parseInt(productSection[2]);
   product.special = "novedad";
   product.gianfrancoExclusive = formData.get("exclusive") ? true : false;
+  product.extName = formData.get("extName") as string;
+  product.units = parseInt(formData.get("units") as string);
 
   console.log(`Saving ${product.sku}'s image.`)
 
@@ -234,6 +237,37 @@ export const updateProducts = DatabaseConnects(async (
     await updateTask(taskID, "Couldn't finish task", -1, token, true)
     return { success: false, message: saveError, error: `${err}` }
   };
+});
+
+
+/** Update prices by product name, used in report auto update */
+export const updatePricesByName = DatabaseConnects(async (
+  changeIndex: Map<string, ProductChange>, listId: 1 | 2): Promise<void> => {
+
+  changeIndex.forEach(async (price: ProductChange, element: string) => {
+
+    if (!price.old || !price.new) {
+      return;
+    }
+    try {
+      await Product.findOneAndUpdate({ extName: element },
+        listId === 1 ?
+          { price: price.new } :
+          { price2: price.new })
+    }
+    catch (err) {
+      // to do: do this right
+      console.error(`Product ${element} gave the following error:\n\n${err}`);
+      return;
+    };
+  })
+  // return {
+  //   success: true,
+  //   message: "Productos actualizados correctamente",
+  //   error: undefined
+  // };
+  console.log("Products successfully updated.")
+  return;
 });
 
 /** Saves an edited product from a form to the database */

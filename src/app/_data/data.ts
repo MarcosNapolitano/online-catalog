@@ -19,7 +19,9 @@ export const productSchema: Schema = new Schema<IProduct>({
   subProduct: { type: Object, default: undefined },
   gianfrancoExclusive: { type: Boolean, default: false },
   isCombo: { type: Boolean, default: false },
-  imgUrls: { type: [String] }
+  imgUrls: { type: [String] },
+  units: { type: Number },
+  extName: { type: String }
 
 });
 

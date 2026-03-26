@@ -1,17 +1,11 @@
-import ListForm from "@/app/_components/list-form"
 import { getList } from "@/app/_services/list_utils"
 import { diffLines } from "diff"
 import { ReactNode } from "react";
-
-interface ProductChange {
-  new?: string;
-  old?: string
-}
+import { ProductChange } from "@/app/_data/types";
+import { updatePricesByName } from "@/app/_services/product_utils";
 
 export default async function Home() {
-  // return <ListForm />
-  //
-  // to do: we need product units in order to get the unitary price for the update
+
   const list = await getList(1);
   if (!list) return;
 

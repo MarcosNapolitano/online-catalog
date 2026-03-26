@@ -32,7 +32,9 @@ interface Product {
   },
   gianfrancoExclusive: boolean,
   isCombo: boolean,
-  imgUrls: string[]
+  imgUrls: string[],
+  units: number,
+  extName: string,
 
 };
 
@@ -154,3 +156,9 @@ export type IPriceList = {
   old: string;
   new: string;
 }
+
+export interface ProductChange {
+  new?: string;
+  old?: string
+}
+

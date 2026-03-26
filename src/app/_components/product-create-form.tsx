@@ -79,9 +79,13 @@ const ProductCreateForm = (): React.JSX.Element => {
       <label htmlFor="orden"><b>Orden:</b></label>
       <input name="orden" type="number" defaultValue="101" required />
 
-      <fieldset>
+      <fieldset style={{ display: "flex", flexDirection: "column" }}>
         <label htmlFor="exclusive" style={{ marginRight: "1rem" }}><b>Solo Gianfranco:</b></label>
         <input name="exclusive" type="checkbox" />
+        <label htmlFor="extName"><b>Nombre de ellos:</b></label>
+        <input name="extName" type="text" placeholder="El nombre en su lista" required />
+        <label htmlFor="units"><b>Unidades:</b></label>
+        <input name="units" type="number" step="1" defaultValue="1" required />
       </fieldset>
 
       <label htmlFor="image"><b>Imágen:</b></label>
