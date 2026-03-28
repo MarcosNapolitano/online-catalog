@@ -75,10 +75,10 @@ const ProductForm = (
         <input name="name" type="text" defaultValue={data.name} required />
 
         <label htmlFor="price"><b>Precio GF:</b></label>
-        <input name="price" type="number" step="0.01" min="0" max="999999" defaultValue={data.price.toString()} required />
+        <input name="price" type="number" step="0.01" min="0" max="999999" defaultValue={data.price} required />
 
         <label htmlFor="price2"><b>Precio Distri:</b></label>
-        <input name="price2" type="number" step="0.01" min="0" max="999999" defaultValue={data.price2.toString()} required />
+        <input name="price2" type="number" step="0.01" min="0" max="999999" defaultValue={data.price2} required />
 
         <label htmlFor="section"><b>Sección:</b></label>
         <select name="section" id="cat-select" defaultValue={sectionSuffix}>

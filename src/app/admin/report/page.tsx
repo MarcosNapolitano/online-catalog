@@ -3,10 +3,17 @@ import { diffLines } from "diff"
 import { ReactNode } from "react";
 import { ProductChange } from "@/app/_data/types";
 import { updatePricesByName } from "@/app/_services/product_utils";
+import NotFound from "@/app/not-found";
+import { UpdateProducts } from "@/app/_components/update-products";
 
-export default async function Home() {
+export default async function Home({ searchParams }:
+  { searchParams: Promise<{ listID: 2 | 1 }> }) {
 
-  const list = await getList(1);
+  const params = await searchParams;
+
+  if (params.listID < 1 || params.listID > 2 || !params.listID) return <NotFound />
+
+  const list = await getList(params.listID);
   if (!list) return;
 
   const changeIndex: Map<string, ProductChange> = new Map();
@@ -80,5 +87,6 @@ export default async function Home() {
       <h2>Cambios de Precios</h2>
       {priceChanges}
     </div>
+    <UpdateProducts changeIndex={changeIndex} listID={params.listID} />
   </div>;
 }

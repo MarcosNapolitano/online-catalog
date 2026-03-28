@@ -3,7 +3,7 @@
 import { getJson } from "serpapi";
 import sharp from "sharp";
 import crypto from 'crypto';
-import mongoose, { Connection, deleteModel } from 'mongoose'
+import mongoose, { Connection, deleteModel, Decimal128 } from 'mongoose'
 import DatabaseConnects from './db_connect';
 import { writeFile } from 'node:fs/promises';
 import { readFromCsv } from './json_utils';
@@ -242,7 +242,9 @@ export const updateProducts = DatabaseConnects(async (
 
 /** Update prices by product name, used in report auto update */
 export const updatePricesByName = DatabaseConnects(async (
-  changeIndex: Map<string, ProductChange>, listId: 1 | 2): Promise<void> => {
+  changeIndex: Map<string, ProductChange>, listId: 1 | 2): Promise<Response> => {
+
+  const errors: string[] = []
 
   changeIndex.forEach(async (price: ProductChange, element: string) => {
 
@@ -250,24 +252,31 @@ export const updatePricesByName = DatabaseConnects(async (
       return;
     }
     try {
-      await Product.findOneAndUpdate({ extName: element },
-        listId === 1 ?
-          { price: price.new } :
-          { price2: price.new })
+      const product: IProduct | null = await Product.findOne({ extName: element.trim() });
+      if (!product) return;
+
+      const formattedPrice = parseFloat((parseFloat(price.new) / product.units).toString()).toFixed(2)
+      const newPrice = new mongoose.Types.Decimal128(formattedPrice.toString())
+
+      if (listId === 1)
+        product.price = newPrice;
+      else
+        product.price2 = newPrice;
+
+      await product.save();
     }
     catch (err) {
-      // to do: do this right
-      console.error(`Product ${element} gave the following error:\n\n${err}`);
+      const errMessage = `Product ${element} gave the following error:\n\n${err}`;
+      console.error(errMessage);
+      errors.push(errMessage);
       return;
     };
   })
-  // return {
-  //   success: true,
-  //   message: "Productos actualizados correctamente",
-  //   error: undefined
-  // };
-  console.log("Products successfully updated.")
-  return;
+  return {
+    success: true,
+    message: "Productos actualizados correctamente",
+    error: errors.toString()
+  };
 });
 
 /** Saves an edited product from a form to the database */
@@ -612,7 +621,7 @@ const getImage = async (product: { url: string, name: string }): Promise<File | 
 
 export const searchImage = async (productName: string): Promise<string[]> => {
 
-  const response = await getJson("google", {
+  const response = await getJson("google_images", {
     api_key: process.env.SERP_KEY,
     q: productName,
     location: "Argentina",
@@ -620,7 +629,7 @@ export const searchImage = async (productName: string): Promise<string[]> => {
     gl: "ar"
   });
 
-  return response.inline_images
+  return response.images_results
     .filter((url: string, idx: number) => idx <= 5)
     .map((url: ImageResult) => url.original) ?? ['']
 };
