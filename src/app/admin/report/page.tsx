@@ -87,6 +87,6 @@ export default async function Home({ searchParams }:
       <h2>Cambios de Precios</h2>
       {priceChanges}
     </div>
-    <UpdateProducts changeIndex={changeIndex} listID={params.id} />
+    <UpdateProducts changeIndex={changeIndex} listID={params.id.toString() as '1' | '2'} />
   </div>;
 }
