@@ -4,7 +4,7 @@ import { ProductChange, Response } from '@/app/_data/types';
 import { updatePricesByName } from '@/app/_services/product_utils';
 
 export const UpdateProducts = ({ changeIndex, listID }:
-  { changeIndex: Map<string, ProductChange>, listID: 1 | 2 }): React.JSX.Element => {
+  { changeIndex: Map<string, ProductChange>, listID: "1" | "2" }): React.JSX.Element => {
 
   const initialState: Response = {
     success: false,
