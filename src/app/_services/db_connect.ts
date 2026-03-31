@@ -21,8 +21,8 @@ async function connectDB() {
 
   if (isConnected) return;
 
-  const DBNAME = process.env.NODE_ENV === "production" ? 'Distri' : 'Distri_Dev';
-  const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@distri.scp8dpz.mongodb.net/${DBNAME}?&w=majority`;
+  // const DBNAME = process.env.NODE_ENV === "production" ? 'Distri' : 'Distri_Dev';
+  const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@distri.scp8dpz.mongodb.net/Distri?&w=majority`;
   try { 
     await mongoose.connect(uri);
     isConnected = true;

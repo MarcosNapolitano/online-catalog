@@ -242,7 +242,7 @@ export const updateProducts = DatabaseConnects(async (
 
 /** Update prices by product name, used in report auto update */
 export const updatePricesByName = DatabaseConnects(async (
-  changeIndex: Map<string, ProductChange>, listId: 1 | 2): Promise<Response> => {
+  changeIndex: Map<string, ProductChange>, listId: "1" | "2"): Promise<Response> => {
 
   const errors: string[] = []
 
@@ -255,13 +255,13 @@ export const updatePricesByName = DatabaseConnects(async (
       const product: IProduct | null = await Product.findOne({ extName: element.trim() });
       if (!product) return;
 
-      const formattedPrice = parseFloat((parseFloat(price.new) / product.units).toString()).toFixed(2)
+      const formattedPrice = parseFloat(
+        (parseFloat(price.new) * (listId === "1" ? 1.135 : 1) / product.units).toString()
+      ).toFixed(2)
       const newPrice = new mongoose.Types.Decimal128(formattedPrice.toString())
 
-      if (listId === 1)
-        product.price = newPrice;
-      else
-        product.price2 = newPrice;
+      if (listId === "1") product.price = newPrice;
+      else product.price2 = newPrice;
 
       await product.save();
     }
@@ -274,7 +274,7 @@ export const updatePricesByName = DatabaseConnects(async (
   })
   return {
     success: true,
-    message: "Productos actualizados correctamente",
+    message: `Productos actualizados correctamente\nErrores:${errors.toString()}`,
     error: errors.toString()
   };
 });

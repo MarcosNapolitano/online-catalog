@@ -7,13 +7,13 @@ import NotFound from "@/app/not-found";
 import { UpdateProducts } from "@/app/_components/update-products";
 
 export default async function Home({ searchParams }:
-  { searchParams: Promise<{ listID: 2 | 1 }> }) {
+  { searchParams: Promise<{ id: 2 | 1 }> }) {
 
   const params = await searchParams;
 
-  if (params.listID < 1 || params.listID > 2 || !params.listID) return <NotFound />
+  if (params.id < 1 || params.id > 2 || !params.id) return <NotFound />
 
-  const list = await getList(params.listID);
+  const list = await getList(params.id);
   if (!list) return;
 
   const changeIndex: Map<string, ProductChange> = new Map();
@@ -87,6 +87,6 @@ export default async function Home({ searchParams }:
       <h2>Cambios de Precios</h2>
       {priceChanges}
     </div>
-    <UpdateProducts changeIndex={changeIndex} listID={params.listID} />
+    <UpdateProducts changeIndex={changeIndex} listID={params.id} />
   </div>;
 }
