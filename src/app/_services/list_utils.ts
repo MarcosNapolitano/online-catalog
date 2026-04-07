@@ -48,7 +48,9 @@ export const updateList = async (pdf: File, listId: 1 | 2): Promise<Response> =>
   text = text.replaceAll(unitReg, "")
   text = text.replaceAll("  ", " ")
   // number only on new lines
-  text = text.replaceAll(/\n\d\n/g, "0\n")
+  text = text.replaceAll(/\n\d\n/g, "\n")
+  text = text.replaceAll('PADRES. ', "")
+  text = text.replaceAll('\n0 ', "0\n")
 
   try { await saveList(text, listId); }
   catch (err) {
