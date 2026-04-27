@@ -107,6 +107,7 @@ form {
   align-items: center;
   gap: .5rem;
   border-radius: .5rem;
+  flex-wrap: wrap;
 }
 
 .misc-functions>input.button {
@@ -121,14 +122,13 @@ form {
 }
 
 .success-message {
-  margin-top: 2%;
   text-align: center;
   color: var(--te);
   font-weight: bold;
 }
 
+
 .error-message {
-  margin-top: 2%;
   text-align: center;
   color: var(--kiosco);
   font-weight: bold;
@@ -170,9 +170,6 @@ form {
 
 .product-submit {
   border: none;
-  display: flex;
-  justify-content: center;
-  gap: 1rem
 }
 
 .modal-overlay {

@@ -18,6 +18,8 @@ export const MiscFunctions: React.FC<MiscComp> = ({ refreshCatalog }):
 
   // avoids nextjs router to prevent fake loop
   const downloadCSV = () => window.location.href = "/api/export";
+  const downloadMayorista = () => window.location.href = "/api/list?id=1";
+  const downloadMinorista = () => window.location.href = "/api/list?id=2";
 
   return <div>
     <h3>Funciones Varias</h3>
@@ -25,10 +27,16 @@ export const MiscFunctions: React.FC<MiscComp> = ({ refreshCatalog }):
       <button className='button' onClick={handleRefreshCatalog}>
         Refresh Catalog
       </button>
-      <button className='button' onClick={downloadCSV}>Download CSV</button>
       <Link className='button' href="/admin/create">
         Crear Producto
       </Link>
+      <Link href="/admin/report?id=1"
+        className="button edit-button">Informe Mayorista</Link>
+      <Link href="/admin/report?id=2"
+        className="button edit-button">Informe Minorista</Link>
+      <button className='button' onClick={downloadCSV}>Download CSV</button>
+      <button className='button' onClick={downloadMayorista}>Download Mayorista</button>
+      <button className='button' onClick={downloadMinorista}>Download Minorista</button>
     </div>
     <p className={response.success ? 'success-message' : 'error-message'}>
       {response.message}

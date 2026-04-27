@@ -11,6 +11,7 @@ import { redirect } from "next/navigation";
 import { Suspense } from "react";
 import Loading from "@/app/loading";
 import ListForm from "@/app/_components/list-form";
+import ApedirForm from "../_components/apedir";
 
 const toggleActive = async (sku: string): Promise<true | false> => {
   'use server'
@@ -52,6 +53,7 @@ export default async function Home() {
       <MiscFunctions refreshCatalog={refreshCatalog} />
       <CsvForm />
       <ListForm />
+      <ApedirForm />
     </div>
   );
 }

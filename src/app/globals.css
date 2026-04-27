@@ -53,8 +53,8 @@ body {
 img,
 picture,
 video,
-canvas,
-svg {
+canvas
+{
   display: block;
   /* max-width: 100%; */
 }
@@ -146,6 +146,7 @@ section,
   align-items: center;
   background-size: cover;
   background-blend-mode: soft-light;
+  justify-content: space-between;
 }
 
 .section-gf {
@@ -331,7 +332,6 @@ section:first-of-type {
 }
 
 .footer {
-  margin-left: min(2%, 2rem);
   z-index: 1;
 }
 
@@ -673,46 +673,65 @@ section:first-of-type {
   cursor: pointer;
 }
 
-/* SVG starts here */
-.svg {
-  /* position: absolute; */
+/* /* SVG starts here */ 
+/* .svg { */
+/*   /* position: absolute; */ 
+/*   position: relative; */
+/*   width: 100%; */
+/*   height: 150px; */
+/*   overflow: hidden; */
+/*   z-index: 1; */
+/* } */
+
+/* /* SVG SUPERIOR */ 
+/* .section-header::before { */
+/*   content: ""; */
+/*   position: absolute; */
+/*   bottom: 0; */
+/*   left: 0; */
+/*   width: 100%; */
+/*   height: 150px; */
+/*   background: url("data:image/svg+xml;utf8,\<svg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'> <path d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' className='shape-fill'></path> </svg>"); */
+/*   background-color: linear-gradient(53deg, rgba(230, 196, 82, 1) 0%, rgba(186, 52, 23, 1) 100%); */
+/*   background-repeat: no-repeat; */
+/*   background-size: cover; */
+/*   opacity: 90%; */
+/*   z-index: -1; */
+/* } */
+/**/
+/* /* SVG INFERIOR */ 
+/* .section-footer::after { */
+/*   content: ""; */
+/*   position: absolute; */
+/*   bottom: 0; */
+/*   left: 0; */
+/**/
+/*   width: 100%; */
+/*   height: 150px; */
+/**/
+/*   background: url("data:image/svg+xml;utf8,\<svg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'> <path d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' className='shape-fill'></path> </svg>"); */
+/*   background-repeat: no-repeat; */
+/*   background-size: cover; */
+/*   opacity: 90%; */
+/* } */
+
+.header-shape {
   position: relative;
-  width: 100%;
-  height: 150px;
-  overflow: hidden;
-  z-index: 1;
-}
-
-/* SVG SUPERIOR */
-.section-header::before {
-  content: "";
-  position: absolute;
-  bottom: 0;
+  transform: rotate(180deg);
+  z-index: 0;
   left: 0;
   width: 100%;
-  height: 150px;
-  background: url("data:image/svg+xml;utf8,\<svg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'> <path d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' className='shape-fill'></path> </svg>");
-  background-color: linear-gradient(53deg, rgba(230, 196, 82, 1) 0%, rgba(186, 52, 23, 1) 100%);
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 90%;
-  z-index: -1;
+  fill: var(--background); /* o el color que uses */
+  margin-bottom: -8%;
 }
 
-/* SVG INFERIOR */
-.section-footer::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
+.bottom-shape {
+  position: relative;
+  z-index: 0;
   left: 0;
-
   width: 100%;
-  height: 150px;
-
-  background: url("data:image/svg+xml;utf8,\<svg data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 120' preserveAspectRatio='none'> <path d='M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z' className='shape-fill'></path> </svg>");
-  background-repeat: no-repeat;
-  background-size: cover;
-  opacity: 90%;
+  fill: var(--background); /* o el color que uses */
+  margin-top: -8%;
 }
 
 .index {
@@ -768,12 +787,12 @@ section:first-of-type {
 
 
 /** For mobile devices **/
-@media (max-width: 767px) {
-  .svg svg {
-    width: calc(165% + 1.3px);
-  }
-
-}
+/* @media (max-width: 767px) { */
+/*   .svg svg { */
+/*     width: calc(165% + 1.3px); */
+/*   } */
+/**/
+/* } */
 
 @media (min-width: 500px) and (max-width: 1000px) {
 
@@ -992,8 +1011,7 @@ section:first-of-type {
 
   .section-footer {
     width: 100%;
-    margin-top: -5%;
-    z-index: 0;
+    z-index: 1;
   }
 
   .section-header {

@@ -162,3 +162,19 @@ export interface ProductChange {
   old?: string
 }
 
+export interface Pedido {
+
+  Aclaraciones: string;
+  "Cant.": number;
+  Nombre: string;
+  Unitario: number;
+  "50%": number;
+  Bulto: number;
+  Subtotal: number;
+  Código: string;
+  Bodega: string;
+  Empresa: string;
+  Estado: string;
+  Categoría: string;
+  name: string;
+}

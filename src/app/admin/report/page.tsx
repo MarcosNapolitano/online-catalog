@@ -60,34 +60,34 @@ export default async function Home({ searchParams }:
       const newPrice = params.id == 1 ? Math.ceil(parseFloat(price.new)*1.135) : price.new;
 
       return priceChanges.push(
-        <p key={element}>{`${element}; cambio de $${oldPrice} a ;`}
+        <p className="product-result" key={element}>{`${element};${newPrice};`}
           <span className={newPrice > oldPrice ? "error-message" : "success-message"}>
-            {`$${newPrice}`}
+            {`${oldPrice}`}
           </span>
         </p>
       )
 
     }
     if (price.old)
-      return productsToEliminate.push(<p className='error-message' key={element}>{`${element};${price.old}`}</p>)
+      return productsToEliminate.push(<p className='error-message product-result' key={element}>{`${element};${price.old}`}</p>)
     if (price.new)
-      return newProducts.push(<p className='success-message' key={element}>{`${element};${price.new}`}</p>)
+      return newProducts.push(<p className='success-message product-result' key={element}>{`${element};${price.new}`}</p>)
 
   });
 
   return <div>
-    <div style={{ display: "flex" }}>
+    <div style={{ display: "flex", gap: "10rem", marginBottom: "10rem" }}>
       <div>
-        <h2>Productos a Eliminar</h2>
+        <h2 style={{marginBottom: "1rem"}}>Productos a Eliminar</h2>
         {productsToEliminate}
       </div>
       <div>
-        <h2>Productos Nuevos</h2>
+        <h2 style={{marginBottom: "1rem"}}>Productos Nuevos</h2>
         {newProducts}
       </div>
     </div>
     <div>
-      <h2>Cambios de Precios</h2>
+      <h2 style={{marginBottom: "1rem"}}>Cambios de Precios</h2>
       {priceChanges}
     </div>
     <UpdateProducts changeIndex={changeIndex} listID={params.id.toString() as '1' | '2'} />

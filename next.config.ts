@@ -4,6 +4,9 @@ const nextConfig: NextConfig = {
   /* config options here */
   experimental: {
     useCache: true,
+    serverActions: {
+      bodySizeLimit: '20mb',
+    },
   },
   serverExternalPackages: ["pdf-parse", "@napi-rs/canvas"],
   images: {

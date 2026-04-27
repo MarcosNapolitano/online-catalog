@@ -3,8 +3,10 @@
 import 'pdf-parse/worker'
 import { PDFParse } from "pdf-parse"
 import databaseConnects from './db_connect';
-import { type Response, type IPriceList } from '@/app/_data/types';
+import { type Response, type IPriceList, Pedido } from '@/app/_data/types';
 import { PriceList } from '@/app/_data/data';
+import XLSX from 'xlsx';
+import { readFile } from 'fs/promises';
 
 export const updateList = async (pdf: File, listId: 1 | 2): Promise<Response> => {
 
@@ -95,5 +97,53 @@ export const getList = databaseConnects(
       console.error(err);
       return null;
     };
-  })
+  }
+);
 
+export const generateAPedir = async (files: File[]) => {
+
+  const resultsArr: Pedido[] = [];
+
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    const wb = XLSX.read(await file.arrayBuffer(), { type: "array" })
+    const sheet = wb.Sheets[wb.SheetNames[0]];
+    const products: Pedido[] = XLSX.utils.sheet_to_json(sheet, { defval: "" })
+
+    products.map(product => {
+      if (product['Cant.']) {
+        product.name = file.name
+        resultsArr.push(product);
+      };
+    });
+  };
+
+  // ordenamos por codigo
+  resultsArr.sort((a, b) => a.Código > b.Código ? 1 : -1)
+
+  // tengo que pasar por un objeto primero con key codigo, no puedo hacerlo inplace
+  const agrupado = resultsArr.reduce((acc, curr) => {
+    if (acc[curr.Código]) {
+      acc[curr.Código]['Cant.'] += curr['Cant.']
+      if (curr.Aclaraciones)
+        acc[curr.Código].Aclaraciones += `\n${curr.Aclaraciones} de ${curr.name}`
+    } else {
+      acc[curr.Código] = { 
+
+        Categoría: curr.Categoría,
+        'Cant.': curr['Cant.'],
+        Nombre: curr.Nombre,
+        Aclaraciones: `${curr.Aclaraciones} de ${curr.name}`
+      }
+    }
+    return acc
+  }, {} as Record<string, any>)
+
+  const sheet = XLSX.utils.json_to_sheet(Object.values(agrupado));
+  const newBook = XLSX.utils.book_new();
+
+  XLSX.utils.book_append_sheet(newBook, sheet, "Hoja1");
+
+  return XLSX.write(newBook, {bookType: "xlsx", type: "array"});
+
+};
