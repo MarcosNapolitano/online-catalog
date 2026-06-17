@@ -18,35 +18,47 @@ const saveError = "Could not save Product in database\n\n";
 const findError = "Could not find product in database\n\n";
 const moveError = "Could not move product\n\n";
 const saveImageError = "Could not save product image\n\n";
+const GF_GANANCIA = 1.135;
+const DISTRI_GANANCIA = 1;
 
 /** Connects to database and creates products from csv */
-export const createProducts = DatabaseConnects(async (): Promise<string> => {
+export const createProducts = DatabaseConnects(async (): Promise<any> => {
 
   const productsData = await readFromCsv();
   if (!productsData) return "There is not any csv data";
 
-  const products: Array<IProduct> = [];
+  // const products: Array<IProduct> = [];
 
-  for (let i = 0; i < productsData.length; i += 9) {
-    const product: IProduct = new Product;
+  for (let i = 0; i < productsData.length; i += 2) {
+  // const product: IProduct = new Product;
+  //
+    await Product.updateOne({'subProduct.sku': productsData[i]}, {$set: {'subProduct.extName': productsData[i + 1]}});
 
-    product.sku = productsData[i];
-    product.name = productsData[i + 1];
-    product.price = new mongoose.Types.Decimal128(productsData[i + 2]);
-    product.price2 = new mongoose.Types.Decimal128(productsData[i + 3]);
-    product.active = productsData[i + 4] == "true" ? true : false;
-    product.orden = parseInt(productsData[i + 5]);
-    product.sectionOrden = parseInt(productsData[i + 6]);
-    product.section = productsData[i + 7];
-    product.special = productsData[i + 8] as "" | "oferta" | "novedad";
-    product.url = productsData[i];
-
-    products.push(product);
-    console.log(`Creating product ${product.sku}`);
+  //   product.sku = productsData[i];
+  //   product.name = productsData[i + 1];
+  //   product.price = new mongoose.Types.Decimal128(productsData[i + 2]);
+  //   product.price2 = new mongoose.Types.Decimal128(productsData[i + 3]);
+  //   product.active = productsData[i + 4] == "true" ? true : false;
+  //   product.orden = parseInt(productsData[i + 5]);
+  //   product.sectionOrden = parseInt(productsData[i + 6]);
+  //   product.section = productsData[i + 7];
+  //   product.special = productsData[i + 8] as "" | "oferta" | "novedad";
+  //   product.url = productsData[i];
+  //
+  // products.push(product);
+  // console.log(`Creating product ${product.sku}`);
+    console.log(`Creating product ${productsData[i]}`);
   }
 
-  if (await saveProducts(products)) return "Insertion complete!";
-  return "Insertion failed"
+  return 'done'
+  // if (await saveProducts(products)) return "Insertion complete!";
+  // return "Insertion failed"
+
+  // const products: IProduct[] | null = await Product.find({ subProduct: { $exists: true } });
+  // const skus: string[] = [];
+  //
+  // products.forEach(element=>skus.push(element.subProduct?.sku || ''));
+  // return skus;
 
 });
 
@@ -235,7 +247,7 @@ export const updateProducts = DatabaseConnects(async (
   catch (err) {
     console.error(err)
     await updateTask(taskID, "Couldn't finish task", -1, token, true)
-    return { success: false, message: saveError, error: `${err}` }
+    return { success: false, message: saveError, error: `${err}` };
   };
 });
 
@@ -252,21 +264,21 @@ export const updatePricesByName = DatabaseConnects(async (
       return;
     }
     try {
-      // to do:
-      // si no lo encuentra aca, chequear si tiene subprod y tambien chequear 
-      // contra else solo ahi returnear
+
+      // to do: testear esto
       const product: IProduct | null = await Product.findOne(
         {
-          $o: [
+          $or: [
             { extName: element.trim() },
-            { 'subProduct.price2': 1 }
+            { 'subProduct.extName': element.trim() }
           ]
         });
 
       if (!product) return;
 
       const formattedPrice = parseFloat(
-        (parseFloat(price.new) * (listId === "1" ? 1.135 : 1) / product.units).toString()
+        (parseFloat(price.new) * 
+         (listId === "1" ? GF_GANANCIA : DISTRI_GANANCIA) / product.units).toString()
       ).toFixed(2)
       const newPrice = new mongoose.Types.Decimal128(formattedPrice.toString())
 

@@ -27,6 +27,7 @@ interface Product {
   special: "" | "oferta" | "novedad",
   subProduct?: {
     sku: string,
+    extName: string,
     price: string | mongoose.Types.Decimal128,
     price2: string | mongoose.Types.Decimal128,
   },

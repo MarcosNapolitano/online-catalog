@@ -5,5 +5,5 @@ export async function GET() {
   // findAll({ subProduct: { $exists: true }});
   // luego copiar sus skus, sacar los nombre y agregarles extName
   const products = await createProducts();
-  return Response.json('done');
+  return Response.json(products);
 }
