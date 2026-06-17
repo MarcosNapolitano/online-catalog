@@ -252,7 +252,17 @@ export const updatePricesByName = DatabaseConnects(async (
       return;
     }
     try {
-      const product: IProduct | null = await Product.findOne({ extName: element.trim() });
+      // to do:
+      // si no lo encuentra aca, chequear si tiene subprod y tambien chequear 
+      // contra else solo ahi returnear
+      const product: IProduct | null = await Product.findOne(
+        {
+          $o: [
+            { extName: element.trim() },
+            { 'subProduct.price2': 1 }
+          ]
+        });
+
       if (!product) return;
 
       const formattedPrice = parseFloat(
