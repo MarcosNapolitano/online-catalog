@@ -64,9 +64,11 @@ export interface IDeslogeo {
 export interface ProductForm {
   sku: string;
   name: string;
+  extName: string;
   url: string;
   price: string;
   price2: string;
+  units: number;
   section: string;
   orden: number;
   special: string;
@@ -74,6 +76,7 @@ export interface ProductForm {
     sku: string,
     price: string,
     price2: string,
+    extName: string,
   };
   gianfrancoExclusive: boolean;
   sectionOrden: number;

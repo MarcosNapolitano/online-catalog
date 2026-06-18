@@ -52,12 +52,17 @@ const ProductCreateForm = (): React.JSX.Element => {
       <label htmlFor="name"><b>Nombre:</b></label>
       <input name="name" type="text" onChange={handleChange} defaultValue="Chocolate Arcor x18u." required />
 
+      <label htmlFor="extName"><b>Nombre Externo:</b></label>
+      <input name="extName" type="text" placeholder='El Nombre de ellos...' required />
+
       <label htmlFor="price"><b>Precio GF:</b></label>
       <input name="price" type="number" step="0.01" min="0" max="999999" defaultValue="123.45" required />
 
       <label htmlFor="price2"><b>Precio Distri:</b></label>
       <input name="price2" type="number" step="0.01" min="0" max="999999" defaultValue="456.54" required />
 
+      <label htmlFor="units"><b>Unidades</b></label>
+      <input name="units" type="number" step="1" min="1" max="9999" defaultValue='1' required />
       <label htmlFor="section"><b>Sección:</b></label>
       <select name="section" id="cat-select" defaultValue="almacen-2">
         <option value="almacen-2-5">Almacén</option>

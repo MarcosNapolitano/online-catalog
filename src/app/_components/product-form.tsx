@@ -39,7 +39,8 @@ const ProductForm = (
           data.subProduct = {
             sku: formData.get("sub-sku") as string,
             price: formData.get("sub-price") as string,
-            price2: formData.get("sub-price2") as string
+            price2: formData.get("sub-price2") as string,
+            extName: formData.get("sub-extName") as string
           };
         };
       }
@@ -74,11 +75,17 @@ const ProductForm = (
         <label htmlFor="name"><b>Nombre:</b></label>
         <input name="name" type="text" defaultValue={data.name} required />
 
+        <label htmlFor="extName"><b>Nombre Externo:</b></label>
+        <input name="extName" type="text" defaultValue={data.extName} required />
+
         <label htmlFor="price"><b>Precio GF:</b></label>
         <input name="price" type="number" step="0.01" min="0" max="999999" defaultValue={data.price} required />
 
         <label htmlFor="price2"><b>Precio Distri:</b></label>
         <input name="price2" type="number" step="0.01" min="0" max="999999" defaultValue={data.price2} required />
+
+        <label htmlFor="units"><b>Unidades</b></label>
+        <input name="units" type="number" step="1" min="1" max="9999" defaultValue={data.units} required />
 
         <label htmlFor="section"><b>Sección:</b></label>
         <select name="section" id="cat-select" defaultValue={sectionSuffix}>
@@ -132,6 +139,9 @@ const ProductForm = (
           <legend style={{ color: "whitesmoke" }}>SubProducto</legend>
           <label htmlFor="sub-sku"><b>SKU:</b></label>
           <input name="sub-sku" type="text" defaultValue={data.subProduct?.sku} />
+
+          <label htmlFor="sub-extName"><b>Nombre Externo</b></label>
+          <input name="sub-extName" type="text" defaultValue={data.subProduct?.extName} />
 
           <label htmlFor="sub-price"><b>Precio GF:</b></label>
           <input name="sub-price" type="number" step="0.01" min="0" max="999999"

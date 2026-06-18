@@ -2,6 +2,7 @@ import Link from "next/link";
 import NotFound from "@/app/not-found";
 import { findSingleProduct, editProduct } from "@/app/_services/product_utils";
 import ProductForm from "@/app/_components/product-form";
+import { extname } from "path";
 
 
 export default async function Page({ params, }: { params: Promise<{ sku: string }> }) {
@@ -14,6 +15,8 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
     sku: data.sku,
     name: data.name,
     url: data.url,
+    extName: data.extName,
+    units: data.units,
     price: data.price.toString(),
     price2: data.price2.toString(),
     section: data.section,
@@ -30,7 +33,8 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
     const subProduct = {
       sku: data.subProduct.sku,
       price: data.subProduct.price.toString(),
-      price2: data.subProduct.price2.toString()
+      price2: data.subProduct.price2.toString(),
+      extName: data.subProduct.extName
     };
     prop.subProduct = subProduct;
   }

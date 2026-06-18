@@ -45,6 +45,7 @@ export const Product: React.FC<IProductComp> = (
           src={special === "oferta" ? url.oferta : url.novedad}
           width={100}
           height={100}
+          loading='eager'
           unoptimized
         />}
 

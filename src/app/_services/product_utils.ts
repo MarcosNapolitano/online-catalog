@@ -27,38 +27,28 @@ export const createProducts = DatabaseConnects(async (): Promise<any> => {
   const productsData = await readFromCsv();
   if (!productsData) return "There is not any csv data";
 
-  // const products: Array<IProduct> = [];
+  const products: Array<IProduct> = [];
 
   for (let i = 0; i < productsData.length; i += 2) {
-  // const product: IProduct = new Product;
-  //
-    await Product.updateOne({'subProduct.sku': productsData[i]}, {$set: {'subProduct.extName': productsData[i + 1]}});
+    const product: IProduct = new Product;
 
-  //   product.sku = productsData[i];
-  //   product.name = productsData[i + 1];
-  //   product.price = new mongoose.Types.Decimal128(productsData[i + 2]);
-  //   product.price2 = new mongoose.Types.Decimal128(productsData[i + 3]);
-  //   product.active = productsData[i + 4] == "true" ? true : false;
-  //   product.orden = parseInt(productsData[i + 5]);
-  //   product.sectionOrden = parseInt(productsData[i + 6]);
-  //   product.section = productsData[i + 7];
-  //   product.special = productsData[i + 8] as "" | "oferta" | "novedad";
-  //   product.url = productsData[i];
-  //
-  // products.push(product);
-  // console.log(`Creating product ${product.sku}`);
-    console.log(`Creating product ${productsData[i]}`);
+    product.sku = productsData[i];
+    product.name = productsData[i + 1];
+    product.price = new mongoose.Types.Decimal128(productsData[i + 2]);
+    product.price2 = new mongoose.Types.Decimal128(productsData[i + 3]);
+    product.active = productsData[i + 4] == "true" ? true : false;
+    product.orden = parseInt(productsData[i + 5]);
+    product.sectionOrden = parseInt(productsData[i + 6]);
+    product.section = productsData[i + 7];
+    product.special = productsData[i + 8] as "" | "oferta" | "novedad";
+    product.url = productsData[i];
+
+    products.push(product);
+    console.log(`Creating product ${product.sku}`);
   }
 
-  return 'done'
-  // if (await saveProducts(products)) return "Insertion complete!";
-  // return "Insertion failed"
-
-  // const products: IProduct[] | null = await Product.find({ subProduct: { $exists: true } });
-  // const skus: string[] = [];
-  //
-  // products.forEach(element=>skus.push(element.subProduct?.sku || ''));
-  // return skus;
+  if (await saveProducts(products)) return "Insertion complete!";
+  return "Insertion failed"
 
 });
 
@@ -72,8 +62,10 @@ export const createProduct = async (formData: FormData): Promise<Response> => {
 
   product.sku = formData.get("sku") as string;
   product.name = formData.get("name") as string;
+  product.extName = formData.get("extName") as string;
   product.price = new mongoose.Types.Decimal128(formData.get("price") as string);
   product.price2 = new mongoose.Types.Decimal128(formData.get("price2") as string);
+  product.units = parseInt(formData.get("units") as string);
   product.orden = parseInt(formData.get("orden") as string);
   product.section = productSection[0];
   product.sectionOrden = parseInt(productSection[1]);
@@ -277,8 +269,8 @@ export const updatePricesByName = DatabaseConnects(async (
       if (!product) return;
 
       const formattedPrice = parseFloat(
-        (parseFloat(price.new) * 
-         (listId === "1" ? GF_GANANCIA : DISTRI_GANANCIA) / product.units).toString()
+        (parseFloat(price.new) *
+          (listId === "1" ? GF_GANANCIA : DISTRI_GANANCIA) / product.units).toString()
       ).toFixed(2)
       const newPrice = new mongoose.Types.Decimal128(formattedPrice.toString())
 
@@ -317,8 +309,10 @@ export const editProduct = async (
 
   product.sku = formData.get("sku") as string;
   product.name = formData.get("name") as string;
+  product.extName = formData.get("extName") as string;
   product.price = new mongoose.Types.Decimal128(formData.get("price") as string);
   product.price2 = new mongoose.Types.Decimal128(formData.get("price2") as string);
+  product.units = parseInt(formData.get("units") as string);
   product.special = formData.get("special") as "" | "oferta" | "novedad";
   product.gianfrancoExclusive = formData.get("exclusive") ? true : false;
   product.isCombo = formData.get("isCombo") ? true : false;
@@ -360,6 +354,7 @@ export const editProduct = async (
       sku: formData.get("sub-sku") as string,
       price: new mongoose.Types.Decimal128(formData.get("sub-price") as string),
       price2: new mongoose.Types.Decimal128(formData.get("sub-price2") as string),
+      extName: formData.get("sub-extName") as string,
     };
   };
 
