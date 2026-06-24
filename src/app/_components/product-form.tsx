@@ -67,7 +67,7 @@ const ProductForm = (
 
   return (
     <div>
-      <Image alt="prod-image" src={`${urlPrefix}${selectedUrl}/public`} width={200} height={200} />
+      <Image loading="eager" alt="prod-image" src={`${urlPrefix}${selectedUrl}/public`} width={200} height={200} />
       <form className="csv-form" action={formAction}>
         <label htmlFor="sku"><b>SKU:</b></label>
         <input name="sku" type="text" defaultValue={data.sku} required />

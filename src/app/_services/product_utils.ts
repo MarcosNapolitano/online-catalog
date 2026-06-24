@@ -257,26 +257,37 @@ export const updatePricesByName = DatabaseConnects(async (
     }
     try {
 
-      // to do: no estas asignando precio al subproducto, siempre al main!
-      const product: IProduct | null = await Product.findOne(
-        {
-          $or: [
-            { extName: element.trim() },
-            { 'subProduct.extName': element.trim() }
-          ]
-        });
+      let isSubProduct = false;
+      let product: IProduct | null = await Product.findOne({ extName: element.trim() });
 
-      console.log(element, product);
-      if (!product) return;
+      if (!product) {
+        // we try for subProduct
+        product = await Product.findOne({ 'subProduct.extName': element.trim() });
+        if (!product) return;
 
-      const formattedPrice = parseFloat(
-        (parseFloat(price.new) *
-          (listId === "1" ? GF_GANANCIA : DISTRI_GANANCIA) / product.units).toString()
-      ).toFixed(2)
+        isSubProduct = true;
+      };
+
+      // subProducts are always just 1 unit
+      const units = isSubProduct ? 1 : product.units;
+
+      const formattedPrice = parseFloat((parseFloat(price.new) *
+        (listId === "1" ? GF_GANANCIA : DISTRI_GANANCIA) / units).toString())
+      .toFixed(2);
+
       const newPrice = new mongoose.Types.Decimal128(formattedPrice.toString())
 
-      if (listId === "1") product.price = newPrice;
-      else product.price2 = newPrice;
+      // redundant but typescript complains if I don't
+      // also don't want to concat two ternary operators on properties
+      if (isSubProduct && product.subProduct) {
+        product.subProduct[(listId === '1' ? 'price' : 'price2')] = newPrice;
+
+        // this line is necessary otherwise mongoose doesn't detect any changes
+        // and doesn't save the product, aparently this is a thing with subdocuments
+        product.markModified('subProduct');
+      }
+      else
+        product[(listId === '1' ? 'price' : 'price2')] = newPrice;
 
       await product.save();
     }
