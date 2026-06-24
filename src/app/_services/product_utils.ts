@@ -257,7 +257,7 @@ export const updatePricesByName = DatabaseConnects(async (
     }
     try {
 
-      // to do: testear esto
+      // to do: no estas asignando precio al subproducto, siempre al main!
       const product: IProduct | null = await Product.findOne(
         {
           $or: [
@@ -266,6 +266,7 @@ export const updatePricesByName = DatabaseConnects(async (
           ]
         });
 
+      console.log(element, product);
       if (!product) return;
 
       const formattedPrice = parseFloat(
