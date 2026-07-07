@@ -22,8 +22,8 @@ const ListForm = (): React.JSX.Element => {
     }, initialState);
 
   return (
-    <div>
-      <form className="csv-form" action={formAction}>
+    <div className="basic-panel">
+      <form className="csv-form" style={{margin: 0}} action={formAction}>
         <label htmlFor="lista"><b>Lista:</b></label>
         <select name="lista" id="cat-select" defaultValue="1">
           <option value="1">Mayorista</option>

@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link";
 import Image from "next/image";
 import { MouseEvent, ChangeEvent, useEffect, useActionState, useState, } from "react"
 import { type IProduct } from "@/app/_data/types"
@@ -45,76 +46,77 @@ const ProductCreateForm = (): React.JSX.Element => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => setProductName(event.target.value)
 
   return (isPending ? <Loading /> :
-    <form className="csv-form" action={formAction}>
-      <label htmlFor="sku"><b>SKU:</b></label>
-      <input name="sku" type="text" defaultValue="ARC0001" required />
+    <div className="basic-panel">
+      <h1>Crear Producto</h1>
+      <form className="csv-form" action={formAction}>
+        <label htmlFor="sku"><b>SKU:</b></label>
+        <input name="sku" type="text" defaultValue="ARC0001" required />
 
-      <label htmlFor="name"><b>Nombre:</b></label>
-      <input name="name" type="text" onChange={handleChange} defaultValue="Chocolate Arcor x18u." required />
+        <label htmlFor="name"><b>Nombre:</b></label>
+        <input name="name" type="text" onChange={handleChange} defaultValue="Chocolate Arcor x18u." required />
 
-      <label htmlFor="extName"><b>Nombre Externo:</b></label>
-      <input name="extName" type="text" placeholder='El Nombre de ellos...' required />
+        <label htmlFor="extName"><b>Nombre Externo:</b></label>
+        <input name="extName" type="text" placeholder='El Nombre de ellos...' required />
 
-      <label htmlFor="price"><b>Precio GF:</b></label>
-      <input name="price" type="number" step="0.01" min="0" max="999999" defaultValue="123.45" required />
+        <label htmlFor="price"><b>Precio GF:</b></label>
+        <input name="price" type="number" step="0.01" min="0" max="999999" defaultValue="123.45" required />
 
-      <label htmlFor="price2"><b>Precio Distri:</b></label>
-      <input name="price2" type="number" step="0.01" min="0" max="999999" defaultValue="456.54" required />
+        <label htmlFor="price2"><b>Precio Distri:</b></label>
+        <input name="price2" type="number" step="0.01" min="0" max="999999" defaultValue="456.54" required />
 
-      <label htmlFor="units"><b>Unidades</b></label>
-      <input name="units" type="number" step="1" min="1" max="9999" defaultValue='1' required />
-      <label htmlFor="section"><b>Sección:</b></label>
-      <select name="section" id="cat-select" defaultValue="almacen-2">
-        <option value="almacen-2-5">Almacén</option>
-        <option value="bebidas-13-1">Bebidas</option>
-        <option value="cafe-4-6">Café</option>
-        <option value="edulcorantes-7-9">Edulcorantes</option>
-        <option value="galletitas-8-8">Galletitas</option>
-        <option value="medicamentos-9-12">Medicamentos</option>
-        <option value="nucete-3-7">Nucete</option>
-        <option value="kiosco-1-2">Kiosco</option>
-        <option value="make-10-11">Make</option>
-        <option value="higiene-11-10">Higiene</option>
-        <option value="varios-12-13">Varios</option>
-        <option value="te-5-4">Té</option>
-        <option value="yerba-6-3">Yerba</option>
-        <option value="promocion-14-14">Promoción</option>
-      </select>
+        <label htmlFor="units"><b>Unidades</b></label>
+        <input name="units" type="number" step="1" min="1" max="9999" defaultValue='1' required />
+        <label htmlFor="section"><b>Sección:</b></label>
+        <select name="section" id="cat-select" defaultValue="almacen-2">
+          <option value="almacen-2-5">Almacén</option>
+          <option value="bebidas-13-1">Bebidas</option>
+          <option value="cafe-4-6">Café</option>
+          <option value="edulcorantes-7-9">Edulcorantes</option>
+          <option value="galletitas-8-8">Galletitas</option>
+          <option value="medicamentos-9-12">Medicamentos</option>
+          <option value="nucete-3-7">Nucete</option>
+          <option value="kiosco-1-2">Kiosco</option>
+          <option value="make-10-11">Make</option>
+          <option value="higiene-11-10">Higiene</option>
+          <option value="varios-12-13">Varios</option>
+          <option value="te-5-4">Té</option>
+          <option value="yerba-6-3">Yerba</option>
+          <option value="promocion-14-14">Promoción</option>
+        </select>
 
-      <label htmlFor="orden"><b>Orden:</b></label>
-      <input name="orden" type="number" defaultValue="101" required />
+        <label htmlFor="orden"><b>Orden:</b></label>
+        <input name="orden" type="number" defaultValue="101" required />
 
-      <fieldset style={{ display: "flex", flexDirection: "column" }}>
-        <label htmlFor="exclusive" style={{ marginRight: "1rem" }}><b>Solo Gianfranco:</b></label>
-        <input name="exclusive" type="checkbox" />
-        <label htmlFor="extName"><b>Nombre de ellos:</b></label>
-        <input name="extName" type="text" placeholder="El nombre en su lista" required />
-        <label htmlFor="units"><b>Unidades:</b></label>
-        <input name="units" type="number" step="1" defaultValue="1" required />
-      </fieldset>
+        <div style={{ display: "flex", alignItems: 'center' }}>
+          <label htmlFor="exclusive" style={{ marginRight: "1rem" }}><b>Solo Gianfranco:</b></label>
+          <input name="exclusive" type="checkbox" />
+        </div>
 
-      <label htmlFor="image"><b>Imágen:</b></label>
-      <input style={{ color: "whitesmoke" }} name="image" accept="image/*" type="file" />
-      <input type="hidden" name="image-url" value={selectedURL ?? ""} />
+        <label htmlFor="image"><b>Imágen:</b></label>
+        <input style={{ color: "whitesmoke" }} name="image" accept="image/*" type="file" />
+        <input type="hidden" name="image-url" value={selectedURL ?? ""} />
 
-      <input className="button edit-button" value="Crear Producto" type="submit" />
-      <fieldset style={{ display: "flex", gap: "1rem" }}>
-        {imagesURL.map((url: string, index: number) => {
-          return <Image
-            key={index}
-            onClick={() => setSelectedURL(imagesURL[index])}
-            className={selectedURL === url ? 'selected' : ''}
-            alt="prod-image"
-            src={url}
-            width={100}
-            height={100}
-          />
-        })}
-      </fieldset>
-      <p className={state.error ? 'error-message' : 'success-message'}>
-        {state.message}
-      </p>
-    </form>
+        <input className="button edit-button" value="Crear Producto" type="submit" />
+        <fieldset style={{ display: "flex", gap: "1rem" }}>
+          {imagesURL.map((url: string, index: number) => {
+            return <Image
+              key={index}
+              onClick={() => setSelectedURL(imagesURL[index])}
+              className={selectedURL === url ? 'selected' : ''}
+              style={{aspectRatio: '1/1', objectFit: 'cover'}}
+              alt="prod-image"
+              src={url}
+              width={100}
+              height={100}
+            />
+          })}
+        </fieldset>
+        <p className={state.error ? 'error-message' : 'success-message'}>
+          {state.message}
+        </p>
+      </form>
+      <Link className="button" href="/admin/">Volver</Link>
+    </div>
   );
 };
 

@@ -35,7 +35,7 @@ const ApedirForm = (): React.JSX.Element => {
 
   return (
     <div>
-      <form className="csv-form" action={formAction}>
+      <form className="csv-form" style={{marginTop: '5%'}} action={formAction}>
         <label htmlFor="pedidos"><b>A pedir:</b></label>
         <fieldset className="product-submit">
           <input style={{ color: "whitesmoke" }}

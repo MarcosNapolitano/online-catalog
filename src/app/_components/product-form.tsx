@@ -1,5 +1,6 @@
 "use client"
 import Image from "next/image";
+import Link from "next/link";
 import { useActionState, useState } from "react"
 import { type IProduct } from "@/app/_data/types"
 import { type Response } from "@/app/_data/types"
@@ -66,9 +67,12 @@ const ProductForm = (
   };
 
   return (
-    <div>
-      <Image loading="eager" alt="prod-image" src={`${urlPrefix}${selectedUrl}/public`} width={200} height={200} />
-      <form className="csv-form" action={formAction}>
+    <div className="basic-panel">
+      <div className="panel-header">
+        <h1 className="prod-title">{data.name}</h1>
+        <Image loading="eager" className='admin-image' alt="prod-image" src={`${urlPrefix}${data.url}/public`} width={200} height={200} />
+      </div>
+      <form className="csv-form" style={{ marginBottom: 0 }} action={formAction}>
         <label htmlFor="sku"><b>SKU:</b></label>
         <input name="sku" type="text" defaultValue={data.sku} required />
 
@@ -113,29 +117,8 @@ const ProductForm = (
           <option value="oferta">Oferta</option>
           <option value="novedad">Novedad</option>
         </select>
-        <label htmlFor="image"><b>Imágen:</b></label>
-        <input style={{ color: "whitesmoke" }} name="image" accept="image/*" type="file" />
 
-        {data.isCombo &&
-          <select
-            name="selected-url"
-            id="cat-select"
-            defaultValue={data.url}
-            onChange={(e) => setSelectedUrl(e.target.value)}
-          >
-            {data.imgUrls.map((url, index) =>
-              <option key={index} value={url}>{index}</option>)
-            }
-          </select>
-        }
-        <fieldset>
-          <label htmlFor="exclusive" style={{ marginRight: "1rem" }}><b>Solo Gianfranco:</b></label>
-          <input name="exclusive" type="checkbox" defaultChecked={data.gianfrancoExclusive} />
-          <label htmlFor="isCombo" style={{ marginRight: "1rem" }}><b>Es Combo:</b></label>
-          <input name="isCombo" type="checkbox" defaultChecked={data.isCombo} />
-        </fieldset>
-
-        <fieldset>
+        <fieldset style={{ display: 'flex', flexDirection: 'column' }}>
           <legend style={{ color: "whitesmoke" }}>SubProducto</legend>
           <label htmlFor="sub-sku"><b>SKU:</b></label>
           <input name="sub-sku" type="text" defaultValue={data.subProduct?.sku} />
@@ -151,11 +134,33 @@ const ProductForm = (
           <input name="sub-price2" type="number" step="0.01" min="0" max="999999"
             defaultValue={data.subProduct?.price2.toString() || 0} />
         </fieldset>
+        <fieldset>
+          <label htmlFor="exclusive" style={{ marginRight: "1rem" }}><b>Solo Gianfranco:</b></label>
+          <input name="exclusive" type="checkbox" defaultChecked={data.gianfrancoExclusive} />
+          <label htmlFor="isCombo" style={{ marginRight: "1rem" }}><b>Es Combo:</b></label>
+          <input name="isCombo" type="checkbox" defaultChecked={data.isCombo} />
+        </fieldset>
+        <label htmlFor="image"><b>Imágen:</b></label>
+        <input style={{ color: "whitesmoke" }} name="image" accept="image/*" type="file" />
+
+        {data.isCombo &&
+          <select
+            name="selected-url"
+            id="cat-select"
+            defaultValue={data.url}
+            onChange={(e) => setSelectedUrl(e.target.value)}
+          >
+            {data.imgUrls.map((url, index) =>
+              <option key={index} value={url}>{index}</option>)
+            }
+          </select>
+        }
         <fieldset className="product-submit">
           <input className="button edit-button" value="Editar Producto" type="submit" />
           <button onClick={handleDeletion} className="button delete-button" type="button">
             Borrar Producto
           </button>
+          <Link className='button' href="/admin/">Volver</Link>
         </fieldset>
         <p className={state.error ? 'error-message' : 'success-message'}>
           {state.message}

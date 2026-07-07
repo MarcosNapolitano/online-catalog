@@ -1,8 +1,8 @@
-import Link from "next/link";
 import NotFound from "@/app/not-found";
 import { findSingleProduct, editProduct } from "@/app/_services/product_utils";
 import ProductForm from "@/app/_components/product-form";
 import { extname } from "path";
+import Image from "next/image";
 
 
 export default async function Page({ params, }: { params: Promise<{ sku: string }> }) {
@@ -41,10 +41,6 @@ export default async function Page({ params, }: { params: Promise<{ sku: string 
   const URL = `${process.env.CDN_URL}/${process.env.CDN_HASH}/`;
 
   return (
-    <div>
-      <h1>{data.name}</h1>
-      <ProductForm data={prop} urlPrefix={URL} />
-      <Link className='button' href="/admin/">Volver</Link>
-    </div>
+     <ProductForm data={prop} urlPrefix={URL}/>
   );
 }

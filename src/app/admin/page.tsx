@@ -4,7 +4,6 @@ import { findProducts, findProductsSimplified, toggleProduct } from "@/app/_serv
 import Populate from "@/app/_app/home";
 import Link from "next/link";
 import CsvForm from "@/app/_components/csv-form";
-import { cookies } from "next/headers";
 import { MiscFunctions } from "@/app/_components/misc-functions";
 import { revalidateTag } from "next/cache";
 import { redirect } from "next/navigation";
@@ -38,15 +37,8 @@ export default async function Home() {
 
   const products: Promise<IProduct[] | undefined> = findProductsSimplified();
 
-  const user = await cookies().then((cookie) => {
-    const userName = cookie.get('userName')?.value
-    return userName ? ''.concat(userName[0].toUpperCase(), userName?.slice(1)) : ''
-  });
-
   return (
-    <div className="admin-panel">
-      <h1>Admin Panel</h1>
-      <h2>Wellcome <span className="pageLink-active">{user}</span></h2>
+    <div>
       <Suspense fallback={<Loading />}>
         <Search products={products} backAction={toggleActive} />
       </Suspense>

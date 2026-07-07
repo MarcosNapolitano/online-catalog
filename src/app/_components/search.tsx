@@ -160,7 +160,7 @@ export const Search: React.FC<SearchComp> = ({ products, backAction }): React.JS
   }, []);
 
   return (
-    <div className='search-panel' >
+    <div className='basic-panel search-panel' >
       <div className='admin-category'>
         <h3>Búsqueda</h3>
         <input id="inputBar" type='search'

@@ -21,7 +21,7 @@ export const MiscFunctions: React.FC<MiscComp> = ({ refreshCatalog }):
   const downloadMayorista = () => window.location.href = "/api/list?id=1";
   const downloadMinorista = () => window.location.href = "/api/list?id=2";
 
-  return <div>
+  return <div className='basic-panel'>
     <h3>Funciones Varias</h3>
     <div className="misc-functions">
       <button className='button' onClick={handleRefreshCatalog}>
