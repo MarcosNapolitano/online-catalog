@@ -114,9 +114,27 @@ form {
 }
 
 .product-result {
-  display: flex;
+  color: white;
+  /* display: flex; */
   padding: .5rem;
   gap: 1rem;
+}
+
+table{
+  width: 100%
+}
+
+th{
+  color: white;
+  padding: .5rem;
+}
+
+td{
+  padding: .5rem;
+  text-align: right !important
+}
+
+.product-price-name{
   text-align: left !important
 }
 

@@ -61,18 +61,28 @@ export default async function Home({ searchParams }:
       const newPrice = params.id == 1 ? Math.ceil(parseFloat(price.new) * 1.135) : price.new;
 
       return priceChanges.push(
-        <p className="product-result" key={element}>{`${element};${newPrice};`}
-          <span className={newPrice > oldPrice ? "error-message" : "success-message"}>
-            {`${oldPrice}`}
-          </span>
-        </p>
+        <tr className="product-result" key={element}>
+          <td className="product-price-name">{element}</td>
+          <td className={newPrice > oldPrice ? "error-message" : "success-message"}>{newPrice}</td>
+          <td>{oldPrice}</td>
+        </tr>
       )
 
     }
     if (price.old)
-      return productsToEliminate.push(<p className='error-message product-result' key={element}>{`${element};${price.old}`}</p>)
+      return productsToEliminate.push(
+        <div key={element}>
+          <p className='error-message product-result'>{element}</p>
+          <p className='product-result' style={{textAlign: 'center'}}>{`$${price.old}`}</p>
+        </div>
+      )
     if (price.new)
-      return newProducts.push(<p className='success-message product-result' key={element}>{`${element};${price.new}`}</p>)
+      return newProducts.push(
+        <div key={element}>
+          <p className='success-message product-result'>{element}</p>
+          <p className='product-result' style={{textAlign: 'center'}}>{`$${price.new}`}</p>
+        </div>
+      );
 
   });
 
@@ -90,7 +100,18 @@ export default async function Home({ searchParams }:
     </div>
     <div className="basic-panel">
       <h2 style={{ marginBottom: "1rem" }}>Cambios de Precios</h2>
-      {priceChanges}
+      <table>
+        <thead className="panel-back">
+          <tr>
+            <th>Producto</th>
+            <th>Precio nuevo</th>
+            <th>Precio viejo</th>
+          </tr>
+        </thead>
+        <tbody>
+          {priceChanges}
+        </tbody>
+      </table>
       <UpdateProducts changeIndex={changeIndex} listID={params.id.toString() as '1' | '2'} />
       <Link className='button' href="/admin/">Volver</Link>
     </div>

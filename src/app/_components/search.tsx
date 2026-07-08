@@ -170,9 +170,6 @@ export const Search: React.FC<SearchComp> = ({ products, backAction }): React.JS
             setSearchString(e.target.value)
           }}
           placeholder='seleccioná categoría primero...' />
-      </div>
-
-      <div className='admin-category'>
         <h3>Categoría</h3>
         <select id="cat-select" defaultValue="kiosco" onChange={(e) => {
 

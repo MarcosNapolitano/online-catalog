@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import Link from "next/link";
-import { useActionState, useState } from "react"
+import { useActionState, useState, useRef } from "react"
 import { type IProduct } from "@/app/_data/types"
 import { type Response } from "@/app/_data/types"
 import { type ProductForm } from "@/app/_data/types"
@@ -19,14 +19,21 @@ const ProductForm = (
 ): React.JSX.Element => {
 
   const router = useRouter();
+  const form = useRef<HTMLFormElement>(null);
   const [selectedUrl, setSelectedUrl] = useState<string>(data.url);
-  const sectionSuffix = `${data.section}-${data.sectionOrden}-${data.sectionOrdenGianfranco}`
+  let sectionSuffix = `${data.section}-${data.sectionOrden}-${data.sectionOrdenGianfranco}`
 
   const [state, formAction, isPending] = useActionState(
     async (initialState: Response, formData: FormData) => {
 
       const response: Response = await editProduct(formData, data.sku, data.orden);
       if (response.success) {
+
+        // this prevents active inputs surviving react re-render
+        form.current?.querySelectorAll('input').forEach(element=>element.blur());
+        form.current?.querySelectorAll('select').forEach(element=>element.blur());
+        form.current?.querySelectorAll('option').forEach(element=>element.blur());
+
         data.sku = formData.get("sku") as string;
         data.name = formData.get("name") as string;
         data.price = formData.get("price") as string;
@@ -34,7 +41,11 @@ const ProductForm = (
         data.section = formData.get("section") as string;
         data.orden = parseInt(formData.get("orden") as string);
         data.special = formData.get("special") as string;
+        data.isCombo = formData.get("isCombo") ? true : false;
         data.gianfrancoExclusive = formData.get("exclusive") ? true : false;
+        sectionSuffix = `${data.section}-${data.sectionOrden}-${data.sectionOrdenGianfranco}`
+
+        if(data.isCombo) setSelectedUrl(formData.get("selected-url") as string);
 
         if (formData.get("sub-sku")) {
           data.subProduct = {
@@ -70,9 +81,9 @@ const ProductForm = (
     <div className="basic-panel">
       <div className="panel-header">
         <h1 className="prod-title">{data.name}</h1>
-        <Image loading="eager" className='admin-image' alt="prod-image" src={`${urlPrefix}${data.url}/public`} width={200} height={200} />
+        <Image loading="eager" className='admin-image' alt="prod-image" src={`${urlPrefix}${selectedUrl}/public`} width={200} height={200} />
       </div>
-      <form className="csv-form" style={{ marginBottom: 0 }} action={formAction}>
+      <form ref={form} className="csv-form" style={{ marginBottom: 0 }} action={formAction}>
         <label htmlFor="sku"><b>SKU:</b></label>
         <input name="sku" type="text" defaultValue={data.sku} required />
 
@@ -147,7 +158,7 @@ const ProductForm = (
           <select
             name="selected-url"
             id="cat-select"
-            defaultValue={data.url}
+            defaultValue={selectedUrl}
             onChange={(e) => setSelectedUrl(e.target.value)}
           >
             {data.imgUrls.map((url, index) =>
