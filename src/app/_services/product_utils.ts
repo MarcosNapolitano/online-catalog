@@ -248,12 +248,16 @@ export const updateProducts = DatabaseConnects(async (
 export const updatePricesByName = DatabaseConnects(async (
   changeIndex: Map<string, ProductChange>, listId: "1" | "2"): Promise<Response> => {
 
-  const errors: string[] = []
+  const errors: string[] = [];
+  const changes: string[] = [];
 
-  changeIndex.forEach(async (price: ProductChange, element: string) => {
+  // I used to use changeIndex.foreach here but that didn't work since
+  // foreach doesn't actually wait for promises so the arrays weren't
+  // being modified
+  for(const [element, price] of changeIndex){
 
     if (!price.old || !price.new) {
-      return;
+      continue;
     }
     try {
 
@@ -263,7 +267,7 @@ export const updatePricesByName = DatabaseConnects(async (
       if (!product) {
         // we try for subProduct
         product = await Product.findOne({ 'subProduct.extName': element.trim() });
-        if (!product) return;
+        if (!product) continue;
 
         isSubProduct = true;
       };
@@ -289,19 +293,21 @@ export const updatePricesByName = DatabaseConnects(async (
       else
         product[(listId === '1' ? 'price' : 'price2')] = newPrice;
 
+      changes.push(isSubProduct ? product.subProduct!.sku : product.sku , formattedPrice);
+
       await product.save();
     }
     catch (err) {
       const errMessage = `Product ${element} gave the following error:\n\n${err}`;
       console.error(errMessage);
       errors.push(errMessage);
-      return;
+      continue;
     };
-  })
+  }
   return {
-    success: true,
-    message: `Productos actualizados correctamente\nErrores:${errors.toString()}`,
-    error: errors.toString()
+    success: errors.length ? false : true,
+    message: `Productos actualizados correctamente\n${changes}`,
+    error: `Errores: ${errors.toString()}`
   };
 });
 

@@ -153,6 +153,7 @@ section,
 
 .section-gf {
   background-color: var(--background-gf);
+  background-blend-mode: soft-light;
 }
 
 .notFoundSection {

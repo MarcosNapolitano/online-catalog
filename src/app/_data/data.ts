@@ -22,6 +22,10 @@ export const productSchema: Schema = new Schema<IProduct>({
   imgUrls: { type: [String] },
   units: { type: Number },
   extName: { type: String }
+  // to do: 
+  // sumar un campo "sabores" simplemente un numero
+  // que se concatena al sku para generar sku-1, sku-2, sku-n sabores
+  // para replicar el cambio de precio del original al resto con mismo nombres
 
 });
 
